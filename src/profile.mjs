@@ -4,6 +4,7 @@ import {CORE_VERSION, MERMAID_VERSION} from './version.mjs';
 
 export const PROFILE_SCHEMA = 'kobo.diagram-profile/v1';
 const roleKeys = ROLE_DEFS.map(({key}) => key);
+const compatibleCoreVersions = new Set(['0.1.0', '0.1.1']);
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 
 function record(value, label) {
@@ -67,14 +68,14 @@ export function createDiagramProfile(input = {}) {
     roles: own(input, 'roles') ? input.roles : {}, settings: own(input, 'settings') ? input.settings : {}, ...(own(input, 'standard') ? {standard: input.standard} : {})});
 }
 
-/** Reject unsupported versions and arbitrary config/CSS; return fresh values. */
+/** Accept only explicitly compatible core versions; retain the saved version. */
 export function validateDiagramProfile(input) {
   record(input, 'profile');
   knownKeys(input, ['schema', 'engineVersion', 'coreVersion', 'roles', 'settings', 'standard'], 'profile');
   if (input.schema !== PROFILE_SCHEMA) throw new TypeError('Unsupported diagram profile schema.');
   if (input.engineVersion !== MERMAID_VERSION) throw new TypeError(`Unsupported Mermaid version: ${input.engineVersion}.`);
-  if (input.coreVersion !== CORE_VERSION) throw new TypeError(`Unsupported core version: ${input.coreVersion}.`);
-  const profile = {schema: PROFILE_SCHEMA, engineVersion: MERMAID_VERSION, coreVersion: CORE_VERSION,
+  if (!compatibleCoreVersions.has(input.coreVersion)) throw new TypeError(`Unsupported core version: ${input.coreVersion}.`);
+  const profile = {schema: PROFILE_SCHEMA, engineVersion: MERMAID_VERSION, coreVersion: input.coreVersion,
     roles: rolesFor(input.roles), settings: settingsFor(input.settings)};
   if (own(input, 'standard')) profile.standard = standardFor(input.standard);
   return profile;

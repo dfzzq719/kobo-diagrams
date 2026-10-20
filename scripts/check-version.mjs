@@ -17,6 +17,8 @@ const versions = {
 };
 const mismatches = Object.entries(versions).filter(([, version]) => version !== MERMAID_VERSION);
 if (manifest.version !== CORE_VERSION) mismatches.push(['package core version', manifest.version]);
+const declaredCoreVersion = declarations.match(/export const CORE_VERSION: '([^']+)'/)?.[1];
+if (declaredCoreVersion !== CORE_VERSION) mismatches.push(['TypeScript CORE_VERSION', declaredCoreVersion]);
 if (mismatches.length) {
   throw new Error(`Version mismatch; source core=${CORE_VERSION}, engine=${MERMAID_VERSION}. ${mismatches.map(([label, value]) => `${label}=${value}`).join('; ')}. Use npm run upgrade:mermaid -- --target X.Y.Z and review the release together.`);
 }

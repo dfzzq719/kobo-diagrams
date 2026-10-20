@@ -1,6 +1,6 @@
 import type {MermaidConfig, RenderResult} from 'mermaid';
 
-export const CORE_VERSION: '0.1.0';
+export const CORE_VERSION: '0.1.1';
 export const MERMAID_VERSION: '12.2.0';
 export const PROFILE_SCHEMA: 'kobo.diagram-profile/v1';
 export type RoleName = 'paper' | 'surface' | 'ink' | 'muted' | 'primary' | 'anchor' | 'line' | 'border' | 'success' | 'warning' | 'danger';
@@ -18,12 +18,12 @@ export interface DiagramStandard { name: string; version: string }
 export interface DiagramProfile {
   schema: typeof PROFILE_SCHEMA;
   engineVersion: typeof MERMAID_VERSION;
-  coreVersion: typeof CORE_VERSION;
+  coreVersion: '0.1.0' | '0.1.1';
   roles: RoleColors;
   settings: DiagramSettings;
   standard?: DiagramStandard;
 }
-export function createDiagramProfile(input?: {roles?: Partial<RoleColors>; settings?: Partial<DiagramSettings>; standard?: DiagramStandard}): DiagramProfile;
+export function createDiagramProfile(input?: {roles?: Partial<RoleColors>; settings?: Partial<DiagramSettings>; standard?: DiagramStandard}): DiagramProfile & {coreVersion: typeof CORE_VERSION};
 export function validateDiagramProfile(input: unknown): DiagramProfile;
 
 export interface MermaidLike {

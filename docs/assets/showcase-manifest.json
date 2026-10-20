@@ -1,0 +1,30 @@
+{
+  "generator": "scripts/build-showcase.mjs",
+  "renderer": {
+    "package": "@taskobo/diagrams",
+    "coreVersion": "0.1.1",
+    "mermaidVersion": "12.2.0"
+  },
+  "inputsSHA256": "c75d7133fd7bfc2bc582b20801c53fea868622f61e0269ccf1c4494217df2109",
+  "files": {
+    "architecture-figure.png": "feaa885e8ff255966b467b16dd8089a5fa71b0f00d0929b26e572a2d27767c6d",
+    "architecture-figure.svg": "63c7cc056ebdb77eda53180a2eee5c5891f80d1aaf05830b67f5ab875f448a71",
+    "architecture.svg": "e46ac05b783e33a21fc7dc71bb269c69b1e38ddfd9df5a23d167e5f1f94bf931",
+    "gantt-figure.png": "ce62a8fffad4553c9a142b1c786c6ed0d94536def9f652c577b7df8bd5b4de32",
+    "gantt-figure.svg": "05baf8959d27bc46983ffee92f50f477ed12dc57ba326bc2b7f3be49ed41b503",
+    "gantt.svg": "64233c637ef3902e0c7e6c7109fd66218b2176b1a11875888162f68ce6fadd86",
+    "raci-figure.png": "e8c6dc59bfe70aba39ec33b451b41df5c774d13ec633cd23d930d14281229abb",
+    "raci-figure.svg": "6c740cbf99c5f86cb4e4edafba3cf6066abf9b45111adbb623420c9122757009",
+    "raci.svg": "a65cafd49db609ba2c12782d037245153e7c502aafdee56d948387c837c3bb2c",
+    "showcase-inputs.json": "d32f07660a9241d6ad0dfad89bd81b099ff5c1222ec58afa225a2fcebf52019d",
+    "showcase.html": "44b152dc0e0397a11ddd28e8b55f2868d245f77a4bc464e3b76ec46643d8e873",
+    "showcase.png": "76eadae34faf7c5f4e96aa77e1c22ed5e0710e9dcba193bdfa5294fcf2952ecb",
+    "showcase.svg": "09b064b8f87f6ca134e4a6682fe58990af03a1b0b1e3dd0f49cb6b33d91974f9",
+    "wbs-figure.png": "f3829aa28dcfc32d6f859d5abb74337a1ebaac69fba06c978d6c47faf8292644",
+    "wbs-figure.svg": "61a43c890e8e6c6d754e2f0f38691a3b3f7c0f5cb9d68eb3d1c7e419ee3ab9f4",
+    "wbs.svg": "0c1fc557c2223e4e472b1282f7539379e71143efaa05a517d5622c117521c22f",
+    "workflow-figure.png": "d003b3cfaf4b5e53d3922dec1198cc1c82c217353b69fc2661c672860b14160c",
+    "workflow-figure.svg": "362a3944944efb48254b9b62948cd87d28a4851f797b915106926888a325fefa",
+    "workflow.svg": "84f86b826eb36ce463b9d02827423e75f358f06e8a12ac7f39f5a9a0f0fa8fcf"
+  }
+}

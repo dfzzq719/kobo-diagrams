@@ -1,6 +1,6 @@
 # Keeping Mermaid current
 
-The target is the latest upstream **stable** Mermaid release, while production builds remain reproducible. Package 0.1.0 currently pins Mermaid 12.2.0. Never describe a running container as updated merely because the registry has a newer version.
+The target is the latest upstream **stable** Mermaid release, while production builds remain reproducible. Package 0.1.1 currently pins Mermaid 12.2.0. This patch changes RACI styling without upgrading Mermaid. Never describe a running container as updated merely because the registry has a newer version.
 
 ## Automated discovery
 
@@ -13,7 +13,7 @@ The target is the latest upstream **stable** Mermaid release, while production b
 1. Check upstream release notes and syntax/security changes. Select the newest stable release rather than prereleases.
 2. Run the helper below to update the exact Mermaid peer/development dependencies, lockfile, `MERMAID_VERSION` and TypeScript declaration together. Align documentation, upstream license notices and fixtures. An upstream update alone is insufficient: enterprise adapters and saved profiles also need review.
 3. Bump the core/package version as appropriate. Define profile migration or rejection behavior; do not silently re-label a saved profile as a newer engine version.
-   The published historical profile fixture `test/fixtures/profile-0.1.0.json` must keep passing validation on future upgrades; if it fails, define an explicit compatibility or migration plan before release, and never edit that historical fixture to conceal documents that no longer open. The first release retains strict version matching and does not implement migration.
+   The published historical profile fixture `test/fixtures/profile-0.1.0.json` must keep passing validation on future upgrades; if it fails, define an explicit compatibility or migration plan before release, and never edit that historical fixture to conceal documents that no longer open. Version 0.1.1 explicitly supports 0.1.0 and 0.1.1 profile provenance with Mermaid 12.2.0, retaining the saved version.
 4. Run `npm ci`, `npm test`, `npm run test:browser` and `npm pack --dry-run`. `npm test` checks that the installed engine, development/peer dependencies, source constant and TypeScript declaration agree. The browser test uses an already installed Chrome/Edge and does not download one. CI uses the Chrome installation on `ubuntu-latest`. Exercise representative flowcharts, WBS/organization diagrams, sequence diagrams, Gantt status, unsupported enterprise controls, RACI, tables, malformed input and consecutive/concurrent render calls.
 5. Update both consumers to the same approved package and Mermaid versions. Verify appearance, SVG/PNG export, saving/reopening and cross-site profile handoff in each application.
 6. Publish the package or immutable tarball, build both consumer images, then deploy through their existing release processes. Preserve the previous package/image tags for rollback.
@@ -37,4 +37,8 @@ If Chrome/Edge is in a nonstandard location, use `npm run test:browser -- --brow
 
 ## Compatibility and old documents
 
-Source text, engine/core version and style profile form a reproducible document input. Layout and syntax may change across Mermaid releases. Keep original inputs, compare representative exported output, and give users a deliberate migration path. Validation currently requires an exact profile version match; accepting older versions must be implemented as a separate reviewed migration.
+Keep source text, engine/core provenance and style profile together. Layout and syntax can change across Mermaid releases; rendering treatments can also change in a package patch without an engine upgrade.
+
+The 0.1.1 validator accepts profiles from core 0.1.0 and 0.1.1 with Mermaid 12.2.0, and preserves the saved `coreVersion`. Both use the installed 0.1.1 RACI rules: navy accountable roles, soft blue responsible roles, light neutral supporting roles and blue-gray combined roles. This compatibility keeps documents readable without falsely relabelling their origin. It does not promise the exact historical 0.1.0 pixels. Other core or engine versions remain unsupported until a reviewed compatibility or migration decision is implemented.
+
+Existing frozen offline Skill files remain unchanged. New exported Skills contain the new core and its notices; users receive them by downloading and reinstalling the complete new package. Neither a GitHub commit nor a Docker deployment updates previously installed Skill files. Preserve original inputs and compare representative exports before distributing a replacement.

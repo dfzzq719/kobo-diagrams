@@ -1,6 +1,6 @@
 # API reference
 
-All imports below use `@taskobo/diagrams`. The package is ESM and does not load Mermaid implicitly. Version 0.1.0 targets Mermaid 12.2.0.
+All imports below use `@taskobo/diagrams`. The package is ESM and does not load Mermaid implicitly. Version 0.1.1 targets Mermaid 12.2.0; this patch changes the RACI presentation, not the Mermaid engine.
 
 ## General Mermaid rendering
 
@@ -41,7 +41,7 @@ const checked = validateDiagramProfile(JSON.parse(JSON.stringify(profile)));
 {
   "schema": "kobo.diagram-profile/v1",
   "engineVersion": "12.2.0",
-  "coreVersion": "0.1.0",
+  "coreVersion": "0.1.1",
   "roles": {},
   "settings": {}
 }
@@ -49,7 +49,7 @@ const checked = validateDiagramProfile(JSON.parse(JSON.stringify(profile)));
 
 The empty objects above are abbreviated: the actual profile includes all normalized roles and settings. `standard` is optional metadata with a nonempty `name` (up to 180 characters) and `version` (up to 80). It does not certify conformance to an external standard.
 
-`validateDiagramProfile(input)` rejects unknown fields, invalid values, unsupported schema, and mismatched engine/core versions with `TypeError`. It returns normalized copies. It does not migrate old profiles or accept arbitrary Mermaid config/CSS.
+`validateDiagramProfile(input)` rejects unknown fields, invalid values, unsupported schema and versions with `TypeError`. Version 0.1.1 explicitly accepts core versions `0.1.0` and `0.1.1` with engine version `12.2.0`, returning normalized copies while retaining the saved `coreVersion`. It does not rewrite the document's provenance, accept arbitrary Mermaid config/CSS, or promise historical pixel reproduction. RACI output uses the currently installed renderer's blue-gray rules, including for compatible 0.1.0 profiles.
 
 | Field | Values |
 | --- | --- |
@@ -79,7 +79,7 @@ const diagram = await renderDiagram(source, profile.roles, profile.settings, {me
 
 `renderDocument(source, roles, settings, {mermaid})` detects a JSON table from a leading `{`, otherwise delegates to `renderDiagram`. Both return a promise for an object containing at least `svg`, normalized `source`, `type`, `palette`, `settings`, and `capabilities`. Tables also return numeric `width` and `height`. Validate an incoming profile before passing its values to either renderer.
 
-The enterprise path applies fixed configuration, source policy and diagram-specific postprocessing. It is suitable for shared enterprise profiles, while the general adapter is suitable for ordinary Mermaid editing. Consult `getDiagramCapabilities(source)` or `getDocumentCapabilities(source)` to discover control support; not every diagram type supports every enterprise control.
+The enterprise path applies shared theme configuration and diagram-specific postprocessing. A host enforcing a frozen standard must explicitly call the exported `validateFrozenSource(source)` before import/render: it rejects source-level style/config overrides and returns renderable source. It does not parse full Mermaid grammar, and the host can preserve the original source text separately. `renderDocument()` alone does not enforce that frozen-source policy. The general adapter is suitable for ordinary Mermaid editing. Consult `getDiagramCapabilities(source)` or `getDocumentCapabilities(source)` to discover control support; not every diagram type supports every enterprise control.
 
 `DEFAULT_SETTINGS`, `ROLE_DEFS`, and `PRESETS` expose the default display settings, colour role definitions, and built-in colour presets. `CORE_VERSION`, `MERMAID_VERSION`, and `PROFILE_SCHEMA` expose the compatibility identifiers.
 

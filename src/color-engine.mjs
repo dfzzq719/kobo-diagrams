@@ -153,31 +153,20 @@ export function deriveRaciPalette(roles = {}) {
   const p=derivePalette(roles),dark=luminance(p.paper)<0.18;
   const monochrome=['paper','surface','ink','muted','primary','anchor','line','border'].every(key=>{const channels=rgb(p[key]);return channels.every(channel=>channel===channels[0]);});
   if(monochrome){
-    const fills=dark?{A:'#DADADA',R:'#A8A8A8',C:'#777777',I:'#414141','A/R':'#EEEEEE'}:{A:'#383838',R:'#7B7B7B',C:'#B4B4B4',I:'#E2E2E2','A/R':'#5A5A5A'};
+    const fills=dark?{A:'#626262',R:'#303030',C:'#222222',I:'#191919','A/R':'#4B4B4B'}:{A:'#3F3F3F',R:'#DFDFDF',C:'#F2F2F2',I:'#FAFAFA','A/R':'#5A5A5A'};
     return Object.fromEntries(Object.entries(fills).map(([code,fill])=>[code,{fill,ink:onColor(fill,p.ink)}]));
   }
-  const categories=dark
-    ?{blue:'#8EB8F5',teal:'#67BDC8',violet:'#B3A1DF',slate:'#93B2CB',amber:'#D9AF72',berry:'#D899B7',green:'#8DBEB4'}
-    :{blue:'#245AB9',teal:'#167D91',violet:'#7960AD',slate:'#526E88',amber:'#AD722B',berry:'#A14F79',green:'#47786F'};
-  const hue=color=>{
-    const [r,g,b]=rgb(color).map(channel=>channel/255),max=Math.max(r,g,b),min=Math.min(r,g,b),delta=max-min;
-    if(!delta)return {angle:0,saturation:0};
-    const segment=max===r?(g-b)/delta:max===g?(b-r)/delta+2:(r-g)/delta+4;
-    return {angle:(segment*60+360)%360,saturation:delta/(1-Math.abs(max+min-1))};
+  // Responsibility is a reading hierarchy, not five competing chart series.
+  // A small brand contribution keeps one blue/slate family across presets;
+  // consulted/informed cells stay close to the document's own paper.
+  const fills={
+    A:mixHex(dark?'#2B4968':'#304A67',p.primary,dark?.15:.12),
+    R:mixHex(p.paper,mixHex(dark?'#7C98B5':'#718CA6',p.primary,.08),dark?.26:.24),
+    C:mixHex(p.paper,dark?'#8292A5':'#617287',dark?.10:.075),
+    I:mixHex(p.paper,dark?'#8292A5':'#617287',dark?.04:.035),
+    'A/R':mixHex(dark?'#445362':'#485A68',p.primary,.06),
   };
-  const primary=hue(p.primary);
-  const tooClose=color=>{const candidate=hue(color),delta=Math.abs(candidate.angle-primary.angle);return primary.saturation>.25&&Math.min(delta,360-delta)<28;};
-  // If a theme already uses teal or violet, move that peer to another hue.
-  // Lightness alone must not make the combined A/R code a second A category.
-  const pick=(preferred,alternatives)=>[preferred,...alternatives].map(key=>categories[key]).find(color=>!tooClose(color))||categories[preferred];
-  const seeds={R:pick('teal',['blue','berry','green']),C:pick('violet',['berry','blue','green']),I:pick('slate',['berry','green','blue']),'A/R':pick('amber',['berry','blue','green'])};
-  const result={A:{fill:p.primary,ink:onColor(p.primary,p.ink)}};
-  for(const [code,seed] of Object.entries(seeds)){
-    const weight=dark?.78:code==='I'?.3:.42;
-    const fill=mixHex(p.paper,seed,weight);
-    result[code]={fill,ink:onColor(fill,p.ink)};
-  }
-  return result;
+  return Object.fromEntries(Object.entries(fills).map(([code,fill])=>[code,{fill,ink:onColor(fill,p.ink)}]));
 }
 
 // Shared by assessment and repair, so repaired colours are tested against the

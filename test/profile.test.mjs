@@ -14,6 +14,7 @@ test('profile is normalized and survives a JSON transport round trip', () => {
   const profile = createDiagramProfile({roles: {primary: '#abc'}, settings: {radius: 8}, standard: {name: ' Team ', version: ' 1.0 '}});
   assert.equal(profile.schema, 'kobo.diagram-profile/v1');
   assert.equal(profile.coreVersion, CORE_VERSION);
+  assert.equal(profile.coreVersion, '0.1.1');
   assert.equal(profile.engineVersion, MERMAID_VERSION);
   assert.equal(profile.roles.primary, '#AABBCC');
   assert.equal(Object.keys(profile.roles).length, 11);
@@ -31,6 +32,21 @@ test('versions and profile shape are rejected instead of silently downgraded', (
   for (const value of [null, [], 'profile', new Date()]) assert.throws(() => validateDiagramProfile(value), TypeError);
   assert.throws(() => validateDiagramProfile({...createDiagramProfile(), config: {securityLevel: 'loose'}}), /Unsupported profile field/);
   assert.throws(() => createDiagramProfile({themeCSS: 'body{display:none}'}), /Unsupported profile options field/);
+});
+
+test('only explicitly compatible historical cores are accepted without rewriting their profile', async () => {
+  const previous = JSON.parse(await readFile(new URL('./fixtures/profile-0.1.0.json', import.meta.url), 'utf8'));
+  previous.roles.primary = '#314D63';
+  previous.settings.radius = 9;
+  previous.standard = {name: 'Example Saved Standard', version: '3.2.0'};
+  const expected = structuredClone(previous);
+  assert.deepEqual(validateDiagramProfile(previous), expected);
+  assert.deepEqual(previous, expected);
+  assert.equal(validateDiagramProfile(previous).coreVersion, '0.1.0');
+  for (const coreVersion of ['0.0.9', '0.1.2', '0.2.0', '1.0.0', '0.1.1-beta', '*']) {
+    assert.throws(() => validateDiagramProfile({...previous, coreVersion}), /Unsupported core version/);
+  }
+  assert.throws(() => validateDiagramProfile({...previous, engineVersion: '12.2.1'}), /Unsupported Mermaid version/);
 });
 
 test('colors, numeric geometry and enums reject CSS or malformed values', () => {
