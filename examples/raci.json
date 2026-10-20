@@ -1,0 +1,16 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "raci",
+  "title": "Example launch responsibilities",
+  "columns": [
+    {"key": "activity", "label": "Activity", "width": 280},
+    {"key": "lead", "label": "Project lead"},
+    {"key": "design", "label": "Design"},
+    {"key": "quality", "label": "Quality"}
+  ],
+  "rows": [
+    {"activity": "Approve the brief", "lead": "A/R", "design": "C", "quality": "I"},
+    {"activity": "Prepare the prototype", "lead": "A", "design": "R", "quality": "C"},
+    {"activity": "Verify release readiness", "lead": "A", "design": "C", "quality": "R"}
+  ]
+}

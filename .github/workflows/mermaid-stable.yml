@@ -1,0 +1,64 @@
+name: Check Mermaid stable release
+
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: mermaid-stable-release
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('node:fs');
+            const manifest = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            const current = manifest.peerDependencies?.mermaid;
+            const response = await fetch('https://registry.npmjs.org/mermaid/latest', {
+              signal: AbortSignal.timeout(30000),
+            });
+            if (!response.ok) throw new Error(`Registry returned ${response.status}`);
+            const latest = (await response.json()).version;
+            if (!/^\d+\.\d+\.\d+$/.test(latest)) throw new Error('The latest tag is not a stable version.');
+            if (latest === current) {
+              core.info(`Mermaid ${current} is current.`);
+              return;
+            }
+            const title = `Upgrade Mermaid to ${latest}`;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              ...context.repo, state: 'all', per_page: 100,
+            });
+            if (issues.some(issue => !issue.pull_request && issue.title === title)) {
+              core.info('A tracking issue for this version already exists.');
+              return;
+            }
+            const body = [
+              `The npm stable tag for Mermaid is **${latest}**; this package declares **${current}**.`,
+              '',
+              `Review the [upstream releases](https://github.com/mermaid-js/mermaid/releases) before upgrading.`,
+              '',
+              `- [ ] Run \`npm run upgrade:mermaid -- --target ${latest}\` to align exact dependencies, lockfile, source constant and TypeScript declaration.`,
+              '- [ ] Review the documentation, upstream license notice and fixtures.',
+              '- [ ] Review source policy, enterprise adapters and profile compatibility/migration.',
+              '- [ ] Run `npm test` (including the version-consistency gate), `npm run test:browser` and `npm pack --dry-run`.',
+              '- [ ] Update both consumer applications and verify cross-site source/profile handoff.',
+              '- [ ] Build and deploy both approved consumer image versions through their existing release process.',
+              '',
+              'A dependency-only Dependabot PR may fail the version-consistency gate until the helper and compatibility review are complete.',
+              '',
+              'This issue is discovery only. It does not merge changes, publish a package, or deploy containers.',
+            ].join('\n');
+            await github.rest.issues.create({...context.repo, title, body});

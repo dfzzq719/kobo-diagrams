@@ -1,0 +1,26 @@
+{
+  "name": "@taskobo/diagrams",
+  "version": "0.1.0",
+  "description": "Framework-independent Mermaid rendering and enterprise diagram profiles.",
+  "repository": {"type":"git","url":"git+https://github.com/dfzzq719/kobo-diagrams.git"},
+  "homepage": "https://github.com/dfzzq719/kobo-diagrams#readme",
+  "bugs": {"url":"https://github.com/dfzzq719/kobo-diagrams/issues"},
+  "type": "module",
+  "main": "./src/index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": { "types": "./index.d.ts", "import": "./src/index.mjs" },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": ["src", "index.d.ts", "README.md", "LICENSE", "NOTICE", "docs", "examples"],
+  "scripts": {
+    "test": "node scripts/check-version.mjs && node --test test/*.test.mjs",
+    "test:browser": "node scripts/check-version.mjs && node scripts/browser-smoke.mjs",
+    "upgrade:mermaid": "node scripts/upgrade-mermaid.mjs"
+  },
+  "engines": { "node": ">=22.12.0" },
+  "peerDependencies": { "mermaid": "12.2.0" },
+  "devDependencies": { "mermaid": "12.2.0" },
+  "license": "MIT"
+}

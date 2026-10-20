@@ -1,0 +1,5 @@
+flowchart LR
+  Brief[Confirm the brief] --> Plan[Plan the work]
+  Plan --> Review{Review ready?}
+  Review -->|Yes| Release[Release the prototype]
+  Review -->|Revise| Plan
