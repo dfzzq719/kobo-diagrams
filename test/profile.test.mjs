@@ -1,6 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
 import {CORE_VERSION, MERMAID_VERSION, createDiagramProfile, validateDiagramProfile, compileDiagram, validateFrozenSource, renderDocument, PRESETS} from '../src/index.mjs';
+
+test('the released 0.1.0 profile snapshot remains readable', async () => {
+  // Keep this historical fixture fixed across engine/core upgrades. A failure
+  // requires an explicit compatibility or migration decision for saved docs.
+  const profile = JSON.parse(await readFile(new URL('./fixtures/profile-0.1.0.json', import.meta.url), 'utf8'));
+  assert.deepEqual(validateDiagramProfile(profile), profile);
+});
 
 test('profile is normalized and survives a JSON transport round trip', () => {
   const profile = createDiagramProfile({roles: {primary: '#abc'}, settings: {radius: 8}, standard: {name: ' Team ', version: ' 1.0 '}});
