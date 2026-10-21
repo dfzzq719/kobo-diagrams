@@ -1,0 +1,31 @@
+{
+  "schema": "kobo.diagram-profile/v1",
+  "engineVersion": "12.2.0",
+  "coreVersion": "0.1.2",
+  "roles": {
+    "paper": "#FFFEFA",
+    "surface": "#FFFFFF",
+    "ink": "#0D2046",
+    "muted": "#52637A",
+    "primary": "#1456D9",
+    "anchor": "#0D2046",
+    "line": "#77869D",
+    "border": "#52637A",
+    "success": "#0A6954",
+    "warning": "#895B12",
+    "danger": "#B5323B"
+  },
+  "settings": {
+    "radius": 6,
+    "lineWidth": 1.5,
+    "fontSize": 22,
+    "curve": "linear",
+    "density": "compact",
+    "direction": "auto",
+    "transparent": false
+  },
+  "standard": {
+    "name": "Kobo PM 中文项目材料",
+    "version": "1"
+  }
+}

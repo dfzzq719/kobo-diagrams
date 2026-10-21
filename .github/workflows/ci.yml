@@ -25,4 +25,10 @@ jobs:
           node examples/project-case/zh-CN/verify.mjs
       - name: Browser rendering and export checks
         run: npm run test:browser
+      - name: Standalone PM Skill workflow
+        run: |
+          node scripts/build-pm-runtime.mjs --check
+          node scripts/verify-pm-demo.mjs
+          node scripts/check-pm-skill.mjs
+          python3 scripts/build-pm-skill.py --check
       - run: npm pack --dry-run

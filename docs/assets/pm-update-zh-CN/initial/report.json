@@ -1,0 +1,75 @@
+{
+  "schema": "kobo.pm-render-report/v1",
+  "mode": "project-snapshot",
+  "projectId": "crm-pm-teaching",
+  "statusDate": "2026-10-14",
+  "updateId": null,
+  "inputSHA256": "8f13234a907274ca7d57542311a4787715edbcb482d42d6b7e3f4e14cb72d419",
+  "reviewInputSHA256": null,
+  "coreVersion": "0.1.2",
+  "mermaidVersion": "12.2.0",
+  "runtimeManifestSHA256": "9ee3644093b139ffc8267edb2889af007774912f60d6efa790938964dff17f93",
+  "summary": {
+    "statusDate": "2026-10-14",
+    "taskCount": 18,
+    "completed": 3,
+    "delayedTaskIds": [
+      "WP111",
+      "WP131",
+      "WP132"
+    ],
+    "overdueTaskIds": [
+      "WP132"
+    ],
+    "dependencyConflicts": [],
+    "openActions": [],
+    "pendingDecisions": [
+      {
+        "id": "DEC-01",
+        "title": "短信是否纳入首版：尚待范围、资源与授权决定",
+        "status": "pending"
+      }
+    ]
+  },
+  "charts": {
+    "wbs": {
+      "width": 1739,
+      "height": 1203.5999755859375,
+      "type": "flowchart",
+      "notes": []
+    },
+    "raci": {
+      "width": 1618,
+      "height": 1744.2000000000003,
+      "type": "document-table",
+      "notes": []
+    },
+    "schedule": {
+      "width": 1552,
+      "height": 1855,
+      "type": "gantt",
+      "notes": []
+    }
+  },
+  "browserVersion": {
+    "product": "Chrome/155.0.8059.84",
+    "revision": "@5869fe313571d75152b77813cf0a4ee26a4e6df0",
+    "jsVersion": "15.5.35.25"
+  },
+  "nodeVersion": "v25.2.1",
+  "fontNote": "字体由本机字体栈解析；跨系统像素可能不同。",
+  "fileSHA256": {
+    "sources/wbs.mmd": "5fe44490481975f61c88845789920589e1772c1d4c940e11c83df0152a232ff4",
+    "sources/raci.json": "14a843eb1c875016dd709bc72bafbbed70baada676497bf49a0cad552a97c20d",
+    "sources/schedule.mmd": "ce670c03511c4dc0e6ed43fe4836bf9ea05dc6e0e11d15208084bb21034c92ff",
+    "wbs.svg": "ad079ac0d016b93f83cc9ae1247badf28c6ca54f15601748cf01a8d23d66b9bf",
+    "wbs.png": "5d2b2a939b4e18be134319a2a2f25c8867859c8bea862e7178175fd6b677ee8f",
+    "raci.svg": "6ca4bbe7b782703aa91b5120b55c7e53810c572a9c195eb9f7f1a95a3df93f1e",
+    "raci.png": "bd1a6299d374ee9109957fe7684ecec7b045d7074ec7509d3e42153ac5be313a",
+    "schedule.svg": "dac8e98206c7e0eaa6ca14f2a85e739c08aa1ef22fe16e69d691b28c4724eef2",
+    "schedule.png": "cd0e8985a1d84a20e1206c51a49a4ebaf564393db2272e54b84625934d7da3da",
+    "project.snapshot.json": "8f13234a907274ca7d57542311a4787715edbcb482d42d6b7e3f4e14cb72d419",
+    "profile.json": "0db659761a7fcaccfc2b8bff8ac2aca17c89efeb9fc4a8f8d0e4b0a6b3e90120",
+    "review.html": "57a9a524b430465298df8217d5337358c862d02cbde6ef77e63abecf279b9807"
+  }
+}

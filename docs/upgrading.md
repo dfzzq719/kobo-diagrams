@@ -47,3 +47,9 @@ The patch history remains distinct:
 - **0.1.2** improves English word wrapping in enterprise tables and flowcharts, retaining CJK and explicit newlines in table text, and separates long Gantt section labels from bars. It accepts 0.1.0, 0.1.1 and 0.1.2 profiles with the same engine. The complete CRM case makes long responsibility labels, trigger/response text and closure evidence available for regression review.
 
 Existing frozen offline Skill files remain unchanged. New exported Skills contain the new core and its notices; users receive them by downloading and reinstalling the complete new package. Neither a GitHub commit nor a Docker deployment updates previously installed Skill files. Preserve original inputs and compare representative exports before distributing a replacement.
+
+## Standalone PM Skill
+
+The public `skills/kobo-pm-update` directory also bundles a reviewed core and Mermaid version. On an engine upgrade, review the new official bundle hash and the compatibility checks in `scripts/build-pm-runtime.mjs` and the Skill's `scripts/render.mjs`, then rebuild the runtime with `--vendor <reviewed-mermaid.min.js>`. Do not bypass the pinned hash to make an upgrade pass.
+
+Run `node scripts/build-pm-runtime.mjs --check`, `node scripts/verify-pm-demo.mjs` and `node scripts/check-pm-skill.mjs`. Re-render the teaching preview, refresh its embedded files, and rebuild `docs/downloads/kobo-pm-update-zh-CN.zip` using `python scripts/build-pm-skill.py`; `--check` verifies that the archive still matches the committed Skill. CI checks both the unchanged shared renderer and the installed PM workflow. Distribute the complete replacement Skill; users keep their project states separately.

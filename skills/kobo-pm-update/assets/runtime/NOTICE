@@ -1,0 +1,53 @@
+Kobo Diagrams
+Copyright (c) 2026 Taskobo contributors
+Licensed under the MIT License. See LICENSE.
+
+Source provenance
+-----------------
+The enterprise colour engine, diagram capability catalog, source policy,
+Mermaid theme adapters, Gantt enhancements, and project table renderer were
+extracted from Taskobo's Mermaid workbench and adapted into a portable ESM
+package. The general adapter and versioned diagram profile join those shared
+modules here. This attribution does not imply endorsement by Mermaid.
+
+Mermaid
+-------
+Mermaid is a separate upstream dependency, licensed under the MIT License.
+Upstream repository: https://github.com/mermaid-js/mermaid
+Upstream license: https://github.com/mermaid-js/mermaid/blob/develop/LICENSE
+Retain the copyright and license notice supplied with the installed Mermaid
+distribution when redistributing that distribution or a bundle containing it.
+The exact upstream notice is available in node_modules/mermaid/LICENSE after
+npm ci. This package does not replace, relicense, or claim ownership of Mermaid.
+
+Mermaid 12.2.0 license notice (from its installed distribution):
+
+The MIT License (MIT)
+
+Copyright (c) 2014 - 2022 Knut Sveidqvist
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Other dependencies
+------------------
+The lockfile records the exact dependency graph used for verification. Use
+npm ls --all and npm's dependency metadata/license reports to inventory the
+distributed dependency versions. Their individual license files and required
+notices remain applicable. Fonts named by the renderer are system fallbacks;
+font binaries are not bundled by this package.

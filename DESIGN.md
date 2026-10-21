@@ -63,6 +63,16 @@ at the bottom or in linked developer documentation. AI drafting currently happen
 in the user's own AI tool; do not imply built-in automatic drafting or cross-document
 synchronization. State the current Japanese workbench UI accurately.
 
+The Chinese PM Update Alpha adds an installable workflow under
+`skills/kobo-pm-update`: one main agent reads project facts and new meeting notes,
+then local scripts prepare reviewable changes and render WBS, RACI and schedules
+from the same candidate. Subagents are optional for independent analysis. Keep
+the review interface in plain Chinese, show before/after values and original
+evidence, preserve approved baselines and distinguish actual finish dates from
+unknown actual start dates. The static preview does not approve changes. State
+the local Node/browser requirements and the absence of automatic external-system
+connections. Its standalone teaching branch does not revise the original CRM case.
+
 Localized figures preserve the actual renderer's geometry and business values.
 Only documentation-layer text and built-in legends are translated; do not recolor
 or stretch the output. Keep locale sources separate for future Japanese and English

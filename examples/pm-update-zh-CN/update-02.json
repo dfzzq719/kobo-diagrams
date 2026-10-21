@@ -1,0 +1,159 @@
+{
+  "schema": "kobo.pm-update/v1",
+  "id": "WEEK-02",
+  "asOf": "2026-10-21",
+  "sources": [
+    {
+      "id": "week-02",
+      "file": "week-02.md"
+    }
+  ],
+  "changes": [
+    {
+      "id": "C08",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "actualFinish",
+      "expected": null,
+      "value": "2026-10-20",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP132的认证、重试和并发验证已经在2026-10-20完成，并有测试记录。"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "status",
+      "expected": "active",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "该工作包可记为完成；这不代表WP141集成与业务验收已经完成。"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "kind": "action.set",
+      "targetId": "ACT-01",
+      "field": "status",
+      "expected": "open",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "ACT-01在本次会议确认为已完成。"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "kind": "task.set",
+      "targetId": "WP131",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-11",
+        "finish": "2026-10-26"
+      },
+      "value": {
+        "start": "2026-10-11",
+        "finish": "2026-10-28"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "预计完成日从2026-10-26调整为2026-10-28，开始日仍为2026-10-11；原批准基准完成日2026-10-20不变。"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "kind": "task.set",
+      "targetId": "WP133",
+      "field": "responsibilities",
+      "expected": {
+        "sponsor": "I",
+        "pm": "C",
+        "business": "A",
+        "dev": "R",
+        "ops": "C",
+        "info": "C",
+        "quality": "C",
+        "vendor": "C"
+      },
+      "value": {
+        "sponsor": "I",
+        "pm": "C",
+        "business": "A",
+        "dev": "R",
+        "ops": "C",
+        "info": "C",
+        "quality": "R",
+        "vendor": "C"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP133的重复数据判定由质量负责人增加执行复核职责，业务负责人仍为最终责任人，其他角色分工不变。"
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-03",
+        "title": "复核80条重复键候选样本和处理记录",
+        "ownerRoleId": "quality",
+        "dueDate": "2026-10-23",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "质量负责人应在2026-10-23前复核80条重复键候选的样本及处理记录。"
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "kind": "decision.add",
+      "value": {
+        "id": "DEC-02",
+        "title": "80条重复键候选的处理规则待业务负责人最终确认",
+        "status": "pending"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "80条重复键候选的处理规则仍待业务负责人最终确认。"
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "kind": "task.set",
+      "targetId": "WP133",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-09",
+        "finish": "2026-10-16"
+      },
+      "value": {
+        "start": "2026-10-09",
+        "finish": "2026-10-23"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP133处理记录预计完成日从2026-10-16调整为2026-10-23，开始日仍为2026-10-09。"
+        }
+      ]
+    }
+  ]
+}

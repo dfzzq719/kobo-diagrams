@@ -1,0 +1,117 @@
+{
+  "schema": "kobo.pm-render-report/v1",
+  "mode": "candidate-preview",
+  "projectId": "crm-pm-teaching",
+  "statusDate": "2026-10-21",
+  "updateId": "WEEK-02",
+  "inputSHA256": "cbf836b6ed55bfdb6637fed8ed6f3c3919dc5bab809f4e0ae0642f9c7f830cff",
+  "reviewInputSHA256": "d3a5c3a2148b4890023a85f73dd32318b1bfd2814d521a900324e6821d279b8f",
+  "coreVersion": "0.1.2",
+  "mermaidVersion": "12.2.0",
+  "runtimeManifestSHA256": "9ee3644093b139ffc8267edb2889af007774912f60d6efa790938964dff17f93",
+  "summary": {
+    "statusDate": "2026-10-21",
+    "taskCount": 18,
+    "completed": 5,
+    "delayedTaskIds": [
+      "WP111",
+      "WP131",
+      "WP132",
+      "WP133"
+    ],
+    "overdueTaskIds": [
+      "WP131",
+      "WP133"
+    ],
+    "dependencyConflicts": [
+      {
+        "taskId": "WP141",
+        "predecessorId": "WP131",
+        "predecessorFinish": "2026-10-28",
+        "taskForecastStart": "2026-10-26"
+      },
+      {
+        "taskId": "WP151",
+        "predecessorId": "WP132",
+        "predecessorFinish": "2026-10-20",
+        "taskForecastStart": "2026-10-19"
+      },
+      {
+        "taskId": "WP152",
+        "predecessorId": "WP132",
+        "predecessorFinish": "2026-10-20",
+        "taskForecastStart": "2026-10-19"
+      }
+    ],
+    "openActions": [
+      {
+        "id": "ACT-02",
+        "title": "协调测试阶段3人日资源缺口",
+        "ownerRoleId": "pm",
+        "dueDate": "2026-10-19",
+        "status": "open"
+      },
+      {
+        "id": "ACT-03",
+        "title": "复核80条重复键候选样本和处理记录",
+        "ownerRoleId": "quality",
+        "dueDate": "2026-10-23",
+        "status": "open"
+      }
+    ],
+    "pendingDecisions": [
+      {
+        "id": "DEC-01",
+        "title": "短信初步估计增加8人日，是否纳入首版尚待评估与授权",
+        "status": "pending"
+      },
+      {
+        "id": "DEC-02",
+        "title": "80条重复键候选的处理规则待业务负责人最终确认",
+        "status": "pending"
+      }
+    ]
+  },
+  "charts": {
+    "wbs": {
+      "width": 1739,
+      "height": 1203.5999755859375,
+      "type": "flowchart",
+      "notes": []
+    },
+    "raci": {
+      "width": 1618,
+      "height": 1744.2000000000003,
+      "type": "document-table",
+      "notes": []
+    },
+    "schedule": {
+      "width": 1552,
+      "height": 1855,
+      "type": "gantt",
+      "notes": []
+    }
+  },
+  "browserVersion": {
+    "product": "Chrome/155.0.8059.84",
+    "revision": "@5869fe313571d75152b77813cf0a4ee26a4e6df0",
+    "jsVersion": "15.5.35.25"
+  },
+  "nodeVersion": "v25.2.1",
+  "fontNote": "字体由本机字体栈解析；跨系统像素可能不同。",
+  "fileSHA256": {
+    "sources/wbs.mmd": "7ff04a038b91d1b30aacbde3406597b4d7e12f2578f939d49258fb6ad9cd3210",
+    "sources/raci.json": "7c26431cf2d0d777f075732fa3500484b7dc41fb8707a721fb71a98de6c5c7f6",
+    "sources/schedule.mmd": "671a2b4d8f38fc1c9bf53e3e34d2cc25c4e6945642135925cfa57b1eefc01dcb",
+    "wbs.svg": "c00572dbf144a5e33e831db66d961302a9644733eee032fdd71ecd2d7f44b4f6",
+    "wbs.png": "9a8418bc8b333a8332a5f1af32beabb1eb40c1cc2f853a73121249742cd3117d",
+    "raci.svg": "2cd60cd3f47fb5e7c9f059ea151c7791bd7d2c4cf7b896ba21ba331758b9872a",
+    "raci.png": "d9d6968cc91490c3328d3e34f99b99d5873bb7275d9da7ec87b0fa396f5117a0",
+    "schedule.svg": "e4ab46750f7ab1867e5f9ef18d80c6390e2cdddca3f4c516ea1a53cf72f92b7a",
+    "schedule.png": "db7cd1418db3af93e6f17b9d98af7efbe31c008d978f9e384c489ee865705802",
+    "project.snapshot.json": "5d6467029c883bd96a63fed3e25ae33abe3a2b090a40e8bab8cf8dc4f8b69ace",
+    "review.snapshot.json": "d3a5c3a2148b4890023a85f73dd32318b1bfd2814d521a900324e6821d279b8f",
+    "profile.json": "0db659761a7fcaccfc2b8bff8ac2aca17c89efeb9fc4a8f8d0e4b0a6b3e90120",
+    "review.html": "8e543a96fc10f673647815bb3378bf8b047f975c285b4b29087b109c10e6e831"
+  }
+}

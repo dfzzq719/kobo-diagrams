@@ -1,0 +1,849 @@
+{
+  "schema": "kobo.pm-review/v1",
+  "projectId": "crm-pm-teaching",
+  "projectName": "客户服务系统首版实施｜独立虚构教学分支",
+  "updateId": "WEEK-02",
+  "asOf": "2026-10-21",
+  "updateHash": "95f87db01855d2877e5770c10a568e457e6679ed2eee0091b374f3d39176ea74",
+  "sources": [
+    {
+      "id": "week-02",
+      "file": "week-02.md",
+      "sha256": "4c2e66c1bf8ba7409b34f95309964886807728d68f244b7bf449357f7e4d22bc"
+    }
+  ],
+  "appliedChangeIds": [],
+  "pendingChangeIds": [
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15"
+  ],
+  "changes": [
+    {
+      "id": "C08",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "actualFinish",
+      "expected": null,
+      "value": "2026-10-20",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP132的认证、重试和并发验证已经在2026-10-20完成，并有测试记录。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C09",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "status",
+      "expected": "active",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "该工作包可记为完成；这不代表WP141集成与业务验收已经完成。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C10",
+      "kind": "action.set",
+      "targetId": "ACT-01",
+      "field": "status",
+      "expected": "open",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "ACT-01在本次会议确认为已完成。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C11",
+      "kind": "task.set",
+      "targetId": "WP131",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-11",
+        "finish": "2026-10-26"
+      },
+      "value": {
+        "start": "2026-10-11",
+        "finish": "2026-10-28"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "预计完成日从2026-10-26调整为2026-10-28，开始日仍为2026-10-11；原批准基准完成日2026-10-20不变。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C12",
+      "kind": "task.set",
+      "targetId": "WP133",
+      "field": "responsibilities",
+      "expected": {
+        "sponsor": "I",
+        "pm": "C",
+        "business": "A",
+        "dev": "R",
+        "ops": "C",
+        "info": "C",
+        "quality": "C",
+        "vendor": "C"
+      },
+      "value": {
+        "sponsor": "I",
+        "pm": "C",
+        "business": "A",
+        "dev": "R",
+        "ops": "C",
+        "info": "C",
+        "quality": "R",
+        "vendor": "C"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP133的重复数据判定由质量负责人增加执行复核职责，业务负责人仍为最终责任人，其他角色分工不变。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C13",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-03",
+        "title": "复核80条重复键候选样本和处理记录",
+        "ownerRoleId": "quality",
+        "dueDate": "2026-10-23",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "质量负责人应在2026-10-23前复核80条重复键候选的样本及处理记录。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C14",
+      "kind": "decision.add",
+      "value": {
+        "id": "DEC-02",
+        "title": "80条重复键候选的处理规则待业务负责人最终确认",
+        "status": "pending"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "80条重复键候选的处理规则仍待业务负责人最终确认。"
+        }
+      ],
+      "alreadyApplied": false
+    },
+    {
+      "id": "C15",
+      "kind": "task.set",
+      "targetId": "WP133",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-09",
+        "finish": "2026-10-16"
+      },
+      "value": {
+        "start": "2026-10-09",
+        "finish": "2026-10-23"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP133处理记录预计完成日从2026-10-16调整为2026-10-23，开始日仍为2026-10-09。"
+        }
+      ],
+      "alreadyApplied": false
+    }
+  ],
+  "candidateProject": {
+    "schema": "kobo.pm-project/v1",
+    "id": "crm-pm-teaching",
+    "name": "客户服务系统首版实施｜独立虚构教学分支",
+    "statusDate": "2026-10-21",
+    "roles": [
+      {
+        "id": "sponsor",
+        "name": "项目发起人"
+      },
+      {
+        "id": "pm",
+        "name": "项目经理"
+      },
+      {
+        "id": "business",
+        "name": "业务负责人"
+      },
+      {
+        "id": "dev",
+        "name": "开发负责人"
+      },
+      {
+        "id": "ops",
+        "name": "运维负责人"
+      },
+      {
+        "id": "info",
+        "name": "信息管理负责人"
+      },
+      {
+        "id": "quality",
+        "name": "质量负责人"
+      },
+      {
+        "id": "vendor",
+        "name": "CRM供应商"
+      }
+    ],
+    "groups": [
+      {
+        "id": "G1",
+        "name": "1.1 业务与验收基准"
+      },
+      {
+        "id": "G2",
+        "name": "1.2 首版业务功能"
+      },
+      {
+        "id": "G3",
+        "name": "1.3 数据迁移与CRM集成"
+      },
+      {
+        "id": "G4",
+        "name": "1.4 独立质量与安全证据"
+      },
+      {
+        "id": "G5",
+        "name": "1.5 运维与使用准备"
+      },
+      {
+        "id": "G6",
+        "name": "1.6 项目治理"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "WP111",
+        "title": "1.1.1 业务流程集",
+        "groupId": "G1",
+        "acceptance": "正常、异常与代理处理流程经业务负责人确认",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "R",
+          "business": "A",
+          "dev": "C",
+          "ops": "C",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-01",
+          "finish": "2026-10-08"
+        },
+        "forecast": {
+          "start": "2026-10-01",
+          "finish": "2026-10-10"
+        },
+        "actualFinish": "2026-10-10",
+        "status": "done",
+        "dependsOn": []
+      },
+      {
+        "id": "WP112",
+        "title": "1.1.2 权限与服务时限规范",
+        "groupId": "G1",
+        "acceptance": "4种访问角色和通知期限经指定审批人确认",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "R",
+          "business": "A",
+          "dev": "C",
+          "ops": "C",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-03",
+          "finish": "2026-10-11"
+        },
+        "forecast": {
+          "start": "2026-10-03",
+          "finish": "2026-10-11"
+        },
+        "actualFinish": "2026-10-11",
+        "status": "done",
+        "dependsOn": []
+      },
+      {
+        "id": "WP113",
+        "title": "1.1.3 验收场景集",
+        "groupId": "G1",
+        "acceptance": "30个必测用例的通过与失败判定标准均已约定",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "R",
+          "business": "A",
+          "dev": "C",
+          "ops": "C",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-07",
+          "finish": "2026-10-16"
+        },
+        "forecast": {
+          "start": "2026-10-07",
+          "finish": "2026-10-16"
+        },
+        "actualFinish": "2026-10-16",
+        "status": "done",
+        "dependsOn": []
+      },
+      {
+        "id": "WP121",
+        "title": "1.2.1 受理登记与任务分派",
+        "groupId": "G2",
+        "acceptance": "重复提交请求经过重放验证，重复登记为0条",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "A/R",
+          "ops": "C",
+          "info": "C",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-11",
+          "finish": "2026-10-22"
+        },
+        "forecast": {
+          "start": "2026-10-11",
+          "finish": "2026-10-22"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": [
+          "WP111"
+        ]
+      },
+      {
+        "id": "WP122",
+        "title": "1.2.2 处理与审批历史",
+        "groupId": "G2",
+        "acceptance": "每次变更均可追溯操作人、内容、时间和原因",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "A/R",
+          "ops": "C",
+          "info": "C",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-11",
+          "finish": "2026-10-23"
+        },
+        "forecast": {
+          "start": "2026-10-11",
+          "finish": "2026-10-23"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": [
+          "WP111"
+        ]
+      },
+      {
+        "id": "WP123",
+        "title": "1.2.3 服务时限通知与报表",
+        "groupId": "G2",
+        "acceptance": "站内通知与邮件输出核对一致短信仍在已批准范围之外",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "A/R",
+          "ops": "C",
+          "info": "C",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-14",
+          "finish": "2026-10-27"
+        },
+        "forecast": {
+          "start": "2026-10-14",
+          "finish": "2026-10-27"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": [
+          "WP112"
+        ]
+      },
+      {
+        "id": "WP131",
+        "title": "1.3.1 迁移数据与映射表",
+        "groupId": "G3",
+        "acceptance": "20,000条源记录均可追溯至目标记录或经批准的排除清单",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "R",
+          "ops": "A/R",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-11",
+          "finish": "2026-10-20"
+        },
+        "forecast": {
+          "start": "2026-10-11",
+          "finish": "2026-10-28"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": [
+          "WP111"
+        ]
+      },
+      {
+        "id": "WP132",
+        "title": "1.3.2 CRM集成与重试控制",
+        "groupId": "G3",
+        "acceptance": "真实端点的身份认证、重试和并发控制用例均经验证",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "A/R",
+          "ops": "C",
+          "info": "C",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-06",
+          "finish": "2026-10-12"
+        },
+        "forecast": {
+          "start": "2026-10-06",
+          "finish": "2026-10-21"
+        },
+        "actualFinish": "2026-10-20",
+        "status": "done",
+        "dependsOn": []
+      },
+      {
+        "id": "WP133",
+        "title": "1.3.3 迁移判定记录",
+        "groupId": "G3",
+        "acceptance": "80条重复键候选的处理决定已应用，相关差异已经复核",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "A",
+          "dev": "R",
+          "ops": "C",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-09",
+          "finish": "2026-10-16"
+        },
+        "forecast": {
+          "start": "2026-10-09",
+          "finish": "2026-10-23"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": []
+      },
+      {
+        "id": "WP141",
+        "title": "1.4.1 集成与验收测试记录",
+        "groupId": "G4",
+        "acceptance": "30个必测用例全部通过未解决的重大缺陷为0个",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "R",
+          "dev": "C",
+          "ops": "C",
+          "info": "C",
+          "quality": "A/R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-26",
+          "finish": "2026-11-04"
+        },
+        "forecast": {
+          "start": "2026-10-26",
+          "finish": "2026-11-04"
+        },
+        "actualFinish": null,
+        "status": "planned",
+        "dependsOn": [
+          "WP113",
+          "WP121",
+          "WP122",
+          "WP131",
+          "WP132",
+          "WP133"
+        ]
+      },
+      {
+        "id": "WP142",
+        "title": "1.4.2 权限与数据保护证据",
+        "groupId": "G4",
+        "acceptance": "生产环境权限及个人信息处理条件均获批准",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "R",
+          "ops": "R",
+          "info": "A",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-15",
+          "finish": "2026-10-26"
+        },
+        "forecast": {
+          "start": "2026-10-15",
+          "finish": "2026-10-26"
+        },
+        "actualFinish": null,
+        "status": "planned",
+        "dependsOn": [
+          "WP112"
+        ]
+      },
+      {
+        "id": "WP143",
+        "title": "1.4.3 性能与恢复验证结果",
+        "groupId": "G4",
+        "acceptance": "约定负载与批处理时窗及恢复条件均有测试结果证明",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "R",
+          "ops": "A/R",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-11-05",
+          "finish": "2026-11-10"
+        },
+        "forecast": {
+          "start": "2026-11-05",
+          "finish": "2026-11-10"
+        },
+        "actualFinish": null,
+        "status": "planned",
+        "dependsOn": [
+          "WP141"
+        ]
+      },
+      {
+        "id": "WP151",
+        "title": "1.5.1 运维与回退操作手册",
+        "groupId": "G5",
+        "acceptance": "停止条件、恢复校验和业务恢复流程均经演练",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "R",
+          "ops": "A/R",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-19",
+          "finish": "2026-11-04"
+        },
+        "forecast": {
+          "start": "2026-10-19",
+          "finish": "2026-11-04"
+        },
+        "actualFinish": null,
+        "status": "planned",
+        "dependsOn": [
+          "WP112",
+          "WP132"
+        ]
+      },
+      {
+        "id": "WP152",
+        "title": "1.5.2 夜间批处理与监控设计",
+        "groupId": "G5",
+        "acceptance": "低使用时段作业超时停止与受控重跑均经验证",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "C",
+          "dev": "R",
+          "ops": "A/R",
+          "info": "C",
+          "quality": "R",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-19",
+          "finish": "2026-11-06"
+        },
+        "forecast": {
+          "start": "2026-10-19",
+          "finish": "2026-11-06"
+        },
+        "actualFinish": null,
+        "status": "planned",
+        "dependsOn": [
+          "WP132"
+        ]
+      },
+      {
+        "id": "WP153",
+        "title": "1.5.3 培训与交接记录",
+        "groupId": "G5",
+        "acceptance": "主备联系人、用户培训和未关闭事项的接收均有记录",
+        "responsibilities": {
+          "sponsor": "I",
+          "pm": "C",
+          "business": "A/R",
+          "dev": "C",
+          "ops": "R",
+          "info": "C",
+          "quality": "R",
+          "vendor": "I"
+        },
+        "baseline": {
+          "start": "2026-11-11",
+          "finish": "2026-11-16"
+        },
+        "forecast": {
+          "start": "2026-11-11",
+          "finish": "2026-11-16"
+        },
+        "actualFinish": null,
+        "status": "planned",
+        "dependsOn": [
+          "WP141",
+          "WP143",
+          "WP151",
+          "WP152"
+        ]
+      },
+      {
+        "id": "WP161",
+        "title": "1.6.1 项目章程与决策权限",
+        "groupId": "G6",
+        "acceptance": "排除范围、审批权限和变更流程均已确认",
+        "responsibilities": {
+          "sponsor": "A",
+          "pm": "R",
+          "business": "C",
+          "dev": "C",
+          "ops": "C",
+          "info": "C",
+          "quality": "C",
+          "vendor": "I"
+        },
+        "baseline": {
+          "start": "2026-10-01",
+          "finish": "2026-10-05"
+        },
+        "forecast": {
+          "start": "2026-10-01",
+          "finish": "2026-10-05"
+        },
+        "actualFinish": "2026-10-05",
+        "status": "done",
+        "dependsOn": []
+      },
+      {
+        "id": "WP162",
+        "title": "1.6.2 基准与变更历史",
+        "groupId": "G6",
+        "acceptance": "每次授权变更前后的工时、费用和日期均可追溯",
+        "responsibilities": {
+          "sponsor": "C",
+          "pm": "A/R",
+          "business": "C",
+          "dev": "C",
+          "ops": "C",
+          "info": "I",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-06",
+          "finish": "2026-11-18"
+        },
+        "forecast": {
+          "start": "2026-10-06",
+          "finish": "2026-11-18"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": [
+          "WP161"
+        ]
+      },
+      {
+        "id": "WP163",
+        "title": "1.6.3 问题、风险与决策记录",
+        "groupId": "G6",
+        "acceptance": "每项未关闭事项均记录负责人、期限、决策和关闭证据",
+        "responsibilities": {
+          "sponsor": "C",
+          "pm": "A/R",
+          "business": "C",
+          "dev": "C",
+          "ops": "C",
+          "info": "I",
+          "quality": "C",
+          "vendor": "C"
+        },
+        "baseline": {
+          "start": "2026-10-06",
+          "finish": "2026-11-18"
+        },
+        "forecast": {
+          "start": "2026-10-06",
+          "finish": "2026-11-18"
+        },
+        "actualFinish": null,
+        "status": "active",
+        "dependsOn": [
+          "WP161"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "ACT-01",
+        "title": "取得CRM供应商认证、重试和并发验证答复",
+        "ownerRoleId": "dev",
+        "dueDate": "2026-10-19",
+        "status": "done"
+      },
+      {
+        "id": "ACT-02",
+        "title": "协调测试阶段3人日资源缺口",
+        "ownerRoleId": "pm",
+        "dueDate": "2026-10-19",
+        "status": "open"
+      },
+      {
+        "id": "ACT-03",
+        "title": "复核80条重复键候选样本和处理记录",
+        "ownerRoleId": "quality",
+        "dueDate": "2026-10-23",
+        "status": "open"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "DEC-01",
+        "title": "短信初步估计增加8人日，是否纳入首版尚待评估与授权",
+        "status": "pending"
+      },
+      {
+        "id": "DEC-02",
+        "title": "80条重复键候选的处理规则待业务负责人最终确认",
+        "status": "pending"
+      }
+    ],
+    "appliedUpdates": [
+      {
+        "id": "WEEK-01",
+        "sha256": "9878bb2f7ea09d72a7f85ce9486ee02fe467f60020578a1ebf944645a1727ea2",
+        "asOf": "2026-10-16",
+        "changeIds": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07"
+        ],
+        "sources": [
+          {
+            "id": "week-01",
+            "file": "week-01.md",
+            "sha256": "6869ca26988f3d9c5723833f6568a88de374023678ee7567ca6147c57382e2cc"
+          }
+        ]
+      },
+      {
+        "id": "WEEK-02",
+        "sha256": "95f87db01855d2877e5770c10a568e457e6679ed2eee0091b374f3d39176ea74",
+        "asOf": "2026-10-21",
+        "changeIds": [
+          "C08",
+          "C09",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "C15"
+        ],
+        "sources": [
+          {
+            "id": "week-02",
+            "file": "week-02.md",
+            "sha256": "4c2e66c1bf8ba7409b34f95309964886807728d68f244b7bf449357f7e4d22bc"
+          }
+        ]
+      }
+    ]
+  }
+}

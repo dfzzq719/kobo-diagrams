@@ -1,0 +1,27 @@
+{
+  "schema": "kobo.pm-demo-check/v1",
+  "fictional": true,
+  "roles": 8,
+  "groups": 6,
+  "workPackages": 18,
+  "updates": 2,
+  "acceptedChanges": 15,
+  "actions": 3,
+  "decisions": 2,
+  "checks": [
+    "来源文件及原文引用通过",
+    "输入文件未改动",
+    "批准基准未改动",
+    "重复接受不增加任务",
+    "完成与验收区分",
+    "待决事项保持待决"
+  ],
+  "inputSHA256": {
+    "project.json": "8f13234a907274ca7d57542311a4787715edbcb482d42d6b7e3f4e14cb72d419",
+    "project-brief.md": "040cf184c50ced6f1821a9577a8e6ad35dabb0e73fa8370d37e41be41eddf5f1",
+    "week-01.md": "6869ca26988f3d9c5723833f6568a88de374023678ee7567ca6147c57382e2cc",
+    "week-02.md": "4c2e66c1bf8ba7409b34f95309964886807728d68f244b7bf449357f7e4d22bc",
+    "update-01.json": "d782d64483ffc5382eb11bccfccc9093951b260df5260d0a67bdd2d5e50b9099",
+    "update-02.json": "eff0682700dd27c7152fcde341d4d569b0afcc863e5f8d053db1e702d882fec0"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "kobo.pm-update/v1",
+  "id": "WEEK-01",
+  "asOf": "2026-10-16",
+  "sources": [
+    {
+      "id": "week-01",
+      "file": "week-01.md"
+    }
+  ],
+  "changes": [
+    {
+      "id": "C01",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-06",
+        "finish": "2026-10-18"
+      },
+      "value": {
+        "start": "2026-10-06",
+        "finish": "2026-10-21"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP132的接口恢复预计完成日从2026-10-18调整为2026-10-21，开始日仍为2026-10-06。"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "kind": "task.set",
+      "targetId": "WP131",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-11",
+        "finish": "2026-10-23"
+      },
+      "value": {
+        "start": "2026-10-11",
+        "finish": "2026-10-26"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP131的数据映射预计完成日从2026-10-23调整为2026-10-26，开始日仍为2026-10-11。"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "kind": "task.set",
+      "targetId": "WP113",
+      "field": "actualFinish",
+      "expected": null,
+      "value": "2026-10-16",
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP113的30个验收场景及判定标准已在2026-10-16完成核对。"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "kind": "task.set",
+      "targetId": "WP113",
+      "field": "status",
+      "expected": "active",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP113的30个验收场景及判定标准已在2026-10-16完成核对。"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-01",
+        "title": "取得CRM供应商认证、重试和并发验证答复",
+        "ownerRoleId": "dev",
+        "dueDate": "2026-10-19",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "开发负责人应在2026-10-19前取得供应商对认证、重试和并发验证的明确答复。"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-02",
+        "title": "协调测试阶段3人日资源缺口",
+        "ownerRoleId": "pm",
+        "dueDate": "2026-10-19",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "项目经理应在2026-10-19前协调测试阶段的3人日资源缺口；本次会议没有确认已经补足人员。"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "kind": "decision.set",
+      "targetId": "DEC-01",
+      "field": "title",
+      "expected": "短信是否纳入首版：尚待范围、资源与授权决定",
+      "value": "短信初步估计增加8人日，是否纳入首版尚待评估与授权",
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "短信增加8人日只是初步估计，费用和纳入首版的决定仍待评估。"
+        }
+      ]
+    }
+  ]
+}
