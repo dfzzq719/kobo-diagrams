@@ -12,22 +12,26 @@ with a hairline instead of rounded cards, decorative backgrounds or gradients.
 Typography follows the established Noto Sans JP / Yu Gothic / Meiryo sans stack;
 code and exact version data retain monospace. No decorative icon family is needed.
 
-The opening must prove business depth. Use the complete six-document CRM case in
-`examples/project-case/`: its scope hierarchy, decision loops, integrated variance
+The diagrams must prove business depth. Keep the complete six-document CRM case
+in `examples/project-case/`: its scope hierarchy, decision loops, integrated variance
 schedule, full responsibility matrix, risks and issues share the same scenario.
 Never replace those sources with a four-node hierarchy, a few-task schedule or a
 three-row responsibility table for visual convenience. The source manifest owns
 the facts and counts; the generator reads it without simplifying business content.
 
-The header's product name is modest. Actual schedule variance, the complete RACI
-structure and readable work-package/ownership details carry the composition.
-Distinguish full overview from detail at the image itself. Each document ships a
-complete original SVG and complete PNG, visible in the gallery without a collapsed
-disclosure. Detail images change only the original SVG's root viewBox; record that
-viewport and retain all underlying source content. Offer complete figures beside
-the details, not hidden behind them. A dense overview may establish structure;
-never pretend that ant-sized overview labels are readable detail. On narrow screens
-preserve reading scale with scrollable details and an explicit complete-SVG link.
+Keep the gallery concise: four types only, in WBS, RACI, flow and schedule order.
+Each type gets one complete detailed figure, one short description and text links
+to the original SVG, PNG, source and optional detail crop. Do not repeat a hero
+collage or place a second enlarged detail inline. Risk and issue registers remain
+available as complete source and assets; do not expand their text tables column by
+column in the presentation. The product name stays modest and the diagrams carry
+the page. Complete figures are visible without collapsed disclosures; original-size
+links support reading on narrow screens.
+
+Keep full figures and detail crops distinct. All six documents still ship a
+complete original SVG and complete PNG. Detail assets retain the original SVG
+content and record their viewports; do not pass a crop off as a complete diagram
+or pretend that overview labels at thumbnail scale are readable detail.
 
 For late-row table details, keep every role or judgment column. Group whole
 columns into reading-width panels and pair the original header viewport with the
