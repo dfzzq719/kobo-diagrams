@@ -1,0 +1,475 @@
+{
+  "generator": "scripts/build-showcase.mjs",
+  "caseId": "crm-service-rollout",
+  "statusDate": "2026-10-14",
+  "renderer": {
+    "package": "@taskobo/diagrams",
+    "coreVersion": "0.1.2",
+    "mermaidVersion": "12.2.0",
+    "sourceSHA256": {
+      "color-engine.mjs": "d02b53c1b4b9219c1c92cb550cd084809e6b3b2d2e167a90550d5c3bb3ff6386",
+      "diagram-catalog.mjs": "9d62186dfaa209fcede2af9882975a40ce8ba564018151775eba1c3f1367e489",
+      "diagram-renderer.mjs": "2b4c3924340df4283637364f35c51111da703f82adb73da5cc8e83c712b632ef",
+      "document-renderer.mjs": "38bfd791c4a602e560c35c60e86dd343edff946e894ddb45bd9374460a72aff6",
+      "gantt-status.mjs": "7363fb2b207907eb5d63b669824e7b2308d795a5be76118276e2decaa753830d",
+      "index.mjs": "1e6841005e2084dda9f4c0a4963f9cd9344d2970160c5f65d5cc0050216d2bfd",
+      "mermaid-engine.mjs": "058f533d020712fa55675f8c0ea335b12ab7c2650d8c37556a5b5aade464e944",
+      "native-theme-adapters.mjs": "91c4a1167629fe28a9b1b96ba45615641b80dea7a654990f528721cbbe0c57a1",
+      "profile.mjs": "1d721d8b22b6ace8b8639602cfd486f71aa1bfdfdb204323ecfbd20d3faff73e",
+      "source-policy.mjs": "b60b064fd541e1cf5264dcd1c73dfff5bee196f0b89cacbd96358eaffeb26058",
+      "surface-contrast.mjs": "551476e46157ed05422e63e007cd096aa1ec9910f25194474602e9e219e40f4a",
+      "version.mjs": "8f8e6ff6df37b4d35f17d44695f835adf9a881c31214cbb9cfe7cae427ae4762"
+    }
+  },
+  "inputsSHA256": "dbaa8f7daebca0a7ce83acb5394af3431b7f0efb7d040eaaba0a93c1ab60afe4",
+  "viewports": {
+    "wbs": {
+      "x": 462.03,
+      "y": 493.6,
+      "width": 1292.25,
+      "height": 270,
+      "focusLabels": [
+        "1.3 Data migration and CRM integration",
+        "1.3.1 Migration data and mapping",
+        "1.3.2 CRM integration and replay control",
+        "1.3.3 Migration decision record"
+      ],
+      "matchedLabels": [
+        "1.3 Data migration and CRM integration",
+        "1.3.1 Migration data and mappingEvidence: all 20,000 sourcerecords traceto a target or an approvedexclusion",
+        "1.3.2 CRM integration and replaycontrolEvidence: real-endpointauthentication,retry and concurrency casesverified",
+        "1.3.3 Migration decision recordEvidence: decisions for all 80duplicate-keycandidates applied anddifferences rechecked"
+      ],
+      "method": "Complete G3 cluster boundary, including its actual three work-package leaves; no adjacent group or root fragment"
+    },
+    "workflow": {
+      "x": 183,
+      "y": 1935,
+      "width": 960,
+      "height": 150.4375,
+      "contextAnnotation": "Information Management Lead → Project Manager (PM)",
+      "focusLabels": [
+        "Information-management release conditions remain unmet",
+        "Block release of the proposed change until specified evidence is accepted",
+        "Conditional approval alone does not activate a changed baseline"
+      ],
+      "matchedLabels": [
+        "[Information-management release conditions remain unmet]",
+        "Block release of the proposed change until specified evidence is accepted"
+      ],
+      "method": "Unchanged original information-management blocking branch and arrow; participant names are a separate figure-context annotation, not redrawn actor boxes"
+    },
+    "gantt": {
+      "x": 720.999927520752,
+      "y": 171.9999237060547,
+      "width": 744.0055313110354,
+      "height": 182.0000762939453,
+      "bands": [
+        {
+          "ids": [
+            "b_api",
+            "f_api"
+          ],
+          "box": {
+            "x": 780,
+            "y": 181.9999237060547,
+            "width": 589.7981567382812,
+            "height": 74.00007629394531
+          },
+          "contextViewBox": {
+            "x": -22,
+            "y": 201.4999542236328,
+            "width": 720,
+            "height": 49.00008964538574
+          },
+          "bodyViewBox": {
+            "x": 720.999927520752,
+            "y": 171.9999237060547,
+            "width": 744.0055313110354,
+            "height": 94.00007629394531
+          }
+        },
+        {
+          "ids": [
+            "b_migration",
+            "f_migration"
+          ],
+          "box": {
+            "x": 816,
+            "y": 269.9999084472656,
+            "width": 567.5948791503906,
+            "height": 74.00009155273438
+          },
+          "contextViewBox": {
+            "x": -22,
+            "y": 289.49993896484375,
+            "width": 720,
+            "height": 49.00008964538574
+          },
+          "bodyViewBox": {
+            "x": 720.999927520752,
+            "y": 259.9999084472656,
+            "width": 744.0055313110354,
+            "height": 94.00009155273438
+          }
+        }
+      ],
+      "axisViewBox": {
+        "x": 720.999927520752,
+        "y": 10.211353301798233,
+        "width": 744.0055313110354,
+        "height": 40.00008010864258
+      },
+      "focusLabels": [
+        "Trial — CRM connection / ISSUE-01",
+        "Forecast 10/18 / already overdue by status date",
+        "Trial — migration / ISSUE-02",
+        "Forecast 10/23 / 3 days later than baseline"
+      ],
+      "matchedLabels": [
+        "Forecast 10/18 / already overdue by status date",
+        "Forecast 10/23 / 3 days later than baseline",
+        "Trial — CRM connection / ISSUE-01",
+        "Trial — migration / ISSUE-02"
+      ],
+      "method": "API and migration pairs only; original section strips and original, aligned date-axis viewport repeat for each unchanged row band; no sentence truncation"
+    },
+    "raci": {
+      "x": 24,
+      "y": 1491.3,
+      "width": 1555,
+      "height": 419,
+      "focusLabels": [
+        "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+        "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+        "RACI-13 | Execute preauthorized emergency rollback, verify recovery and notify users"
+      ],
+      "matchedLabels": [
+        "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+        "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+        "RACI-13 | Execute preauthorized emergency rollback, verify recoveryand notify users"
+      ],
+      "sourceRows": {
+        "first": 11,
+        "last": 13
+      },
+      "sourceIds": [
+        "RACI-11",
+        "RACI-12",
+        "RACI-13"
+      ],
+      "panels": [
+        {
+          "x": 24,
+          "width": 765,
+          "firstColumn": 1,
+          "lastColumn": 4,
+          "headerViewBox": {
+            "x": 24,
+            "y": 80,
+            "width": 765,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 24,
+            "y": 1491.3,
+            "width": 765,
+            "height": 419
+          }
+        },
+        {
+          "x": 789,
+          "width": 790,
+          "firstColumn": 5,
+          "lastColumn": 9,
+          "headerViewBox": {
+            "x": 789,
+            "y": 80,
+            "width": 790,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 789,
+            "y": 1491.3,
+            "width": 790,
+            "height": 419
+          }
+        }
+      ],
+      "method": "Original SVG header and the same complete source rows, grouped at actual column boundaries; no rebuilt table and no omitted columns"
+    },
+    "risk": {
+      "x": 24,
+      "y": 174.2,
+      "width": 1915,
+      "height": 597.6000000000001,
+      "focusLabels": [
+        "RISK-01 | A further CRM recovery delay could push trial integration testing",
+        "RISK-02 | Incorrect duplicate handling could reach production"
+      ],
+      "matchedLabels": [
+        "RISK-01 | A further CRM recovery delay could push trial integration testing",
+        "RISK-02 | Incorrect duplicate handling could reach production"
+      ],
+      "sourceRows": {
+        "first": 1,
+        "last": 2
+      },
+      "sourceIds": [
+        "RISK-01",
+        "RISK-02"
+      ],
+      "panels": [
+        {
+          "x": 24,
+          "width": 695,
+          "firstColumn": 1,
+          "lastColumn": 3,
+          "headerViewBox": {
+            "x": 24,
+            "y": 80,
+            "width": 695,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 24,
+            "y": 174.2,
+            "width": 695,
+            "height": 597.6000000000001
+          }
+        },
+        {
+          "x": 719,
+          "width": 690,
+          "firstColumn": 4,
+          "lastColumn": 6,
+          "headerViewBox": {
+            "x": 719,
+            "y": 80,
+            "width": 690,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 719,
+            "y": 174.2,
+            "width": 690,
+            "height": 597.6000000000001
+          }
+        },
+        {
+          "x": 1409,
+          "width": 530,
+          "firstColumn": 7,
+          "lastColumn": 8,
+          "headerViewBox": {
+            "x": 1409,
+            "y": 80,
+            "width": 530,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 1409,
+            "y": 174.2,
+            "width": 530,
+            "height": 597.6000000000001
+          }
+        }
+      ],
+      "method": "Original SVG header and the same complete source rows, grouped at actual column boundaries; no rebuilt table and no omitted columns"
+    },
+    "issues": {
+      "x": 24,
+      "y": 174.2,
+      "width": 1615,
+      "height": 563.5,
+      "focusLabels": [
+        "ISSUE-01 | CRM sandbox authentication returns 401 | investigating",
+        "ISSUE-02 | Trial-migration reconciliation differences | awaiting rule decision"
+      ],
+      "matchedLabels": [
+        "ISSUE-01 | CRM sandboxauthentication returns401 | investigatingThe 2026-10-12 completion baseline has passed.",
+        "ISSUE-02 | Trial-migration reconciliation differences | awaitingrule decision80 duplicate-key candidates among 20,000 source records."
+      ],
+      "sourceRows": {
+        "first": 1,
+        "last": 2
+      },
+      "sourceIds": [
+        "ISSUE-01",
+        "ISSUE-02"
+      ],
+      "panels": [
+        {
+          "x": 24,
+          "width": 740,
+          "firstColumn": 1,
+          "lastColumn": 3,
+          "headerViewBox": {
+            "x": 24,
+            "y": 80,
+            "width": 740,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 24,
+            "y": 174.2,
+            "width": 740,
+            "height": 563.5
+          }
+        },
+        {
+          "x": 764,
+          "width": 875,
+          "firstColumn": 4,
+          "lastColumn": 6,
+          "headerViewBox": {
+            "x": 764,
+            "y": 80,
+            "width": 875,
+            "height": 94.2
+          },
+          "bodyViewBox": {
+            "x": 764,
+            "y": 174.2,
+            "width": 875,
+            "height": 563.5
+          }
+        }
+      ],
+      "method": "Original SVG header and the same complete source rows, grouped at actual column boundaries; no rebuilt table and no omitted columns"
+    }
+  },
+  "heroViewports": {
+    "gantt": {
+      "x": 720.999927520752,
+      "y": 171.9999237060547,
+      "width": 744.0055313110354,
+      "height": 182.0000762939453,
+      "bands": [
+        {
+          "ids": [
+            "b_api",
+            "f_api"
+          ],
+          "box": {
+            "x": 780,
+            "y": 181.9999237060547,
+            "width": 589.7981567382812,
+            "height": 74.00007629394531
+          },
+          "contextViewBox": {
+            "x": -22,
+            "y": 201.4999542236328,
+            "width": 720,
+            "height": 49.00008964538574
+          },
+          "bodyViewBox": {
+            "x": 720.999927520752,
+            "y": 171.9999237060547,
+            "width": 744.0055313110354,
+            "height": 94.00007629394531
+          }
+        },
+        {
+          "ids": [
+            "b_migration",
+            "f_migration"
+          ],
+          "box": {
+            "x": 816,
+            "y": 269.9999084472656,
+            "width": 567.5948791503906,
+            "height": 74.00009155273438
+          },
+          "contextViewBox": {
+            "x": -22,
+            "y": 289.49993896484375,
+            "width": 720,
+            "height": 49.00008964538574
+          },
+          "bodyViewBox": {
+            "x": 720.999927520752,
+            "y": 259.9999084472656,
+            "width": 744.0055313110354,
+            "height": 94.00009155273438
+          }
+        }
+      ],
+      "axisViewBox": {
+        "x": 720.999927520752,
+        "y": 10.211353301798233,
+        "width": 744.0055313110354,
+        "height": 40.00008010864258
+      },
+      "focusLabels": [
+        "Trial — CRM connection / ISSUE-01",
+        "Forecast 10/18 / already overdue by status date",
+        "Trial — migration / ISSUE-02",
+        "Forecast 10/23 / 3 days later than baseline"
+      ],
+      "matchedLabels": [
+        "Forecast 10/18 / already overdue by status date",
+        "Forecast 10/23 / 3 days later than baseline",
+        "Trial — CRM connection / ISSUE-01",
+        "Trial — migration / ISSUE-02"
+      ],
+      "method": "API and migration pairs only; original section strips and original, aligned date-axis viewport repeat for each unchanged row band; no sentence truncation"
+    },
+    "raci": {
+      "sourceRow": 13,
+      "headerViewBox": {
+        "x": 24,
+        "y": 80,
+        "width": 1555,
+        "height": 94.2
+      },
+      "bodyViewBox": {
+        "x": 24,
+        "y": 1747.8999999999999,
+        "width": 1555,
+        "height": 162.4
+      }
+    }
+  },
+  "files": {
+    "gantt-detail.png": "e6050b2c938bf27c53c4358cd8a6f1b31cda4657fcd6cac19dbf7908779754d7",
+    "gantt-detail.svg": "ecc58fc06754ba9e4e82362f48f743a809aadfaa8c62e54570088fbed5e8e4f8",
+    "gantt-figure.png": "714ddf0f52bc8fb8e234b434dc3d96d99db25ed8e7bc31e93f9b216760e2f6ca",
+    "gantt-figure.svg": "573e762c673aa82b4a95b39bde55be6f690a2c7bd2c8e9800861f51ed6d4a015",
+    "gantt.svg": "9f61b9be9f85a467a519dabf9fafb643dccf9b2af6e210dbe758dcac5dee6590",
+    "inputs.json": "0bae2c33c1a1962c7d33c1d857320ac78d8a05bd2c611dfb6e081ea263cfa35b",
+    "issues-detail.png": "7bbf1e0c7dcf358662c198e499efc710ed3083e44731062e2479f95a3af6dd8e",
+    "issues-detail.svg": "ba69e6acc81ac7959f378d3b7f5864af54b7286cc64f2c6b338555fdb9145eaf",
+    "issues-figure.png": "aa91262eb2c9b1f466e5d8bdde3a251bbd6a8a2b89b4f0e5fbb0f479fcef673f",
+    "issues-figure.svg": "8db223d01e2dbd650c034c7f25ad6ca64a105b7b18b15018dbcd23769fb51f2f",
+    "issues.svg": "98645b0f59a1c53cb16fb1780e248fe985751d98a772a9ed7b26c61848adc982",
+    "qa-desktop.png": "1205109d5c9910b85993ab1442f3f0e30207769b54ee840f271c87f8ca8b121a",
+    "qa-mobile.png": "232e9780bcd8020a35e5f92ce720cc15938cb74c1c021bba2e9f6785f1a023f8",
+    "qa.json": "d591ddfe1a36c95dd4ed83b19eb5374fac468cabfc8518580f00b4b11c65598a",
+    "raci-detail.png": "a0232462af65174bfc19389e1da15a4ce049ab113a7a1a3e2a29402359f7231f",
+    "raci-detail.svg": "4fb9b5464f1f8aa012511577603d3249a7fa5caa647cdd271a5ee4e1fc2dbb41",
+    "raci-figure.png": "02e235bf4d155484a03969a4f3dce589da9e994a44a9e6c9afe1c74404058670",
+    "raci-figure.svg": "efdd51915fe95c69fc2d714bb66ea216de7a35edcd9c2b5785b1ca722fb3a018",
+    "raci.svg": "c878af043cf9bed3572cd882c6a7833ab59c517e5c54286151907257701fd5ef",
+    "risk-detail.png": "ed0aeff123e7ad1170ed1aac704963fafd5fec8e58cff32865cdd9e9e6ccca8c",
+    "risk-detail.svg": "b26ea0b9a40da6908cabd9273a69fdb951372b4b5bd3d4904125394632b3d65b",
+    "risk-figure.png": "6449ff904eb0b28eff6f71ac6ee6a9cac73fca3924dc13012b5420f5c60f871b",
+    "risk-figure.svg": "8606ac974c94e1bc03c6d1894bb1ddd23d201867a71bd1f0702e414cb672d8de",
+    "risk.svg": "0dcf0929ac25d4ff85bed8bb008b1c8cc10361ed3441771bbe697b171a787a72",
+    "showcase-mobile.png": "c1819f73a8998c3d9d0db8786e4495cb66b27602a09bb014f755164dfd3bc8fe",
+    "showcase-mobile.svg": "f8a609e66ca805bb51e206ab524f2b54d64c47479e923c3500787c1da3a44b75",
+    "showcase.html": "b632f09024bd26a23e5d0d1f7b413e758b3a16f2924577f6b734fffe59dc3c45",
+    "showcase.png": "2017a1cc212e861701e3e9e127738664a6fd11d3f87e70e04d1f6156a0b17265",
+    "showcase.svg": "63ee3ba83e0a9c830ad2f27a9f38a38efe1f05f4ff4f60181280fcdc2a0752d1",
+    "wbs-detail.png": "907765931c0dfb6e33e6719b6c9fa96ce6a5ba1e8c8c71e2de75a175a0a4aaa0",
+    "wbs-detail.svg": "52bf638ce73ca4020b6605c3f49dba10ee754f4cf3e95049c66e26561b0bd179",
+    "wbs-figure.png": "720305fc0026e28e0d6213a56b26d7c2d9e1ddadd381818c32564b8d6adceb49",
+    "wbs-figure.svg": "50929470a0313bcb7ec673823462f6a004b71e82fe2eef9652b3063f95d2a71b",
+    "wbs.svg": "ef92360a2d2adf7b9edb4befccf1831a58f555da29f8b09f364a494cbcc526e4",
+    "workflow-detail.png": "cd43651d730e65e9ed66a397d33ffae3ad69421772ddab6309c11962852f3a0b",
+    "workflow-detail.svg": "24193e4d09e796e152fd5b7e42fbeecb3b3ea574506f786b442a2ff3c33729a6",
+    "workflow-figure.png": "ce91a09e2902478f78f5a9a73aa872b71abebf6550f390b98737229c5278b783",
+    "workflow-figure.svg": "4f0b65059296f6b2df7dae569235950b3a4e3e25939d4dc59a5b24925bf5b43a",
+    "workflow.svg": "b1cd1c2fab40fbe021c7d4c88142190c5bf190c20990f07257dd75f8cfaca293"
+  }
+}

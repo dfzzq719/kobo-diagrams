@@ -1,0 +1,421 @@
+{
+  "renderer": {
+    "coreVersion": "0.1.2",
+    "mermaidVersion": "12.2.0"
+  },
+  "caseId": "crm-service-rollout",
+  "statusDate": "2026-10-14",
+  "documents": [
+    {
+      "id": "wbs",
+      "sourceFile": "wbs.mmd",
+      "sourceSHA256": "92066e2508b042bf838afb1b48bde69f4c1d254990ea0f2331f84bbb92931281",
+      "width": 1768.25,
+      "height": 1587.5999755859375,
+      "counts": {
+        "deliverableGroups": 6,
+        "workPackages": 18
+      },
+      "detail": {
+        "x": 462.03,
+        "y": 493.6,
+        "width": 1292.25,
+        "height": 270,
+        "focusLabels": [
+          "1.3 Data migration and CRM integration",
+          "1.3.1 Migration data and mapping",
+          "1.3.2 CRM integration and replay control",
+          "1.3.3 Migration decision record"
+        ],
+        "matchedLabels": [
+          "1.3 Data migration and CRM integration",
+          "1.3.1 Migration data and mappingEvidence: all 20,000 sourcerecords traceto a target or an approvedexclusion",
+          "1.3.2 CRM integration and replaycontrolEvidence: real-endpointauthentication,retry and concurrency casesverified",
+          "1.3.3 Migration decision recordEvidence: decisions for all 80duplicate-keycandidates applied anddifferences rechecked"
+        ],
+        "method": "Complete G3 cluster boundary, including its actual three work-package leaves; no adjacent group or root fragment"
+      }
+    },
+    {
+      "id": "workflow",
+      "sourceFile": "change-control.mmd",
+      "sourceSHA256": "c0cd0da5207fbae226bf6f4c7f046d51ebb8d5fbedd299ee6715032ce66cab3c",
+      "width": 1679,
+      "height": 6283,
+      "counts": {
+        "participants": 7,
+        "changeRequests": 1
+      },
+      "detail": {
+        "x": 183,
+        "y": 1935,
+        "width": 960,
+        "height": 150.4375,
+        "contextAnnotation": "Information Management Lead → Project Manager (PM)",
+        "focusLabels": [
+          "Information-management release conditions remain unmet",
+          "Block release of the proposed change until specified evidence is accepted",
+          "Conditional approval alone does not activate a changed baseline"
+        ],
+        "matchedLabels": [
+          "[Information-management release conditions remain unmet]",
+          "Block release of the proposed change until specified evidence is accepted"
+        ],
+        "method": "Unchanged original information-management blocking branch and arrow; participant names are a separate figure-context annotation, not redrawn actor boxes"
+      }
+    },
+    {
+      "id": "gantt",
+      "sourceFile": "schedule.mmd",
+      "sourceSHA256": "d1371a7d1399793e6d1fc0f8415a59f36432876981305f5a155da343992f4bad",
+      "width": 2235.097900390625,
+      "height": 2342.78857421875,
+      "counts": {
+        "trialComparisons": 6,
+        "actualCompletions": 2,
+        "forecasts": 4,
+        "pendingTrialDecisions": 4,
+        "implementationProposalEntries": 30,
+        "totalEntries": 47
+      },
+      "detail": {
+        "x": 720.999927520752,
+        "y": 171.9999237060547,
+        "width": 744.0055313110354,
+        "height": 182.0000762939453,
+        "bands": [
+          {
+            "ids": [
+              "b_api",
+              "f_api"
+            ],
+            "box": {
+              "x": 780,
+              "y": 181.9999237060547,
+              "width": 589.7981567382812,
+              "height": 74.00007629394531
+            },
+            "contextViewBox": {
+              "x": -22,
+              "y": 201.4999542236328,
+              "width": 720,
+              "height": 49.00008964538574
+            },
+            "bodyViewBox": {
+              "x": 720.999927520752,
+              "y": 171.9999237060547,
+              "width": 744.0055313110354,
+              "height": 94.00007629394531
+            }
+          },
+          {
+            "ids": [
+              "b_migration",
+              "f_migration"
+            ],
+            "box": {
+              "x": 816,
+              "y": 269.9999084472656,
+              "width": 567.5948791503906,
+              "height": 74.00009155273438
+            },
+            "contextViewBox": {
+              "x": -22,
+              "y": 289.49993896484375,
+              "width": 720,
+              "height": 49.00008964538574
+            },
+            "bodyViewBox": {
+              "x": 720.999927520752,
+              "y": 259.9999084472656,
+              "width": 744.0055313110354,
+              "height": 94.00009155273438
+            }
+          }
+        ],
+        "axisViewBox": {
+          "x": 720.999927520752,
+          "y": 10.211353301798233,
+          "width": 744.0055313110354,
+          "height": 40.00008010864258
+        },
+        "focusLabels": [
+          "Trial — CRM connection / ISSUE-01",
+          "Forecast 10/18 / already overdue by status date",
+          "Trial — migration / ISSUE-02",
+          "Forecast 10/23 / 3 days later than baseline"
+        ],
+        "matchedLabels": [
+          "Forecast 10/18 / already overdue by status date",
+          "Forecast 10/23 / 3 days later than baseline",
+          "Trial — CRM connection / ISSUE-01",
+          "Trial — migration / ISSUE-02"
+        ],
+        "method": "API and migration pairs only; original section strips and original, aligned date-axis viewport repeat for each unchanged row band; no sentence truncation"
+      }
+    },
+    {
+      "id": "raci",
+      "sourceFile": "raci.json",
+      "sourceSHA256": "102ce1fde68d0619fe44d78c151bd9cde8caeacc7e72e0c7fdf155866d251be7",
+      "width": 1603,
+      "height": 2151.7,
+      "counts": {
+        "responsibilityRows": 14,
+        "roles": 8,
+        "assignments": 112
+      },
+      "detail": {
+        "x": 24,
+        "y": 1491.3,
+        "width": 1555,
+        "height": 419,
+        "focusLabels": [
+          "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+          "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+          "RACI-13 | Execute preauthorized emergency rollback, verify recovery and notify users"
+        ],
+        "matchedLabels": [
+          "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+          "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+          "RACI-13 | Execute preauthorized emergency rollback, verify recoveryand notify users"
+        ],
+        "sourceRows": {
+          "first": 11,
+          "last": 13
+        },
+        "sourceIds": [
+          "RACI-11",
+          "RACI-12",
+          "RACI-13"
+        ],
+        "panels": [
+          {
+            "x": 24,
+            "width": 765,
+            "firstColumn": 1,
+            "lastColumn": 4,
+            "headerViewBox": {
+              "x": 24,
+              "y": 80,
+              "width": 765,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 24,
+              "y": 1491.3,
+              "width": 765,
+              "height": 419
+            }
+          },
+          {
+            "x": 789,
+            "width": 790,
+            "firstColumn": 5,
+            "lastColumn": 9,
+            "headerViewBox": {
+              "x": 789,
+              "y": 80,
+              "width": 790,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 789,
+              "y": 1491.3,
+              "width": 790,
+              "height": 419
+            }
+          }
+        ],
+        "method": "Original SVG header and the same complete source rows, grouped at actual column boundaries; no rebuilt table and no omitted columns"
+      }
+    },
+    {
+      "id": "risk",
+      "sourceFile": "risk-register.json",
+      "sourceSHA256": "b76568106b78425547c0754b3937e1c6a80d624a2184957c3d839ddbd6ff38bc",
+      "width": 1963,
+      "height": 2311.8,
+      "counts": {
+        "risks": 7
+      },
+      "detail": {
+        "x": 24,
+        "y": 174.2,
+        "width": 1915,
+        "height": 597.6000000000001,
+        "focusLabels": [
+          "RISK-01 | A further CRM recovery delay could push trial integration testing",
+          "RISK-02 | Incorrect duplicate handling could reach production"
+        ],
+        "matchedLabels": [
+          "RISK-01 | A further CRM recovery delay could push trial integration testing",
+          "RISK-02 | Incorrect duplicate handling could reach production"
+        ],
+        "sourceRows": {
+          "first": 1,
+          "last": 2
+        },
+        "sourceIds": [
+          "RISK-01",
+          "RISK-02"
+        ],
+        "panels": [
+          {
+            "x": 24,
+            "width": 695,
+            "firstColumn": 1,
+            "lastColumn": 3,
+            "headerViewBox": {
+              "x": 24,
+              "y": 80,
+              "width": 695,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 24,
+              "y": 174.2,
+              "width": 695,
+              "height": 597.6000000000001
+            }
+          },
+          {
+            "x": 719,
+            "width": 690,
+            "firstColumn": 4,
+            "lastColumn": 6,
+            "headerViewBox": {
+              "x": 719,
+              "y": 80,
+              "width": 690,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 719,
+              "y": 174.2,
+              "width": 690,
+              "height": 597.6000000000001
+            }
+          },
+          {
+            "x": 1409,
+            "width": 530,
+            "firstColumn": 7,
+            "lastColumn": 8,
+            "headerViewBox": {
+              "x": 1409,
+              "y": 80,
+              "width": 530,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 1409,
+              "y": 174.2,
+              "width": 530,
+              "height": 597.6000000000001
+            }
+          }
+        ],
+        "method": "Original SVG header and the same complete source rows, grouped at actual column boundaries; no rebuilt table and no omitted columns"
+      }
+    },
+    {
+      "id": "issues",
+      "sourceFile": "issues.json",
+      "sourceSHA256": "d3fbb7529d66cf52ac78fb449e4cd85f36ad307b8a4030908a12bb08fed1c553",
+      "width": 1663,
+      "height": 2149.4,
+      "counts": {
+        "issues": 6,
+        "mandatoryCases": 30,
+        "passed": 18,
+        "failed": 5,
+        "blocked": 4,
+        "notRun": 3
+      },
+      "detail": {
+        "x": 24,
+        "y": 174.2,
+        "width": 1615,
+        "height": 563.5,
+        "focusLabels": [
+          "ISSUE-01 | CRM sandbox authentication returns 401 | investigating",
+          "ISSUE-02 | Trial-migration reconciliation differences | awaiting rule decision"
+        ],
+        "matchedLabels": [
+          "ISSUE-01 | CRM sandboxauthentication returns401 | investigatingThe 2026-10-12 completion baseline has passed.",
+          "ISSUE-02 | Trial-migration reconciliation differences | awaitingrule decision80 duplicate-key candidates among 20,000 source records."
+        ],
+        "sourceRows": {
+          "first": 1,
+          "last": 2
+        },
+        "sourceIds": [
+          "ISSUE-01",
+          "ISSUE-02"
+        ],
+        "panels": [
+          {
+            "x": 24,
+            "width": 740,
+            "firstColumn": 1,
+            "lastColumn": 3,
+            "headerViewBox": {
+              "x": 24,
+              "y": 80,
+              "width": 740,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 24,
+              "y": 174.2,
+              "width": 740,
+              "height": 563.5
+            }
+          },
+          {
+            "x": 764,
+            "width": 875,
+            "firstColumn": 4,
+            "lastColumn": 6,
+            "headerViewBox": {
+              "x": 764,
+              "y": 80,
+              "width": 875,
+              "height": 94.2
+            },
+            "bodyViewBox": {
+              "x": 764,
+              "y": 174.2,
+              "width": 875,
+              "height": 563.5
+            }
+          }
+        ],
+        "method": "Original SVG header and the same complete source rows, grouped at actual column boundaries; no rebuilt table and no omitted columns"
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1080,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "figures": 6,
+      "fullLinks": 6,
+      "details": 6
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "viewport": 390,
+      "documentWidth": 390,
+      "figures": 6,
+      "fullLinks": 6,
+      "details": 6
+    }
+  ]
+}

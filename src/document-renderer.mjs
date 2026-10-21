@@ -21,7 +21,34 @@ export function parseTable(source){
   }
   return doc;
 }
-function wrap(value,limit){const lines=[];for(const line of String(value??'—').split(/\r?\n/)){let text='';let units=0;for(const char of line){const size=/[\u0020-\u007E]/.test(char)?.55:1;if(units+size>limit&&text){lines.push(text);text='';units=0;}text+=char;units+=size;}lines.push(text);}return lines;}
+function wrap(value,limit){
+  const lines=[];
+  for(const line of String(value??'—').split(/\r?\n/)){
+    let text='',units=0;
+    const flush=()=>{lines.push(text);text='';units=0;};
+    // Latin words, dates and grouped numbers stay together when they fit a
+    // column. CJK and other characters keep the original character wrapping.
+    const tokens=line.match(/[\p{Script=Latin}\p{Number}]+(?:[’'.,:/-][\p{Script=Latin}\p{Number}]+)*[.,!?;:]*|[ \t]+|./gu)||[];
+    for(const token of tokens){
+      const size=textUnits(token);
+      // A soft-break space must not create an indented or empty extra line.
+      if(/^[ \t]+$/.test(token)&&units+size>limit)continue;
+      if(size<=limit){
+        if(units+size>limit&&text)flush();
+        text+=token;units+=size;
+      }else{
+        // Only an overlong token falls back to bounded character chunks.
+        for(const char of token){
+          const width=textUnits(char);
+          if(units+width>limit&&text)flush();
+          text+=char;units+=width;
+        }
+      }
+    }
+    lines.push(text);
+  }
+  return lines;
+}
 const textUnits=value=>[...value].reduce((sum,char)=>sum+(/[\u0020-\u007E]/.test(char)?.55:1),0);
 const RACI_LEGEND=[['A','最終責任'],['R','実行責任'],['C','相談先'],['I','報告先'],['A/R','最終・実行責任']];
 function layoutRaciLegend(width,fontSize){

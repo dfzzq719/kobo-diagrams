@@ -3,85 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kobo Diagrams · Local example</title>
+  <title>Kobo Diagrams · Project case explorer</title>
   <style>
-    :root{font-family:system-ui,sans-serif;color:#152438;background:#f3f5f7}*{box-sizing:border-box}body{max-width:1280px;margin:auto;padding:32px}h1{font-size:26px;margin:0 0 8px}p{line-height:1.55}a{color:#1456d9}.tools{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin:24px 0 16px}label{display:grid;gap:6px;font-weight:600}select,button{font:inherit;padding:9px 12px;border:1px solid #aeb9c7;border-radius:5px;background:white;color:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:wait}button.primary{background:#1456d9;color:white;border-color:#1456d9}.layout{display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,1.4fr);gap:20px}textarea{width:100%;min-height:420px;padding:16px;border:1px solid #aeb9c7;border-radius:5px;resize:vertical;font:14px/1.6 ui-monospace,monospace;background:white;color:#152438}#preview{min-height:420px;padding:20px;overflow:auto;border:1px solid #c9d1da;background:white;border-radius:5px}#preview svg{max-width:100%;height:auto}#status{min-height:1.5em;white-space:pre-wrap;color:#52637a}#status.error{color:#a1272d}.hint{font-size:14px;color:#52637a}@media(max-width:760px){body{padding:20px}.layout{grid-template-columns:1fr}textarea,#preview{min-height:280px}}
+    :root{font-family:"Noto Sans JP","Yu Gothic",Meiryo,system-ui,sans-serif;color:#0d2046;background:#fffefa;color-scheme:light;accent-color:#1456d9}
+    *{box-sizing:border-box}body{max-width:1680px;margin:auto;padding:32px}h1{font-size:32px;letter-spacing:-.025em;margin:0 0 8px}p{line-height:1.6;max-width:80ch}a{color:#1456d9;text-underline-offset:3px}::selection{background:#dbe7ff;color:#0d2046}
+    .tools{display:flex;flex-wrap:wrap;align-items:end;gap:16px;margin:24px 0 12px}label{display:grid;gap:6px;font-weight:600;min-width:0;grid-template-columns:minmax(0,1fr)}select,button{font:inherit;padding:10px 12px;border:1px solid #aeb9c7;border-radius:6px;background:white;color:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}button.primary{background:#1456d9;color:white;border-color:#1456d9}button:hover:not(:disabled){border-color:#1456d9}button.primary:hover:not(:disabled){background:#0d45b7}:focus-visible{outline:3px solid #c64c38;outline-offset:3px}select{max-width:100%;width:100%;min-width:0}
+    .layout{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.6fr);gap:24px;margin-top:24px}.editor{display:grid;gap:8px;align-content:start}.editor label{display:block}textarea{width:100%;height:min(72vh,860px);min-height:420px;padding:16px;border:1px solid #aeb9c7;border-radius:6px;resize:vertical;font:13px/1.65 ui-monospace,monospace;background:white;color:#152438;tab-size:2;caret-color:#1456d9}
+    .view-tools{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:0 0 8px}.view-tools button{padding:6px 9px;font-size:14px}.view-tools label{display:flex;align-items:center;gap:8px;font-size:14px}.view-tools input{max-width:130px}output{font-variant-numeric:tabular-nums;min-width:4ch}#preview{height:min(72vh,860px);min-height:420px;padding:20px;overflow:auto;overscroll-behavior:contain;border:1px solid #c9d1da;background:#f3f5f7;border-radius:6px;scrollbar-color:#aeb9c7 #f3f5f7}#preview svg{display:block;max-width:none;height:auto;background:#fffefa}
+    #status{min-height:1.5em;white-space:pre-wrap;color:#52637a;margin:12px 0}#status.error{color:#a1272d}.hint{font-size:13px;color:#52637a}.case-select{flex:1;max-width:620px}#question{font-weight:600;max-width:100ch}#scope{margin:8px 0;color:#52637a}#status:empty{display:none}
+    @media(max-width:800px){body{padding:20px}.layout{grid-template-columns:minmax(0,1fr)}.preview-panel{grid-row:1}.tools{align-items:stretch;gap:12px}.case-select{flex-basis:100%;max-width:100%}textarea{height:380px;min-height:280px}#preview{height:65vh;min-height:360px}.view-tools{gap:8px}.view-tools input{max-width:95px}h1{font-size:27px}}
   </style>
   <script type="importmap">{"imports":{"mermaid":"../node_modules/mermaid/dist/mermaid.esm.mjs"}}</script>
 </head>
 <body>
-  <h1>Kobo Diagrams</h1>
-  <p>A local browser example using one Mermaid engine for ordinary diagrams, enterprise styles, and Kobo JSON tables.</p>
-  <p class="hint">Run <code>npm ci</code> and a static server from the package root. Dependencies load locally; no CDN or AI API is used. All sample data is fictional.</p>
+  <h1>Explore the project case</h1>
+  <p>Follow a customer-service CRM rollout from acceptance scope to delivery, decision rights and operational readiness. Edit a source document, render it with the shared profile and inspect the actual SVG.</p>
+  <p class="hint">Run <code>npm ci</code> and a static server from this repository. All dependencies and case files load locally. The case is fictional and frozen at its stated reporting date.</p>
   <div class="tools">
-    <label for="mode">Renderer<select id="mode"><option value="general">Ordinary Mermaid</option><option value="enterprise">Enterprise style</option><option value="table">RACI table extension</option></select></label>
-    <button type="button" class="primary" id="render">Render</button>
+    <label class="case-select" for="sample">Document<select id="sample" disabled><option>Loading project case…</option></select></label>
+    <label for="mode">Renderer<select id="mode"><option value="enterprise">Shared project profile</option><option value="general">Ordinary Mermaid</option></select></label>
+    <button type="button" class="primary" id="render" disabled>Render source</button>
     <button type="button" id="download" disabled>Download SVG</button>
   </div>
+  <p id="scope"></p>
+  <p id="question"></p>
   <p id="status" role="status" aria-live="polite">Loading local modules…</p>
   <div class="layout">
-    <label for="source">Source<textarea id="source" spellcheck="false" aria-describedby="source-hint"></textarea><span class="hint" id="source-hint">Table mode uses taskobo.table/v1 JSON, not native Mermaid syntax.</span></label>
-    <section aria-label="Rendered preview" id="preview"></section>
+    <section class="editor" aria-label="Editable source">
+      <label for="source">Source</label>
+      <textarea id="source" spellcheck="false" aria-describedby="source-hint"></textarea>
+      <span class="hint" id="source-hint">RACI and registers use taskobo.table/v1 JSON. Other case documents use Mermaid.</span>
+    </section>
+    <section class="preview-panel" aria-label="Rendered document">
+      <div class="view-tools">
+        <button type="button" id="fit">Fit width</button><button type="button" id="actual">Actual size</button>
+        <label for="zoom">Zoom<input id="zoom" type="range" min="20" max="150" step="1" value="100"><output id="scale" for="zoom">100%</output></label>
+      </div>
+      <div id="preview" tabindex="0" aria-label="Scrollable SVG preview. Use the zoom controls to inspect details." aria-busy="true"></div>
+    </section>
   </div>
   <script type="module">
-    const mode = document.querySelector('#mode');
-    const source = document.querySelector('#source');
-    const preview = document.querySelector('#preview');
-    const status = document.querySelector('#status');
-    const renderButton = document.querySelector('#render');
-    const download = document.querySelector('#download');
-    let currentSvg = '';
-    let renderSequence = 0;
-    try {
-      const [{default: mermaid}, core] = await Promise.all([
-        import('mermaid'), import('../src/index.mjs'),
-      ]);
-      const ordinary = core.createMermaidRenderer(mermaid);
-      const profile = core.createDiagramProfile({standard: {name: 'Fictional delivery team', version: '1.0'}});
-      const [diagramResponse, tableResponse] = await Promise.all([fetch('./plan.mmd'), fetch('./raci.json')]);
-      if (!diagramResponse.ok || !tableResponse.ok) throw new Error('Could not load local sample files.');
-      const [diagramSample, tableSample] = await Promise.all([diagramResponse.text(), tableResponse.text()]);
-      async function render() {
-        const sequence = ++renderSequence;
-        renderButton.disabled = true;
-        download.disabled = true;
-        status.className = '';
-        status.textContent = 'Rendering…';
-        try {
-          const result = mode.value === 'general'
-            ? await ordinary.render(source.value, {config: {securityLevel: 'strict', htmlLabels: false}})
-            : await core.renderDocument(source.value, profile.roles, profile.settings, {mermaid});
-          if (sequence !== renderSequence) return;
-          preview.innerHTML = result.svg;
-          result.bindFunctions?.(preview);
-          currentSvg = result.svg;
-          download.disabled = false;
-          status.textContent = `Core ${core.CORE_VERSION} · Mermaid ${core.MERMAID_VERSION} · ${mode.value === 'general' ? 'ordinary Mermaid' : result.type}`;
-        } catch (error) {
-          if (sequence !== renderSequence) return;
-          preview.replaceChildren();
-          currentSvg = '';
-          status.className = 'error';
-          status.textContent = error?.message || String(error);
-        } finally {
-          if (sequence === renderSequence) renderButton.disabled = false;
-        }
-      }
-      mode.addEventListener('change', () => {source.value = mode.value === 'table' ? tableSample : diagramSample; render();});
-      renderButton.addEventListener('click', render);
-      download.addEventListener('click', () => {
-        const url = URL.createObjectURL(new Blob([currentSvg], {type: 'image/svg+xml;charset=utf-8'}));
-        const link = document.createElement('a');
-        link.href = url; link.download = 'example-diagram.svg'; link.click();
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-      });
-      source.value = diagramSample;
-      await render();
-    } catch (error) {
-      status.className = 'error';
-      status.textContent = `Setup failed: ${error?.message || error}. Install dependencies and serve this package over HTTP.`;
-      renderButton.disabled = true;
+    const $ = id => document.getElementById(id);
+    const mode=$('mode'),sample=$('sample'),source=$('source'),preview=$('preview'),status=$('status');
+    const renderButton=$('render'),download=$('download'),zoom=$('zoom'),scale=$('scale');
+    let currentSvg='',currentWidth=0,renderSequence=0,loadSequence=0,fitWidth=false;
+    function setZoom(value){
+      const svg=preview.querySelector('svg');if(!svg||!currentWidth)return;
+      const percent=Math.max(20,Math.min(150,value));zoom.value=String(percent);scale.value=`${Math.round(percent)}%`;
+      svg.style.width=`${currentWidth*percent/100}px`;svg.style.height='auto';
     }
+    function fit(){fitWidth=true;if(currentWidth)setZoom((preview.clientWidth-40)/currentWidth*100);}
+    $('fit').addEventListener('click',fit);$('actual').addEventListener('click',()=>{fitWidth=false;setZoom(100)});
+    zoom.addEventListener('input',()=>{fitWidth=false;setZoom(Number(zoom.value))});
+    new ResizeObserver(()=>{if(fitWidth)fit()}).observe(preview);
+    async function localJson(url){const response=await fetch(url);if(!response.ok)throw new Error(`Could not load ${url}.`);return response.json();}
+    try{
+      const [{default:mermaid},core,manifest,scenario]=await Promise.all([
+        import('mermaid'),import('../src/index.mjs'),localJson('./project-case/case-manifest.json'),localJson('./project-case/scenario.json'),
+      ]);
+      const ordinary=core.createMermaidRenderer(mermaid);
+      const profile=core.createDiagramProfile(manifest.profileOptions||scenario.profileOptions||{settings:{fontSize:18,density:'compact'},standard:{name:'CRM rollout case',version:'1.0'}});
+      const documents=manifest.documents;if(!Array.isArray(documents)||documents.length!==6)throw new Error('The complete six-document case manifest is required.');
+      sample.replaceChildren();
+      for(const doc of documents){const option=document.createElement('option');option.value=doc.id;option.textContent=doc.title;sample.append(option);}
+      sample.disabled=false;sample.value='raci';renderButton.disabled=false;
+      $('scope').textContent=`${scenario.title} · Reporting date: ${scenario.asOf} · Six linked documents · Fictional case`;
+      async function render(){
+        const sequence=++renderSequence;renderButton.disabled=true;download.disabled=true;preview.setAttribute('aria-busy','true');status.className='';status.textContent='Rendering…';
+        try{
+          if(mode.value==='general'&&core.isTableSource(source.value))throw new Error('JSON tables require the Shared project profile renderer.');
+          const result=mode.value==='general'?await ordinary.render(source.value,{config:{securityLevel:'strict',htmlLabels:false}}):await core.renderDocument(source.value,profile.roles,profile.settings,{mermaid});
+          if(sequence!==renderSequence)return;
+          preview.innerHTML=result.svg;result.bindFunctions?.(preview);currentSvg=result.svg;
+          const svg=preview.querySelector('svg');currentWidth=result.width||svg.viewBox.baseVal.width||Number(svg.getAttribute('width'));
+          if(!currentWidth)throw new Error('Rendered document has no measurable width.');
+          if(fitWidth)fit();else setZoom(Number(zoom.value));
+          download.disabled=false;status.textContent=`Core ${core.CORE_VERSION} · Mermaid ${core.MERMAID_VERSION} · ${mode.value==='general'?'ordinary Mermaid':result.type} · Scroll the document at actual size to read every label.`;
+        }catch(error){if(sequence!==renderSequence)return;preview.replaceChildren();currentSvg='';currentWidth=0;status.className='error';status.textContent=error?.message||String(error);}
+        finally{if(sequence===renderSequence){renderButton.disabled=false;preview.setAttribute('aria-busy','false');}}
+      }
+      async function loadSample(){
+        const sequence=++loadSequence,doc=documents.find(entry=>entry.id===sample.value);if(!doc)return;
+        renderSequence++;renderButton.disabled=true;download.disabled=true;preview.setAttribute('aria-busy','true');status.className='';status.textContent='Loading document…';
+        try{
+          if(!/^[a-z][a-z-]*\.(?:mmd|json)$/.test(doc.file))throw new Error('Invalid case source path.');
+          const response=await fetch('./project-case/'+doc.file);if(!response.ok)throw new Error(`Could not load ${doc.file}.`);
+          const value=await response.text();if(sequence!==loadSequence)return;source.value=value;$('question').textContent=doc.question||'';preview.scrollTo(0,0);await render();
+        }catch(error){if(sequence!==loadSequence)return;status.className='error';status.textContent=error?.message||String(error);renderButton.disabled=false;preview.setAttribute('aria-busy','false');}
+      }
+      mode.addEventListener('change',render);sample.addEventListener('change',loadSample);renderButton.addEventListener('click',render);
+      download.addEventListener('click',()=>{if(!currentSvg)return;const url=URL.createObjectURL(new Blob([currentSvg],{type:'image/svg+xml;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download=`crm-${sample.value}.svg`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+      await loadSample();
+    }catch(error){status.className='error';status.textContent=`Setup failed: ${error?.message||error}. Install dependencies and serve this repository over HTTP.`;renderButton.disabled=true;download.disabled=true;preview.setAttribute('aria-busy','false');}
   </script>
 </body>
 </html>

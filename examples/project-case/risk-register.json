@@ -1,0 +1,189 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "register",
+  "caseId": "crm-service-rollout",
+  "asOf": "2026-10-14",
+  "title": "CRM service rollout | future risk register | fictional, as of 2026-10-14",
+  "columns": [
+    {
+      "key": "risk",
+      "label": "Future consequence",
+      "width": 235
+    },
+    {
+      "key": "trigger",
+      "label": "Trigger",
+      "width": 245
+    },
+    {
+      "key": "impact",
+      "label": "Potential impact",
+      "width": 215
+    },
+    {
+      "key": "response",
+      "label": "Prevention and triggered response",
+      "width": 330
+    },
+    {
+      "key": "owner",
+      "label": "Accountable owner",
+      "width": 165
+    },
+    {
+      "key": "review",
+      "label": "Next review",
+      "width": 195
+    },
+    {
+      "key": "evidence",
+      "label": "Required evidence; not claimed complete",
+      "width": 300
+    },
+    {
+      "key": "residual",
+      "label": "Residual exposure",
+      "width": 230
+    }
+  ],
+  "rows": [
+    {
+      "id": "RISK-01",
+      "ownerRole": "dev",
+      "issueRefs": [
+        "ISSUE-01"
+      ],
+      "reviewDates": [
+        "2026-10-15",
+        "2026-10-18"
+      ],
+      "future": true,
+      "risk": "RISK-01 | A further CRM recovery delay could push trial integration testing",
+      "trigger": "No cause/recovery reply on 2026-10-15, or the 2026-10-18 completion forecast moves later.",
+      "impact": "Real-endpoint testing could restart late and put the 2026-10-26 trial review at risk.",
+      "response": "Development and the CRM Vendor compare recovery options; PM escalates the plan impact. Use mocks only for independent UI work, never as API acceptance evidence.",
+      "owner": "Development Lead",
+      "review": "2026-10-15: vendor reply\n2026-10-18: forecast review",
+      "evidence": "Required: vendor cause/recovery response, dated forecast, real-endpoint authentication and retry test records. None is asserted complete.",
+      "residual": "The external recovery date is not within the project team's sole control."
+    },
+    {
+      "id": "RISK-02",
+      "ownerRole": "business",
+      "issueRefs": [
+        "ISSUE-02"
+      ],
+      "reviewDates": [
+        "2026-10-16",
+        "2026-10-23"
+      ],
+      "future": true,
+      "risk": "RISK-02 | Incorrect duplicate handling could reach production",
+      "trigger": "The 80 candidate decisions remain unapproved, or source-to-target/exclusion traceability fails at recheck.",
+      "impact": "Customer or service histories could be lost or wrongly merged.",
+      "response": "Business decides the rule by 2026-10-16. Reconcile original data, processing results and approved exclusions; stop migration when criteria are unmet.",
+      "owner": "Business Lead",
+      "review": "2026-10-16: rule decision\n2026-10-23: forecast recheck finish",
+      "evidence": "Required: signed rule, dispositions for 80 candidates, traceability for 20,000 source records, counts and business sample results.",
+      "residual": "Matching 20,000 record counts alone cannot detect every content error."
+    },
+    {
+      "id": "RISK-03",
+      "ownerRole": "pm",
+      "issueRefs": [
+        "ISSUE-04",
+        "ISSUE-06"
+      ],
+      "reviewDates": [
+        "2026-10-16",
+        "2026-10-19"
+      ],
+      "future": true,
+      "risk": "RISK-03 | The capacity gap could cause omitted validation or a late trial review",
+      "trigger": "The estimated 3-person-day gap remains uncovered on 2026-10-16 for the 2026-10-19 to 2026-10-23 conflict.",
+      "impact": "The 2026-10-26 trial-testing forecast could slip or mandatory business checks could be missed.",
+      "response": "PM agrees replacement/reallocation with the other project. Quality replans sequence and dates; do not remove mandatory cases to conceal the shortfall.",
+      "owner": "Project Manager (PM)",
+      "review": "2026-10-16: capacity decision\n2026-10-19: readiness check",
+      "evidence": "Required: named resource/time agreements and a feasible validation plan acknowledged by Quality.",
+      "residual": "Replacement staff may need familiarization and add retest effort."
+    },
+    {
+      "id": "RISK-04",
+      "ownerRole": "pm",
+      "issueRefs": [
+        "ISSUE-03"
+      ],
+      "changeRef": "CR-01",
+      "reviewDates": [
+        "2026-10-16"
+      ],
+      "future": true,
+      "risk": "RISK-04 | Unapproved SMS work could enter the first release",
+      "trigger": "Implementation starts before the 2026-10-16 decision, or SMS is included while CR-01 remains unresolved.",
+      "impact": "The provisional +8 person-days / +JPY 600,000 and personal-data/delivery impacts could bypass the baseline.",
+      "response": "Retain in-app/email scope. Sponsor decides after impact assessment; Information Management can block unmet safety conditions. Communicate rejection or deferral as well as approval.",
+      "owner": "Project Manager (PM)",
+      "review": "2026-10-16: change meeting",
+      "evidence": "Required: CR-01 option comparison, information-management conditions, Sponsor decision and requester receipt; a revised baseline only if effective approval is obtained.",
+      "residual": "Even approved SMS work retains estimation uncertainty and regression risk."
+    },
+    {
+      "id": "RISK-05",
+      "ownerRole": "ops",
+      "issueRefs": [
+        "ISSUE-05"
+      ],
+      "reviewDates": [
+        "2026-10-20"
+      ],
+      "future": true,
+      "risk": "RISK-05 | A night batch could overrun the low-usage maintenance window",
+      "trigger": "Forecast finish exceeds the agreed window, or a critical post-update reconciliation fails.",
+      "impact": "Normal business could start late or use inconsistent data.",
+      "response": "Take a pre-run snapshot. Stop/roll back on overrun or critical mismatch; reconcile restored data and confirm business readiness before notifying restart.",
+      "owner": "Operations Lead",
+      "review": "2026-10-20: procedure/contact review\nBefore and after every run",
+      "evidence": "Required: agreed maintenance window, snapshot reference, run/stop times, reconciliation and restart-notice records.",
+      "residual": "A deferred rerun and manual entries made in the old system still require reconciliation."
+    },
+    {
+      "id": "RISK-06",
+      "ownerRole": "info",
+      "issueRefs": [
+        "ISSUE-06"
+      ],
+      "reviewDates": [
+        "2026-12-16"
+      ],
+      "future": true,
+      "risk": "RISK-06 | Cutover could proceed without production safety evidence",
+      "trigger": "Production access, audit or personal-data evidence is missing at the proposed Go / No Go review.",
+      "impact": "The service could expose data or grant inappropriate permissions.",
+      "response": "Information Management confirms blocking conditions. Defer with No Go when unmet; the 2026-10-11 trial-environment access pass is not a production release approval.",
+      "owner": "Information Management Lead",
+      "review": "Before Go / No Go\n2026-12-16 is a proposal, not an approval",
+      "evidence": "Required: production-specific access tests, audit evidence, data-protection approval and recorded Go / No Go decision.",
+      "residual": "Configuration changes and new threats still need monitoring after approval."
+    },
+    {
+      "id": "RISK-07",
+      "ownerRole": "ops",
+      "issueRefs": [
+        "ISSUE-05"
+      ],
+      "reviewDates": [
+        "2026-10-20"
+      ],
+      "future": true,
+      "risk": "RISK-07 | Incomplete checks after rollback could make a premature restart worse",
+      "trigger": "Restored-system counts, business samples or restart communication remain incomplete.",
+      "impact": "The team could resume on an apparently restored system and increase lost or duplicated service work.",
+      "response": "Separate technical restoration from business restart. Complete reconciliation, business checks and notification, then preserve incident and review records.",
+      "owner": "Operations Lead",
+      "review": "2026-10-20: contact-chain review\nAt rollback rehearsal",
+      "evidence": "Required: restore log, count/sample checks, business restart confirmation, notification receipt and follow-up action log.",
+      "residual": "Requests recorded manually during cutover still need later reconciliation."
+    }
+  ]
+}

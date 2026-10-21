@@ -1,6 +1,6 @@
 # API reference
 
-All imports below use `@taskobo/diagrams`. The package is ESM and does not load Mermaid implicitly. Version 0.1.1 targets Mermaid 12.2.0; this patch changes the RACI presentation, not the Mermaid engine.
+All imports below use `@taskobo/diagrams`. The package is ESM and does not load Mermaid implicitly. Version 0.1.2 targets Mermaid 12.2.0. This patch improves enterprise English table/flowchart wrapping and separates long Gantt section labels from bars. Table handling retains CJK and explicit line breaks; the engine and API signatures remain unchanged. The complete [CRM case](project-case.md) exercises the same API on six linked documents.
 
 ## General Mermaid rendering
 
@@ -41,7 +41,7 @@ const checked = validateDiagramProfile(JSON.parse(JSON.stringify(profile)));
 {
   "schema": "kobo.diagram-profile/v1",
   "engineVersion": "12.2.0",
-  "coreVersion": "0.1.1",
+  "coreVersion": "0.1.2",
   "roles": {},
   "settings": {}
 }
@@ -49,7 +49,7 @@ const checked = validateDiagramProfile(JSON.parse(JSON.stringify(profile)));
 
 The empty objects above are abbreviated: the actual profile includes all normalized roles and settings. `standard` is optional metadata with a nonempty `name` (up to 180 characters) and `version` (up to 80). It does not certify conformance to an external standard.
 
-`validateDiagramProfile(input)` rejects unknown fields, invalid values, unsupported schema and versions with `TypeError`. Version 0.1.1 explicitly accepts core versions `0.1.0` and `0.1.1` with engine version `12.2.0`, returning normalized copies while retaining the saved `coreVersion`. It does not rewrite the document's provenance, accept arbitrary Mermaid config/CSS, or promise historical pixel reproduction. RACI output uses the currently installed renderer's blue-gray rules, including for compatible 0.1.0 profiles.
+`validateDiagramProfile(input)` rejects unknown fields, invalid values, unsupported schema and versions with `TypeError`. Version 0.1.2 explicitly accepts core versions `0.1.0`, `0.1.1` and `0.1.2` with engine version `12.2.0`, returning normalized copies while retaining the saved `coreVersion`. It does not rewrite the document's provenance, accept arbitrary Mermaid config/CSS, or promise historical pixel reproduction. Compatible profiles use the installed renderer's table layout and the blue-gray RACI treatment introduced in 0.1.1.
 
 | Field | Values |
 | --- | --- |
@@ -95,7 +95,7 @@ const isTable = isTableSource(jsonSource); // leading-character detection only
 const pngBlob = await svgToPng(result, 2); // browser-only; resolves to a PNG Blob
 ```
 
-`isTableSource()` is a dispatch hint, not a schema validator. `parseTable()` validates the table. Rendering uses SVG text rather than interpreting cell values as HTML. PNG conversion also needs browser DOM, image, and canvas APIs.
+`isTableSource()` is a dispatch hint, not a schema validator. `parseTable()` validates the table. Rendering uses SVG text rather than interpreting cell values as HTML. From 0.1.2, English table text wraps at word boundaries where possible; explicit newlines and CJK text retain their layout handling. PNG conversion also needs browser DOM, image, and canvas APIs.
 
 ## Environment and responsibility
 

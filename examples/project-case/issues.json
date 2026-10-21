@@ -1,0 +1,184 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "register",
+  "caseId": "crm-service-rollout",
+  "asOf": "2026-10-14",
+  "title": "CRM service rollout | observed issue log | fictional, as of 2026-10-14",
+  "columns": [
+    {
+      "key": "issue",
+      "label": "Observed fact and current state",
+      "width": 300
+    },
+    {
+      "key": "impact",
+      "label": "Present impact",
+      "width": 240
+    },
+    {
+      "key": "owner",
+      "label": "Resolution owner",
+      "width": 200
+    },
+    {
+      "key": "due",
+      "label": "Decision date or forecast",
+      "width": 215
+    },
+    {
+      "key": "next",
+      "label": "Next action",
+      "width": 330
+    },
+    {
+      "key": "close",
+      "label": "Closure evidence required",
+      "width": 330
+    }
+  ],
+  "rows": [
+    {
+      "id": "ISSUE-01",
+      "ownerRole": "dev",
+      "supportingRoles": [
+        "vendor",
+        "quality"
+      ],
+      "status": "investigating",
+      "dueDates": [
+        "2026-10-15"
+      ],
+      "forecastDate": "2026-10-18",
+      "scheduleRefs": [
+        "b_api",
+        "f_api",
+        "vendor_reply"
+      ],
+      "issue": "ISSUE-01 | CRM sandbox authentication returns 401 | investigating\nThe 2026-10-12 completion baseline has passed.",
+      "impact": "Real-endpoint end-to-end validation is blocked. Mocks are limited to independent UI work.",
+      "owner": "Development Lead\nSupport: CRM Vendor",
+      "due": "Cause/recovery reply: 2026-10-15\nCompletion forecast: 2026-10-18",
+      "next": "Investigate cause/recovery with the vendor; issue a dated forecast and ask Quality to retest the real connection.",
+      "close": "Closure requires restored real-endpoint authentication plus the necessary retry/retest records. Reaching the forecast date alone is not closure."
+    },
+    {
+      "id": "ISSUE-02",
+      "ownerRole": "business",
+      "supportingRoles": [
+        "dev",
+        "ops",
+        "quality"
+      ],
+      "status": "awaiting-rule-decision",
+      "dueDates": [
+        "2026-10-16"
+      ],
+      "forecastDate": "2026-10-23",
+      "scheduleRefs": [
+        "b_migration",
+        "f_migration",
+        "decision_oct16"
+      ],
+      "issue": "ISSUE-02 | Trial-migration reconciliation differences | awaiting rule decision\n80 duplicate-key candidates among 20,000 source records.",
+      "impact": "Merge/exclusion rules are unresolved; the evidence for data acceptance is incomplete.",
+      "owner": "Business Lead\nExecution: Development and Operations",
+      "due": "Rule decision: 2026-10-16\nForecast recheck finish: 2026-10-23",
+      "next": "Business reviews the candidates and approves a rule. Repeat the trial from original data and reconcile results with Quality.",
+      "close": "Closure requires the approved rule, 80 candidate dispositions, traceability for 20,000 records/approved exclusions, count reconciliation and business sample evidence."
+    },
+    {
+      "id": "ISSUE-03",
+      "ownerRole": "pm",
+      "supportingRoles": [
+        "sponsor",
+        "business",
+        "dev",
+        "info"
+      ],
+      "status": "awaiting-change-decision",
+      "dueDates": [
+        "2026-10-16"
+      ],
+      "changeRef": "CR-01",
+      "scheduleRefs": [
+        "decision_oct16"
+      ],
+      "issue": "ISSUE-03 | CR-01 requests first-release SMS | awaiting change decision\nProvisional estimate: +8 person-days / +JPY 600,000.",
+      "impact": "Scope, funding, personal information and delivery dates are affected. Current scope remains in-app/email.",
+      "owner": "Project Manager (PM)\nFinal decision: Sponsor",
+      "due": "Change meeting: 2026-10-16",
+      "next": "Assess options with Business, Development and Information Management; present approval/rejection/deferral and communicate the decision.",
+      "close": "Closure requires the Sponsor decision and requester receipt. Rejection or deferral must be communicated. For an approved change, record the effective baseline, scope, cost, dates and owners, then obtain independent verification and business acceptance before closing CR-01. Do not start while unresolved."
+    },
+    {
+      "id": "ISSUE-04",
+      "ownerRole": "pm",
+      "supportingRoles": [
+        "business",
+        "quality"
+      ],
+      "status": "capacity-coordination-open",
+      "dueDates": [
+        "2026-10-16"
+      ],
+      "conflictStart": "2026-10-19",
+      "conflictEnd": "2026-10-23",
+      "estimatedGapPersonDays": 3,
+      "scheduleRefs": [
+        "f_test",
+        "decision_oct16"
+      ],
+      "issue": "ISSUE-04 | Validation resource conflict | coordination open\nA key business user is assigned elsewhere during 2026-10-19 to 2026-10-23; estimated gap: 3 person-days.",
+      "impact": "Required business validation is not staffed; the 2026-10-26 trial-testing forecast is at risk.",
+      "owner": "Project Manager (PM)\nConsult: Business and Quality",
+      "due": "Replacement/reallocation decision: 2026-10-16",
+      "next": "Agree replacement/reallocation with the other project. Escalate residual gaps and replanning; do not silently drop mandatory cases.",
+      "close": "Closure requires named staff/time agreements and Quality confirmation that the revised validation plan is feasible. Availability is not yet secured."
+    },
+    {
+      "id": "ISSUE-05",
+      "ownerRole": "ops",
+      "supportingRoles": [
+        "business"
+      ],
+      "status": "contacts-unconfirmed",
+      "dueDates": [
+        "2026-10-20"
+      ],
+      "scheduleRefs": [
+        "night_contacts"
+      ],
+      "issue": "ISSUE-05 | Night-operations ownership is unclear | action open\nException handover across the 3 service desks is not agreed.",
+      "impact": "Response to a serious night incident and rollback reporting could be delayed.",
+      "owner": "Operations Lead",
+      "due": "Primary/backup contacts and drill: 2026-10-20",
+      "next": "Name primary/backup contacts and an unreachable-contact escalation route. Rehearse stop, rollback and restart notification; inform Business.",
+      "close": "Closure requires contact-chain receipt, a drill including unavailable contacts, recovery reconciliation and business restart-notice evidence."
+    },
+    {
+      "id": "ISSUE-06",
+      "ownerRole": "quality",
+      "supportingRoles": [
+        "business",
+        "dev"
+      ],
+      "status": "validation-incomplete",
+      "dueDates": [
+        "2026-10-26"
+      ],
+      "dueType": "forecast-review",
+      "scheduleRefs": [
+        "f_test",
+        "trial_gate",
+        "p_accepted",
+        "p_go"
+      ],
+      "issue": "ISSUE-06 | Trial validation remains incomplete\n30 cases: 18 passed, 5 failed, 4 blocked, 3 not run.",
+      "impact": "Trial checking is incomplete. Formal acceptance still requires independent retesting and business approval.",
+      "owner": "Quality Lead\nBusiness acceptance: Business Lead",
+      "due": "Trial-testing forecast: 2026-10-26\nFormal acceptance required before Go / No Go",
+      "next": "Correct/retest the 5 failures; assign prerequisites/owners for the 4 blocked and 3 unrun cases. Carry evidence into formal acceptance retesting.",
+      "close": "Closure requires evidence clearing remaining trial failures, blockers and unrun cases. Formal acceptance retesting and business approval are separate gates, not implied by a trial pass."
+    }
+  ]
+}

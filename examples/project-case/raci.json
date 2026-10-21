@@ -1,0 +1,224 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "raci",
+  "caseId": "crm-service-rollout",
+  "asOf": "2026-10-14",
+  "title": "CRM service rollout | responsibility matrix | fictional, as of 2026-10-14",
+  "columns": [
+    {
+      "key": "work",
+      "label": "Deliverable or decision",
+      "width": 330
+    },
+    {
+      "key": "sponsor",
+      "label": "Sponsor",
+      "width": 145
+    },
+    {
+      "key": "pm",
+      "label": "Project\nManager",
+      "width": 145
+    },
+    {
+      "key": "business",
+      "label": "Business\nLead",
+      "width": 145
+    },
+    {
+      "key": "dev",
+      "label": "Development\nLead",
+      "width": 170
+    },
+    {
+      "key": "ops",
+      "label": "Operations\nLead",
+      "width": 160
+    },
+    {
+      "key": "info",
+      "label": "Information\nManagement",
+      "width": 170
+    },
+    {
+      "key": "quality",
+      "label": "Quality\nLead",
+      "width": 145
+    },
+    {
+      "key": "vendor",
+      "label": "CRM\nVendor",
+      "width": 145
+    }
+  ],
+  "rows": [
+    {
+      "work": "RACI-01 | Approve purpose, budget and first-release scope",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "I",
+      "id": "RACI-01"
+    },
+    {
+      "work": "RACI-02 | Agree business requirements and acceptance criteria",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "A",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-02"
+    },
+    {
+      "work": "RACI-03 | Integrate the plan and resolve the capacity conflict",
+      "sponsor": "C",
+      "pm": "A/R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "I",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-03"
+    },
+    {
+      "work": "RACI-04 | Implement API connection, retries and concurrency control",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "A/R",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-04"
+    },
+    {
+      "work": "RACI-05 | Approve duplicate-handling and exclusion rules",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "A",
+      "dev": "R",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-05"
+    },
+    {
+      "work": "RACI-06 | Execute trial migration and reconcile 20,000 records",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-06"
+    },
+    {
+      "work": "RACI-07 | Verify production access, personal data and audit controls",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "R",
+      "info": "A",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-07"
+    },
+    {
+      "work": "RACI-08 | Independently verify all 30 mandatory cases and defect retests",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "R",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "A/R",
+      "vendor": "C",
+      "id": "RACI-08"
+    },
+    {
+      "work": "RACI-09 | Accept business operations and train 40 users at 3 service desks",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "A/R",
+      "dev": "C",
+      "ops": "R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "I",
+      "id": "RACI-09"
+    },
+    {
+      "work": "RACI-10 | Accept night batches, monitoring and recovery procedures",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-10"
+    },
+    {
+      "work": "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-11"
+    },
+    {
+      "work": "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "I",
+      "id": "RACI-12"
+    },
+    {
+      "work": "RACI-13 | Execute preauthorized emergency rollback, verify recovery and notify users",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-13"
+    },
+    {
+      "work": "RACI-14 | Accept operations handover and explicitly transfer open items",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-14"
+    }
+  ]
+}

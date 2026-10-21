@@ -76,7 +76,27 @@ async function pageTest() {
       check(enterprise.theme.layout === 'dagre' && enterprise.theme.look === 'classic', 'Enterprise layout policy changed');
       report.cases.push({id: 'shared-engine-concurrency', ...inspect(enterprise)});
     } catch (error) {report.errors.push({id: 'shared-engine-concurrency', error: String(error.stack || error)});}
-    report.ok = report.errors.length === 0 && report.cases.length === DIAGRAM_CATALOG.length + 3;
+    const manifestResponse = await fetch('/examples/project-case/case-manifest.json');
+    check(manifestResponse.ok, 'Complete project-case manifest is missing');
+    const projectCase = await manifestResponse.json();
+    check(projectCase.documents?.length === 6, 'Expected all six linked project documents');
+    const caseProfile = createDiagramProfile(projectCase.profileOptions || {});
+    for (const document of projectCase.documents) {
+      try {
+        check(/^[a-z][a-z-]*\.(?:mmd|json)$/.test(document.file), 'Invalid case source filename');
+        const response = await fetch('/examples/project-case/' + document.file);
+        check(response.ok, 'Project source is missing');
+        const source = await response.text();
+        const packet = await renderDocument(source, caseProfile.roles, caseProfile.settings, {mermaid});
+        const detail = inspect(packet);
+        if (document.id === 'raci') {
+          const svg = new DOMParser().parseFromString(packet.svg, 'image/svg+xml');
+          check(svg.querySelectorAll('[data-raci-role]').length === 117, 'The full 14 × 8 RACI or five-role legend was reduced');
+        }
+        report.cases.push({id: 'project-case-' + document.id, ...detail});
+      } catch (error) {report.errors.push({id: 'project-case-' + document.id, error: String(error.stack || error)});}
+    }
+    report.ok = report.errors.length === 0 && report.cases.length === DIAGRAM_CATALOG.length + 3 + projectCase.documents.length;
     window.__koboSmoke = report;
   } catch (error) {window.__koboSmoke = {ok: false, error: String(error.stack || error)};}
 }
@@ -86,10 +106,10 @@ const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     if (pathname === '/') {response.setHeader('content-type', 'text/html;charset=utf-8'); response.end(html); return;}
-    if (!pathname.startsWith('/src/') && !pathname.startsWith('/node_modules/mermaid/dist/')) {response.writeHead(404); response.end(); return;}
+    if (!pathname.startsWith('/src/') && !pathname.startsWith('/node_modules/mermaid/dist/') && !pathname.startsWith('/examples/project-case/')) {response.writeHead(404); response.end(); return;}
     const file = path.resolve(root, '.' + pathname);
     if (!file.startsWith(root + path.sep)) {response.writeHead(403); response.end(); return;}
-    response.setHeader('content-type', file.endsWith('.json') ? 'application/json' : 'text/javascript;charset=utf-8');
+    response.setHeader('content-type', file.endsWith('.json') ? 'application/json' : file.endsWith('.mmd') ? 'text/plain;charset=utf-8' : 'text/javascript;charset=utf-8');
     response.end(await readFile(file));
   } catch {response.writeHead(404); response.end();}
 });

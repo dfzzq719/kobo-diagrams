@@ -1,0 +1,1008 @@
+{
+  "caseManifest": {
+    "schema": "kobo.project-case-manifest/v1",
+    "caseId": "crm-service-rollout",
+    "title": "Customer service CRM rollout: decide, deliver and hand over",
+    "asOf": "2026-10-14",
+    "statusDate": "2026-10-14",
+    "fictional": true,
+    "scenario": "scenario.json",
+    "verifier": "verify.mjs",
+    "profileOptions": {
+      "settings": {
+        "fontSize": 22,
+        "density": "compact",
+        "curve": "linear"
+      },
+      "standard": {
+        "name": "CRM rollout case",
+        "version": "1.0"
+      }
+    },
+    "documents": [
+      {
+        "id": "wbs",
+        "title": "Deliverables with testable acceptance",
+        "question": "What must be delivered, and what evidence makes each work package acceptable?",
+        "file": "wbs.mmd",
+        "kind": "mermaid",
+        "diagramType": "flowchart",
+        "description": "Six deliverable groups and 18 work packages keep business capability, data, safety, operations and governance in the same scope.",
+        "counts": {
+          "deliverableGroups": 6,
+          "workPackages": 18
+        },
+        "detail": {
+          "focusLabels": [
+            "1.3 Data migration and CRM integration",
+            "1.3.1 Migration data and mapping",
+            "1.3.2 CRM integration and replay control",
+            "1.3.3 Migration decision record"
+          ],
+          "description": "The data/integration group links 20,000-record traceability, real-endpoint evidence and decisions for 80 duplicate candidates."
+        }
+      },
+      {
+        "id": "workflow",
+        "title": "A change decision that can stop",
+        "question": "Can the SMS request proceed, and what happens when evidence, safety or resources are insufficient?",
+        "file": "change-control.mmd",
+        "kind": "mermaid",
+        "diagramType": "sequence",
+        "description": "CR-01 compares +8 person-days / +JPY 600,000 with rejection and deferral, preserves Information Management blocking authority, and requires baseline revision and independent revalidation.",
+        "counts": {
+          "participants": 7,
+          "changeRequests": 1
+        },
+        "detail": {
+          "focusLabels": [
+            "Information-management release conditions remain unmet",
+            "Block release of the proposed change until specified evidence is accepted",
+            "Conditional approval alone does not activate a changed baseline"
+          ],
+          "description": "Evidence and safety blockers prevent conditional approval from silently becoming implementation authority."
+        }
+      },
+      {
+        "id": "gantt",
+        "title": "Actuals, forecasts and the unapproved implementation proposal",
+        "question": "Which dates are facts, which forecasts have slipped, and which future commitments still require approval?",
+        "file": "schedule.mmd",
+        "kind": "mermaid",
+        "diagramType": "gantt",
+        "description": "The integrated calendar keeps six baseline/current pairs, four pending trial decisions and all 30 implementation proposal entries on one timeline.",
+        "counts": {
+          "trialComparisons": 6,
+          "actualCompletions": 2,
+          "forecasts": 4,
+          "pendingTrialDecisions": 4,
+          "implementationProposalEntries": 30,
+          "totalEntries": 47
+        },
+        "detail": {
+          "focusLabels": [
+            "Trial — CRM connection / ISSUE-01",
+            "Forecast 10/18 / already overdue by status date",
+            "Trial — migration / ISSUE-02",
+            "Forecast 10/23 / 3 days later than baseline"
+          ],
+          "description": "The API forecast is six calendar days later than baseline and already overdue as of 10/14; trial migration forecasts a three-day slip."
+        }
+      },
+      {
+        "id": "raci",
+        "title": "A single accountable owner for every decision",
+        "question": "Who can decide, who executes, and who must be consulted across the complete delivery lifecycle?",
+        "file": "raci.json",
+        "kind": "table",
+        "diagramType": "raci",
+        "description": "The unchanged 14-by-8 responsibility matrix separates Sponsor scope authority, Business acceptance, independent Quality and preauthorized Operations rollback.",
+        "counts": {
+          "responsibilityRows": 14,
+          "roles": 8,
+          "assignments": 112
+        },
+        "detail": {
+          "focusLabels": [
+            "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+            "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+            "RACI-13 | Execute preauthorized emergency rollback, verify recovery and notify users"
+          ],
+          "description": "Scope approval, Go / No Go and emergency rollback have different accountable owners and conditions."
+        }
+      },
+      {
+        "id": "risk",
+        "title": "Triggers and evidence for future consequences",
+        "question": "What could happen next, what triggers action, and what residual exposure remains after the response?",
+        "file": "risk-register.json",
+        "kind": "table",
+        "diagramType": "register",
+        "description": "Seven future risks have explicit triggers, owners, actions, reviews and required evidence; the observed 401 failure remains an issue.",
+        "counts": {
+          "risks": 7
+        },
+        "detail": {
+          "focusLabels": [
+            "RISK-01 | A further CRM recovery delay could push trial integration testing",
+            "RISK-02 | Incorrect duplicate handling could reach production"
+          ],
+          "description": "Current authentication and data-quality issues become causal inputs to future schedule and production risks."
+        }
+      },
+      {
+        "id": "issues",
+        "title": "Observed problems with real closure conditions",
+        "question": "What is already wrong, who owns the next action, and what evidence would justify closing the item?",
+        "file": "issues.json",
+        "kind": "table",
+        "diagramType": "register",
+        "description": "Six open issues distinguish deadlines from forecasts and require proof for authentication recovery, data reconciliation, change decisions, resources, contacts and remaining tests.",
+        "counts": {
+          "issues": 6,
+          "mandatoryCases": 30,
+          "passed": 18,
+          "failed": 5,
+          "blocked": 4,
+          "notRun": 3
+        },
+        "detail": {
+          "focusLabels": [
+            "ISSUE-01 | CRM sandbox authentication returns 401 | investigating",
+            "ISSUE-02 | Trial-migration reconciliation differences | awaiting rule decision"
+          ],
+          "description": "The log records current blockers and insists that a forecast date or a count match alone cannot close an issue."
+        }
+      }
+    ]
+  },
+  "profileOptions": {
+    "settings": {
+      "fontSize": 22,
+      "density": "compact",
+      "curve": "linear"
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  },
+  "sources": {
+    "wbs": "flowchart LR\n  %% Fictional CRM service rollout; status date 2026-10-14.\n  %% Edges mean deliverable containment, not task dependencies or reporting lines.\n  %% Every leaf states an acceptance condition; none claims completion.\n  P[\"1.0 Customer service rollout<br/>3 service desks · 40 users · 20,000 records\"]:::anchor\n  subgraph G1[\"1.1 Business and acceptance baseline\"]\n    WP111[\"1.1.1 Agreed business flows<br/>Evidence: normal, exception and delegate<br/>paths signed off by the Business Lead\"]:::normal\n    WP112[\"1.1.2 Access and SLA specification<br/>Evidence: 4 access roles and notification<br/>deadlines agreed with named approvers\"]:::normal\n    WP113[\"1.1.3 Acceptance scenario set<br/>Evidence: pass/fail criteria agreed<br/>for all 30 mandatory cases\"]:::normal\n  end\n  subgraph G2[\"1.2 First-release business functions\"]\n    WP121[\"1.2.1 Intake and assignment<br/>Evidence: replayed submissions create<br/>zero duplicate registrations\"]:::normal\n    WP122[\"1.2.2 Service and approval history<br/>Evidence: each change identifies<br/>who changed what, when and why\"]:::normal\n    WP123[\"1.2.3 SLA notices and reporting<br/>Evidence: in-app and email outputs reconcile;<br/>SMS stays outside the approved scope\"]:::normal\n  end\n  subgraph G3[\"1.3 Data migration and CRM integration\"]\n    WP131[\"1.3.1 Migration data and mapping<br/>Evidence: all 20,000 source records trace<br/>to a target or an approved exclusion\"]:::normal\n    WP132[\"1.3.2 CRM integration and replay control<br/>Evidence: real-endpoint authentication,<br/>retry and concurrency cases verified\"]:::normal\n    WP133[\"1.3.3 Migration decision record<br/>Evidence: decisions for all 80 duplicate-key<br/>candidates applied and differences rechecked\"]:::normal\n  end\n  subgraph G4[\"1.4 Independent quality and safety evidence\"]\n    WP141[\"1.4.1 Integration and acceptance results<br/>Evidence: all 30 mandatory cases pass;<br/>zero unresolved major defects\"]:::normal\n    WP142[\"1.4.2 Access and data protection evidence<br/>Evidence: production permissions and<br/>personal-data conditions approved\"]:::normal\n    WP143[\"1.4.3 Performance and recovery results<br/>Evidence: agreed load, batch-window and<br/>restore conditions demonstrated in tests\"]:::normal\n  end\n  subgraph G5[\"1.5 Operations and adoption\"]\n    WP151[\"1.5.1 Operations and rollback runbook<br/>Evidence: stop conditions, restore checks<br/>and business restart rehearsed\"]:::normal\n    WP152[\"1.5.2 Night batch and monitoring design<br/>Evidence: low-usage window, overrun stop<br/>and controlled rerun verified\"]:::normal\n    WP153[\"1.5.3 Training and handover record<br/>Evidence: primary/backup contacts, user<br/>training and open-item acceptance recorded\"]:::normal\n  end\n  subgraph G6[\"1.6 Project governance\"]\n    WP161[\"1.6.1 Charter and decision rights<br/>Evidence: exclusions, approval authority<br/>and change procedure acknowledged\"]:::normal\n    WP162[\"1.6.2 Baseline and change history<br/>Evidence: effort, cost and dates traceable<br/>before and after each authorized change\"]:::normal\n    WP163[\"1.6.3 Issue, risk and decision records<br/>Evidence: owner, due date, decision and<br/>closure proof recorded for every open item\"]:::normal\n  end\n  P --- G1\n  P --- G2\n  P --- G3\n  P --- G4\n  P --- G5\n  P --- G6\n",
+    "workflow": "sequenceDiagram\n  autonumber\n  participant Biz as Business Lead\n  participant PM as Project Manager (PM)\n  participant Dev as Development Lead\n  participant Ops as Operations Lead\n  participant Info as Information Management Lead\n  participant QA as Quality Lead\n  participant Sponsor as Sponsor\n  Note over Biz,Sponsor: CR-01 / ISSUE-03 / RISK-04 — fictional case as of 2026-10-14.<br/>SMS is under assessment. The current baseline permits only in-app and email notices.<br/>The routes below are decision rules for the 2026-10-16 meeting, no approval is asserted.\n  Biz->>PM: Request SMS in the first release, state purpose, recipients and deadline\n  PM->>PM: Register CR-01 and compare requested scope with the current baseline\n  alt Request lacks use case, recipient definition or acceptance evidence\n    PM-->>Biz: Return for missing evidence, name the owner and resubmission date\n    Note over Biz,PM: Returned for clarification, no implementation instruction and no baseline change\n  else Request can be assessed\n    par Effort, delivery and existing commitments\n      PM->>Dev: Assess implementation, regression, dependencies and the resource conflict\n      Dev-->>PM: Provisional estimate +8 person-days / +JPY 600,000, alternatives and date impact\n    and Personal information and external transmission\n      PM->>Info: Assess recipient data, consent, retention, processor terms and release blockers\n      Info-->>PM: Required evidence, unresolved conditions and named follow-up owners\n    and Operational impact\n      PM->>Ops: Assess monitoring, failure handling, service contacts and recovery steps\n      Ops-->>PM: Operational constraints and checks required before handover\n    and Independent validation\n      PM->>QA: Assess test changes and capacity, preserve mandatory acceptance coverage\n      QA-->>PM: Regression evidence required, mock UI tests do not prove real API acceptance\n    end\n    PM->>PM: Compare add now / defer to a later release / reject, record assumptions and uncertainty\n    alt Information-management release conditions remain unmet\n      Info-->>PM: Block release of the proposed change until specified evidence is accepted\n      PM-->>Sponsor: Hold the change, the Sponsor cannot waive the unresolved safety blocker\n      PM-->>Biz: Current scope remains, return missing evidence and a review deadline\n    else Decision evidence is complete enough for sponsor review\n      PM->>Sponsor: Present CR-01 options, +8 person-days / +JPY 600,000, dates and residual risks\n      alt Approve with explicit scope, funding and conditions\n        Sponsor-->>PM: Authorize only the recorded scope, cost and conditions\n        PM->>Info: Confirm blocking conditions have actually been discharged\n        alt Conditions or resources are still missing\n          PM-->>Biz: Hold implementation, name the missing evidence and reconsideration date\n          Note over PM,Sponsor: Conditional approval alone does not activate a changed baseline\n        else Conditions and resources are confirmed\n          PM->>PM: Version the baseline, record before/after scope, cost, dates, owners and tests\n          PM->>Dev: Issue the authorized baseline and implementation instruction\n          PM->>Ops: Issue the revised monitoring and handover requirements\n          PM-->>Biz: Communicate approved scope, forecast date and acceptance criteria\n          Dev->>QA: Submit implementation and traceable test evidence\n          loop Until independently verified or escalated for a new decision\n            QA->>QA: Retest the change and affected functions against real integration evidence\n            alt Verification fails or a blocker reappears\n              QA-->>Dev: Return defects with evidence, keep release blocked\n              Dev->>QA: Correct defects and resubmit the evidence\n            else Verification passes\n              QA-->>PM: Record passing independent results against the authorized criteria\n            end\n          end\n          alt Independent verification has passed and blockers are cleared\n            QA-->>Biz: Present the independent results for business acceptance\n            alt Business accepts against the agreed criteria\n              Biz-->>PM: Confirm acceptance with the evidence reference\n              PM->>PM: Close CR-01 only with decision, baseline, verification and receipt records\n            else Business returns remaining differences\n              Biz-->>PM: Return the unaccepted criteria and supporting evidence\n              PM->>Dev: Reopen linked work, correct within scope or request a new decision\n              Note over Biz,PM: CR-01 remains open, neither a forecast nor a failed acceptance closes it\n            end\n          else Verification is incomplete or escalation is required\n            QA-->>PM: Keep release blocked, identify the evidence gap and remaining defects\n            PM->>Sponsor: Escalate scope, resource or date options for a new decision\n            Note over PM,Sponsor: CR-01 remains open, escalation is not acceptance or release authority\n          end\n        end\n      else Reject the request\n        Sponsor-->>PM: Record the reason and any conditions for reconsideration\n        PM-->>Biz: Keep in-app/email scope, explain the decision and available alternative\n      else Defer SMS beyond the first release\n        Sponsor-->>PM: Record later-release conditions, owner and next review date\n        PM-->>Biz: Keep the current baseline, record SMS as a deferred candidate\n      else Return for evidence or unresolved resources\n        Sponsor-->>PM: Specify missing materials and a reconsideration deadline\n        PM-->>Biz: Assessment remains open, no unapproved SMS work may start\n      end\n      Biz-->>PM: Acknowledge the decision or raise a recorded discrepancy\n      PM->>PM: Preserve the decision and communication trail for approval, rejection or deferral\n    end\n  end\n",
+    "gantt": "gantt\n  title CRM service rollout — integrated schedule, fictional, as of 2026-10-14\n  dateFormat YYYY-MM-DD\n  axisFormat %m/%d\n  tickInterval 1week\n  todayMarker off\n  accTitle: Six trial baseline/actual-or-forecast pairs and a complete implementation proposal\n  accDescr: Status date 2026-10-14. Only requirements and trial access have actual completion records. API 401, 80 duplicate-key candidates and a 3-person-day capacity gap remain unresolved. The 30 implementation entries are an unapproved proposal; decision markers are planned reviews, not approvals. Replan and seek reapproval if prerequisites fail.\n  %% taskobo-gantt-status {\"schema\":\"taskobo.gantt-status/v1\",\"calendar\":\"calendar-days\",\"asOf\":\"2026-10-14\",\"statusMarker\":\"status_date\",\"items\":[{\"baseline\":\"b_requirements\",\"current\":\"a_requirements\",\"baselineEnd\":\"2026-10-08\",\"finish\":\"2026-10-10\",\"stage\":\"done\"},{\"baseline\":\"b_api\",\"current\":\"f_api\",\"baselineEnd\":\"2026-10-12\",\"finish\":\"2026-10-18\",\"stage\":\"forecast\"},{\"baseline\":\"b_migration\",\"current\":\"f_migration\",\"baselineEnd\":\"2026-10-20\",\"finish\":\"2026-10-23\",\"stage\":\"forecast\"},{\"baseline\":\"b_test\",\"current\":\"f_test\",\"baselineEnd\":\"2026-10-26\",\"finish\":\"2026-10-26\",\"stage\":\"forecast\",\"risk\":true},{\"baseline\":\"b_training\",\"current\":\"f_training\",\"baselineEnd\":\"2026-10-23\",\"finish\":\"2026-10-22\",\"stage\":\"forecast\"},{\"baseline\":\"b_access\",\"current\":\"a_access\",\"baselineEnd\":\"2026-10-11\",\"finish\":\"2026-10-11\",\"stage\":\"done\"}],\"plannedTasks\":[\"vendor_reply\",\"decision_oct16\",\"night_contacts\",\"trial_gate\",\"p_biz\",\"p_scope\",\"p_perm\",\"p_plan\",\"p_baseline\",\"p_ui\",\"p_intake\",\"p_history\",\"p_sla\",\"p_feature\",\"p_clean\",\"p_api\",\"p_migration\",\"p_rehearsal\",\"p_env\",\"p_monitor\",\"p_threat\",\"p_security\",\"p_integration\",\"p_performance\",\"p_uat\",\"p_retest\",\"p_accepted\",\"p_training\",\"p_runbook\",\"p_dress\",\"p_go\",\"p_release\",\"p_support\",\"p_finish\"]}\n  %% All durations are calendar days, including weekends; they are not effort or percent complete.\n  %% Baseline: hollow dashed; actual: solid; forecast: dashed; implementation proposal: pale dashed.\n  %% Proposal dates preserve the original dependency calculation; trial delay impacts are not yet reapproved.\n  section Fixed status date\n  Status date 2026-10-14 :milestone, status_date, 2026-10-14, 0d\n  section Trial — requirements agreement\n  Baseline finish 10/08 :b_requirements, 2026-10-01, 2026-10-08\n  Actual finish 10/10 / 2 days late :done, a_requirements, 2026-10-01, 2026-10-10\n  section Trial — CRM connection / ISSUE-01\n  Baseline finish 10/12 :b_api, 2026-10-06, 2026-10-12\n  Forecast 10/18 / already overdue by status date :active, f_api, 2026-10-06, 2026-10-18\n  section Trial — migration / ISSUE-02\n  Baseline finish 10/20 :b_migration, 2026-10-09, 2026-10-20\n  Forecast 10/23 / 3 days later than baseline :active, f_migration, 2026-10-09, 2026-10-23\n  section Trial — integration testing / ISSUE-04 and ISSUE-06\n  Baseline finish 10/26 :b_test, 2026-10-14, 2026-10-26\n  Forecast 10/26 / unchanged date with capacity risk :active, f_test, 2026-10-14, 2026-10-26\n  section Trial — key-user training\n  Baseline finish 10/23 :b_training, 2026-10-15, 2026-10-23\n  Forecast 10/22 / 1 day before baseline :active, f_training, 2026-10-15, 2026-10-22\n  section Trial — access verification\n  Baseline finish 10/11 :b_access, 2026-10-05, 2026-10-11\n  Actual finish 10/11 / trial environment only :done, a_access, 2026-10-05, 2026-10-11\n  section Trial — planned decisions, not completed approvals\n  Planned / vendor cause and recovery reply :milestone, vendor_reply, 2026-10-15, 0d\n  Planned / duplicate rule, SMS and capacity decisions :milestone, decision_oct16, 2026-10-16, 0d\n  Planned / night primary and backup contacts :milestone, night_contacts, 2026-10-20, 0d\n  Planned / trial completion review :milestone, trial_gate, 2026-10-26, 0d\n  section Implementation proposal — baseline and authorization\n  Proposal / business and exception flows :p_biz, 2026-10-19, 2026-10-26\n  Proposal / acceptance criteria and SLA :p_scope, 2026-10-26, 2026-10-29\n  Proposal / access and data definitions :p_perm, 2026-10-21, 2026-10-28\n  Proposal / execution plan and risk review :p_plan, 2026-10-26, 2026-10-29\n  Proposal / baseline reapproval decision :milestone, p_baseline, 2026-10-29, 0d\n  section Implementation proposal — business functions\n  Proposal / screen and interaction design :p_ui, 2026-10-29, 2026-11-06\n  Proposal / intake and assignment :p_intake, 2026-11-06, 2026-11-18\n  Proposal / service and approval history :p_history, 2026-11-06, 2026-11-18\n  Proposal / SLA notices and monthly reporting :p_sla, 2026-11-18, 2026-11-24\n  Proposal / feature review decision :milestone, p_feature, 2026-11-24, 0d\n  section Implementation proposal — data and integration\n  Proposal / migration analysis and cleansing :p_clean, 2026-10-29, 2026-11-09\n  Proposal / CRM API and replay control :p_api, 2026-10-29, 2026-11-12\n  Proposal / migration scripts :p_migration, 2026-11-09, 2026-11-17\n  Proposal / migration rehearsal and reconciliation :p_rehearsal, 2026-11-17, 2026-11-23\n  section Implementation proposal — safety and infrastructure\n  Proposal / environments and access setup :p_env, 2026-10-29, 2026-11-04\n  Proposal / monitoring and backups :p_monitor, 2026-11-04, 2026-11-12\n  Proposal / threat analysis and mitigations :p_threat, 2026-10-29, 2026-11-05\n  Proposal / vulnerability and access verification :p_security, 2026-11-24, 2026-11-30\n  section Implementation proposal — independent testing and acceptance\n  Proposal / integration and failure-path tests :p_integration, 2026-11-24, 2026-11-30\n  Proposal / load and night-batch verification :p_performance, 2026-11-30, 2026-12-03\n  Proposal / business acceptance tests :p_uat, 2026-12-03, 2026-12-09\n  Proposal / major-defect fixes and retesting :p_retest, 2026-12-09, 2026-12-14\n  Proposal / business acceptance decision :milestone, p_accepted, 2026-12-14, 0d\n  section Implementation proposal — handover and release\n  Proposal / user training and service contacts :p_training, 2026-11-24, 2026-12-01\n  Proposal / operations and rollback procedures :p_runbook, 2026-11-12, 2026-11-18\n  Proposal / cutover rehearsal :p_dress, 2026-12-14, 2026-12-16\n  Proposal / Go or No Go decision :milestone, p_go, 2026-12-16, 0d\n  Proposal / night migration and production release :p_release, 2026-12-16, 2026-12-17\n  Proposal / service verification and initial support :p_support, 2026-12-17, 2026-12-24\n  Proposal / operations acceptance decision :milestone, p_finish, 2026-12-24, 0d\n",
+    "raci": "{\n  \"schema\": \"taskobo.table/v1\",\n  \"kind\": \"raci\",\n  \"caseId\": \"crm-service-rollout\",\n  \"asOf\": \"2026-10-14\",\n  \"title\": \"CRM service rollout | responsibility matrix | fictional, as of 2026-10-14\",\n  \"columns\": [\n    {\n      \"key\": \"work\",\n      \"label\": \"Deliverable or decision\",\n      \"width\": 330\n    },\n    {\n      \"key\": \"sponsor\",\n      \"label\": \"Sponsor\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"pm\",\n      \"label\": \"Project\\nManager\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"business\",\n      \"label\": \"Business\\nLead\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"dev\",\n      \"label\": \"Development\\nLead\",\n      \"width\": 170\n    },\n    {\n      \"key\": \"ops\",\n      \"label\": \"Operations\\nLead\",\n      \"width\": 160\n    },\n    {\n      \"key\": \"info\",\n      \"label\": \"Information\\nManagement\",\n      \"width\": 170\n    },\n    {\n      \"key\": \"quality\",\n      \"label\": \"Quality\\nLead\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"vendor\",\n      \"label\": \"CRM\\nVendor\",\n      \"width\": 145\n    }\n  ],\n  \"rows\": [\n    {\n      \"work\": \"RACI-01 | Approve purpose, budget and first-release scope\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-01\"\n    },\n    {\n      \"work\": \"RACI-02 | Agree business requirements and acceptance criteria\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"A\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-02\"\n    },\n    {\n      \"work\": \"RACI-03 | Integrate the plan and resolve the capacity conflict\",\n      \"sponsor\": \"C\",\n      \"pm\": \"A/R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"I\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-03\"\n    },\n    {\n      \"work\": \"RACI-04 | Implement API connection, retries and concurrency control\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"A/R\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-04\"\n    },\n    {\n      \"work\": \"RACI-05 | Approve duplicate-handling and exclusion rules\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"A\",\n      \"dev\": \"R\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-05\"\n    },\n    {\n      \"work\": \"RACI-06 | Execute trial migration and reconcile 20,000 records\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-06\"\n    },\n    {\n      \"work\": \"RACI-07 | Verify production access, personal data and audit controls\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"R\",\n      \"info\": \"A\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-07\"\n    },\n    {\n      \"work\": \"RACI-08 | Independently verify all 30 mandatory cases and defect retests\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"R\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"A/R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-08\"\n    },\n    {\n      \"work\": \"RACI-09 | Accept business operations and train 40 users at 3 service desks\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"A/R\",\n      \"dev\": \"C\",\n      \"ops\": \"R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-09\"\n    },\n    {\n      \"work\": \"RACI-10 | Accept night batches, monitoring and recovery procedures\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-10\"\n    },\n    {\n      \"work\": \"RACI-11 | Decide CR-01 SMS scope, cost and schedule\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-11\"\n    },\n    {\n      \"work\": \"RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-12\"\n    },\n    {\n      \"work\": \"RACI-13 | Execute preauthorized emergency rollback, verify recovery and notify users\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-13\"\n    },\n    {\n      \"work\": \"RACI-14 | Accept operations handover and explicitly transfer open items\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-14\"\n    }\n  ]\n}\n",
+    "risk": "{\n  \"schema\": \"taskobo.table/v1\",\n  \"kind\": \"register\",\n  \"caseId\": \"crm-service-rollout\",\n  \"asOf\": \"2026-10-14\",\n  \"title\": \"CRM service rollout | future risk register | fictional, as of 2026-10-14\",\n  \"columns\": [\n    {\n      \"key\": \"risk\",\n      \"label\": \"Future consequence\",\n      \"width\": 235\n    },\n    {\n      \"key\": \"trigger\",\n      \"label\": \"Trigger\",\n      \"width\": 245\n    },\n    {\n      \"key\": \"impact\",\n      \"label\": \"Potential impact\",\n      \"width\": 215\n    },\n    {\n      \"key\": \"response\",\n      \"label\": \"Prevention and triggered response\",\n      \"width\": 330\n    },\n    {\n      \"key\": \"owner\",\n      \"label\": \"Accountable owner\",\n      \"width\": 165\n    },\n    {\n      \"key\": \"review\",\n      \"label\": \"Next review\",\n      \"width\": 195\n    },\n    {\n      \"key\": \"evidence\",\n      \"label\": \"Required evidence; not claimed complete\",\n      \"width\": 300\n    },\n    {\n      \"key\": \"residual\",\n      \"label\": \"Residual exposure\",\n      \"width\": 230\n    }\n  ],\n  \"rows\": [\n    {\n      \"id\": \"RISK-01\",\n      \"ownerRole\": \"dev\",\n      \"issueRefs\": [\n        \"ISSUE-01\"\n      ],\n      \"reviewDates\": [\n        \"2026-10-15\",\n        \"2026-10-18\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-01 | A further CRM recovery delay could push trial integration testing\",\n      \"trigger\": \"No cause/recovery reply on 2026-10-15, or the 2026-10-18 completion forecast moves later.\",\n      \"impact\": \"Real-endpoint testing could restart late and put the 2026-10-26 trial review at risk.\",\n      \"response\": \"Development and the CRM Vendor compare recovery options; PM escalates the plan impact. Use mocks only for independent UI work, never as API acceptance evidence.\",\n      \"owner\": \"Development Lead\",\n      \"review\": \"2026-10-15: vendor reply\\n2026-10-18: forecast review\",\n      \"evidence\": \"Required: vendor cause/recovery response, dated forecast, real-endpoint authentication and retry test records. None is asserted complete.\",\n      \"residual\": \"The external recovery date is not within the project team's sole control.\"\n    },\n    {\n      \"id\": \"RISK-02\",\n      \"ownerRole\": \"business\",\n      \"issueRefs\": [\n        \"ISSUE-02\"\n      ],\n      \"reviewDates\": [\n        \"2026-10-16\",\n        \"2026-10-23\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-02 | Incorrect duplicate handling could reach production\",\n      \"trigger\": \"The 80 candidate decisions remain unapproved, or source-to-target/exclusion traceability fails at recheck.\",\n      \"impact\": \"Customer or service histories could be lost or wrongly merged.\",\n      \"response\": \"Business decides the rule by 2026-10-16. Reconcile original data, processing results and approved exclusions; stop migration when criteria are unmet.\",\n      \"owner\": \"Business Lead\",\n      \"review\": \"2026-10-16: rule decision\\n2026-10-23: forecast recheck finish\",\n      \"evidence\": \"Required: signed rule, dispositions for 80 candidates, traceability for 20,000 source records, counts and business sample results.\",\n      \"residual\": \"Matching 20,000 record counts alone cannot detect every content error.\"\n    },\n    {\n      \"id\": \"RISK-03\",\n      \"ownerRole\": \"pm\",\n      \"issueRefs\": [\n        \"ISSUE-04\",\n        \"ISSUE-06\"\n      ],\n      \"reviewDates\": [\n        \"2026-10-16\",\n        \"2026-10-19\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-03 | The capacity gap could cause omitted validation or a late trial review\",\n      \"trigger\": \"The estimated 3-person-day gap remains uncovered on 2026-10-16 for the 2026-10-19 to 2026-10-23 conflict.\",\n      \"impact\": \"The 2026-10-26 trial-testing forecast could slip or mandatory business checks could be missed.\",\n      \"response\": \"PM agrees replacement/reallocation with the other project. Quality replans sequence and dates; do not remove mandatory cases to conceal the shortfall.\",\n      \"owner\": \"Project Manager (PM)\",\n      \"review\": \"2026-10-16: capacity decision\\n2026-10-19: readiness check\",\n      \"evidence\": \"Required: named resource/time agreements and a feasible validation plan acknowledged by Quality.\",\n      \"residual\": \"Replacement staff may need familiarization and add retest effort.\"\n    },\n    {\n      \"id\": \"RISK-04\",\n      \"ownerRole\": \"pm\",\n      \"issueRefs\": [\n        \"ISSUE-03\"\n      ],\n      \"changeRef\": \"CR-01\",\n      \"reviewDates\": [\n        \"2026-10-16\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-04 | Unapproved SMS work could enter the first release\",\n      \"trigger\": \"Implementation starts before the 2026-10-16 decision, or SMS is included while CR-01 remains unresolved.\",\n      \"impact\": \"The provisional +8 person-days / +JPY 600,000 and personal-data/delivery impacts could bypass the baseline.\",\n      \"response\": \"Retain in-app/email scope. Sponsor decides after impact assessment; Information Management can block unmet safety conditions. Communicate rejection or deferral as well as approval.\",\n      \"owner\": \"Project Manager (PM)\",\n      \"review\": \"2026-10-16: change meeting\",\n      \"evidence\": \"Required: CR-01 option comparison, information-management conditions, Sponsor decision and requester receipt; a revised baseline only if effective approval is obtained.\",\n      \"residual\": \"Even approved SMS work retains estimation uncertainty and regression risk.\"\n    },\n    {\n      \"id\": \"RISK-05\",\n      \"ownerRole\": \"ops\",\n      \"issueRefs\": [\n        \"ISSUE-05\"\n      ],\n      \"reviewDates\": [\n        \"2026-10-20\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-05 | A night batch could overrun the low-usage maintenance window\",\n      \"trigger\": \"Forecast finish exceeds the agreed window, or a critical post-update reconciliation fails.\",\n      \"impact\": \"Normal business could start late or use inconsistent data.\",\n      \"response\": \"Take a pre-run snapshot. Stop/roll back on overrun or critical mismatch; reconcile restored data and confirm business readiness before notifying restart.\",\n      \"owner\": \"Operations Lead\",\n      \"review\": \"2026-10-20: procedure/contact review\\nBefore and after every run\",\n      \"evidence\": \"Required: agreed maintenance window, snapshot reference, run/stop times, reconciliation and restart-notice records.\",\n      \"residual\": \"A deferred rerun and manual entries made in the old system still require reconciliation.\"\n    },\n    {\n      \"id\": \"RISK-06\",\n      \"ownerRole\": \"info\",\n      \"issueRefs\": [\n        \"ISSUE-06\"\n      ],\n      \"reviewDates\": [\n        \"2026-12-16\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-06 | Cutover could proceed without production safety evidence\",\n      \"trigger\": \"Production access, audit or personal-data evidence is missing at the proposed Go / No Go review.\",\n      \"impact\": \"The service could expose data or grant inappropriate permissions.\",\n      \"response\": \"Information Management confirms blocking conditions. Defer with No Go when unmet; the 2026-10-11 trial-environment access pass is not a production release approval.\",\n      \"owner\": \"Information Management Lead\",\n      \"review\": \"Before Go / No Go\\n2026-12-16 is a proposal, not an approval\",\n      \"evidence\": \"Required: production-specific access tests, audit evidence, data-protection approval and recorded Go / No Go decision.\",\n      \"residual\": \"Configuration changes and new threats still need monitoring after approval.\"\n    },\n    {\n      \"id\": \"RISK-07\",\n      \"ownerRole\": \"ops\",\n      \"issueRefs\": [\n        \"ISSUE-05\"\n      ],\n      \"reviewDates\": [\n        \"2026-10-20\"\n      ],\n      \"future\": true,\n      \"risk\": \"RISK-07 | Incomplete checks after rollback could make a premature restart worse\",\n      \"trigger\": \"Restored-system counts, business samples or restart communication remain incomplete.\",\n      \"impact\": \"The team could resume on an apparently restored system and increase lost or duplicated service work.\",\n      \"response\": \"Separate technical restoration from business restart. Complete reconciliation, business checks and notification, then preserve incident and review records.\",\n      \"owner\": \"Operations Lead\",\n      \"review\": \"2026-10-20: contact-chain review\\nAt rollback rehearsal\",\n      \"evidence\": \"Required: restore log, count/sample checks, business restart confirmation, notification receipt and follow-up action log.\",\n      \"residual\": \"Requests recorded manually during cutover still need later reconciliation.\"\n    }\n  ]\n}\n",
+    "issues": "{\n  \"schema\": \"taskobo.table/v1\",\n  \"kind\": \"register\",\n  \"caseId\": \"crm-service-rollout\",\n  \"asOf\": \"2026-10-14\",\n  \"title\": \"CRM service rollout | observed issue log | fictional, as of 2026-10-14\",\n  \"columns\": [\n    {\n      \"key\": \"issue\",\n      \"label\": \"Observed fact and current state\",\n      \"width\": 300\n    },\n    {\n      \"key\": \"impact\",\n      \"label\": \"Present impact\",\n      \"width\": 240\n    },\n    {\n      \"key\": \"owner\",\n      \"label\": \"Resolution owner\",\n      \"width\": 200\n    },\n    {\n      \"key\": \"due\",\n      \"label\": \"Decision date or forecast\",\n      \"width\": 215\n    },\n    {\n      \"key\": \"next\",\n      \"label\": \"Next action\",\n      \"width\": 330\n    },\n    {\n      \"key\": \"close\",\n      \"label\": \"Closure evidence required\",\n      \"width\": 330\n    }\n  ],\n  \"rows\": [\n    {\n      \"id\": \"ISSUE-01\",\n      \"ownerRole\": \"dev\",\n      \"supportingRoles\": [\n        \"vendor\",\n        \"quality\"\n      ],\n      \"status\": \"investigating\",\n      \"dueDates\": [\n        \"2026-10-15\"\n      ],\n      \"forecastDate\": \"2026-10-18\",\n      \"scheduleRefs\": [\n        \"b_api\",\n        \"f_api\",\n        \"vendor_reply\"\n      ],\n      \"issue\": \"ISSUE-01 | CRM sandbox authentication returns 401 | investigating\\nThe 2026-10-12 completion baseline has passed.\",\n      \"impact\": \"Real-endpoint end-to-end validation is blocked. Mocks are limited to independent UI work.\",\n      \"owner\": \"Development Lead\\nSupport: CRM Vendor\",\n      \"due\": \"Cause/recovery reply: 2026-10-15\\nCompletion forecast: 2026-10-18\",\n      \"next\": \"Investigate cause/recovery with the vendor; issue a dated forecast and ask Quality to retest the real connection.\",\n      \"close\": \"Closure requires restored real-endpoint authentication plus the necessary retry/retest records. Reaching the forecast date alone is not closure.\"\n    },\n    {\n      \"id\": \"ISSUE-02\",\n      \"ownerRole\": \"business\",\n      \"supportingRoles\": [\n        \"dev\",\n        \"ops\",\n        \"quality\"\n      ],\n      \"status\": \"awaiting-rule-decision\",\n      \"dueDates\": [\n        \"2026-10-16\"\n      ],\n      \"forecastDate\": \"2026-10-23\",\n      \"scheduleRefs\": [\n        \"b_migration\",\n        \"f_migration\",\n        \"decision_oct16\"\n      ],\n      \"issue\": \"ISSUE-02 | Trial-migration reconciliation differences | awaiting rule decision\\n80 duplicate-key candidates among 20,000 source records.\",\n      \"impact\": \"Merge/exclusion rules are unresolved; the evidence for data acceptance is incomplete.\",\n      \"owner\": \"Business Lead\\nExecution: Development and Operations\",\n      \"due\": \"Rule decision: 2026-10-16\\nForecast recheck finish: 2026-10-23\",\n      \"next\": \"Business reviews the candidates and approves a rule. Repeat the trial from original data and reconcile results with Quality.\",\n      \"close\": \"Closure requires the approved rule, 80 candidate dispositions, traceability for 20,000 records/approved exclusions, count reconciliation and business sample evidence.\"\n    },\n    {\n      \"id\": \"ISSUE-03\",\n      \"ownerRole\": \"pm\",\n      \"supportingRoles\": [\n        \"sponsor\",\n        \"business\",\n        \"dev\",\n        \"info\"\n      ],\n      \"status\": \"awaiting-change-decision\",\n      \"dueDates\": [\n        \"2026-10-16\"\n      ],\n      \"changeRef\": \"CR-01\",\n      \"scheduleRefs\": [\n        \"decision_oct16\"\n      ],\n      \"issue\": \"ISSUE-03 | CR-01 requests first-release SMS | awaiting change decision\\nProvisional estimate: +8 person-days / +JPY 600,000.\",\n      \"impact\": \"Scope, funding, personal information and delivery dates are affected. Current scope remains in-app/email.\",\n      \"owner\": \"Project Manager (PM)\\nFinal decision: Sponsor\",\n      \"due\": \"Change meeting: 2026-10-16\",\n      \"next\": \"Assess options with Business, Development and Information Management; present approval/rejection/deferral and communicate the decision.\",\n      \"close\": \"Closure requires the Sponsor decision and requester receipt. Rejection or deferral must be communicated. For an approved change, record the effective baseline, scope, cost, dates and owners, then obtain independent verification and business acceptance before closing CR-01. Do not start while unresolved.\"\n    },\n    {\n      \"id\": \"ISSUE-04\",\n      \"ownerRole\": \"pm\",\n      \"supportingRoles\": [\n        \"business\",\n        \"quality\"\n      ],\n      \"status\": \"capacity-coordination-open\",\n      \"dueDates\": [\n        \"2026-10-16\"\n      ],\n      \"conflictStart\": \"2026-10-19\",\n      \"conflictEnd\": \"2026-10-23\",\n      \"estimatedGapPersonDays\": 3,\n      \"scheduleRefs\": [\n        \"f_test\",\n        \"decision_oct16\"\n      ],\n      \"issue\": \"ISSUE-04 | Validation resource conflict | coordination open\\nA key business user is assigned elsewhere during 2026-10-19 to 2026-10-23; estimated gap: 3 person-days.\",\n      \"impact\": \"Required business validation is not staffed; the 2026-10-26 trial-testing forecast is at risk.\",\n      \"owner\": \"Project Manager (PM)\\nConsult: Business and Quality\",\n      \"due\": \"Replacement/reallocation decision: 2026-10-16\",\n      \"next\": \"Agree replacement/reallocation with the other project. Escalate residual gaps and replanning; do not silently drop mandatory cases.\",\n      \"close\": \"Closure requires named staff/time agreements and Quality confirmation that the revised validation plan is feasible. Availability is not yet secured.\"\n    },\n    {\n      \"id\": \"ISSUE-05\",\n      \"ownerRole\": \"ops\",\n      \"supportingRoles\": [\n        \"business\"\n      ],\n      \"status\": \"contacts-unconfirmed\",\n      \"dueDates\": [\n        \"2026-10-20\"\n      ],\n      \"scheduleRefs\": [\n        \"night_contacts\"\n      ],\n      \"issue\": \"ISSUE-05 | Night-operations ownership is unclear | action open\\nException handover across the 3 service desks is not agreed.\",\n      \"impact\": \"Response to a serious night incident and rollback reporting could be delayed.\",\n      \"owner\": \"Operations Lead\",\n      \"due\": \"Primary/backup contacts and drill: 2026-10-20\",\n      \"next\": \"Name primary/backup contacts and an unreachable-contact escalation route. Rehearse stop, rollback and restart notification; inform Business.\",\n      \"close\": \"Closure requires contact-chain receipt, a drill including unavailable contacts, recovery reconciliation and business restart-notice evidence.\"\n    },\n    {\n      \"id\": \"ISSUE-06\",\n      \"ownerRole\": \"quality\",\n      \"supportingRoles\": [\n        \"business\",\n        \"dev\"\n      ],\n      \"status\": \"validation-incomplete\",\n      \"dueDates\": [\n        \"2026-10-26\"\n      ],\n      \"dueType\": \"forecast-review\",\n      \"scheduleRefs\": [\n        \"f_test\",\n        \"trial_gate\",\n        \"p_accepted\",\n        \"p_go\"\n      ],\n      \"issue\": \"ISSUE-06 | Trial validation remains incomplete\\n30 cases: 18 passed, 5 failed, 4 blocked, 3 not run.\",\n      \"impact\": \"Trial checking is incomplete. Formal acceptance still requires independent retesting and business approval.\",\n      \"owner\": \"Quality Lead\\nBusiness acceptance: Business Lead\",\n      \"due\": \"Trial-testing forecast: 2026-10-26\\nFormal acceptance required before Go / No Go\",\n      \"next\": \"Correct/retest the 5 failures; assign prerequisites/owners for the 4 blocked and 3 unrun cases. Carry evidence into formal acceptance retesting.\",\n      \"close\": \"Closure requires evidence clearing remaining trial failures, blockers and unrun cases. Formal acceptance retesting and business approval are separate gates, not implied by a trial pass.\"\n    }\n  ]\n}\n"
+  },
+  "scenario": {
+    "schema": "kobo.project-case/v1",
+    "id": "crm-service-rollout",
+    "title": "Customer service CRM rollout: decide, deliver and hand over",
+    "asOf": "2026-10-14",
+    "fictional": true,
+    "language": "en",
+    "disclosure": "All organizations, people, records, dates, amounts and results are fictional teaching data. This is not a customer deployment or a success claim.",
+    "scope": {
+      "serviceDesks": 3,
+      "users": 40,
+      "sourceRecords": 20000,
+      "accessRoles": 4,
+      "mandatoryAcceptanceCases": 30,
+      "firstRelease": [
+        "Intake and assignment",
+        "Service and approval history",
+        "SLA notices and reporting through in-app/email",
+        "CRM integration",
+        "Data migration",
+        "Access and audit controls",
+        "Backup/recovery",
+        "Operations handover"
+      ],
+      "excluded": [
+        "SMS unless CR-01 is explicitly approved and its conditions are met",
+        "Automated accounting execution",
+        "Replacement of every enterprise system"
+      ]
+    },
+    "roles": [
+      {
+        "id": "sponsor",
+        "title": "Sponsor",
+        "authority": "Final accountability for purpose, budget, scope changes and Go / No Go. Cannot waive unmet data-safety or recovery conditions."
+      },
+      {
+        "id": "pm",
+        "title": "Project Manager (PM)",
+        "authority": "Integrates plans, impact analysis, resources, registers and escalation; is not the final business acceptor for everything."
+      },
+      {
+        "id": "business",
+        "title": "Business Lead",
+        "authority": "Owns business scope, acceptance criteria and adoption by 40 users; resolves differences across the 3 service desks."
+      },
+      {
+        "id": "dev",
+        "title": "Development Lead",
+        "authority": "Owns implementation, integration, retry and concurrency control. A supplier cannot replace internal integration accountability."
+      },
+      {
+        "id": "ops",
+        "title": "Operations Lead",
+        "authority": "Owns night batches, monitoring, backup/recovery and handover; can execute preauthorized rollback when recorded triggers are met and must report it."
+      },
+      {
+        "id": "info",
+        "title": "Information Management Lead",
+        "authority": "Owns access, personal-data conditions, security exceptions and release-blocking evidence."
+      },
+      {
+        "id": "quality",
+        "title": "Quality Lead",
+        "authority": "Owns independent validation, evidence and defect retesting; developer self-report does not replace verification."
+      },
+      {
+        "id": "vendor",
+        "title": "CRM Vendor",
+        "authority": "Provides sandbox authentication/API specifications and supports joint diagnosis; does not own internal business acceptance."
+      }
+    ],
+    "acceptanceGates": [
+      {
+        "id": "AC-01",
+        "criterion": "All 30 mandatory business acceptance cases pass; zero unresolved major defects."
+      },
+      {
+        "id": "AC-02",
+        "criterion": "Every one of 20,000 source records is traceable to the target or an approved exclusion; candidate decisions and business samples are evidenced."
+      },
+      {
+        "id": "AC-03",
+        "criterion": "Real-endpoint authentication, retry and concurrency checks pass; repeated submissions create zero duplicate registrations."
+      },
+      {
+        "id": "AC-04",
+        "criterion": "Production-specific access and personal-data controls are approved; a trial access pass is insufficient."
+      },
+      {
+        "id": "AC-05",
+        "criterion": "Agreed low-usage batch window, stop/rollback conditions, recovery reconciliation and business restart notifications are rehearsed."
+      }
+    ],
+    "facts": {
+      "observedIssues": [
+        {
+          "id": "ISSUE-01",
+          "ownerRole": "dev",
+          "status": "investigating",
+          "dueDates": [
+            "2026-10-15"
+          ],
+          "forecastDate": "2026-10-18"
+        },
+        {
+          "id": "ISSUE-02",
+          "ownerRole": "business",
+          "status": "awaiting-rule-decision",
+          "dueDates": [
+            "2026-10-16"
+          ],
+          "forecastDate": "2026-10-23"
+        },
+        {
+          "id": "ISSUE-03",
+          "ownerRole": "pm",
+          "status": "awaiting-change-decision",
+          "dueDates": [
+            "2026-10-16"
+          ]
+        },
+        {
+          "id": "ISSUE-04",
+          "ownerRole": "pm",
+          "status": "capacity-coordination-open",
+          "dueDates": [
+            "2026-10-16"
+          ]
+        },
+        {
+          "id": "ISSUE-05",
+          "ownerRole": "ops",
+          "status": "contacts-unconfirmed",
+          "dueDates": [
+            "2026-10-20"
+          ]
+        },
+        {
+          "id": "ISSUE-06",
+          "ownerRole": "quality",
+          "status": "validation-incomplete",
+          "dueDates": [
+            "2026-10-26"
+          ]
+        }
+      ],
+      "duplicateCandidates": 80,
+      "trialCaseStatus": {
+        "passed": 18,
+        "failed": 5,
+        "blocked": 4,
+        "notRun": 3,
+        "total": 30
+      },
+      "trialAccess": {
+        "actualDate": "2026-10-11",
+        "accessRoles": 4,
+        "scope": "Trial environment only; no production safety clearance or full business acceptance."
+      },
+      "resourceConflict": {
+        "start": "2026-10-19",
+        "end": "2026-10-23",
+        "estimatedGapPersonDays": 3,
+        "decisionDue": "2026-10-16",
+        "resolved": false
+      }
+    },
+    "changeRequests": [
+      {
+        "id": "CR-01",
+        "issueRef": "ISSUE-03",
+        "riskRef": "RISK-04",
+        "request": "Add SMS notifications to the first release",
+        "status": "impact-assessment",
+        "decisionDate": "2026-10-16",
+        "estimate": {
+          "personDays": 8,
+          "amount": 600000,
+          "currency": "JPY",
+          "basis": "Provisional fictional change estimate, not approved funding"
+        },
+        "baseline": "In-app and email notifications only",
+        "approved": false,
+        "informationManagementBlockersMayNotBeWaived": true,
+        "outcomes": [
+          "approve with conditions",
+          "reject",
+          "defer to a later release",
+          "return for evidence or resources"
+        ],
+        "effectiveApprovalRequires": [
+          "Evidence sufficient for decision",
+          "Information-management blockers discharged",
+          "Resources confirmed",
+          "Sponsor authorization",
+          "Versioned baseline and validation plan"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "id": "DEC-01",
+        "taskId": "vendor_reply",
+        "date": "2026-10-15",
+        "ownerRole": "dev",
+        "status": "planned",
+        "question": "Has the CRM Vendor supplied a credible cause and recovery response?"
+      },
+      {
+        "id": "DEC-02",
+        "taskId": "decision_oct16",
+        "date": "2026-10-16",
+        "ownerRole": "pm",
+        "status": "planned",
+        "question": "Are duplicate rules, CR-01 SMS and the capacity shortfall decided by their authorized owners?"
+      },
+      {
+        "id": "DEC-03",
+        "taskId": "night_contacts",
+        "date": "2026-10-20",
+        "ownerRole": "ops",
+        "status": "planned",
+        "question": "Are primary/backup contacts and the night exception drill agreed?"
+      },
+      {
+        "id": "DEC-04",
+        "taskId": "trial_gate",
+        "date": "2026-10-26",
+        "ownerRole": "quality",
+        "status": "planned",
+        "question": "Does the evidence justify trial completion and replanning for implementation?"
+      },
+      {
+        "id": "DEC-05",
+        "taskId": "p_go",
+        "date": "2026-12-16",
+        "ownerRole": "sponsor",
+        "status": "unapproved-proposal",
+        "question": "Are data, safety, business and recovery conditions met? If not, defer with No Go."
+      }
+    ],
+    "workBreakdown": {
+      "relationship": "Deliverable containment, not execution dependencies",
+      "groupCount": 6,
+      "packageCount": 18,
+      "groups": [
+        {
+          "id": "G1",
+          "wbs": "1.1",
+          "title": "Business and acceptance baseline",
+          "packages": [
+            "WP111",
+            "WP112",
+            "WP113"
+          ]
+        },
+        {
+          "id": "G2",
+          "wbs": "1.2",
+          "title": "First-release business functions",
+          "packages": [
+            "WP121",
+            "WP122",
+            "WP123"
+          ]
+        },
+        {
+          "id": "G3",
+          "wbs": "1.3",
+          "title": "Data migration and CRM integration",
+          "packages": [
+            "WP131",
+            "WP132",
+            "WP133"
+          ]
+        },
+        {
+          "id": "G4",
+          "wbs": "1.4",
+          "title": "Independent quality and safety evidence",
+          "packages": [
+            "WP141",
+            "WP142",
+            "WP143"
+          ]
+        },
+        {
+          "id": "G5",
+          "wbs": "1.5",
+          "title": "Operations and adoption",
+          "packages": [
+            "WP151",
+            "WP152",
+            "WP153"
+          ]
+        },
+        {
+          "id": "G6",
+          "wbs": "1.6",
+          "title": "Project governance",
+          "packages": [
+            "WP161",
+            "WP162",
+            "WP163"
+          ]
+        }
+      ]
+    },
+    "schedule": {
+      "calendar": "calendar-days",
+      "businessDaysOrEffort": false,
+      "statusMarker": "status_date",
+      "trialPairs": [
+        {
+          "baseline": "b_requirements",
+          "current": "a_requirements",
+          "baselineEnd": "2026-10-08",
+          "finish": "2026-10-10",
+          "stage": "done"
+        },
+        {
+          "baseline": "b_api",
+          "current": "f_api",
+          "baselineEnd": "2026-10-12",
+          "finish": "2026-10-18",
+          "stage": "forecast"
+        },
+        {
+          "baseline": "b_migration",
+          "current": "f_migration",
+          "baselineEnd": "2026-10-20",
+          "finish": "2026-10-23",
+          "stage": "forecast"
+        },
+        {
+          "baseline": "b_test",
+          "current": "f_test",
+          "baselineEnd": "2026-10-26",
+          "finish": "2026-10-26",
+          "stage": "forecast",
+          "risk": true
+        },
+        {
+          "baseline": "b_training",
+          "current": "f_training",
+          "baselineEnd": "2026-10-23",
+          "finish": "2026-10-22",
+          "stage": "forecast"
+        },
+        {
+          "baseline": "b_access",
+          "current": "a_access",
+          "baselineEnd": "2026-10-11",
+          "finish": "2026-10-11",
+          "stage": "done"
+        }
+      ],
+      "plannedTasks": [
+        "vendor_reply",
+        "decision_oct16",
+        "night_contacts",
+        "trial_gate",
+        "p_biz",
+        "p_scope",
+        "p_perm",
+        "p_plan",
+        "p_baseline",
+        "p_ui",
+        "p_intake",
+        "p_history",
+        "p_sla",
+        "p_feature",
+        "p_clean",
+        "p_api",
+        "p_migration",
+        "p_rehearsal",
+        "p_env",
+        "p_monitor",
+        "p_threat",
+        "p_security",
+        "p_integration",
+        "p_performance",
+        "p_uat",
+        "p_retest",
+        "p_accepted",
+        "p_training",
+        "p_runbook",
+        "p_dress",
+        "p_go",
+        "p_release",
+        "p_support",
+        "p_finish"
+      ],
+      "implementationProposal": {
+        "start": "2026-10-19",
+        "end": "2026-12-24",
+        "taskCount": 30,
+        "approved": false,
+        "preservesOriginalExplicitDates": true
+      },
+      "tasks": [
+        {
+          "id": "status_date",
+          "start": "2026-10-14",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "b_requirements",
+          "start": "2026-10-01",
+          "end": "2026-10-08",
+          "tags": []
+        },
+        {
+          "id": "a_requirements",
+          "start": "2026-10-01",
+          "end": "2026-10-10",
+          "tags": [
+            "done"
+          ]
+        },
+        {
+          "id": "b_api",
+          "start": "2026-10-06",
+          "end": "2026-10-12",
+          "tags": []
+        },
+        {
+          "id": "f_api",
+          "start": "2026-10-06",
+          "end": "2026-10-18",
+          "tags": [
+            "active"
+          ]
+        },
+        {
+          "id": "b_migration",
+          "start": "2026-10-09",
+          "end": "2026-10-20",
+          "tags": []
+        },
+        {
+          "id": "f_migration",
+          "start": "2026-10-09",
+          "end": "2026-10-23",
+          "tags": [
+            "active"
+          ]
+        },
+        {
+          "id": "b_test",
+          "start": "2026-10-14",
+          "end": "2026-10-26",
+          "tags": []
+        },
+        {
+          "id": "f_test",
+          "start": "2026-10-14",
+          "end": "2026-10-26",
+          "tags": [
+            "active"
+          ]
+        },
+        {
+          "id": "b_training",
+          "start": "2026-10-15",
+          "end": "2026-10-23",
+          "tags": []
+        },
+        {
+          "id": "f_training",
+          "start": "2026-10-15",
+          "end": "2026-10-22",
+          "tags": [
+            "active"
+          ]
+        },
+        {
+          "id": "b_access",
+          "start": "2026-10-05",
+          "end": "2026-10-11",
+          "tags": []
+        },
+        {
+          "id": "a_access",
+          "start": "2026-10-05",
+          "end": "2026-10-11",
+          "tags": [
+            "done"
+          ]
+        },
+        {
+          "id": "vendor_reply",
+          "start": "2026-10-15",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "decision_oct16",
+          "start": "2026-10-16",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "night_contacts",
+          "start": "2026-10-20",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "trial_gate",
+          "start": "2026-10-26",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "p_biz",
+          "start": "2026-10-19",
+          "end": "2026-10-26",
+          "tags": []
+        },
+        {
+          "id": "p_scope",
+          "start": "2026-10-26",
+          "end": "2026-10-29",
+          "tags": []
+        },
+        {
+          "id": "p_perm",
+          "start": "2026-10-21",
+          "end": "2026-10-28",
+          "tags": []
+        },
+        {
+          "id": "p_plan",
+          "start": "2026-10-26",
+          "end": "2026-10-29",
+          "tags": []
+        },
+        {
+          "id": "p_baseline",
+          "start": "2026-10-29",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "p_ui",
+          "start": "2026-10-29",
+          "end": "2026-11-06",
+          "tags": []
+        },
+        {
+          "id": "p_intake",
+          "start": "2026-11-06",
+          "end": "2026-11-18",
+          "tags": []
+        },
+        {
+          "id": "p_history",
+          "start": "2026-11-06",
+          "end": "2026-11-18",
+          "tags": []
+        },
+        {
+          "id": "p_sla",
+          "start": "2026-11-18",
+          "end": "2026-11-24",
+          "tags": []
+        },
+        {
+          "id": "p_feature",
+          "start": "2026-11-24",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "p_clean",
+          "start": "2026-10-29",
+          "end": "2026-11-09",
+          "tags": []
+        },
+        {
+          "id": "p_api",
+          "start": "2026-10-29",
+          "end": "2026-11-12",
+          "tags": []
+        },
+        {
+          "id": "p_migration",
+          "start": "2026-11-09",
+          "end": "2026-11-17",
+          "tags": []
+        },
+        {
+          "id": "p_rehearsal",
+          "start": "2026-11-17",
+          "end": "2026-11-23",
+          "tags": []
+        },
+        {
+          "id": "p_env",
+          "start": "2026-10-29",
+          "end": "2026-11-04",
+          "tags": []
+        },
+        {
+          "id": "p_monitor",
+          "start": "2026-11-04",
+          "end": "2026-11-12",
+          "tags": []
+        },
+        {
+          "id": "p_threat",
+          "start": "2026-10-29",
+          "end": "2026-11-05",
+          "tags": []
+        },
+        {
+          "id": "p_security",
+          "start": "2026-11-24",
+          "end": "2026-11-30",
+          "tags": []
+        },
+        {
+          "id": "p_integration",
+          "start": "2026-11-24",
+          "end": "2026-11-30",
+          "tags": []
+        },
+        {
+          "id": "p_performance",
+          "start": "2026-11-30",
+          "end": "2026-12-03",
+          "tags": []
+        },
+        {
+          "id": "p_uat",
+          "start": "2026-12-03",
+          "end": "2026-12-09",
+          "tags": []
+        },
+        {
+          "id": "p_retest",
+          "start": "2026-12-09",
+          "end": "2026-12-14",
+          "tags": []
+        },
+        {
+          "id": "p_accepted",
+          "start": "2026-12-14",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "p_training",
+          "start": "2026-11-24",
+          "end": "2026-12-01",
+          "tags": []
+        },
+        {
+          "id": "p_runbook",
+          "start": "2026-11-12",
+          "end": "2026-11-18",
+          "tags": []
+        },
+        {
+          "id": "p_dress",
+          "start": "2026-12-14",
+          "end": "2026-12-16",
+          "tags": []
+        },
+        {
+          "id": "p_go",
+          "start": "2026-12-16",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        },
+        {
+          "id": "p_release",
+          "start": "2026-12-16",
+          "end": "2026-12-17",
+          "tags": []
+        },
+        {
+          "id": "p_support",
+          "start": "2026-12-17",
+          "end": "2026-12-24",
+          "tags": []
+        },
+        {
+          "id": "p_finish",
+          "start": "2026-12-24",
+          "end": "0d",
+          "tags": [
+            "milestone"
+          ]
+        }
+      ]
+    },
+    "contracts": {
+      "raciRoleOrder": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
+      "raciRows": 14,
+      "raciAssignmentSHA256": "20715bedfd4a9b01ead2f2def99d5e88ab99366a06bde6780672b83eb1589cbb",
+      "riskCount": 7,
+      "issueCount": 6,
+      "sourceIssueIds": [
+        "ISSUE-01",
+        "ISSUE-02",
+        "ISSUE-03",
+        "ISSUE-04",
+        "ISSUE-05",
+        "ISSUE-06"
+      ],
+      "sourceRiskIds": [
+        "RISK-01",
+        "RISK-02",
+        "RISK-03",
+        "RISK-04",
+        "RISK-05",
+        "RISK-06",
+        "RISK-07"
+      ],
+      "trialCaseTotal": 30,
+      "doneTrialTaskIds": [
+        "a_requirements",
+        "a_access"
+      ]
+    },
+    "interpretation": [
+      "A forecast is not an actual completion. A planned decision is not an approval.",
+      "The 401 authentication failure is an observed issue; a further recovery delay is a future risk.",
+      "80 duplicate-key candidates are not 80 confirmed data losses, and record-count agreement alone is insufficient acceptance evidence.",
+      "The 3-person-day resource gap remains unresolved at the status date; no staffing success is claimed.",
+      "Emergency rollback under preauthorized conditions is distinct from authorization to change scope or budget.",
+      "AI may help summarize logs or draft analysis; these sources do not execute AI or production operations.",
+      "Shared runtime status and RACI legend text may remain Japanese; the case source content is English."
+    ],
+    "provenance": {
+      "basis": "English adaptation of Taskobo fictional CRM service rollout scenario and full built-in examples",
+      "sourceScenario": "docs/MERMAID-EXAMPLE-SCENARIO.md in the Taskobo source project",
+      "sourceExampleIds": [
+        "02-work-breakdown",
+        "06-change-approval",
+        "03-project-gantt",
+        "08-raci",
+        "09-risk-register",
+        "14-issue-log"
+      ],
+      "preserved": [
+        "RACI role order and all 112 assignments",
+        "All 47 schedule IDs, start/end dates and tags",
+        "All six trial comparison definitions and 34 planned-task IDs",
+        "Status date, scope, issue facts, estimates and decision rights"
+      ],
+      "translationNote": "English prose and explicit cross-document identifiers were added for the public case. Additional workflow branches spell out the existing safety and evidence rules; they are not completed events."
+    }
+  },
+  "rendererSourceSHA256": {
+    "color-engine.mjs": "d02b53c1b4b9219c1c92cb550cd084809e6b3b2d2e167a90550d5c3bb3ff6386",
+    "diagram-catalog.mjs": "9d62186dfaa209fcede2af9882975a40ce8ba564018151775eba1c3f1367e489",
+    "diagram-renderer.mjs": "2b4c3924340df4283637364f35c51111da703f82adb73da5cc8e83c712b632ef",
+    "document-renderer.mjs": "38bfd791c4a602e560c35c60e86dd343edff946e894ddb45bd9374460a72aff6",
+    "gantt-status.mjs": "7363fb2b207907eb5d63b669824e7b2308d795a5be76118276e2decaa753830d",
+    "index.mjs": "1e6841005e2084dda9f4c0a4963f9cd9344d2970160c5f65d5cc0050216d2bfd",
+    "mermaid-engine.mjs": "058f533d020712fa55675f8c0ea335b12ab7c2650d8c37556a5b5aade464e944",
+    "native-theme-adapters.mjs": "91c4a1167629fe28a9b1b96ba45615641b80dea7a654990f528721cbbe0c57a1",
+    "profile.mjs": "1d721d8b22b6ace8b8639602cfd486f71aa1bfdfdb204323ecfbd20d3faff73e",
+    "source-policy.mjs": "b60b064fd541e1cf5264dcd1c73dfff5bee196f0b89cacbd96358eaffeb26058",
+    "surface-contrast.mjs": "551476e46157ed05422e63e007cd096aa1ec9910f25194474602e9e219e40f4a",
+    "version.mjs": "8f8e6ff6df37b4d35f17d44695f835adf9a881c31214cbb9cfe7cae427ae4762"
+  },
+  "profile": {
+    "schema": "kobo.diagram-profile/v1",
+    "engineVersion": "12.2.0",
+    "coreVersion": "0.1.2",
+    "roles": {
+      "paper": "#FFFEFA",
+      "surface": "#FFFFFF",
+      "ink": "#0D2046",
+      "muted": "#52637A",
+      "primary": "#1456D9",
+      "anchor": "#0D2046",
+      "line": "#77869D",
+      "border": "#52637A",
+      "success": "#0A6954",
+      "warning": "#895B12",
+      "danger": "#B5323B"
+    },
+    "settings": {
+      "radius": 6,
+      "lineWidth": 1.5,
+      "fontSize": 22,
+      "curve": "linear",
+      "density": "compact",
+      "direction": "auto",
+      "transparent": false
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  }
+}

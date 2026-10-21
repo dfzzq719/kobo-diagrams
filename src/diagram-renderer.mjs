@@ -49,7 +49,18 @@ function sourceMetadata(source) {
   return result;
 }
 
-function themeFor(roles, input) {
+function ganttSectionPadding(source,fontSize){
+  let widest=0;
+  for(const [,label]of String(source).matchAll(/^\s*section\s+([^\r\n]+)/gm)){
+    for(const line of label.split(/<br\s*\/?>/i)){
+      const units=[...line.replace(/<[^>]*>/g,'')].reduce((sum,char)=>sum+(/\s/.test(char)?.35:/[\u0020-\u007E]/.test(char)?.6:1),0);
+      widest=Math.max(widest,units*fontSize);
+    }
+  }
+  return Math.max(260,Math.min(720,Math.ceil(widest+36)));
+}
+
+function themeFor(roles, input, body, type) {
   const p = derivePalette(roles), s = {...DEFAULT_SETTINGS,...input};
   const spacing = {compact:[24,36,16],comfortable:[32,50,22],spacious:[48,72,28]}[s.density] || [32,50,22];
   const aux = Math.max(.7, s.lineWidth * 2 / 3);
@@ -125,9 +136,9 @@ circle.face~circle[r="1.5"]{fill:${p.ink}!important;stroke:${p.ink}!important;}
       wardley:{backgroundColor:p.paper,axisColor:p.line,axisTextColor:p.ink,gridColor:p.grid,componentFill:p.surface,componentStroke:p.border,componentLabelColor:p.ink,linkStroke:p.line,evolutionStroke:p.primary,annotationStroke:p.border,annotationTextColor:p.ink,annotationFill:p.surface},
       useGradient:false,dropShadow:'none'
     },
-    flowchart:{htmlLabels:false,curve:s.curve,nodeSpacing:spacing[0],rankSpacing:spacing[1],padding:spacing[2],useMaxWidth:true},
+    flowchart:{htmlLabels:false,curve:s.curve,nodeSpacing:spacing[0],rankSpacing:spacing[1],padding:spacing[2],useMaxWidth:true,...(type==='flowchart'?{wrappingWidth:Math.max(240,Math.min(420,s.fontSize*16))}:{})},
     sequence:{useMaxWidth:true,actorMargin:45,width:150,height:56,boxMargin:16,messageMargin:32,noteMargin:14,mirrorActors:false,wrap:true,actorFontSize:s.fontSize-1,messageFontSize:s.fontSize-2},
-    gantt:{useMaxWidth:true,barHeight:30,barGap:14,topPadding:50,leftPadding:260,rightPadding:130,fontSize:s.fontSize-2,sectionFontSize:s.fontSize-2,numberSectionStyles:2,topAxis:false},
+    gantt:{useMaxWidth:true,barHeight:30,barGap:14,topPadding:50,leftPadding:type==='gantt'?ganttSectionPadding(body,s.fontSize-2):260,rightPadding:130,fontSize:s.fontSize-2,sectionFontSize:s.fontSize-2,numberSectionStyles:2,topAxis:false},
     journey:{textPlacement:'tspan',sectionFills:series.slice(0,8),sectionColours:series.slice(0,8).map(color=>onColor(color,p.ink)),actorColours:series.slice(0,8),taskFontFamily:FONT,taskFontSize:s.fontSize,titleColor:p.ink,titleFontFamily:FONT,titleFontSize:s.fontSize+4},
     state:{useMaxWidth:true},architecture:{seed:1,randomize:false},cynefin:{seed:1},
     railroad:{fontFamily:FONT,fontSize:s.fontSize,strokeWidth:s.lineWidth,terminalFill:p.primarySoft,terminalStroke:p.primary,terminalTextColor:p.ink,nonTerminalFill:p.surface,nonTerminalStroke:p.border,nonTerminalTextColor:p.ink,lineColor:p.line,markerFill:p.line,commentFill:p.neutral,commentStroke:p.border,commentTextColor:p.muted,specialFill:p.warningSoft,specialStroke:p.warning,ruleNameColor:p.ink},
@@ -195,7 +206,7 @@ function wrapTimelineLabels(source,fontSize) {
 }
 
 export function compileDiagram(body,roles,settings) {
-  const s={...DEFAULT_SETTINGS,...settings},p=derivePalette(roles),type=diagramKind(body),theme=themeFor(p,s);
+  const s={...DEFAULT_SETTINGS,...settings},p=derivePalette(roles),type=diagramKind(body),theme=themeFor(p,s,body,type);
   let source=cleanSource(body);
   if(type==='timeline') source=wrapTimelineLabels(source,s.fontSize);
   if(s.direction!=='auto' && type==='flowchart') source=source.replace(/^(\s*(?:flowchart(?:-elk)?|graph))\s+(?:TD|TB|BT|LR|RL)\b/im,`$1 ${s.direction}`);
@@ -284,7 +295,8 @@ export function renderDiagram(body,roles,settings,{mermaid}={}) {
   const run=async()=>{
     const mount=document.createElement('div');
     mount.className='render-sandbox';
-    mount.style.cssText='position:fixed;left:-20000px;top:0;width:1400px;pointer-events:none;';
+    const renderWidth=1400+(packet.type==='gantt'?Math.max(0,packet.theme.gantt.leftPadding-260):0);
+    mount.style.cssText=`position:fixed;left:-20000px;top:0;width:${renderWidth}px;pointer-events:none;`;
     mount.setAttribute('aria-hidden','true');document.body.append(mount);
     const id=`taskobo_workbench_${++svgSequence}`;
     try {

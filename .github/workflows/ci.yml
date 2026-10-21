@@ -19,6 +19,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Linked project-case contracts
+        run: node examples/project-case/verify.mjs
       - name: Browser rendering and export checks
         run: npm run test:browser
       - run: npm pack --dry-run

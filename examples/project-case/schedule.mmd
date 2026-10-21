@@ -1,0 +1,73 @@
+gantt
+  title CRM service rollout — integrated schedule, fictional, as of 2026-10-14
+  dateFormat YYYY-MM-DD
+  axisFormat %m/%d
+  tickInterval 1week
+  todayMarker off
+  accTitle: Six trial baseline/actual-or-forecast pairs and a complete implementation proposal
+  accDescr: Status date 2026-10-14. Only requirements and trial access have actual completion records. API 401, 80 duplicate-key candidates and a 3-person-day capacity gap remain unresolved. The 30 implementation entries are an unapproved proposal; decision markers are planned reviews, not approvals. Replan and seek reapproval if prerequisites fail.
+  %% taskobo-gantt-status {"schema":"taskobo.gantt-status/v1","calendar":"calendar-days","asOf":"2026-10-14","statusMarker":"status_date","items":[{"baseline":"b_requirements","current":"a_requirements","baselineEnd":"2026-10-08","finish":"2026-10-10","stage":"done"},{"baseline":"b_api","current":"f_api","baselineEnd":"2026-10-12","finish":"2026-10-18","stage":"forecast"},{"baseline":"b_migration","current":"f_migration","baselineEnd":"2026-10-20","finish":"2026-10-23","stage":"forecast"},{"baseline":"b_test","current":"f_test","baselineEnd":"2026-10-26","finish":"2026-10-26","stage":"forecast","risk":true},{"baseline":"b_training","current":"f_training","baselineEnd":"2026-10-23","finish":"2026-10-22","stage":"forecast"},{"baseline":"b_access","current":"a_access","baselineEnd":"2026-10-11","finish":"2026-10-11","stage":"done"}],"plannedTasks":["vendor_reply","decision_oct16","night_contacts","trial_gate","p_biz","p_scope","p_perm","p_plan","p_baseline","p_ui","p_intake","p_history","p_sla","p_feature","p_clean","p_api","p_migration","p_rehearsal","p_env","p_monitor","p_threat","p_security","p_integration","p_performance","p_uat","p_retest","p_accepted","p_training","p_runbook","p_dress","p_go","p_release","p_support","p_finish"]}
+  %% All durations are calendar days, including weekends; they are not effort or percent complete.
+  %% Baseline: hollow dashed; actual: solid; forecast: dashed; implementation proposal: pale dashed.
+  %% Proposal dates preserve the original dependency calculation; trial delay impacts are not yet reapproved.
+  section Fixed status date
+  Status date 2026-10-14 :milestone, status_date, 2026-10-14, 0d
+  section Trial — requirements agreement
+  Baseline finish 10/08 :b_requirements, 2026-10-01, 2026-10-08
+  Actual finish 10/10 / 2 days late :done, a_requirements, 2026-10-01, 2026-10-10
+  section Trial — CRM connection / ISSUE-01
+  Baseline finish 10/12 :b_api, 2026-10-06, 2026-10-12
+  Forecast 10/18 / already overdue by status date :active, f_api, 2026-10-06, 2026-10-18
+  section Trial — migration / ISSUE-02
+  Baseline finish 10/20 :b_migration, 2026-10-09, 2026-10-20
+  Forecast 10/23 / 3 days later than baseline :active, f_migration, 2026-10-09, 2026-10-23
+  section Trial — integration testing / ISSUE-04 and ISSUE-06
+  Baseline finish 10/26 :b_test, 2026-10-14, 2026-10-26
+  Forecast 10/26 / unchanged date with capacity risk :active, f_test, 2026-10-14, 2026-10-26
+  section Trial — key-user training
+  Baseline finish 10/23 :b_training, 2026-10-15, 2026-10-23
+  Forecast 10/22 / 1 day before baseline :active, f_training, 2026-10-15, 2026-10-22
+  section Trial — access verification
+  Baseline finish 10/11 :b_access, 2026-10-05, 2026-10-11
+  Actual finish 10/11 / trial environment only :done, a_access, 2026-10-05, 2026-10-11
+  section Trial — planned decisions, not completed approvals
+  Planned / vendor cause and recovery reply :milestone, vendor_reply, 2026-10-15, 0d
+  Planned / duplicate rule, SMS and capacity decisions :milestone, decision_oct16, 2026-10-16, 0d
+  Planned / night primary and backup contacts :milestone, night_contacts, 2026-10-20, 0d
+  Planned / trial completion review :milestone, trial_gate, 2026-10-26, 0d
+  section Implementation proposal — baseline and authorization
+  Proposal / business and exception flows :p_biz, 2026-10-19, 2026-10-26
+  Proposal / acceptance criteria and SLA :p_scope, 2026-10-26, 2026-10-29
+  Proposal / access and data definitions :p_perm, 2026-10-21, 2026-10-28
+  Proposal / execution plan and risk review :p_plan, 2026-10-26, 2026-10-29
+  Proposal / baseline reapproval decision :milestone, p_baseline, 2026-10-29, 0d
+  section Implementation proposal — business functions
+  Proposal / screen and interaction design :p_ui, 2026-10-29, 2026-11-06
+  Proposal / intake and assignment :p_intake, 2026-11-06, 2026-11-18
+  Proposal / service and approval history :p_history, 2026-11-06, 2026-11-18
+  Proposal / SLA notices and monthly reporting :p_sla, 2026-11-18, 2026-11-24
+  Proposal / feature review decision :milestone, p_feature, 2026-11-24, 0d
+  section Implementation proposal — data and integration
+  Proposal / migration analysis and cleansing :p_clean, 2026-10-29, 2026-11-09
+  Proposal / CRM API and replay control :p_api, 2026-10-29, 2026-11-12
+  Proposal / migration scripts :p_migration, 2026-11-09, 2026-11-17
+  Proposal / migration rehearsal and reconciliation :p_rehearsal, 2026-11-17, 2026-11-23
+  section Implementation proposal — safety and infrastructure
+  Proposal / environments and access setup :p_env, 2026-10-29, 2026-11-04
+  Proposal / monitoring and backups :p_monitor, 2026-11-04, 2026-11-12
+  Proposal / threat analysis and mitigations :p_threat, 2026-10-29, 2026-11-05
+  Proposal / vulnerability and access verification :p_security, 2026-11-24, 2026-11-30
+  section Implementation proposal — independent testing and acceptance
+  Proposal / integration and failure-path tests :p_integration, 2026-11-24, 2026-11-30
+  Proposal / load and night-batch verification :p_performance, 2026-11-30, 2026-12-03
+  Proposal / business acceptance tests :p_uat, 2026-12-03, 2026-12-09
+  Proposal / major-defect fixes and retesting :p_retest, 2026-12-09, 2026-12-14
+  Proposal / business acceptance decision :milestone, p_accepted, 2026-12-14, 0d
+  section Implementation proposal — handover and release
+  Proposal / user training and service contacts :p_training, 2026-11-24, 2026-12-01
+  Proposal / operations and rollback procedures :p_runbook, 2026-11-12, 2026-11-18
+  Proposal / cutover rehearsal :p_dress, 2026-12-14, 2026-12-16
+  Proposal / Go or No Go decision :milestone, p_go, 2026-12-16, 0d
+  Proposal / night migration and production release :p_release, 2026-12-16, 2026-12-17
+  Proposal / service verification and initial support :p_support, 2026-12-17, 2026-12-24
+  Proposal / operations acceptance decision :milestone, p_finish, 2026-12-24, 0d

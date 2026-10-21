@@ -1,0 +1,41 @@
+flowchart LR
+  %% Fictional CRM service rollout; status date 2026-10-14.
+  %% Edges mean deliverable containment, not task dependencies or reporting lines.
+  %% Every leaf states an acceptance condition; none claims completion.
+  P["1.0 Customer service rollout<br/>3 service desks · 40 users · 20,000 records"]:::anchor
+  subgraph G1["1.1 Business and acceptance baseline"]
+    WP111["1.1.1 Agreed business flows<br/>Evidence: normal, exception and delegate<br/>paths signed off by the Business Lead"]:::normal
+    WP112["1.1.2 Access and SLA specification<br/>Evidence: 4 access roles and notification<br/>deadlines agreed with named approvers"]:::normal
+    WP113["1.1.3 Acceptance scenario set<br/>Evidence: pass/fail criteria agreed<br/>for all 30 mandatory cases"]:::normal
+  end
+  subgraph G2["1.2 First-release business functions"]
+    WP121["1.2.1 Intake and assignment<br/>Evidence: replayed submissions create<br/>zero duplicate registrations"]:::normal
+    WP122["1.2.2 Service and approval history<br/>Evidence: each change identifies<br/>who changed what, when and why"]:::normal
+    WP123["1.2.3 SLA notices and reporting<br/>Evidence: in-app and email outputs reconcile;<br/>SMS stays outside the approved scope"]:::normal
+  end
+  subgraph G3["1.3 Data migration and CRM integration"]
+    WP131["1.3.1 Migration data and mapping<br/>Evidence: all 20,000 source records trace<br/>to a target or an approved exclusion"]:::normal
+    WP132["1.3.2 CRM integration and replay control<br/>Evidence: real-endpoint authentication,<br/>retry and concurrency cases verified"]:::normal
+    WP133["1.3.3 Migration decision record<br/>Evidence: decisions for all 80 duplicate-key<br/>candidates applied and differences rechecked"]:::normal
+  end
+  subgraph G4["1.4 Independent quality and safety evidence"]
+    WP141["1.4.1 Integration and acceptance results<br/>Evidence: all 30 mandatory cases pass;<br/>zero unresolved major defects"]:::normal
+    WP142["1.4.2 Access and data protection evidence<br/>Evidence: production permissions and<br/>personal-data conditions approved"]:::normal
+    WP143["1.4.3 Performance and recovery results<br/>Evidence: agreed load, batch-window and<br/>restore conditions demonstrated in tests"]:::normal
+  end
+  subgraph G5["1.5 Operations and adoption"]
+    WP151["1.5.1 Operations and rollback runbook<br/>Evidence: stop conditions, restore checks<br/>and business restart rehearsed"]:::normal
+    WP152["1.5.2 Night batch and monitoring design<br/>Evidence: low-usage window, overrun stop<br/>and controlled rerun verified"]:::normal
+    WP153["1.5.3 Training and handover record<br/>Evidence: primary/backup contacts, user<br/>training and open-item acceptance recorded"]:::normal
+  end
+  subgraph G6["1.6 Project governance"]
+    WP161["1.6.1 Charter and decision rights<br/>Evidence: exclusions, approval authority<br/>and change procedure acknowledged"]:::normal
+    WP162["1.6.2 Baseline and change history<br/>Evidence: effort, cost and dates traceable<br/>before and after each authorized change"]:::normal
+    WP163["1.6.3 Issue, risk and decision records<br/>Evidence: owner, due date, decision and<br/>closure proof recorded for every open item"]:::normal
+  end
+  P --- G1
+  P --- G2
+  P --- G3
+  P --- G4
+  P --- G5
+  P --- G6

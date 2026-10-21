@@ -2,6 +2,10 @@
 
 The common package is a source dependency. Each consumer installs a pinned version and produces its own browser bundle inside its own Docker image. There is no required shared server directory, mounted `node_modules`, or always-on rendering service.
 
+![A shared source package feeds independent Taskobo and DOCSKOBO image builds. Each browser renders locally; the browser handoff carries document source and profile.](assets/architecture-figure.png)
+
+This architecture view explains how the two applications share rendering code. Each keeps its own preview interface, storage and deployment; document transfer is a separate browser protocol. [Original architecture SVG](assets/architecture.svg).
+
 ## Distribution
 
 During initial integration, create a tarball with `npm pack` and make it available in both build contexts. After repository/package publication, use a package registry or an immutable Git release with the same exact dependency version in both consumers. A private registry is equally valid; open-source publication does not change the runtime design.
@@ -32,7 +36,7 @@ For an existing `postMessage` handshake, send to the expected exact origin and v
 
 Store the profile beside the source, including on subsequent saves and exports. Legacy documents with no profile need an explicit host fallback policy. The package does not infer which enterprise style was used when only the source exists.
 
-Package 0.1.1 still uses Mermaid 12.2.0 and accepts saved 0.1.0 and 0.1.1 profiles. Validation retains the saved `coreVersion`, while rendering uses the installed package's current blue-gray RACI rules. This keeps provenance and readability without promising the old renderer's pixels. Other versions require an explicit compatibility decision. Existing frozen offline Skill files stay unchanged; a new generated Skill must be downloaded and reinstalled to receive the new core.
+Package 0.1.2 still uses Mermaid 12.2.0 and accepts saved 0.1.0, 0.1.1 and 0.1.2 profiles. Validation retains the saved `coreVersion`, while rendering uses the installed package's current layout and the blue-gray RACI rules introduced in 0.1.1. Version 0.1.2 improves enterprise English table/flowchart wrapping and Gantt section spacing, preserving CJK and explicit newlines in tables. This keeps provenance and readability without promising the old renderer's pixels. Other versions require an explicit compatibility decision. Existing frozen offline Skill files stay unchanged; a new generated Skill must be downloaded and reinstalled to receive the new core.
 
 ## Release and deployment
 

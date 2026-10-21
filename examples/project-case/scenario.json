@@ -1,0 +1,785 @@
+{
+  "schema": "kobo.project-case/v1",
+  "id": "crm-service-rollout",
+  "title": "Customer service CRM rollout: decide, deliver and hand over",
+  "asOf": "2026-10-14",
+  "fictional": true,
+  "language": "en",
+  "disclosure": "All organizations, people, records, dates, amounts and results are fictional teaching data. This is not a customer deployment or a success claim.",
+  "scope": {
+    "serviceDesks": 3,
+    "users": 40,
+    "sourceRecords": 20000,
+    "accessRoles": 4,
+    "mandatoryAcceptanceCases": 30,
+    "firstRelease": [
+      "Intake and assignment",
+      "Service and approval history",
+      "SLA notices and reporting through in-app/email",
+      "CRM integration",
+      "Data migration",
+      "Access and audit controls",
+      "Backup/recovery",
+      "Operations handover"
+    ],
+    "excluded": [
+      "SMS unless CR-01 is explicitly approved and its conditions are met",
+      "Automated accounting execution",
+      "Replacement of every enterprise system"
+    ]
+  },
+  "roles": [
+    {
+      "id": "sponsor",
+      "title": "Sponsor",
+      "authority": "Final accountability for purpose, budget, scope changes and Go / No Go. Cannot waive unmet data-safety or recovery conditions."
+    },
+    {
+      "id": "pm",
+      "title": "Project Manager (PM)",
+      "authority": "Integrates plans, impact analysis, resources, registers and escalation; is not the final business acceptor for everything."
+    },
+    {
+      "id": "business",
+      "title": "Business Lead",
+      "authority": "Owns business scope, acceptance criteria and adoption by 40 users; resolves differences across the 3 service desks."
+    },
+    {
+      "id": "dev",
+      "title": "Development Lead",
+      "authority": "Owns implementation, integration, retry and concurrency control. A supplier cannot replace internal integration accountability."
+    },
+    {
+      "id": "ops",
+      "title": "Operations Lead",
+      "authority": "Owns night batches, monitoring, backup/recovery and handover; can execute preauthorized rollback when recorded triggers are met and must report it."
+    },
+    {
+      "id": "info",
+      "title": "Information Management Lead",
+      "authority": "Owns access, personal-data conditions, security exceptions and release-blocking evidence."
+    },
+    {
+      "id": "quality",
+      "title": "Quality Lead",
+      "authority": "Owns independent validation, evidence and defect retesting; developer self-report does not replace verification."
+    },
+    {
+      "id": "vendor",
+      "title": "CRM Vendor",
+      "authority": "Provides sandbox authentication/API specifications and supports joint diagnosis; does not own internal business acceptance."
+    }
+  ],
+  "acceptanceGates": [
+    {
+      "id": "AC-01",
+      "criterion": "All 30 mandatory business acceptance cases pass; zero unresolved major defects."
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Every one of 20,000 source records is traceable to the target or an approved exclusion; candidate decisions and business samples are evidenced."
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Real-endpoint authentication, retry and concurrency checks pass; repeated submissions create zero duplicate registrations."
+    },
+    {
+      "id": "AC-04",
+      "criterion": "Production-specific access and personal-data controls are approved; a trial access pass is insufficient."
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Agreed low-usage batch window, stop/rollback conditions, recovery reconciliation and business restart notifications are rehearsed."
+    }
+  ],
+  "facts": {
+    "observedIssues": [
+      {
+        "id": "ISSUE-01",
+        "ownerRole": "dev",
+        "status": "investigating",
+        "dueDates": [
+          "2026-10-15"
+        ],
+        "forecastDate": "2026-10-18"
+      },
+      {
+        "id": "ISSUE-02",
+        "ownerRole": "business",
+        "status": "awaiting-rule-decision",
+        "dueDates": [
+          "2026-10-16"
+        ],
+        "forecastDate": "2026-10-23"
+      },
+      {
+        "id": "ISSUE-03",
+        "ownerRole": "pm",
+        "status": "awaiting-change-decision",
+        "dueDates": [
+          "2026-10-16"
+        ]
+      },
+      {
+        "id": "ISSUE-04",
+        "ownerRole": "pm",
+        "status": "capacity-coordination-open",
+        "dueDates": [
+          "2026-10-16"
+        ]
+      },
+      {
+        "id": "ISSUE-05",
+        "ownerRole": "ops",
+        "status": "contacts-unconfirmed",
+        "dueDates": [
+          "2026-10-20"
+        ]
+      },
+      {
+        "id": "ISSUE-06",
+        "ownerRole": "quality",
+        "status": "validation-incomplete",
+        "dueDates": [
+          "2026-10-26"
+        ]
+      }
+    ],
+    "duplicateCandidates": 80,
+    "trialCaseStatus": {
+      "passed": 18,
+      "failed": 5,
+      "blocked": 4,
+      "notRun": 3,
+      "total": 30
+    },
+    "trialAccess": {
+      "actualDate": "2026-10-11",
+      "accessRoles": 4,
+      "scope": "Trial environment only; no production safety clearance or full business acceptance."
+    },
+    "resourceConflict": {
+      "start": "2026-10-19",
+      "end": "2026-10-23",
+      "estimatedGapPersonDays": 3,
+      "decisionDue": "2026-10-16",
+      "resolved": false
+    }
+  },
+  "changeRequests": [
+    {
+      "id": "CR-01",
+      "issueRef": "ISSUE-03",
+      "riskRef": "RISK-04",
+      "request": "Add SMS notifications to the first release",
+      "status": "impact-assessment",
+      "decisionDate": "2026-10-16",
+      "estimate": {
+        "personDays": 8,
+        "amount": 600000,
+        "currency": "JPY",
+        "basis": "Provisional fictional change estimate, not approved funding"
+      },
+      "baseline": "In-app and email notifications only",
+      "approved": false,
+      "informationManagementBlockersMayNotBeWaived": true,
+      "outcomes": [
+        "approve with conditions",
+        "reject",
+        "defer to a later release",
+        "return for evidence or resources"
+      ],
+      "effectiveApprovalRequires": [
+        "Evidence sufficient for decision",
+        "Information-management blockers discharged",
+        "Resources confirmed",
+        "Sponsor authorization",
+        "Versioned baseline and validation plan"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-01",
+      "taskId": "vendor_reply",
+      "date": "2026-10-15",
+      "ownerRole": "dev",
+      "status": "planned",
+      "question": "Has the CRM Vendor supplied a credible cause and recovery response?"
+    },
+    {
+      "id": "DEC-02",
+      "taskId": "decision_oct16",
+      "date": "2026-10-16",
+      "ownerRole": "pm",
+      "status": "planned",
+      "question": "Are duplicate rules, CR-01 SMS and the capacity shortfall decided by their authorized owners?"
+    },
+    {
+      "id": "DEC-03",
+      "taskId": "night_contacts",
+      "date": "2026-10-20",
+      "ownerRole": "ops",
+      "status": "planned",
+      "question": "Are primary/backup contacts and the night exception drill agreed?"
+    },
+    {
+      "id": "DEC-04",
+      "taskId": "trial_gate",
+      "date": "2026-10-26",
+      "ownerRole": "quality",
+      "status": "planned",
+      "question": "Does the evidence justify trial completion and replanning for implementation?"
+    },
+    {
+      "id": "DEC-05",
+      "taskId": "p_go",
+      "date": "2026-12-16",
+      "ownerRole": "sponsor",
+      "status": "unapproved-proposal",
+      "question": "Are data, safety, business and recovery conditions met? If not, defer with No Go."
+    }
+  ],
+  "workBreakdown": {
+    "relationship": "Deliverable containment, not execution dependencies",
+    "groupCount": 6,
+    "packageCount": 18,
+    "groups": [
+      {
+        "id": "G1",
+        "wbs": "1.1",
+        "title": "Business and acceptance baseline",
+        "packages": [
+          "WP111",
+          "WP112",
+          "WP113"
+        ]
+      },
+      {
+        "id": "G2",
+        "wbs": "1.2",
+        "title": "First-release business functions",
+        "packages": [
+          "WP121",
+          "WP122",
+          "WP123"
+        ]
+      },
+      {
+        "id": "G3",
+        "wbs": "1.3",
+        "title": "Data migration and CRM integration",
+        "packages": [
+          "WP131",
+          "WP132",
+          "WP133"
+        ]
+      },
+      {
+        "id": "G4",
+        "wbs": "1.4",
+        "title": "Independent quality and safety evidence",
+        "packages": [
+          "WP141",
+          "WP142",
+          "WP143"
+        ]
+      },
+      {
+        "id": "G5",
+        "wbs": "1.5",
+        "title": "Operations and adoption",
+        "packages": [
+          "WP151",
+          "WP152",
+          "WP153"
+        ]
+      },
+      {
+        "id": "G6",
+        "wbs": "1.6",
+        "title": "Project governance",
+        "packages": [
+          "WP161",
+          "WP162",
+          "WP163"
+        ]
+      }
+    ]
+  },
+  "schedule": {
+    "calendar": "calendar-days",
+    "businessDaysOrEffort": false,
+    "statusMarker": "status_date",
+    "trialPairs": [
+      {
+        "baseline": "b_requirements",
+        "current": "a_requirements",
+        "baselineEnd": "2026-10-08",
+        "finish": "2026-10-10",
+        "stage": "done"
+      },
+      {
+        "baseline": "b_api",
+        "current": "f_api",
+        "baselineEnd": "2026-10-12",
+        "finish": "2026-10-18",
+        "stage": "forecast"
+      },
+      {
+        "baseline": "b_migration",
+        "current": "f_migration",
+        "baselineEnd": "2026-10-20",
+        "finish": "2026-10-23",
+        "stage": "forecast"
+      },
+      {
+        "baseline": "b_test",
+        "current": "f_test",
+        "baselineEnd": "2026-10-26",
+        "finish": "2026-10-26",
+        "stage": "forecast",
+        "risk": true
+      },
+      {
+        "baseline": "b_training",
+        "current": "f_training",
+        "baselineEnd": "2026-10-23",
+        "finish": "2026-10-22",
+        "stage": "forecast"
+      },
+      {
+        "baseline": "b_access",
+        "current": "a_access",
+        "baselineEnd": "2026-10-11",
+        "finish": "2026-10-11",
+        "stage": "done"
+      }
+    ],
+    "plannedTasks": [
+      "vendor_reply",
+      "decision_oct16",
+      "night_contacts",
+      "trial_gate",
+      "p_biz",
+      "p_scope",
+      "p_perm",
+      "p_plan",
+      "p_baseline",
+      "p_ui",
+      "p_intake",
+      "p_history",
+      "p_sla",
+      "p_feature",
+      "p_clean",
+      "p_api",
+      "p_migration",
+      "p_rehearsal",
+      "p_env",
+      "p_monitor",
+      "p_threat",
+      "p_security",
+      "p_integration",
+      "p_performance",
+      "p_uat",
+      "p_retest",
+      "p_accepted",
+      "p_training",
+      "p_runbook",
+      "p_dress",
+      "p_go",
+      "p_release",
+      "p_support",
+      "p_finish"
+    ],
+    "implementationProposal": {
+      "start": "2026-10-19",
+      "end": "2026-12-24",
+      "taskCount": 30,
+      "approved": false,
+      "preservesOriginalExplicitDates": true
+    },
+    "tasks": [
+      {
+        "id": "status_date",
+        "start": "2026-10-14",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "b_requirements",
+        "start": "2026-10-01",
+        "end": "2026-10-08",
+        "tags": []
+      },
+      {
+        "id": "a_requirements",
+        "start": "2026-10-01",
+        "end": "2026-10-10",
+        "tags": [
+          "done"
+        ]
+      },
+      {
+        "id": "b_api",
+        "start": "2026-10-06",
+        "end": "2026-10-12",
+        "tags": []
+      },
+      {
+        "id": "f_api",
+        "start": "2026-10-06",
+        "end": "2026-10-18",
+        "tags": [
+          "active"
+        ]
+      },
+      {
+        "id": "b_migration",
+        "start": "2026-10-09",
+        "end": "2026-10-20",
+        "tags": []
+      },
+      {
+        "id": "f_migration",
+        "start": "2026-10-09",
+        "end": "2026-10-23",
+        "tags": [
+          "active"
+        ]
+      },
+      {
+        "id": "b_test",
+        "start": "2026-10-14",
+        "end": "2026-10-26",
+        "tags": []
+      },
+      {
+        "id": "f_test",
+        "start": "2026-10-14",
+        "end": "2026-10-26",
+        "tags": [
+          "active"
+        ]
+      },
+      {
+        "id": "b_training",
+        "start": "2026-10-15",
+        "end": "2026-10-23",
+        "tags": []
+      },
+      {
+        "id": "f_training",
+        "start": "2026-10-15",
+        "end": "2026-10-22",
+        "tags": [
+          "active"
+        ]
+      },
+      {
+        "id": "b_access",
+        "start": "2026-10-05",
+        "end": "2026-10-11",
+        "tags": []
+      },
+      {
+        "id": "a_access",
+        "start": "2026-10-05",
+        "end": "2026-10-11",
+        "tags": [
+          "done"
+        ]
+      },
+      {
+        "id": "vendor_reply",
+        "start": "2026-10-15",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "decision_oct16",
+        "start": "2026-10-16",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "night_contacts",
+        "start": "2026-10-20",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "trial_gate",
+        "start": "2026-10-26",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "p_biz",
+        "start": "2026-10-19",
+        "end": "2026-10-26",
+        "tags": []
+      },
+      {
+        "id": "p_scope",
+        "start": "2026-10-26",
+        "end": "2026-10-29",
+        "tags": []
+      },
+      {
+        "id": "p_perm",
+        "start": "2026-10-21",
+        "end": "2026-10-28",
+        "tags": []
+      },
+      {
+        "id": "p_plan",
+        "start": "2026-10-26",
+        "end": "2026-10-29",
+        "tags": []
+      },
+      {
+        "id": "p_baseline",
+        "start": "2026-10-29",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "p_ui",
+        "start": "2026-10-29",
+        "end": "2026-11-06",
+        "tags": []
+      },
+      {
+        "id": "p_intake",
+        "start": "2026-11-06",
+        "end": "2026-11-18",
+        "tags": []
+      },
+      {
+        "id": "p_history",
+        "start": "2026-11-06",
+        "end": "2026-11-18",
+        "tags": []
+      },
+      {
+        "id": "p_sla",
+        "start": "2026-11-18",
+        "end": "2026-11-24",
+        "tags": []
+      },
+      {
+        "id": "p_feature",
+        "start": "2026-11-24",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "p_clean",
+        "start": "2026-10-29",
+        "end": "2026-11-09",
+        "tags": []
+      },
+      {
+        "id": "p_api",
+        "start": "2026-10-29",
+        "end": "2026-11-12",
+        "tags": []
+      },
+      {
+        "id": "p_migration",
+        "start": "2026-11-09",
+        "end": "2026-11-17",
+        "tags": []
+      },
+      {
+        "id": "p_rehearsal",
+        "start": "2026-11-17",
+        "end": "2026-11-23",
+        "tags": []
+      },
+      {
+        "id": "p_env",
+        "start": "2026-10-29",
+        "end": "2026-11-04",
+        "tags": []
+      },
+      {
+        "id": "p_monitor",
+        "start": "2026-11-04",
+        "end": "2026-11-12",
+        "tags": []
+      },
+      {
+        "id": "p_threat",
+        "start": "2026-10-29",
+        "end": "2026-11-05",
+        "tags": []
+      },
+      {
+        "id": "p_security",
+        "start": "2026-11-24",
+        "end": "2026-11-30",
+        "tags": []
+      },
+      {
+        "id": "p_integration",
+        "start": "2026-11-24",
+        "end": "2026-11-30",
+        "tags": []
+      },
+      {
+        "id": "p_performance",
+        "start": "2026-11-30",
+        "end": "2026-12-03",
+        "tags": []
+      },
+      {
+        "id": "p_uat",
+        "start": "2026-12-03",
+        "end": "2026-12-09",
+        "tags": []
+      },
+      {
+        "id": "p_retest",
+        "start": "2026-12-09",
+        "end": "2026-12-14",
+        "tags": []
+      },
+      {
+        "id": "p_accepted",
+        "start": "2026-12-14",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "p_training",
+        "start": "2026-11-24",
+        "end": "2026-12-01",
+        "tags": []
+      },
+      {
+        "id": "p_runbook",
+        "start": "2026-11-12",
+        "end": "2026-11-18",
+        "tags": []
+      },
+      {
+        "id": "p_dress",
+        "start": "2026-12-14",
+        "end": "2026-12-16",
+        "tags": []
+      },
+      {
+        "id": "p_go",
+        "start": "2026-12-16",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      },
+      {
+        "id": "p_release",
+        "start": "2026-12-16",
+        "end": "2026-12-17",
+        "tags": []
+      },
+      {
+        "id": "p_support",
+        "start": "2026-12-17",
+        "end": "2026-12-24",
+        "tags": []
+      },
+      {
+        "id": "p_finish",
+        "start": "2026-12-24",
+        "end": "0d",
+        "tags": [
+          "milestone"
+        ]
+      }
+    ]
+  },
+  "contracts": {
+    "raciRoleOrder": [
+      "sponsor",
+      "pm",
+      "business",
+      "dev",
+      "ops",
+      "info",
+      "quality",
+      "vendor"
+    ],
+    "raciRows": 14,
+    "raciAssignmentSHA256": "20715bedfd4a9b01ead2f2def99d5e88ab99366a06bde6780672b83eb1589cbb",
+    "riskCount": 7,
+    "issueCount": 6,
+    "sourceIssueIds": [
+      "ISSUE-01",
+      "ISSUE-02",
+      "ISSUE-03",
+      "ISSUE-04",
+      "ISSUE-05",
+      "ISSUE-06"
+    ],
+    "sourceRiskIds": [
+      "RISK-01",
+      "RISK-02",
+      "RISK-03",
+      "RISK-04",
+      "RISK-05",
+      "RISK-06",
+      "RISK-07"
+    ],
+    "trialCaseTotal": 30,
+    "doneTrialTaskIds": [
+      "a_requirements",
+      "a_access"
+    ]
+  },
+  "interpretation": [
+    "A forecast is not an actual completion. A planned decision is not an approval.",
+    "The 401 authentication failure is an observed issue; a further recovery delay is a future risk.",
+    "80 duplicate-key candidates are not 80 confirmed data losses, and record-count agreement alone is insufficient acceptance evidence.",
+    "The 3-person-day resource gap remains unresolved at the status date; no staffing success is claimed.",
+    "Emergency rollback under preauthorized conditions is distinct from authorization to change scope or budget.",
+    "AI may help summarize logs or draft analysis; these sources do not execute AI or production operations.",
+    "Shared runtime status and RACI legend text may remain Japanese; the case source content is English."
+  ],
+  "provenance": {
+    "basis": "English adaptation of Taskobo fictional CRM service rollout scenario and full built-in examples",
+    "sourceScenario": "docs/MERMAID-EXAMPLE-SCENARIO.md in the Taskobo source project",
+    "sourceExampleIds": [
+      "02-work-breakdown",
+      "06-change-approval",
+      "03-project-gantt",
+      "08-raci",
+      "09-risk-register",
+      "14-issue-log"
+    ],
+    "preserved": [
+      "RACI role order and all 112 assignments",
+      "All 47 schedule IDs, start/end dates and tags",
+      "All six trial comparison definitions and 34 planned-task IDs",
+      "Status date, scope, issue facts, estimates and decision rights"
+    ],
+    "translationNote": "English prose and explicit cross-document identifiers were added for the public case. Additional workflow branches spell out the existing safety and evidence rules; they are not completed events."
+  }
+}

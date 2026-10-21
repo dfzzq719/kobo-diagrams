@@ -1,6 +1,6 @@
 {
   "name": "@taskobo/diagrams",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Framework-independent Mermaid rendering and enterprise diagram profiles.",
   "repository": {"type":"git","url":"git+https://github.com/dfzzq719/kobo-diagrams.git"},
   "homepage": "https://github.com/dfzzq719/kobo-diagrams#readme",

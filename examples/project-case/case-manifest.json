@@ -1,0 +1,157 @@
+{
+  "schema": "kobo.project-case-manifest/v1",
+  "caseId": "crm-service-rollout",
+  "title": "Customer service CRM rollout: decide, deliver and hand over",
+  "asOf": "2026-10-14",
+  "statusDate": "2026-10-14",
+  "fictional": true,
+  "scenario": "scenario.json",
+  "verifier": "verify.mjs",
+  "profileOptions": {
+    "settings": {
+      "fontSize": 22,
+      "density": "compact",
+      "curve": "linear"
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  },
+  "documents": [
+    {
+      "id": "wbs",
+      "title": "Deliverables with testable acceptance",
+      "question": "What must be delivered, and what evidence makes each work package acceptable?",
+      "file": "wbs.mmd",
+      "kind": "mermaid",
+      "diagramType": "flowchart",
+      "description": "Six deliverable groups and 18 work packages keep business capability, data, safety, operations and governance in the same scope.",
+      "counts": {
+        "deliverableGroups": 6,
+        "workPackages": 18
+      },
+      "detail": {
+        "focusLabels": [
+          "1.3 Data migration and CRM integration",
+          "1.3.1 Migration data and mapping",
+          "1.3.2 CRM integration and replay control",
+          "1.3.3 Migration decision record"
+        ],
+        "description": "The data/integration group links 20,000-record traceability, real-endpoint evidence and decisions for 80 duplicate candidates."
+      }
+    },
+    {
+      "id": "workflow",
+      "title": "A change decision that can stop",
+      "question": "Can the SMS request proceed, and what happens when evidence, safety or resources are insufficient?",
+      "file": "change-control.mmd",
+      "kind": "mermaid",
+      "diagramType": "sequence",
+      "description": "CR-01 compares +8 person-days / +JPY 600,000 with rejection and deferral, preserves Information Management blocking authority, and requires baseline revision and independent revalidation.",
+      "counts": {
+        "participants": 7,
+        "changeRequests": 1
+      },
+      "detail": {
+        "focusLabels": [
+          "Information-management release conditions remain unmet",
+          "Block release of the proposed change until specified evidence is accepted",
+          "Conditional approval alone does not activate a changed baseline"
+        ],
+        "description": "Evidence and safety blockers prevent conditional approval from silently becoming implementation authority."
+      }
+    },
+    {
+      "id": "gantt",
+      "title": "Actuals, forecasts and the unapproved implementation proposal",
+      "question": "Which dates are facts, which forecasts have slipped, and which future commitments still require approval?",
+      "file": "schedule.mmd",
+      "kind": "mermaid",
+      "diagramType": "gantt",
+      "description": "The integrated calendar keeps six baseline/current pairs, four pending trial decisions and all 30 implementation proposal entries on one timeline.",
+      "counts": {
+        "trialComparisons": 6,
+        "actualCompletions": 2,
+        "forecasts": 4,
+        "pendingTrialDecisions": 4,
+        "implementationProposalEntries": 30,
+        "totalEntries": 47
+      },
+      "detail": {
+        "focusLabels": [
+          "Trial — CRM connection / ISSUE-01",
+          "Forecast 10/18 / already overdue by status date",
+          "Trial — migration / ISSUE-02",
+          "Forecast 10/23 / 3 days later than baseline"
+        ],
+        "description": "The API forecast is six calendar days later than baseline and already overdue as of 10/14; trial migration forecasts a three-day slip."
+      }
+    },
+    {
+      "id": "raci",
+      "title": "A single accountable owner for every decision",
+      "question": "Who can decide, who executes, and who must be consulted across the complete delivery lifecycle?",
+      "file": "raci.json",
+      "kind": "table",
+      "diagramType": "raci",
+      "description": "The unchanged 14-by-8 responsibility matrix separates Sponsor scope authority, Business acceptance, independent Quality and preauthorized Operations rollback.",
+      "counts": {
+        "responsibilityRows": 14,
+        "roles": 8,
+        "assignments": 112
+      },
+      "detail": {
+        "focusLabels": [
+          "RACI-11 | Decide CR-01 SMS scope, cost and schedule",
+          "RACI-12 | Decide Go / No Go; defer if safety or recovery conditions fail",
+          "RACI-13 | Execute preauthorized emergency rollback, verify recovery and notify users"
+        ],
+        "description": "Scope approval, Go / No Go and emergency rollback have different accountable owners and conditions."
+      }
+    },
+    {
+      "id": "risk",
+      "title": "Triggers and evidence for future consequences",
+      "question": "What could happen next, what triggers action, and what residual exposure remains after the response?",
+      "file": "risk-register.json",
+      "kind": "table",
+      "diagramType": "register",
+      "description": "Seven future risks have explicit triggers, owners, actions, reviews and required evidence; the observed 401 failure remains an issue.",
+      "counts": {
+        "risks": 7
+      },
+      "detail": {
+        "focusLabels": [
+          "RISK-01 | A further CRM recovery delay could push trial integration testing",
+          "RISK-02 | Incorrect duplicate handling could reach production"
+        ],
+        "description": "Current authentication and data-quality issues become causal inputs to future schedule and production risks."
+      }
+    },
+    {
+      "id": "issues",
+      "title": "Observed problems with real closure conditions",
+      "question": "What is already wrong, who owns the next action, and what evidence would justify closing the item?",
+      "file": "issues.json",
+      "kind": "table",
+      "diagramType": "register",
+      "description": "Six open issues distinguish deadlines from forecasts and require proof for authentication recovery, data reconciliation, change decisions, resources, contacts and remaining tests.",
+      "counts": {
+        "issues": 6,
+        "mandatoryCases": 30,
+        "passed": 18,
+        "failed": 5,
+        "blocked": 4,
+        "notRun": 3
+      },
+      "detail": {
+        "focusLabels": [
+          "ISSUE-01 | CRM sandbox authentication returns 401 | investigating",
+          "ISSUE-02 | Trial-migration reconciliation differences | awaiting rule decision"
+        ],
+        "description": "The log records current blockers and insists that a forecast date or a count match alone cannot close an issue."
+      }
+    }
+  ]
+}
