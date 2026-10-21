@@ -14,6 +14,12 @@ with a hairline instead of rounded cards, decorative backgrounds or gradients.
 Typography follows the established Noto Sans JP / Yu Gothic / Meiryo sans stack;
 code and exact version data retain monospace. No decorative icon family is needed.
 
+The README may open with one cinematic brand hero under the user's requested
+direction: paper objects, navy depth, controlled cobalt light and a short Chinese
+message. This is a promotional concept, not a screenshot or evidence of business
+output. Keep it separate from the complete renderer figures; do not repeat it in
+the gallery. Link Taskobo naturally in a short attribution near the introduction.
+
 The diagrams must prove business depth. Keep the complete six-document CRM case
 in `examples/project-case/`: its scope hierarchy, decision loops, integrated variance
 schedule, full responsibility matrix, risks and issues share the same scenario.

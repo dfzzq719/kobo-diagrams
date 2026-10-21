@@ -4,6 +4,8 @@
 
 Taskobo Diagrams 让 AI 协助整理和持续更新项目材料，项目经理专注判断、沟通与交付。通过中文 Skill 使用，当前为 Alpha 版本。
 
+这是 [Taskobo](https://taskobo.com/) 围绕 AI 与项目管理发起的开源实践。
+
 ## 能帮 PM 做什么
 
 | 常见痛点 | Skill 帮助完成的工作 |

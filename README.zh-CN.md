@@ -1,8 +1,12 @@
 # Taskobo Diagrams
 
+![Taskobo Diagrams 理念主视觉：把时间还给项目经理，让零散材料汇为项目计划，专注判断、沟通与交付。](docs/assets/brand/taskobo-diagrams-hero-zh-CN.png)
+
 **让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。**
 
 我们相信，AI 将改变项目管理工具，也将改变项目经理的工作方式。让 AI 协助起草和整理，让图表成为团队持续修订、讨论和落实行动的工作材料。
+
+Taskobo Diagrams 是 [Taskobo](https://taskobo.com/) 围绕这一理念发起的开源实践。
 
 [开始使用](docs/pm-skill.zh-CN.md) · [下载 Taskobo Diagrams](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [看中文画册](docs/gallery.zh-CN.md)
 
