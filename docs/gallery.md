@@ -26,9 +26,9 @@ Four diagram types from one fictional CRM rollout. Select an image for the compl
 
 **Change sequence** · Parallel impact assessment, missing-evidence returns, approval, deferral, rejection and independent verification.
 
-[![Complete change-control sequence with approval branches, blocking conditions and verification.](assets/crm-case/workflow-figure.png)](assets/crm-case/workflow.svg)
+[![Complete change-control sequence with approval branches, blocking conditions and verification.](assets/crm-case/workflow-compact-figure.png)](assets/crm-case/workflow-compact.svg)
 
-[Full SVG](assets/crm-case/workflow.svg) · [Source](../examples/project-case/change-control.mmd) · [Enlarged detail](assets/crm-case/workflow-detail.png)
+[Full SVG](assets/crm-case/workflow-compact.svg) · [Source](../examples/project-case/change-control.mmd) · [Enlarged detail](assets/crm-case/workflow-compact-detail.png)
 
 ## Delivery dates
 

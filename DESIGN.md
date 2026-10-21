@@ -28,6 +28,11 @@ column in the presentation. The product name stays modest and the diagrams carry
 the page. Complete figures are visible without collapsed disclosures; original-size
 links support reading on narrow screens.
 
+Keep the change sequence compact by combining repeated administrative messages,
+acknowledgements and notification steps. Preserve the assessment, decision,
+implementation and acceptance branches without drawing every retry as a separate
+exchange. Shorten the content rather than shrinking the type or stretching images.
+
 Keep full figures and detail crops distinct. All six documents still ship a
 complete original SVG and complete PNG. Detail assets retain the original SVG
 content and record their viewports; do not pass a crop off as a complete diagram

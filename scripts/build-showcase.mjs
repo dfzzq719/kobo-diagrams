@@ -39,8 +39,12 @@ if (typeof caseManifest.scenario === 'string') {
   if (!scenarioFile.startsWith(caseDirectory+path.sep)) throw new Error('Scenario must stay in the case directory.');
   inputs.scenario = JSON.parse(await readFile(scenarioFile,'utf8'));
 }
+const assetStems = new Set();
 for (const document of documents) {
   if (!/^[a-z][a-z0-9-]*$/.test(document.id) || typeof document.file !== 'string') throw new Error('Invalid document ID or file.');
+  const stem = assetStem(document);
+  if (assetStems.has(stem)) throw new Error(`Duplicate asset basename: ${stem}`);
+  assetStems.add(stem);
   const file = path.resolve(caseDirectory, document.file);
   if (!file.startsWith(caseDirectory + path.sep)) throw new Error('Case source must stay in examples/project-case.');
   inputs.sources[document.id] = await readFile(file, 'utf8');
@@ -152,8 +156,8 @@ try {
   const write = async (name, value) => {await writeFile(path.join(assets, name), value); outputFiles.push(name);};
   const viewports = {};
   for (const document of documents) {
-    const {id} = document, chart = charts[id];
-    await write(`${id}.svg`, chart.svg + '\n');
+    const {id} = document, chart = charts[id], stem = assetStem(document);
+    await write(`${stem}.svg`, chart.svg + '\n');
     const width = Math.max(1000, Math.ceil(chart.width) + 80);
     const height = Math.ceil(chart.height) + 190;
     if (width * height > 70_000_000 || width > 16000 || height > 24000) throw new Error(`${id} exceeds a safe full PNG size. The full SVG is retained; review an explicit tiled export instead of shrinking away content.`);
@@ -161,14 +165,14 @@ try {
       `<text x="40" y="51" font-size="30" font-weight="700">${escape(document.title)} · Complete diagram</text>` +
       `<text x="40" y="89" font-size="19" fill="#52637A">${escape(countsText(document.counts))} · Status ${escape(caseManifest.statusDate)} · Fictional CRM case</text>` +
       image(chart, 40, 130, width - 80, chart.height) + '</g></svg>\n';
-    await write(`${id}-figure.svg`, figure);
+    await write(`${stem}-figure.svg`, figure);
     chart.figureWidth = width; chart.figureHeight = height;
     const crop = selectViewport(chart, document);
     viewports[id] = crop;
     chart.crop = crop;
     chart.detailSvg = cropSvg(chart.svg, crop);
     const detail = detailFigure(chart,document,crop);
-    await write(`${id}-detail.svg`, detail.svg);
+    await write(`${stem}-detail.svg`, detail.svg);
     chart.detailWidth = detail.width; chart.detailHeight = detail.height;
   }
 
@@ -212,13 +216,14 @@ try {
   };
   await capture('showcase', heroWidth, heroHeight, 'Complete CRM case: real schedule and scope/responsibility viewports plus full matrix overview.');
   await capture('showcase-mobile', 780, mobileHeight, 'Mobile composition of actual full-case SVG viewports.');
-  for (const [id, chart] of Object.entries(charts)) {
-    await capture(`${id}-figure`, chart.figureWidth, chart.figureHeight, `Complete ${id} diagram. No task, row, role or branch removed from the committed CRM case source.`);
-    await capture(`${id}-detail`, chart.detailWidth, chart.detailHeight, `A labelled viewBox crop of the complete ${id} SVG. No simplified replacement source.`);
+  for (const document of documents) {
+    const {id} = document, chart = charts[id], stem = assetStem(document);
+    await capture(`${stem}-figure`, chart.figureWidth, chart.figureHeight, `Complete ${id} diagram. No task, row, role or branch removed from the committed CRM case source.`);
+    await capture(`${stem}-detail`, chart.detailWidth, chart.detailHeight, `A labelled viewBox crop of the complete ${id} SVG. No simplified replacement source.`);
   }
   await write('inputs.json', JSON.stringify({...inputs, profile: result.profile}, null, 2) + '\n');
   await write('showcase.html', galleryHtml(documents, caseManifest));
-  const qa = {renderer: {coreVersion: result.coreVersion, mermaidVersion: result.mermaidVersion}, caseId: caseManifest.caseId, statusDate: caseManifest.statusDate, documents: documents.map(document => ({id:document.id, sourceFile:document.file, sourceSHA256:sha(inputs.sources[document.id]), width:charts[document.id].width, height:charts[document.id].height, counts:document.counts, detail:viewports[document.id]})), layouts: []};
+  const qa = {renderer: {coreVersion: result.coreVersion, mermaidVersion: result.mermaidVersion}, caseId: caseManifest.caseId, statusDate: caseManifest.statusDate, documents: documents.map(document => ({id:document.id, assetStem:assetStem(document), sourceFile:document.file, sourceSHA256:sha(inputs.sources[document.id]), width:charts[document.id].width, height:charts[document.id].height, counts:document.counts, detail:viewports[document.id]})), layouts: []};
   for (const [name, width, height] of [['desktop', 1440, 1080], ['mobile', 390, 844]]) {
     await cdp('Emulation.setDeviceMetricsOverride', {width, height, deviceScaleFactor: 1, mobile:name === 'mobile'});
     await cdp('Page.navigate', {url:`${origin}/docs/assets/crm-case/showcase.html`});
@@ -388,7 +393,7 @@ function detailFigure(chart,document,viewport) {
     y+=height+42;
   }
   const height=Math.ceil(y+60);
-  content+=`<text x="48" y="${height-28}" font-size="18" fill="#52637A">Full SVG: ${document.id}.svg · Source: examples/project-case/${escape(document.file)}</text>`;
+  content+=`<text x="48" y="${height-28}" font-size="18" fill="#52637A">Full SVG: ${escape(assetStem(document))}.svg · Source: examples/project-case/${escape(document.file)}</text>`;
   return {width,height,svg:svgStart(width,height,`${document.title} — detail of complete diagram`,viewport.method)+content+'</g></svg>\n'};
 }
 function balancedColumnGroups(columns) {
@@ -422,13 +427,21 @@ function cropSvg(svg, viewport) {
   // the original render retain their complete-document geometry.
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${viewport.width}" height="${viewport.height}" viewBox="${viewport.x} ${viewport.y} ${viewport.width} ${viewport.height}" role="img"><title>Detail viewport of the unchanged complete SVG</title><image x="${full[0]}" y="${full[1]}" width="${full[2]}" height="${full[3]}" href="${b64svg(svg)}"/></svg>`;
 }
+function assetStem(document) {
+  const stem = document.assetStem ?? document.id;
+  if (typeof stem !== 'string' || !/^[a-z][a-z0-9-]*$/.test(stem)) throw new Error('Invalid asset basename.');
+  return stem;
+}
 function galleryHtml(documents, manifest) {
   const categories = new Map([['wbs', 'WBS'], ['raci', 'RACI'], ['workflow', 'Change-control flow'], ['gantt', 'Schedule']]);
   const galleryDocuments = [...categories.keys()].map(id => documents.find(document => document.id === id));
   if (galleryDocuments.some(document => !document)) throw new Error('The gallery needs WBS, RACI, workflow and schedule documents.');
   return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kobo Diagrams — CRM delivery diagrams</title><style>
   :root{color-scheme:light;background:#fffefa;color:#0d2046;font:18px/1.6 "Noto Sans JP","Yu Gothic",Meiryo,sans-serif}*{box-sizing:border-box}body{max-width:1400px;margin:auto;padding:28px 44px 64px}a{color:#1456d9;text-underline-offset:4px}a:focus-visible{outline:3px solid #c64c38;outline-offset:4px}::selection{background:#1456d9;color:#fff}h1{font-size:38px;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}h2{font-size:30px;line-height:1.3;margin:0 0 10px}p{max-width:78ch;margin:10px 0}.source-note,.figure-links{color:#52637a;font-size:16px}nav{display:flex;gap:12px 24px;flex-wrap:wrap;border-bottom:1px solid #d7dce6;padding:18px 0;margin:20px 0 36px}section.case-document+section.case-document{border-top:1px solid #d7dce6;padding-top:32px;margin-top:48px}figure{margin:20px 0 12px}.full-view img{display:block;width:100%;height:auto}.figure-links{display:flex;gap:8px 20px;flex-wrap:wrap}@media(max-width:700px){body{padding:20px 18px 40px}h1{font-size:30px}h2{font-size:25px}section.case-document+section.case-document{margin-top:36px;padding-top:28px}}
-  </style><h1>CRM delivery diagrams</h1><p class="source-note">Fictional case · Status ${escape(manifest.statusDate)} · <a href="../../gallery.md">Documentation</a></p><nav aria-label="Diagram types">${galleryDocuments.map(document => `<a href="#${document.id}">${categories.get(document.id)}</a>`).join('')}</nav><main>${galleryDocuments.map(document => `<section class="case-document" id="${document.id}"><h2>${categories.get(document.id)}</h2><p>${escape(document.description || document.question || '')}</p><figure class="full-view"><a href="${document.id}.svg"><img src="${document.id}-figure.png" alt="Complete ${escape(document.title)}"></a></figure><p class="figure-links"><a class="full-svg" href="${document.id}.svg">Full SVG</a><a href="${document.id}-figure.png">Full PNG</a><a href="../../../examples/project-case/${escape(document.file)}">Source</a><a href="${document.id}-detail.png">Detail crop</a></p></section>`).join('')}</main></html>\n`;
+  </style><h1>CRM delivery diagrams</h1><p class="source-note">Fictional case · Status ${escape(manifest.statusDate)} · <a href="../../gallery.md">Documentation</a></p><nav aria-label="Diagram types">${galleryDocuments.map(document => `<a href="#${document.id}">${categories.get(document.id)}</a>`).join('')}</nav><main>${galleryDocuments.map(document => {
+    const stem = assetStem(document);
+    return `<section class="case-document" id="${document.id}"><h2>${categories.get(document.id)}</h2><p>${escape(document.description || document.question || '')}</p><figure class="full-view"><a href="${stem}.svg"><img src="${stem}-figure.png" alt="Complete ${escape(document.title)}"></a></figure><p class="figure-links"><a class="full-svg" href="${stem}.svg">Full SVG</a><a href="${stem}-figure.png">Full PNG</a><a href="../../../examples/project-case/${escape(document.file)}">Source</a><a href="${stem}-detail.png">Detail crop</a></p></section>`;
+  }).join('')}</main></html>\n`;
 }
 
 function pngText(buffer, provenance) {

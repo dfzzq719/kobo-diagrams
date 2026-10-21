@@ -8,6 +8,7 @@
   "documents": [
     {
       "id": "wbs",
+      "assetStem": "wbs",
       "sourceFile": "wbs.mmd",
       "sourceSHA256": "92066e2508b042bf838afb1b48bde69f4c1d254990ea0f2331f84bbb92931281",
       "width": 1768.25,
@@ -38,18 +39,19 @@
     },
     {
       "id": "workflow",
+      "assetStem": "workflow-compact",
       "sourceFile": "change-control.mmd",
-      "sourceSHA256": "c0cd0da5207fbae226bf6f4c7f046d51ebb8d5fbedd299ee6715032ce66cab3c",
-      "width": 1679,
-      "height": 6283,
+      "sourceSHA256": "28bdf595332cb86c314661792dfb6ba578fb2d49c5f0f6d0ec4acdb2b9257c44",
+      "width": 1799,
+      "height": 3290,
       "counts": {
         "participants": 7,
         "changeRequests": 1
       },
       "detail": {
-        "x": 183,
-        "y": 1935,
-        "width": 960,
+        "x": 189,
+        "y": 1019,
+        "width": 1028,
         "height": 150.4375,
         "contextAnnotation": "Information Management Lead → Project Manager (PM)",
         "focusLabels": [
@@ -66,6 +68,7 @@
     },
     {
       "id": "gantt",
+      "assetStem": "gantt",
       "sourceFile": "schedule.mmd",
       "sourceSHA256": "d1371a7d1399793e6d1fc0f8415a59f36432876981305f5a155da343992f4bad",
       "width": 2235.097900390625,
@@ -156,6 +159,7 @@
     },
     {
       "id": "raci",
+      "assetStem": "raci",
       "sourceFile": "raci.json",
       "sourceSHA256": "102ce1fde68d0619fe44d78c151bd9cde8caeacc7e72e0c7fdf155866d251be7",
       "width": 1603,
@@ -232,6 +236,7 @@
     },
     {
       "id": "risk",
+      "assetStem": "risk",
       "sourceFile": "risk-register.json",
       "sourceSHA256": "b76568106b78425547c0754b3937e1c6a80d624a2184957c3d839ddbd6ff38bc",
       "width": 1963,
@@ -321,6 +326,7 @@
     },
     {
       "id": "issues",
+      "assetStem": "issues",
       "sourceFile": "issues.json",
       "sourceSHA256": "d3fbb7529d66cf52ac78fb449e4cd85f36ad307b8a4030908a12bb08fed1c553",
       "width": 1663,
@@ -403,9 +409,9 @@
       "height": 1080,
       "viewport": 1440,
       "documentWidth": 1425,
-      "figures": 6,
-      "fullLinks": 6,
-      "details": 6
+      "figures": 4,
+      "fullLinks": 4,
+      "details": 0
     },
     {
       "name": "mobile",
@@ -413,9 +419,9 @@
       "height": 844,
       "viewport": 390,
       "documentWidth": 390,
-      "figures": 6,
-      "fullLinks": 6,
-      "details": 6
+      "figures": 4,
+      "fullLinks": 4,
+      "details": 0
     }
   ]
 }

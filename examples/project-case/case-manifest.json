@@ -43,6 +43,7 @@
     },
     {
       "id": "workflow",
+      "assetStem": "workflow-compact",
       "title": "A change decision that can stop",
       "question": "Can the SMS request proceed, and what happens when evidence, safety or resources are insufficient?",
       "file": "change-control.mmd",

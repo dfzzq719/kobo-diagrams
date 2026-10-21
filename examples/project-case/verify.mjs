@@ -182,7 +182,44 @@ assert.equal(change.issueRef, 'ISSUE-03');
 assert.equal(change.riskRef, 'RISK-04');
 const workflow = sources.get('workflow');
 assert.doesNotMatch(workflow, /;/, 'Sequence-diagram text must not introduce statement separators');
-for (const phrase of ['+8 person-days / +JPY 600,000', '2026-10-16', 'Return for missing evidence', 'Sponsor cannot waive', 'Version the baseline', 'Reject the request', 'Defer SMS beyond the first release', 'Business returns remaining differences', 'CR-01 remains open, escalation is not acceptance']) assert.ok(workflow.includes(phrase), `Change control must retain ${phrase}`);
+for (const phrase of ['+8 person-days / +JPY 600,000', '2026-10-16', 'Return for missing evidence', 'Sponsor cannot waive', 'Version the baseline', 'Reject the request', 'Defer SMS beyond the first release', 'Business returns', 'CR-01 remains open, escalation is not acceptance']) assert.ok(workflow.includes(phrase), `Change control must retain ${phrase}`);
+assert.deepEqual([...workflow.matchAll(/^\s*participant (\w+) as /gm)].map(match=>match[1]),['Biz','PM','Dev','Ops','Info','QA','Sponsor']);
+// Check the actual nested decision branches, not just the presence of labels.
+// A closure message outside these guards would let a failure path look closed.
+const frames=[],messages=[];
+for(const raw of workflow.split(/\r?\n/)){
+  const line=raw.trim();
+  const opening=line.match(/^(alt|par|opt|loop)\s+(.+)$/);
+  if(opening){frames.push({kind:opening[1],branch:opening[2]});continue;}
+  const alternative=line.match(/^(else|and)\s+(.+)$/);
+  if(alternative){
+    assert.ok(frames.length,'An alternative must belong to an open decision');
+    assert.equal(frames.at(-1).kind,alternative[1]==='else'?'alt':'par');
+    frames.at(-1).branch=alternative[2];continue;
+  }
+  if(line==='end'){assert.ok(frames.length,'Unmatched sequence end');frames.pop();continue;}
+  const message=line.match(/^(\w+)--?>>(\w+):\s*(.+)$/);
+  if(message)messages.push({from:message[1],to:message[2],text:message[3],parallel:frames.some(frame=>frame.kind==='par'),guards:frames.filter(frame=>frame.kind==='alt').map(frame=>frame.branch)});
+}
+assert.equal(frames.length,0,'Every sequence decision must close');
+const findMessage=(from,to,text)=>{
+  const found=messages.find(message=>message.from===from&&message.to===to&&message.text.includes(text));
+  assert.ok(found,`Missing ${from} to ${to}: ${text}`);return found;
+};
+const closure=messages.filter(message=>message.text.startsWith('Close CR-01'));
+assert.equal(closure.length,1,'Approved implementation has one evidence-based closure route');
+for(const guard of ['Conditions and resources are confirmed','Independent verification passes and blockers are cleared','Business accepts'])assert.ok(closure[0].guards.includes(guard),`Closure requires ${guard}`);
+assert.ok(findMessage('PM','Dev','Version the baseline').guards.includes('Conditions and resources are confirmed'));
+assert.ok(findMessage('PM','Biz','Return for missing evidence').guards.includes('Request lacks evidence'));
+assert.ok(findMessage('Info','PM','Block release').guards.includes('Information-management release conditions remain unmet'));
+assert.ok(findMessage('PM','Biz','Hold implementation').guards.includes('Conditions or resources are still missing'));
+assert.ok(findMessage('QA','Dev','keep release blocked').guards.includes('Verification fails, evidence is incomplete or escalation is required'));
+assert.ok(findMessage('Biz','PM','Return unaccepted criteria').guards.includes('Business returns'));
+assert.ok(findMessage('Sponsor','PM','Reject with reasons').guards.includes('Reject the request'));
+assert.ok(findMessage('Sponsor','PM','Defer with an owner').guards.includes('Defer SMS beyond the first release'));
+for(const role of ['Dev','Info','Ops','QA'])assert.ok(messages.some(message=>message.from===role&&message.to==='PM'&&message.parallel),`${role} must return a real parallel impact assessment`);
+assert.ok(workflow.includes('Failure or business return reopens linked work'));
+assert.ok(messages.length<=28,'The overview keeps repeated checks in notes instead of dozens of repeated handoffs');
 for (const source of sources.values()) {
   for (const [id] of source.matchAll(/\bISSUE-\d{2}\b/g)) assert.ok(issueIds.has(id), `Unknown issue reference ${id}`);
   for (const [id] of source.matchAll(/\bRISK-\d{2}\b/g)) assert.ok(riskIds.has(id), `Unknown risk reference ${id}`);

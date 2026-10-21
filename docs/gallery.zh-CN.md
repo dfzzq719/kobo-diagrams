@@ -26,9 +26,9 @@
 
 **变更时序** · 包含并行影响分析、缺证退回、批准／延期／拒绝及独立复验。
 
-[![完整变更时序图，展示审批分支、阻断条件和复验。](assets/crm-case/workflow-figure.png)](assets/crm-case/workflow.svg)
+[![完整变更时序图，展示审批分支、阻断条件和复验。](assets/crm-case/workflow-compact-figure.png)](assets/crm-case/workflow-compact.svg)
 
-[完整 SVG](assets/crm-case/workflow.svg) · [源码](../examples/project-case/change-control.mmd) · [局部放大](assets/crm-case/workflow-detail.png)
+[完整 SVG](assets/crm-case/workflow-compact.svg) · [源码](../examples/project-case/change-control.mmd) · [局部放大](assets/crm-case/workflow-compact-detail.png)
 
 ## 交付日期
 

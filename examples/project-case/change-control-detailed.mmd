@@ -1,0 +1,87 @@
+sequenceDiagram
+  autonumber
+  participant Biz as Business Lead
+  participant PM as Project Manager (PM)
+  participant Dev as Development Lead
+  participant Ops as Operations Lead
+  participant Info as Information Management Lead
+  participant QA as Quality Lead
+  participant Sponsor as Sponsor
+  Note over Biz,Sponsor: CR-01 / ISSUE-03 / RISK-04 — fictional case as of 2026-10-14.<br/>SMS is under assessment. The current baseline permits only in-app and email notices.<br/>The routes below are decision rules for the 2026-10-16 meeting, no approval is asserted.
+  Biz->>PM: Request SMS in the first release, state purpose, recipients and deadline
+  PM->>PM: Register CR-01 and compare requested scope with the current baseline
+  alt Request lacks use case, recipient definition or acceptance evidence
+    PM-->>Biz: Return for missing evidence, name the owner and resubmission date
+    Note over Biz,PM: Returned for clarification, no implementation instruction and no baseline change
+  else Request can be assessed
+    par Effort, delivery and existing commitments
+      PM->>Dev: Assess implementation, regression, dependencies and the resource conflict
+      Dev-->>PM: Provisional estimate +8 person-days / +JPY 600,000, alternatives and date impact
+    and Personal information and external transmission
+      PM->>Info: Assess recipient data, consent, retention, processor terms and release blockers
+      Info-->>PM: Required evidence, unresolved conditions and named follow-up owners
+    and Operational impact
+      PM->>Ops: Assess monitoring, failure handling, service contacts and recovery steps
+      Ops-->>PM: Operational constraints and checks required before handover
+    and Independent validation
+      PM->>QA: Assess test changes and capacity, preserve mandatory acceptance coverage
+      QA-->>PM: Regression evidence required, mock UI tests do not prove real API acceptance
+    end
+    PM->>PM: Compare add now / defer to a later release / reject, record assumptions and uncertainty
+    alt Information-management release conditions remain unmet
+      Info-->>PM: Block release of the proposed change until specified evidence is accepted
+      PM-->>Sponsor: Hold the change, the Sponsor cannot waive the unresolved safety blocker
+      PM-->>Biz: Current scope remains, return missing evidence and a review deadline
+    else Decision evidence is complete enough for sponsor review
+      PM->>Sponsor: Present CR-01 options, +8 person-days / +JPY 600,000, dates and residual risks
+      alt Approve with explicit scope, funding and conditions
+        Sponsor-->>PM: Authorize only the recorded scope, cost and conditions
+        PM->>Info: Confirm blocking conditions have actually been discharged
+        alt Conditions or resources are still missing
+          PM-->>Biz: Hold implementation, name the missing evidence and reconsideration date
+          Note over PM,Sponsor: Conditional approval alone does not activate a changed baseline
+        else Conditions and resources are confirmed
+          PM->>PM: Version the baseline, record before/after scope, cost, dates, owners and tests
+          PM->>Dev: Issue the authorized baseline and implementation instruction
+          PM->>Ops: Issue the revised monitoring and handover requirements
+          PM-->>Biz: Communicate approved scope, forecast date and acceptance criteria
+          Dev->>QA: Submit implementation and traceable test evidence
+          loop Until independently verified or escalated for a new decision
+            QA->>QA: Retest the change and affected functions against real integration evidence
+            alt Verification fails or a blocker reappears
+              QA-->>Dev: Return defects with evidence, keep release blocked
+              Dev->>QA: Correct defects and resubmit the evidence
+            else Verification passes
+              QA-->>PM: Record passing independent results against the authorized criteria
+            end
+          end
+          alt Independent verification has passed and blockers are cleared
+            QA-->>Biz: Present the independent results for business acceptance
+            alt Business accepts against the agreed criteria
+              Biz-->>PM: Confirm acceptance with the evidence reference
+              PM->>PM: Close CR-01 only with decision, baseline, verification and receipt records
+            else Business returns remaining differences
+              Biz-->>PM: Return the unaccepted criteria and supporting evidence
+              PM->>Dev: Reopen linked work, correct within scope or request a new decision
+              Note over Biz,PM: CR-01 remains open, neither a forecast nor a failed acceptance closes it
+            end
+          else Verification is incomplete or escalation is required
+            QA-->>PM: Keep release blocked, identify the evidence gap and remaining defects
+            PM->>Sponsor: Escalate scope, resource or date options for a new decision
+            Note over PM,Sponsor: CR-01 remains open, escalation is not acceptance or release authority
+          end
+        end
+      else Reject the request
+        Sponsor-->>PM: Record the reason and any conditions for reconsideration
+        PM-->>Biz: Keep in-app/email scope, explain the decision and available alternative
+      else Defer SMS beyond the first release
+        Sponsor-->>PM: Record later-release conditions, owner and next review date
+        PM-->>Biz: Keep the current baseline, record SMS as a deferred candidate
+      else Return for evidence or unresolved resources
+        Sponsor-->>PM: Specify missing materials and a reconsideration deadline
+        PM-->>Biz: Assessment remains open, no unapproved SMS work may start
+      end
+      Biz-->>PM: Acknowledge the decision or raise a recorded discrepancy
+      PM->>PM: Preserve the decision and communication trail for approval, rejection or deferral
+    end
+  end
