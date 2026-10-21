@@ -1,64 +1,56 @@
 # Kobo Diagrams
 
-[English](README.md) · [画册](docs/gallery.zh-CN.md) · [API](docs/api.md) · [集成说明](docs/integration.md)
+**让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。**
 
-`@taskobo/diagrams` 是在浏览器中绘制 Mermaid、共用企业图表样式的 ESM 包，由 [Taskobo](https://taskobo.com/free-tools/mermaid/) 和 [DOCSKOBO](https://docskobo.com) 使用；两个应用各自保留界面与文档存储。
+我们相信，AI 将改变项目管理工具，也将改变项目经理的工作方式。让 AI 协助起草和整理，让图表成为团队持续修订、讨论和落实行动的工作材料。
 
-[![完整 CRM 责任矩阵：14 项活动、8 个项目角色。](docs/assets/crm-case/raci-figure.png)](docs/assets/crm-case/raci.svg)
+[下载中文图表工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/kobo-diagrams-zh-CN.zip) · [看中文画册](docs/gallery.zh-CN.md) · [继续编辑（中文）](https://docskobo.com/app?lang=zh)
 
-[打开完整 SVG](docs/assets/crm-case/raci.svg)。CRM 案例全部虚构，统一状态日为 2026 年 10 月 14 日。
+## 项目经理与 AI 怎样配合
 
-- [WBS：范围与验收](docs/gallery.zh-CN.md#范围与验收)：6 个交付群、18 个工作包。
-- [流程：变更授权](docs/gallery.zh-CN.md#变更授权)：评估、决策与验证路径。
-- [日程：交付日期](docs/gallery.zh-CN.md#交付日期)：47 项记录中的基准、实绩与预测日期。
-- [RACI：决策与执行](docs/gallery.zh-CN.md#决策与执行)：完整的 14 × 8 责任矩阵。
+- **准备材料**：AI 根据提供的项目事实起草图表；项目经理核对假设、缺口和依据。
+- **讨论变化**：用统一图表看范围、责任和日期；项目经理组织取舍、澄清分歧。
+- **推动交付**：把确认结果更新到材料中；项目经理落实负责人、验收条件和后续行动。
 
-可选源码台账：[风险](examples/project-case/risk-register.json) · [问题](examples/project-case/issues.json)。
+## 现在就能使用的流程
 
-## 安装
+1. **下载工作包**：取得四类中文案例的源码、SVG／PNG 和给 AI 的任务说明。图片可直接查看，无需安装开发环境。
+2. **交给自己的 AI 修改**：提供已确认的范围、角色和日期，让 AI 按工作包中的案例格式调整源码。
+3. **绘制并确认**：在[配套样式工具](https://taskobo.com/free-tools/mermaid/)绘制，再通过工具中的 DOCSKOBO 编辑入口继续确认与导出。
 
-当前版本为 **0.1.2**，精确依赖 **Mermaid 12.2.0**，需要 **Node 22.12.0+**。本包**尚未发布到 npm**，请构建 tarball，或使用 [GitHub Releases](https://github.com/dfzzq719/kobo-diagrams/releases) 中对应版本的文件。
+现在可以使用这些图表样例、统一样式，并在线编辑和导出。AI 起草在你常用的 AI 工具中完成，项目判断和确认由团队负责。配套[样式工具](https://taskobo.com/free-tools/mermaid/)的界面目前为日文。
+
+## 看一份完整的项目材料
+
+下面是中文 CRM 案例的完整责任矩阵，保留 **14 项活动、8 个角色**，从范围决定一直覆盖到运营交接。
+
+[![中文 CRM 项目完整责任矩阵：14 项活动、8 个角色。](docs/assets/crm-case/zh-CN/raci-figure.png)](docs/assets/crm-case/zh-CN/raci.svg)
+
+[打开完整 SVG](docs/assets/crm-case/zh-CN/raci.svg)。案例为虚构，统一状态日为 2026 年 10 月 14 日。
+
+- [WBS：范围与验收](docs/gallery.zh-CN.md#范围与验收)——看交付范围和验收条件。
+- [流程：变更授权](docs/gallery.zh-CN.md#变更授权)——看一项变更怎样评估、决定与验证。
+- [日程：交付日期](docs/gallery.zh-CN.md#交付日期)——对照基准、实绩和预测。
+- [RACI：决策与执行](docs/gallery.zh-CN.md#决策与执行)——看谁决定、谁执行、谁参与。
+
+<details>
+<summary>开发接入、版本与安装</summary>
+
+当前公共包为 `@taskobo/diagrams` **0.1.2**，使用 **Mermaid 12.2.0**，需要 **Node 22.12.0+**。本包尚未发布到 npm，可从 [GitHub Releases](https://github.com/dfzzq719/kobo-diagrams/releases)下载对应 tarball，或从源码构建：
 
 ```sh
 git clone https://github.com/dfzzq719/kobo-diagrams.git
 cd kobo-diagrams
 npm ci
 npm pack
-
-# 在消费项目中执行，按实际位置修改 tarball 路径。
+# 在消费项目中执行，按实际位置修改路径。
 npm install ../kobo-diagrams/taskobo-diagrams-0.1.2.tgz mermaid@12.2.0
 ```
 
-执行 `npm ci` 后，在仓库运行 `python -m http.server 4173 --bind 127.0.0.1`，打开[本地浏览器示例](http://127.0.0.1:4173/examples/browser.html)，即可编辑、绘制和导出完整案例。[画册](docs/gallery.zh-CN.md)提供完整 SVG、PNG 的直接链接。
+[API 与最小调用](docs/api.md) · [集成方式](docs/integration.md) · [兼容与升级](docs/upgrading.md)
 
-## 最小 API
+当前版本支持 0.1.0、0.1.1 和 0.1.2 的已保存 profile，并保留来源版本。离线 Skill 是独立下载文件，接收更新需重新下载并安装。
 
-在宿主页面添加 `<div id="preview"></div>`，再显式传入 Mermaid：
+</details>
 
-```js
-import mermaid from 'mermaid/dist/mermaid.esm.mjs';
-import {createDiagramProfile, renderDocument} from '@taskobo/diagrams';
-
-const profile = createDiagramProfile({
-  roles: {primary: '#1456D9', anchor: '#0D2046'},
-  settings: {fontSize: 18, direction: 'LR'},
-  standard: {name: 'Example team standard', version: '1.0'},
-});
-const source = 'flowchart LR\n  Plan --> Review --> Deliver';
-const result = await renderDocument(source, profile.roles, profile.settings, {mermaid});
-document.getElementById('preview').innerHTML = result.svg;
-```
-
-把 `source` 与 `profile` 一起保存，接收外部 profile 时调用 `validateDiagramProfile()`。执行固定标准的宿主还需在导入／绘制前调用 `validateFrozenSource(source)`。
-
-普通 Mermaid 编辑器使用 `createMermaidRenderer(mermaid)` 传入应用配置，同一引擎实例共用绘制队列。RACI 使用 Kobo 的 `taskobo.table/v1` JSON 扩展。图表设置、格式及 SVG／PNG 导出详见 [API 文档](docs/api.md)。绘制与导出需要浏览器。
-
-## 兼容与集成
-
-Core **0.1.2** 接收 Mermaid **12.2.0** 对应的 **0.1.0、0.1.1 和 0.1.2** profile，保留已保存的 `coreVersion`，使用当前排版规则；字体与浏览器可能影响输出。[升级规则](docs/upgrading.md)说明回归检查与版本兼容要求。
-
-应用在构建时安装公共包，分别构建自己的 Docker 镜像。离线 Agent Skill 是独立的版本化下载文件，需要重新安装才能收到更新。详见[集成说明](docs/integration.md)。
-
-## 许可与上游归属
-
-MIT，Copyright 2026 Taskobo contributors。详见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。[Mermaid](https://github.com/mermaid-js/mermaid) 及传递依赖保留各自许可证。Kobo Diagrams 是独立项目，不捆绑字体。
+采用 MIT 许可证。详见[许可文件](LICENSE)与[第三方声明](NOTICE)。Kobo Diagrams 是独立项目；[Mermaid](https://github.com/mermaid-js/mermaid) 及依赖保留各自许可证。

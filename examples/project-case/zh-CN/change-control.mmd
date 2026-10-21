@@ -1,0 +1,61 @@
+sequenceDiagram
+  autonumber
+  participant Biz as 业务负责人
+  participant PM as 项目经理
+  participant Dev as 开发负责人
+  participant Ops as 运维负责人
+  participant Info as 信息管理负责人
+  participant QA as 质量负责人
+  participant Sponsor as 项目发起人
+  Note over Biz,Sponsor: 变更01／问题03／风险04，虚构案例，截至2026-10-14，计划于2026-10-16作出决策。<br/>申请证据：目的、接收人和验收标准。当前基准仅含站内通知与邮件，不含短信。<br/>暂估增量：8人日／60万日元。
+  Biz->>PM: 申请首版增加短信通知
+  alt 申请证据不足
+    PM-->>Biz: 退回补充证据
+  else 评估变更，尚不授权实施
+    Note over PM,QA: 项目经理组织并行影响评估。
+    par 工时与交付影响
+      Dev-->>PM: 工时、日期影响与替代方案
+    and 个人信息与对外传输
+      Info-->>PM: 所需证据、安全阻断条件与负责人
+    and 运维影响
+      Ops-->>PM: 运维约束与交接检查要求
+    and 独立验证
+      QA-->>PM: 必测范围与真实端点的独立验证证据
+    end
+    alt 信息管理放行条件尚未满足
+      Info-->>PM: 在指定证据获得认可前阻止发布该变更
+      Note over PM,Sponsor: 项目发起人不得豁免安全阻断条件。保持当前基准，变更01仍未关闭。
+    else 证据足以提交项目发起人审议
+      PM->>Sponsor: 比较批准、延期和拒绝，以及费用、日期与剩余风险
+      alt 拒绝申请
+        Sponsor-->>PM: 拒绝，记录原因及重新审议条件
+      else 短信延期至首版之后
+        Sponsor-->>PM: 延期，指定负责人、复议日期及所需证据或资源
+      else 明确范围、经费和条件后批准
+        Sponsor-->>PM: 仅有条件批准所记录的范围、费用和条件
+        Note over PM,Sponsor: 有条件批准本身不代表新基准已经生效
+        alt 条件或资源仍未落实
+          PM-->>Biz: 暂停实施，落实条件和资源
+        else 条件和资源均已确认
+          PM->>Dev: 更新基准版本并授权实施
+          Dev->>QA: 提交实现与真实端点的回归测试证据
+          Note over PM,QA: 验证失败或业务退回时，重新打开关联工作。<br/>独立复验与业务验收必须通过。
+          alt 验证失败、证据不全或需要升级决策
+            QA-->>Dev: 退回缺陷，继续阻止发布
+            Note over PM,Sponsor: 变更01仍未关闭，升级决策不等于验收通过或获得发布授权
+          else 独立复验通过且阻断已解除
+            QA-->>Biz: 按约定标准提交独立验证结果
+            alt 业务退回
+              Biz-->>PM: 退回尚未验收通过的条件
+            else 业务验收通过
+              Biz-->>PM: 凭证据确认验收通过
+              PM->>PM: 凭证据关闭变更01
+            end
+          end
+        end
+      end
+      opt 拒绝或延期
+        PM-->>Biz: 通知决定与下次审议安排
+      end
+    end
+  end

@@ -1,41 +1,39 @@
-# 图表示例
+# 把项目材料变成团队能用的图表
 
-[English](gallery.md) · [安装与使用](../README.zh-CN.md)
+[项目理念与使用](../README.zh-CN.md) · [下载中文图表工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/kobo-diagrams-zh-CN.zip)
 
-同一个虚构 CRM 项目，展示四种不同的图表。点击图片查看完整 SVG，源码可直接编辑。
+同一个虚构的客户服务系统导入项目，用四种图表帮助团队确认范围、责任、变更和日期。点击图片查看大图。
 
-[WBS](#范围与验收) · [RACI](#决策与执行) · [流程](#变更授权) · [日程](#交付日期)
+[工作分解](#范围与验收) · [责任分配](#决策与执行) · [变更流程](#变更授权) · [项目日程](#交付日期)
 
 ## 范围与验收
 
-**WBS** · 6 个交付群、18 个工作包，每项包含交付物与验收条件。
+**工作分解**：把工作拆成可交付、可验收的成果物。
 
-[![完整 WBS：六个交付群和十八个工作包。](assets/crm-case/wbs-figure.png)](assets/crm-case/wbs.svg)
+[![中文工作分解图：六个交付群和十八个工作包，逐项列出交付物与验收条件。](assets/crm-case/zh-CN/wbs-figure.png)](assets/crm-case/zh-CN/wbs.svg)
 
-[完整 SVG](assets/crm-case/wbs.svg) · [源码](../examples/project-case/wbs.mmd) · [局部放大](assets/crm-case/wbs-detail.png)
+[下载图片](assets/crm-case/zh-CN/wbs-figure.png) · [可编辑源文件](../examples/project-case/zh-CN/wbs.mmd)
 
 ## 决策与执行
 
-**RACI** · 14 项活动 × 8 个角色，区分最终责任、执行、咨询与告知。
+**责任分配**：明确谁拍板、谁执行、谁参与咨询、谁需要知情。
 
-[![完整 RACI：十四项活动、八个角色，使用蓝灰配色和明确的职责代码。](assets/crm-case/raci-figure.png)](assets/crm-case/raci.svg)
+[![中文责任分配矩阵：十四项活动、八个项目角色，使用蓝灰配色区分职责。](assets/crm-case/zh-CN/raci-figure.png)](assets/crm-case/zh-CN/raci.svg)
 
-[完整 SVG](assets/crm-case/raci.svg) · [源码](../examples/project-case/raci.json) · [局部放大](assets/crm-case/raci-detail.png)
+[下载图片](assets/crm-case/zh-CN/raci-figure.png) · [可编辑源文件](../examples/project-case/zh-CN/raci.json)
 
 ## 变更授权
 
-**变更时序** · 包含并行影响分析、缺证退回、批准／延期／拒绝及独立复验。
+**变更流程**：让范围调整经过评估、授权、复验和验收。
 
-[![完整变更时序图，展示审批分支、阻断条件和复验。](assets/crm-case/workflow-compact-figure.png)](assets/crm-case/workflow-compact.svg)
+[![中文变更时序图，保留评估、批准、延期、拒绝和验收退回分支。](assets/crm-case/zh-CN/workflow-figure.png)](assets/crm-case/zh-CN/workflow.svg)
 
-[完整 SVG](assets/crm-case/workflow-compact.svg) · [源码](../examples/project-case/change-control.mmd) · [局部放大](assets/crm-case/workflow-compact-detail.png)
+[下载图片](assets/crm-case/zh-CN/workflow-figure.png) · [可编辑源文件](../examples/project-case/zh-CN/change-control.mmd)
 
 ## 交付日期
 
-**甘特日程** · 47 项日程，区分基准、实绩、预测与尚未批准的计划案；状态日为 2026 年 10 月 14 日。
+**项目日程**：分清计划、已完成与预计完成，及时看见偏差。
 
-[![完整甘特图，保留基准对照、判断门槛和后续实施计划案。](assets/crm-case/gantt-figure.png)](assets/crm-case/gantt.svg)
+[![中文项目日程：四十七项记录，区分基准、实绩、预测与待批准计划。](assets/crm-case/zh-CN/gantt-figure.png)](assets/crm-case/zh-CN/gantt.svg)
 
-[完整 SVG](assets/crm-case/gantt.svg) · [源码](../examples/project-case/schedule.mmd) · [局部放大](assets/crm-case/gantt-detail.png)
-
-需要完整业务背景时，再看[案例说明](project-case.md)。附加台账：[风险源码](../examples/project-case/risk-register.json) · [问题源码](../examples/project-case/issues.json)。
+[下载图片](assets/crm-case/zh-CN/gantt-figure.png) · [可编辑源文件](../examples/project-case/zh-CN/schedule.mmd)

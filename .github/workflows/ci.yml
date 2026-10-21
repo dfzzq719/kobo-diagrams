@@ -20,7 +20,9 @@ jobs:
       - run: npm ci
       - run: npm test
       - name: Linked project-case contracts
-        run: node examples/project-case/verify.mjs
+        run: |
+          node examples/project-case/verify.mjs
+          node examples/project-case/zh-CN/verify.mjs
       - name: Browser rendering and export checks
         run: npm run test:browser
       - run: npm pack --dry-run

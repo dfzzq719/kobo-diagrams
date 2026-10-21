@@ -1,0 +1,224 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "raci",
+  "caseId": "crm-service-rollout",
+  "asOf": "2026-10-14",
+  "title": "客户服务系统实施｜责任分配表（虚构案例，截至2026-10-14）",
+  "columns": [
+    {
+      "key": "work",
+      "label": "成果物或决策",
+      "width": 330
+    },
+    {
+      "key": "sponsor",
+      "label": "项目\n发起人",
+      "width": 145
+    },
+    {
+      "key": "pm",
+      "label": "项目\n经理",
+      "width": 145
+    },
+    {
+      "key": "business",
+      "label": "业务\n负责人",
+      "width": 145
+    },
+    {
+      "key": "dev",
+      "label": "开发\n负责人",
+      "width": 170
+    },
+    {
+      "key": "ops",
+      "label": "运维\n负责人",
+      "width": 160
+    },
+    {
+      "key": "info",
+      "label": "信息管理\n负责人",
+      "width": 170
+    },
+    {
+      "key": "quality",
+      "label": "质量\n负责人",
+      "width": 145
+    },
+    {
+      "key": "vendor",
+      "label": "CRM\n供应商",
+      "width": 145
+    }
+  ],
+  "rows": [
+    {
+      "work": "责任01｜审批项目目的、预算与首版范围",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "I",
+      "id": "RACI-01"
+    },
+    {
+      "work": "责任02｜确定业务需求与验收标准",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "A",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-02"
+    },
+    {
+      "work": "责任03｜统筹计划并解决人员资源冲突",
+      "sponsor": "C",
+      "pm": "A/R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "I",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-03"
+    },
+    {
+      "work": "责任04｜实现API接入、重试与并发控制",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "A/R",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-04"
+    },
+    {
+      "work": "责任05｜批准重复数据处理与排除规则",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "A",
+      "dev": "R",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-05"
+    },
+    {
+      "work": "责任06｜执行试迁移并核对20,000条记录",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-06"
+    },
+    {
+      "work": "责任07｜确认生产环境权限、个人信息与审计控制",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "R",
+      "info": "A",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-07"
+    },
+    {
+      "work": "责任08｜独立验证30个必测用例并复验缺陷",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "R",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "A/R",
+      "vendor": "C",
+      "id": "RACI-08"
+    },
+    {
+      "work": "责任09｜完成3个业务窗口、40名用户的业务验收与培训",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "A/R",
+      "dev": "C",
+      "ops": "R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "I",
+      "id": "RACI-09"
+    },
+    {
+      "work": "责任10｜验收夜间批处理、监控与恢复流程",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-10"
+    },
+    {
+      "work": "责任11｜决定变更01短信功能的范围、费用与日期",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-11"
+    },
+    {
+      "work": "责任12｜决定上线或暂缓，安全或恢复条件未达标则延期",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "I",
+      "id": "RACI-12"
+    },
+    {
+      "work": "责任13｜按预授权条件紧急回退、验证恢复并通知业务",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-13"
+    },
+    {
+      "work": "责任14｜接收运维交接并明确移交未关闭事项",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-14"
+    }
+  ]
+}

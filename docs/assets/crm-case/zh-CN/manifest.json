@@ -1,0 +1,212 @@
+{
+  "generator": "scripts/build-showcase-zh.mjs",
+  "locale": "zh-CN",
+  "caseId": "crm-service-rollout",
+  "statusDate": "2026-10-14",
+  "renderer": {
+    "coreVersion": "0.1.2",
+    "mermaidVersion": "12.2.0",
+    "sourceSHA256": {
+      "color-engine.mjs": "d02b53c1b4b9219c1c92cb550cd084809e6b3b2d2e167a90550d5c3bb3ff6386",
+      "diagram-catalog.mjs": "9d62186dfaa209fcede2af9882975a40ce8ba564018151775eba1c3f1367e489",
+      "diagram-renderer.mjs": "2b4c3924340df4283637364f35c51111da703f82adb73da5cc8e83c712b632ef",
+      "document-renderer.mjs": "38bfd791c4a602e560c35c60e86dd343edff946e894ddb45bd9374460a72aff6",
+      "gantt-status.mjs": "7363fb2b207907eb5d63b669824e7b2308d795a5be76118276e2decaa753830d",
+      "index.mjs": "1e6841005e2084dda9f4c0a4963f9cd9344d2970160c5f65d5cc0050216d2bfd",
+      "mermaid-engine.mjs": "058f533d020712fa55675f8c0ea335b12ab7c2650d8c37556a5b5aade464e944",
+      "native-theme-adapters.mjs": "91c4a1167629fe28a9b1b96ba45615641b80dea7a654990f528721cbbe0c57a1",
+      "profile.mjs": "1d721d8b22b6ace8b8639602cfd486f71aa1bfdfdb204323ecfbd20d3faff73e",
+      "source-policy.mjs": "b60b064fd541e1cf5264dcd1c73dfff5bee196f0b89cacbd96358eaffeb26058",
+      "surface-contrast.mjs": "551476e46157ed05422e63e007cd096aa1ec9910f25194474602e9e219e40f4a",
+      "version.mjs": "8f8e6ff6df37b4d35f17d44695f835adf9a881c31214cbb9cfe7cae427ae4762"
+    }
+  },
+  "inputsSHA256": "0dba9a79a0c960ab85fec5d2549494059c75cc460e56dc9eb13027ed95271682",
+  "presentationLocalization": "Text and accessible labels only; original geometry, colours, state and dates retained.",
+  "documents": [
+    {
+      "id": "wbs",
+      "title": "工作分解与验收",
+      "sourceFile": "examples/project-case/zh-CN/wbs.mmd",
+      "sourceSHA256": "20c64ccf09062e6ad4a3b58558e6a034e5462d8d78ec924138d8b84d91b0db96",
+      "width": 1623.140625,
+      "height": 1273,
+      "figure": {
+        "width": 1704,
+        "height": 1443
+      },
+      "geometryPreserved": true,
+      "localization": [],
+      "overflow": []
+    },
+    {
+      "id": "raci",
+      "title": "责任分配矩阵",
+      "sourceFile": "examples/project-case/zh-CN/raci.json",
+      "sourceSHA256": "a842dc56e49f400f589491bd18699f7e41b3d2092200bb5fafd8e915c5e68972",
+      "width": 1603,
+      "height": 1572.0000000000005,
+      "figure": {
+        "width": 1683,
+        "height": 1743
+      },
+      "geometryPreserved": true,
+      "localization": [
+        {
+          "selector": ".raci-legend [data-raci-role=\"A\"] + text + text.legend",
+          "original": "最終責任",
+          "translated": "最终责任"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"R\"] + text + text.legend",
+          "original": "実行責任",
+          "translated": "执行"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"C\"] + text + text.legend",
+          "original": "相談先",
+          "translated": "咨询"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"I\"] + text + text.legend",
+          "original": "報告先",
+          "translated": "告知"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"A/R\"] + text + text.legend",
+          "original": "最終・実行責任",
+          "translated": "最终与执行"
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "id": "workflow",
+      "title": "变更评估与决策",
+      "sourceFile": "examples/project-case/zh-CN/change-control.mmd",
+      "sourceSHA256": "b0713a97532e09bd8b49a7d0f0d2e17782d31315e49365c190cfd5e7bd2ef5e2",
+      "width": 1700.5,
+      "height": 3122,
+      "figure": {
+        "width": 1781,
+        "height": 3292
+      },
+      "geometryPreserved": true,
+      "localization": [
+        {
+          "selector": "text(par)",
+          "original": "par",
+          "translated": "并行"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "分支"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "分支"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "分支"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "分支"
+        },
+        {
+          "selector": "text(opt)",
+          "original": "opt",
+          "translated": "可选"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "分支"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "分支"
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "id": "gantt",
+      "title": "项目日程与进度",
+      "sourceFile": "examples/project-case/zh-CN/schedule.mmd",
+      "sourceSHA256": "4dd8dcf1263c9ee87b98b83ed0a526e39bdc642c0855c7badc359fc4cf6516c5",
+      "width": 1709,
+      "height": 2342.78857421875,
+      "figure": {
+        "width": 1789,
+        "height": 2513
+      },
+      "geometryPreserved": true,
+      "localization": [
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(1)",
+          "original": "基準＝空心破線　完了実績＝塗り実線　完了予測＝塗り破線（作業全体の期間）",
+          "translated": "基准＝空心虚线　已完成实际＝填色实线　完成预测＝填色虚线（任务完整期间）"
+        },
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(2)",
+          "original": "危険色＝完了遅延・期限超過　注意色＝将来遅延見込み・リスク　強調色＝期限内予測　成功色＝期限内完了",
+          "translated": "风险色＝完成延误或已逾期　警示色＝未来预计延误或风险　强调色＝期限内预测　成功色＝按期完成"
+        },
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(3)",
+          "original": "差＝実績・予測終了日 − 基準終了日（土日祝を含む暦日）　集計基準日 2026-10-14",
+          "translated": "差异＝实际／预测结束日 − 基准结束日（含周末和节假日的日历天）　状态日 2026-10-14"
+        },
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(4)",
+          "original": "計画案＝淡色・点線バー　白抜きの菱形＝判断予定・計画の節目（未承認／実績ではない）",
+          "translated": "计划草案＝浅色点线条　空心菱形＝待决事项或计划节点（未批准，并非实际完成）"
+        }
+      ],
+      "overflow": []
+    }
+  ],
+  "layouts": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1080,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "images": 4,
+      "sections": 4
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "viewport": 390,
+      "documentWidth": 390,
+      "images": 4,
+      "sections": 4
+    }
+  ],
+  "files": {
+    "gantt-figure.png": "ad3b1305c141a95288f4a71f810f6474dbcfe7af1064b310d09661d43fd7cc24",
+    "gantt-figure.svg": "8671b6d70047a953ec60b455fef2f6a541b6ac1dd3794da8b0e0d3c09515abe4",
+    "gantt.svg": "cd965ea649bf1c3062de781012a3eb849dde5bced90c8ce498f4e23fe0d64d82",
+    "inputs.json": "cace47e7afa55562be07d62c4c79e7c625cd5ab294de19b7f86df5297631cb10",
+    "raci-figure.png": "cc66a5d24b1a678de2e3b0eed88fa4eee43705fb88030fc7c74e3afa5afeda54",
+    "raci-figure.svg": "5f3f7b5e7609428b7b9ddbb0e7e120bb22745d8ea083e79a8f98d7510ecef2ea",
+    "raci.svg": "ecc59d6653e3fdaac1ad10c95d5b3614b83cd70629b27eac3e24b0d7d0ebecfc",
+    "showcase.html": "414c47bb2be9323526672288a2a25c4879a9d3f31fb7897a13ef52730463c352",
+    "wbs-figure.png": "256759bf980ca31f532384d56c2b1f1e188dc3c56022aa53198834558bde2d5d",
+    "wbs-figure.svg": "28798c23bcb99be4b4dd18a3aa319002cecfaa2f237689c3f92336f67375cbed",
+    "wbs.svg": "0114094c0287f987573daff7e934b95e77f22f1d38c35687c559be7cfadda60c",
+    "workflow-figure.png": "bc38abce76d85b746ed178dfe7579268035b223694eae0e382530df1eaff1247",
+    "workflow-figure.svg": "af90ff41698960c6a6a4c24c8dcbe6798d80dde0e39c23ac232106707c7fc2f3",
+    "workflow.svg": "a4c26220c6e193b79c44a35a137987b23d9df470c6331a051498e58bb8e565c9"
+  }
+}

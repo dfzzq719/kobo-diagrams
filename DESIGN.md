@@ -1,9 +1,11 @@
 # Kobo Diagrams repository presentation
 
-The repository is a reading surface with an artifact-led opening. The product is
-the exact diagram output: every displayed node, bar and responsibility cell is
-rendered by the package, from fictional, committed source inputs. The assets are
-proof sheets, not screenshots of an invented application.
+The repository speaks first to project managers. Lead with the belief that AI
+will change project-management tools and release PM time from repetitive document
+maintenance for judgment, communication and delivery. Explain the human/AI workflow
+and provide a practical starting point before implementation details. Real diagram
+output supports that message: every displayed node, bar and responsibility cell
+comes from the renderer and fictional, committed source inputs.
 
 Inherit Taskobo's paper, navy and cobalt identity. Use `#FFFEFA` for the page,
 `#0D2046` for structural ink, `#1456D9` for emphasis and `#52637A` for supporting
@@ -52,8 +54,19 @@ palette comes from the installed renderer: navy accountable, soft blue responsib
 quiet gray consulted/informed and blue-gray combined roles. Do not recolor actual
 output or change runtime tokens to decorate the repository.
 
-English is the public README entry; a complete Chinese README mirrors its content.
-Use relative image links for GitHub. State release and npm availability precisely.
+Chinese is the current public README entry and has a matching Chinese gallery,
+Chinese source examples and Chinese image labels. Japanese and English editions
+are planned next; do not present unfinished language switches. Keep the four-type
+gallery concise and provide a downloadable starter that PMs can inspect without a
+development setup. Technical installation, package versions and integration belong
+at the bottom or in linked developer documentation. AI drafting currently happens
+in the user's own AI tool; do not imply built-in automatic drafting or cross-document
+synchronization. State the current Japanese workbench UI accurately.
+
+Localized figures preserve the actual renderer's geometry and business values.
+Only documentation-layer text and built-in legends are translated; do not recolor
+or stretch the output. Keep locale sources separate for future Japanese and English
+editions. Use relative image links for GitHub. State release availability precisely.
 No adoption metrics, certification badges, claims of pixel-identical browsers,
 fabricated screenshots or automatic deployment promises. Keep marketing images
 outside the npm tarball. Source SVGs, inputs and the browser generator remain

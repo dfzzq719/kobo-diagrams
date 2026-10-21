@@ -1,0 +1,73 @@
+gantt
+  title 客户服务系统实施——综合日程（虚构案例，截至2026-10-14）
+  dateFormat YYYY-MM-DD
+  axisFormat %m/%d
+  tickInterval 1week
+  todayMarker off
+  accTitle: 六组先行基准与实际或预测对照，以及完整的正式实施草案
+  accDescr: 状态日为2026-10-14。仅需求确认和先行权限检查已有实际完成记录。API认证返回401、80条重复键候选和3人日的人员缺口仍未解决。30项正式实施内容均为未批准的计划草案，判断节点表示待决事项，并不表示已经批准。前置条件未达标时，必须重排计划并重新申请批准。
+  %% taskobo-gantt-status {"schema":"taskobo.gantt-status/v1","calendar":"calendar-days","asOf":"2026-10-14","statusMarker":"status_date","items":[{"baseline":"b_requirements","current":"a_requirements","baselineEnd":"2026-10-08","finish":"2026-10-10","stage":"done"},{"baseline":"b_api","current":"f_api","baselineEnd":"2026-10-12","finish":"2026-10-18","stage":"forecast"},{"baseline":"b_migration","current":"f_migration","baselineEnd":"2026-10-20","finish":"2026-10-23","stage":"forecast"},{"baseline":"b_test","current":"f_test","baselineEnd":"2026-10-26","finish":"2026-10-26","stage":"forecast","risk":true},{"baseline":"b_training","current":"f_training","baselineEnd":"2026-10-23","finish":"2026-10-22","stage":"forecast"},{"baseline":"b_access","current":"a_access","baselineEnd":"2026-10-11","finish":"2026-10-11","stage":"done"}],"plannedTasks":["vendor_reply","decision_oct16","night_contacts","trial_gate","p_biz","p_scope","p_perm","p_plan","p_baseline","p_ui","p_intake","p_history","p_sla","p_feature","p_clean","p_api","p_migration","p_rehearsal","p_env","p_monitor","p_threat","p_security","p_integration","p_performance","p_uat","p_retest","p_accepted","p_training","p_runbook","p_dress","p_go","p_release","p_support","p_finish"]}
+  %% 所有期间均为包含周末的日历天，不代表工时或完成百分比。
+  %% 基准为空心虚线，实际为填色实线，预测为填色虚线，正式实施草案为浅色虚线。
+  %% 草案日期保留原依赖计算结果，先行验证延期带来的影响尚未重新批准。
+  section 固定状态日
+  状态日2026-10-14 :milestone, status_date, 2026-10-14, 0d
+  section 先行验证——需求确认
+  基准结束10/08 :b_requirements, 2026-10-01, 2026-10-08
+  实际结束10/10／延误2天 :done, a_requirements, 2026-10-01, 2026-10-10
+  section 先行验证——CRM接入／问题01
+  基准结束10/12 :b_api, 2026-10-06, 2026-10-12
+  预测结束10/18／截至状态日已经逾期 :active, f_api, 2026-10-06, 2026-10-18
+  section 先行验证——试迁移／问题02
+  基准结束10/20 :b_migration, 2026-10-09, 2026-10-20
+  预测结束10/23／较基准延误3天 :active, f_migration, 2026-10-09, 2026-10-23
+  section 先行验证——集成测试／问题04与问题06
+  基准结束10/26 :b_test, 2026-10-14, 2026-10-26
+  预测结束10/26／日期未变但存在人员风险 :active, f_test, 2026-10-14, 2026-10-26
+  section 先行验证——关键用户培训
+  基准结束10/23 :b_training, 2026-10-15, 2026-10-23
+  预测结束10/22／比基准提前1天 :active, f_training, 2026-10-15, 2026-10-22
+  section 先行验证——权限检查
+  基准结束10/11 :b_access, 2026-10-05, 2026-10-11
+  实际结束10/11／仅限先行验证环境 :done, a_access, 2026-10-05, 2026-10-11
+  section 先行验证——待决事项，不代表已经批准
+  待决／供应商答复原因与恢复方案 :milestone, vendor_reply, 2026-10-15, 0d
+  待决／重复数据规则、短信变更与人员安排 :milestone, decision_oct16, 2026-10-16, 0d
+  待决／确定夜间主备联系人 :milestone, night_contacts, 2026-10-20, 0d
+  待决／先行验证完成判定 :milestone, trial_gate, 2026-10-26, 0d
+  section 正式实施草案——基准与授权
+  草案／业务与异常处理流程 :p_biz, 2026-10-19, 2026-10-26
+  草案／验收标准与服务时限 :p_scope, 2026-10-26, 2026-10-29
+  草案／权限与数据定义 :p_perm, 2026-10-21, 2026-10-28
+  草案／执行计划与风险审查 :p_plan, 2026-10-26, 2026-10-29
+  草案／基准重新审批 :milestone, p_baseline, 2026-10-29, 0d
+  section 正式实施草案——业务功能
+  草案／界面与交互设计 :p_ui, 2026-10-29, 2026-11-06
+  草案／受理登记与任务分派 :p_intake, 2026-11-06, 2026-11-18
+  草案／处理与审批历史 :p_history, 2026-11-06, 2026-11-18
+  草案／服务时限通知与月度报表 :p_sla, 2026-11-18, 2026-11-24
+  草案／功能评审决定 :milestone, p_feature, 2026-11-24, 0d
+  section 正式实施草案——数据与集成
+  草案／迁移分析与数据清理 :p_clean, 2026-10-29, 2026-11-09
+  草案／CRM接口与重试控制 :p_api, 2026-10-29, 2026-11-12
+  草案／迁移脚本 :p_migration, 2026-11-09, 2026-11-17
+  草案／迁移演练与数据核对 :p_rehearsal, 2026-11-17, 2026-11-23
+  section 正式实施草案——安全与基础设施
+  草案／环境与权限配置 :p_env, 2026-10-29, 2026-11-04
+  草案／监控与备份 :p_monitor, 2026-11-04, 2026-11-12
+  草案／威胁分析与防护设计 :p_threat, 2026-10-29, 2026-11-05
+  草案／漏洞与权限验证 :p_security, 2026-11-24, 2026-11-30
+  section 正式实施草案——独立测试与业务验收
+  草案／集成与异常路径测试 :p_integration, 2026-11-24, 2026-11-30
+  草案／负载与夜间批处理验证 :p_performance, 2026-11-30, 2026-12-03
+  草案／业务验收测试 :p_uat, 2026-12-03, 2026-12-09
+  草案／重大缺陷修复与复验 :p_retest, 2026-12-09, 2026-12-14
+  草案／业务验收决定 :milestone, p_accepted, 2026-12-14, 0d
+  section 正式实施草案——交接与上线
+  草案／用户培训与服务联系人 :p_training, 2026-11-24, 2026-12-01
+  草案／运维与回退操作流程 :p_runbook, 2026-11-12, 2026-11-18
+  草案／切换演练 :p_dress, 2026-12-14, 2026-12-16
+  草案／上线或暂缓决定 :milestone, p_go, 2026-12-16, 0d
+  草案／夜间迁移与生产环境上线 :p_release, 2026-12-16, 2026-12-17
+  草案／运行检查与初期支持 :p_support, 2026-12-17, 2026-12-24
+  草案／运维接收决定 :milestone, p_finish, 2026-12-24, 0d

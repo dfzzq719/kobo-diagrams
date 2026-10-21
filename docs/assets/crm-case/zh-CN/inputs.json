@@ -1,0 +1,93 @@
+{
+  "locale": "zh-CN",
+  "caseId": "crm-service-rollout",
+  "statusDate": "2026-10-14",
+  "profileOptions": {
+    "settings": {
+      "fontSize": 22,
+      "density": "compact",
+      "curve": "linear"
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  },
+  "documents": [
+    {
+      "id": "wbs",
+      "file": "wbs.mmd",
+      "title": "工作分解与验收",
+      "description": "将交付范围拆成可验收的工作包，逐项明确完成条件。"
+    },
+    {
+      "id": "raci",
+      "file": "raci.json",
+      "title": "责任分配矩阵",
+      "description": "明确每项工作的最终责任、执行与沟通角色。"
+    },
+    {
+      "id": "workflow",
+      "file": "change-control.mmd",
+      "title": "变更评估与决策",
+      "description": "保留评估、批准、阻止、独立验证与业务验收的关键分支。"
+    },
+    {
+      "id": "gantt",
+      "file": "schedule.mmd",
+      "title": "项目日程与进度",
+      "description": "区分基准、实际、预测与待批准的后续计划。"
+    }
+  ],
+  "sources": {
+    "wbs": "flowchart LR\n  %% 虚构的客户服务系统实施案例，统一状态日为2026-10-14。\n  %% 连线表示成果物包含关系，不表示任务依赖或组织汇报关系。\n  %% 每个末级工作包列出未来验收条件，不表示工作已经完成。\n  P[\"1.0 客户服务系统实施<br/>3个业务窗口 · 40名用户 · 20,000条记录\"]:::anchor\n  subgraph G1[\"1.1 业务与验收基准\"]\n    WP111[\"1.1.1 业务流程集<br/>验收证据：正常、异常<br/>与代理处理流程<br/>经业务负责人确认\"]:::normal\n    WP112[\"1.1.2 权限与服务时限规范<br/>验收证据：4种访问角色和通知期限<br/>经指定审批人确认\"]:::normal\n    WP113[\"1.1.3 验收场景集<br/>验收证据：30个必测用例的<br/>通过与失败判定标准均已约定\"]:::normal\n  end\n  subgraph G2[\"1.2 首版业务功能\"]\n    WP121[\"1.2.1 受理登记与任务分派<br/>验收证据：重复提交请求<br/>经过重放验证，重复登记为0条\"]:::normal\n    WP122[\"1.2.2 处理与审批历史<br/>验收证据：每次变更均可追溯<br/>操作人、内容、时间和原因\"]:::normal\n    WP123[\"1.2.3 服务时限通知与报表<br/>验收证据：站内通知与邮件<br/>输出核对一致<br/>短信仍在已批准范围之外\"]:::normal\n  end\n  subgraph G3[\"1.3 数据迁移与CRM集成\"]\n    WP131[\"1.3.1 迁移数据与映射表<br/>验收证据：20,000条源记录<br/>均可追溯至目标记录<br/>或经批准的排除清单\"]:::normal\n    WP132[\"1.3.2 CRM集成与重试控制<br/>验收证据：真实端点的身份认证、<br/>重试和并发控制用例均经验证\"]:::normal\n    WP133[\"1.3.3 迁移判定记录<br/>验收证据：80条重复键候选的处理决定<br/>已应用，相关差异已经复核\"]:::normal\n  end\n  subgraph G4[\"1.4 独立质量与安全证据\"]\n    WP141[\"1.4.1 集成与验收测试记录<br/>验收证据：30个必测用例全部通过<br/>未解决的重大缺陷为0个\"]:::normal\n    WP142[\"1.4.2 权限与数据保护证据<br/>验收证据：生产环境权限及<br/>个人信息处理条件均获批准\"]:::normal\n    WP143[\"1.4.3 性能与恢复验证结果<br/>验收证据：约定负载与批处理时窗<br/>及恢复条件均有测试结果证明\"]:::normal\n  end\n  subgraph G5[\"1.5 运维与使用准备\"]\n    WP151[\"1.5.1 运维与回退操作手册<br/>验收证据：停止条件、恢复校验和<br/>业务恢复流程均经演练\"]:::normal\n    WP152[\"1.5.2 夜间批处理与监控设计<br/>验收证据：低使用时段作业<br/>超时停止与受控重跑均经验证\"]:::normal\n    WP153[\"1.5.3 培训与交接记录<br/>验收证据：主备联系人、用户培训和<br/>未关闭事项的接收均有记录\"]:::normal\n  end\n  subgraph G6[\"1.6 项目治理\"]\n    WP161[\"1.6.1 项目章程与决策权限<br/>验收证据：排除范围、审批权限和<br/>变更流程均已确认\"]:::normal\n    WP162[\"1.6.2 基准与变更历史<br/>验收证据：每次授权变更前后的<br/>工时、费用和日期均可追溯\"]:::normal\n    WP163[\"1.6.3 问题、风险与决策记录<br/>验收证据：每项未关闭事项均记录<br/>负责人、期限、决策和关闭证据\"]:::normal\n  end\n  P --- G1\n  P --- G2\n  P --- G3\n  P --- G4\n  P --- G5\n  P --- G6\n",
+    "raci": "{\n  \"schema\": \"taskobo.table/v1\",\n  \"kind\": \"raci\",\n  \"caseId\": \"crm-service-rollout\",\n  \"asOf\": \"2026-10-14\",\n  \"title\": \"客户服务系统实施｜责任分配表（虚构案例，截至2026-10-14）\",\n  \"columns\": [\n    {\n      \"key\": \"work\",\n      \"label\": \"成果物或决策\",\n      \"width\": 330\n    },\n    {\n      \"key\": \"sponsor\",\n      \"label\": \"项目\\n发起人\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"pm\",\n      \"label\": \"项目\\n经理\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"business\",\n      \"label\": \"业务\\n负责人\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"dev\",\n      \"label\": \"开发\\n负责人\",\n      \"width\": 170\n    },\n    {\n      \"key\": \"ops\",\n      \"label\": \"运维\\n负责人\",\n      \"width\": 160\n    },\n    {\n      \"key\": \"info\",\n      \"label\": \"信息管理\\n负责人\",\n      \"width\": 170\n    },\n    {\n      \"key\": \"quality\",\n      \"label\": \"质量\\n负责人\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"vendor\",\n      \"label\": \"CRM\\n供应商\",\n      \"width\": 145\n    }\n  ],\n  \"rows\": [\n    {\n      \"work\": \"责任01｜审批项目目的、预算与首版范围\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-01\"\n    },\n    {\n      \"work\": \"责任02｜确定业务需求与验收标准\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"A\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-02\"\n    },\n    {\n      \"work\": \"责任03｜统筹计划并解决人员资源冲突\",\n      \"sponsor\": \"C\",\n      \"pm\": \"A/R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"I\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-03\"\n    },\n    {\n      \"work\": \"责任04｜实现API接入、重试与并发控制\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"A/R\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-04\"\n    },\n    {\n      \"work\": \"责任05｜批准重复数据处理与排除规则\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"A\",\n      \"dev\": \"R\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-05\"\n    },\n    {\n      \"work\": \"责任06｜执行试迁移并核对20,000条记录\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-06\"\n    },\n    {\n      \"work\": \"责任07｜确认生产环境权限、个人信息与审计控制\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"R\",\n      \"info\": \"A\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-07\"\n    },\n    {\n      \"work\": \"责任08｜独立验证30个必测用例并复验缺陷\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"R\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"A/R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-08\"\n    },\n    {\n      \"work\": \"责任09｜完成3个业务窗口、40名用户的业务验收与培训\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"A/R\",\n      \"dev\": \"C\",\n      \"ops\": \"R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-09\"\n    },\n    {\n      \"work\": \"责任10｜验收夜间批处理、监控与恢复流程\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-10\"\n    },\n    {\n      \"work\": \"责任11｜决定变更01短信功能的范围、费用与日期\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-11\"\n    },\n    {\n      \"work\": \"责任12｜决定上线或暂缓，安全或恢复条件未达标则延期\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-12\"\n    },\n    {\n      \"work\": \"责任13｜按预授权条件紧急回退、验证恢复并通知业务\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-13\"\n    },\n    {\n      \"work\": \"责任14｜接收运维交接并明确移交未关闭事项\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-14\"\n    }\n  ]\n}\n",
+    "workflow": "sequenceDiagram\n  autonumber\n  participant Biz as 业务负责人\n  participant PM as 项目经理\n  participant Dev as 开发负责人\n  participant Ops as 运维负责人\n  participant Info as 信息管理负责人\n  participant QA as 质量负责人\n  participant Sponsor as 项目发起人\n  Note over Biz,Sponsor: 变更01／问题03／风险04，虚构案例，截至2026-10-14，计划于2026-10-16作出决策。<br/>申请证据：目的、接收人和验收标准。当前基准仅含站内通知与邮件，不含短信。<br/>暂估增量：8人日／60万日元。\n  Biz->>PM: 申请首版增加短信通知\n  alt 申请证据不足\n    PM-->>Biz: 退回补充证据\n  else 评估变更，尚不授权实施\n    Note over PM,QA: 项目经理组织并行影响评估。\n    par 工时与交付影响\n      Dev-->>PM: 工时、日期影响与替代方案\n    and 个人信息与对外传输\n      Info-->>PM: 所需证据、安全阻断条件与负责人\n    and 运维影响\n      Ops-->>PM: 运维约束与交接检查要求\n    and 独立验证\n      QA-->>PM: 必测范围与真实端点的独立验证证据\n    end\n    alt 信息管理放行条件尚未满足\n      Info-->>PM: 在指定证据获得认可前阻止发布该变更\n      Note over PM,Sponsor: 项目发起人不得豁免安全阻断条件。保持当前基准，变更01仍未关闭。\n    else 证据足以提交项目发起人审议\n      PM->>Sponsor: 比较批准、延期和拒绝，以及费用、日期与剩余风险\n      alt 拒绝申请\n        Sponsor-->>PM: 拒绝，记录原因及重新审议条件\n      else 短信延期至首版之后\n        Sponsor-->>PM: 延期，指定负责人、复议日期及所需证据或资源\n      else 明确范围、经费和条件后批准\n        Sponsor-->>PM: 仅有条件批准所记录的范围、费用和条件\n        Note over PM,Sponsor: 有条件批准本身不代表新基准已经生效\n        alt 条件或资源仍未落实\n          PM-->>Biz: 暂停实施，落实条件和资源\n        else 条件和资源均已确认\n          PM->>Dev: 更新基准版本并授权实施\n          Dev->>QA: 提交实现与真实端点的回归测试证据\n          Note over PM,QA: 验证失败或业务退回时，重新打开关联工作。<br/>独立复验与业务验收必须通过。\n          alt 验证失败、证据不全或需要升级决策\n            QA-->>Dev: 退回缺陷，继续阻止发布\n            Note over PM,Sponsor: 变更01仍未关闭，升级决策不等于验收通过或获得发布授权\n          else 独立复验通过且阻断已解除\n            QA-->>Biz: 按约定标准提交独立验证结果\n            alt 业务退回\n              Biz-->>PM: 退回尚未验收通过的条件\n            else 业务验收通过\n              Biz-->>PM: 凭证据确认验收通过\n              PM->>PM: 凭证据关闭变更01\n            end\n          end\n        end\n      end\n      opt 拒绝或延期\n        PM-->>Biz: 通知决定与下次审议安排\n      end\n    end\n  end\n",
+    "gantt": "gantt\n  title 客户服务系统实施——综合日程（虚构案例，截至2026-10-14）\n  dateFormat YYYY-MM-DD\n  axisFormat %m/%d\n  tickInterval 1week\n  todayMarker off\n  accTitle: 六组先行基准与实际或预测对照，以及完整的正式实施草案\n  accDescr: 状态日为2026-10-14。仅需求确认和先行权限检查已有实际完成记录。API认证返回401、80条重复键候选和3人日的人员缺口仍未解决。30项正式实施内容均为未批准的计划草案，判断节点表示待决事项，并不表示已经批准。前置条件未达标时，必须重排计划并重新申请批准。\n  %% taskobo-gantt-status {\"schema\":\"taskobo.gantt-status/v1\",\"calendar\":\"calendar-days\",\"asOf\":\"2026-10-14\",\"statusMarker\":\"status_date\",\"items\":[{\"baseline\":\"b_requirements\",\"current\":\"a_requirements\",\"baselineEnd\":\"2026-10-08\",\"finish\":\"2026-10-10\",\"stage\":\"done\"},{\"baseline\":\"b_api\",\"current\":\"f_api\",\"baselineEnd\":\"2026-10-12\",\"finish\":\"2026-10-18\",\"stage\":\"forecast\"},{\"baseline\":\"b_migration\",\"current\":\"f_migration\",\"baselineEnd\":\"2026-10-20\",\"finish\":\"2026-10-23\",\"stage\":\"forecast\"},{\"baseline\":\"b_test\",\"current\":\"f_test\",\"baselineEnd\":\"2026-10-26\",\"finish\":\"2026-10-26\",\"stage\":\"forecast\",\"risk\":true},{\"baseline\":\"b_training\",\"current\":\"f_training\",\"baselineEnd\":\"2026-10-23\",\"finish\":\"2026-10-22\",\"stage\":\"forecast\"},{\"baseline\":\"b_access\",\"current\":\"a_access\",\"baselineEnd\":\"2026-10-11\",\"finish\":\"2026-10-11\",\"stage\":\"done\"}],\"plannedTasks\":[\"vendor_reply\",\"decision_oct16\",\"night_contacts\",\"trial_gate\",\"p_biz\",\"p_scope\",\"p_perm\",\"p_plan\",\"p_baseline\",\"p_ui\",\"p_intake\",\"p_history\",\"p_sla\",\"p_feature\",\"p_clean\",\"p_api\",\"p_migration\",\"p_rehearsal\",\"p_env\",\"p_monitor\",\"p_threat\",\"p_security\",\"p_integration\",\"p_performance\",\"p_uat\",\"p_retest\",\"p_accepted\",\"p_training\",\"p_runbook\",\"p_dress\",\"p_go\",\"p_release\",\"p_support\",\"p_finish\"]}\n  %% 所有期间均为包含周末的日历天，不代表工时或完成百分比。\n  %% 基准为空心虚线，实际为填色实线，预测为填色虚线，正式实施草案为浅色虚线。\n  %% 草案日期保留原依赖计算结果，先行验证延期带来的影响尚未重新批准。\n  section 固定状态日\n  状态日2026-10-14 :milestone, status_date, 2026-10-14, 0d\n  section 先行验证——需求确认\n  基准结束10/08 :b_requirements, 2026-10-01, 2026-10-08\n  实际结束10/10／延误2天 :done, a_requirements, 2026-10-01, 2026-10-10\n  section 先行验证——CRM接入／问题01\n  基准结束10/12 :b_api, 2026-10-06, 2026-10-12\n  预测结束10/18／截至状态日已经逾期 :active, f_api, 2026-10-06, 2026-10-18\n  section 先行验证——试迁移／问题02\n  基准结束10/20 :b_migration, 2026-10-09, 2026-10-20\n  预测结束10/23／较基准延误3天 :active, f_migration, 2026-10-09, 2026-10-23\n  section 先行验证——集成测试／问题04与问题06\n  基准结束10/26 :b_test, 2026-10-14, 2026-10-26\n  预测结束10/26／日期未变但存在人员风险 :active, f_test, 2026-10-14, 2026-10-26\n  section 先行验证——关键用户培训\n  基准结束10/23 :b_training, 2026-10-15, 2026-10-23\n  预测结束10/22／比基准提前1天 :active, f_training, 2026-10-15, 2026-10-22\n  section 先行验证——权限检查\n  基准结束10/11 :b_access, 2026-10-05, 2026-10-11\n  实际结束10/11／仅限先行验证环境 :done, a_access, 2026-10-05, 2026-10-11\n  section 先行验证——待决事项，不代表已经批准\n  待决／供应商答复原因与恢复方案 :milestone, vendor_reply, 2026-10-15, 0d\n  待决／重复数据规则、短信变更与人员安排 :milestone, decision_oct16, 2026-10-16, 0d\n  待决／确定夜间主备联系人 :milestone, night_contacts, 2026-10-20, 0d\n  待决／先行验证完成判定 :milestone, trial_gate, 2026-10-26, 0d\n  section 正式实施草案——基准与授权\n  草案／业务与异常处理流程 :p_biz, 2026-10-19, 2026-10-26\n  草案／验收标准与服务时限 :p_scope, 2026-10-26, 2026-10-29\n  草案／权限与数据定义 :p_perm, 2026-10-21, 2026-10-28\n  草案／执行计划与风险审查 :p_plan, 2026-10-26, 2026-10-29\n  草案／基准重新审批 :milestone, p_baseline, 2026-10-29, 0d\n  section 正式实施草案——业务功能\n  草案／界面与交互设计 :p_ui, 2026-10-29, 2026-11-06\n  草案／受理登记与任务分派 :p_intake, 2026-11-06, 2026-11-18\n  草案／处理与审批历史 :p_history, 2026-11-06, 2026-11-18\n  草案／服务时限通知与月度报表 :p_sla, 2026-11-18, 2026-11-24\n  草案／功能评审决定 :milestone, p_feature, 2026-11-24, 0d\n  section 正式实施草案——数据与集成\n  草案／迁移分析与数据清理 :p_clean, 2026-10-29, 2026-11-09\n  草案／CRM接口与重试控制 :p_api, 2026-10-29, 2026-11-12\n  草案／迁移脚本 :p_migration, 2026-11-09, 2026-11-17\n  草案／迁移演练与数据核对 :p_rehearsal, 2026-11-17, 2026-11-23\n  section 正式实施草案——安全与基础设施\n  草案／环境与权限配置 :p_env, 2026-10-29, 2026-11-04\n  草案／监控与备份 :p_monitor, 2026-11-04, 2026-11-12\n  草案／威胁分析与防护设计 :p_threat, 2026-10-29, 2026-11-05\n  草案／漏洞与权限验证 :p_security, 2026-11-24, 2026-11-30\n  section 正式实施草案——独立测试与业务验收\n  草案／集成与异常路径测试 :p_integration, 2026-11-24, 2026-11-30\n  草案／负载与夜间批处理验证 :p_performance, 2026-11-30, 2026-12-03\n  草案／业务验收测试 :p_uat, 2026-12-03, 2026-12-09\n  草案／重大缺陷修复与复验 :p_retest, 2026-12-09, 2026-12-14\n  草案／业务验收决定 :milestone, p_accepted, 2026-12-14, 0d\n  section 正式实施草案——交接与上线\n  草案／用户培训与服务联系人 :p_training, 2026-11-24, 2026-12-01\n  草案／运维与回退操作流程 :p_runbook, 2026-11-12, 2026-11-18\n  草案／切换演练 :p_dress, 2026-12-14, 2026-12-16\n  草案／上线或暂缓决定 :milestone, p_go, 2026-12-16, 0d\n  草案／夜间迁移与生产环境上线 :p_release, 2026-12-16, 2026-12-17\n  草案／运行检查与初期支持 :p_support, 2026-12-17, 2026-12-24\n  草案／运维接收决定 :milestone, p_finish, 2026-12-24, 0d\n"
+  },
+  "rendererSourceSHA256": {
+    "color-engine.mjs": "d02b53c1b4b9219c1c92cb550cd084809e6b3b2d2e167a90550d5c3bb3ff6386",
+    "diagram-catalog.mjs": "9d62186dfaa209fcede2af9882975a40ce8ba564018151775eba1c3f1367e489",
+    "diagram-renderer.mjs": "2b4c3924340df4283637364f35c51111da703f82adb73da5cc8e83c712b632ef",
+    "document-renderer.mjs": "38bfd791c4a602e560c35c60e86dd343edff946e894ddb45bd9374460a72aff6",
+    "gantt-status.mjs": "7363fb2b207907eb5d63b669824e7b2308d795a5be76118276e2decaa753830d",
+    "index.mjs": "1e6841005e2084dda9f4c0a4963f9cd9344d2970160c5f65d5cc0050216d2bfd",
+    "mermaid-engine.mjs": "058f533d020712fa55675f8c0ea335b12ab7c2650d8c37556a5b5aade464e944",
+    "native-theme-adapters.mjs": "91c4a1167629fe28a9b1b96ba45615641b80dea7a654990f528721cbbe0c57a1",
+    "profile.mjs": "1d721d8b22b6ace8b8639602cfd486f71aa1bfdfdb204323ecfbd20d3faff73e",
+    "source-policy.mjs": "b60b064fd541e1cf5264dcd1c73dfff5bee196f0b89cacbd96358eaffeb26058",
+    "surface-contrast.mjs": "551476e46157ed05422e63e007cd096aa1ec9910f25194474602e9e219e40f4a",
+    "version.mjs": "8f8e6ff6df37b4d35f17d44695f835adf9a881c31214cbb9cfe7cae427ae4762"
+  },
+  "profile": {
+    "schema": "kobo.diagram-profile/v1",
+    "engineVersion": "12.2.0",
+    "coreVersion": "0.1.2",
+    "roles": {
+      "paper": "#FFFEFA",
+      "surface": "#FFFFFF",
+      "ink": "#0D2046",
+      "muted": "#52637A",
+      "primary": "#1456D9",
+      "anchor": "#0D2046",
+      "line": "#77869D",
+      "border": "#52637A",
+      "success": "#0A6954",
+      "warning": "#895B12",
+      "danger": "#B5323B"
+    },
+    "settings": {
+      "radius": 6,
+      "lineWidth": 1.5,
+      "fontSize": 22,
+      "curve": "linear",
+      "density": "compact",
+      "direction": "auto",
+      "transparent": false
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  }
+}
