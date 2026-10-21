@@ -12,9 +12,9 @@
 - **讨论变化**：用统一图表看范围、责任和日期；项目经理组织取舍、澄清分歧。
 - **推动交付**：把确认结果更新到材料中；项目经理落实负责人、验收条件和后续行动。
 
-**新增：中文 PM 更新 Skill（Alpha）**
+**新增：Taskobo Diagrams（中文 PM Skill，Alpha）**
 
-把现有计划和周会纪要交给自己的 AI，生成有依据的修改对照、行动项和图表。[了解并安装](docs/pm-skill.zh-CN.md) · [下载 Skill 工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/kobo-pm-update-zh-CN.zip)
+把现有计划和周会纪要交给自己的 AI，生成有依据的修改对照、行动项和图表。[了解并安装](docs/pm-skill.zh-CN.md) · [下载 Skill 工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip)
 
 ## 现在就能使用的流程
 

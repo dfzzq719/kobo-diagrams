@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const target=path.join(root,'skills/kobo-pm-update/assets/runtime');
+const target=path.join(root,'skills/taskobo-diagrams/assets/runtime');
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const normalized=value=>Buffer.from(value.toString('utf8').replace(/\r\n/g,'\n'));
 const pinnedVendor='a8a6a6f805b074a8261a2825c86f99c8054acb3b35f50bb7e24a4f9f2c3c3b9f';

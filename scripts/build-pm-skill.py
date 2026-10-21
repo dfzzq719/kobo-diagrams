@@ -7,18 +7,20 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills/kobo-pm-update"
-OUTPUT = ROOT / "docs/downloads/kobo-pm-update-zh-CN.zip"
-GUIDE = """Kobo 项目材料更新 Skill｜中文 Alpha
+SKILL = ROOT / "skills/taskobo-diagrams"
+OUTPUT = ROOT / "docs/downloads/taskobo-diagrams-zh-CN.zip"
+# Keep previously shared download links working; both names contain the new Skill.
+LEGACY_OUTPUT = ROOT / "docs/downloads/kobo-pm-update-zh-CN.zip"
+GUIDE = """Taskobo Diagrams Skill｜中文 Alpha
 
 让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。
 
-先看结果：解压后双击 kobo-pm-update/assets/demo/review.html。
+先看结果：解压后双击 taskobo-diagrams/assets/demo/review.html。
 这是独立虚构教学案例的第二次周会审阅预览，含修改对照、行动项、待决事项和三类图表。
 查看示例不需要 Node 或 AI 服务；执行项目更新与出图则需要下述环境。
 
-安装：将完整 kobo-pm-update 文件夹放入 AI 软件支持的 Skill 目录。
-Codex 的用户目录示例为 ~/.agents/skills/kobo-pm-update/，其中直接包含 SKILL.md。
+安装：将完整 taskobo-diagrams 文件夹放入 AI 软件支持的 Skill 目录。
+Codex 的用户目录示例为 ~/.agents/skills/taskobo-diagrams/，其中直接包含 SKILL.md。
 不同软件的识别位置与权限方式不同，请遵循所用软件的说明。
 
 运行条件：支持本地文件与命令执行的 AI 软件、Node 22.12+、已安装的 Chrome 或 Edge。
@@ -29,7 +31,7 @@ AI 理解材料，随包脚本负责结构与证据核对、更新记录和图�
 node scripts/render.mjs --doctor
 
 给自己的 AI 这样说：
-使用 $kobo-pm-update，根据这个项目的现有状态和本周纪要，先生成修改前后对照、行动项、
+使用 $taskobo-diagrams，根据这个项目的现有状态和本周纪要，先生成修改前后对照、行动项、
 需要拍板的问题和更新图表。保留批准基准，说明每次修改的材料依据。
 
 自己的业务材料与结果保存在自己的项目目录，不要写入安装目录。
@@ -55,7 +57,7 @@ def build():
                 data = data.decode("utf-8").replace("\r\n", "\n").encode("utf-8")
             except UnicodeDecodeError:
                 pass
-            files[f"kobo-pm-update/{file.relative_to(SKILL).as_posix()}"] = data
+            files[f"taskobo-diagrams/{file.relative_to(SKILL).as_posix()}"] = data
     if sys.argv[1:] == ["--check"]:
         with zipfile.ZipFile(OUTPUT) as archive:
             if sorted(archive.namelist()) != sorted(files):
@@ -66,6 +68,10 @@ def build():
         digest = hashlib.sha256(OUTPUT.read_bytes()).hexdigest()
         if OUTPUT.with_suffix(".zip.sha256").read_text(encoding="ascii") != f"{digest}  {OUTPUT.name}\n":
             raise SystemExit("Skill archive checksum differs")
+        if LEGACY_OUTPUT.read_bytes() != OUTPUT.read_bytes():
+            raise SystemExit("Legacy download alias differs")
+        if LEGACY_OUTPUT.with_suffix(".zip.sha256").read_text(encoding="ascii") != f"{digest}  {LEGACY_OUTPUT.name}\n":
+            raise SystemExit("Legacy download checksum differs")
         print(json.dumps({"verified": True, "files": len(files), "sha256": digest}))
         return
     if sys.argv[1:]:
@@ -79,6 +85,8 @@ def build():
             archive.writestr(info, data)
     digest = hashlib.sha256(OUTPUT.read_bytes()).hexdigest()
     OUTPUT.with_suffix(".zip.sha256").write_text(f"{digest}  {OUTPUT.name}\n", encoding="ascii")
+    LEGACY_OUTPUT.write_bytes(OUTPUT.read_bytes())
+    LEGACY_OUTPUT.with_suffix(".zip.sha256").write_text(f"{digest}  {LEGACY_OUTPUT.name}\n", encoding="ascii")
     print(json.dumps({"files": len(files), "bytes": OUTPUT.stat().st_size, "sha256": digest}))
 
 

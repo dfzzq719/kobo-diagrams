@@ -20,7 +20,7 @@ function run(script,args=[],success=true){
   return result;
 }
 try{
-  await cp(path.join(root,'skills/kobo-pm-update'),installed,{recursive:true});
+  await cp(path.join(root,'skills/taskobo-diagrams'),installed,{recursive:true});
   const demo=path.join(installed,'assets/demo');
   const project=path.join(demo,'project.json'),original=await readFile(project);
   run('render.mjs',['--verify']);

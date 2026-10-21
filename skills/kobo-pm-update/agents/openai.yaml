@@ -1,4 +1,0 @@
-interface:
-  display_name: "Kobo 项目材料更新"
-  short_description: "根据现有计划和周会纪要生成有依据的修改对照、行动项与项目图表"
-  default_prompt: "使用 $kobo-pm-update，根据现有项目计划和本周纪要整理有依据的修改建议、行动项与图表，并列出需要我判断的事项。"

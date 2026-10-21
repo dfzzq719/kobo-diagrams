@@ -14,7 +14,7 @@ const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const textBytes=bytes=>Buffer.from(bytes.toString('utf8').replace(/\r\n/g,'\n'));
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-const usage=`Kobo PM 中文项目更新包\n需要 Node.js 22.12+ 与本机已安装 Chrome/Edge；不会下载依赖或浏览器。\n\nnode scripts/render.mjs --doctor [--browser <浏览器路径>]\nnode scripts/render.mjs --verify [--out <已有更新包目录>]\nnode scripts/render.mjs --project <项目.json> --out <全新目录> [--review <审阅.json>] [--browser <浏览器路径>]\n\n--review 生成候选预览，明确标记尚未确认；不会覆盖项目输入。\n`;
+const usage=`Taskobo Diagrams 中文项目更新包\n需要 Node.js 22.12+ 与本机已安装 Chrome/Edge；不会下载依赖或浏览器。\n\nnode scripts/render.mjs --doctor [--browser <浏览器路径>]\nnode scripts/render.mjs --verify [--out <已有更新包目录>]\nnode scripts/render.mjs --project <项目.json> --out <全新目录> [--review <审阅.json>] [--browser <浏览器路径>]\n\n--review 生成候选预览，明确标记尚未确认；不会覆盖项目输入。\n`;
 
 function argumentsFor(argv){
   const args={};
@@ -180,4 +180,4 @@ async function main(){
   }catch(error){throw new Error('输出写入未完成：'+error.message+'；请检查目录并选择全新输出路径重试。');}
   console.log(JSON.stringify({output:out,page:path.join(out,'review.html'),mode:report.mode,projectId:project.id,statusDate:project.statusDate,charts,files:Object.keys(files).length+1},null,2));
 }
-main().catch(error=>{console.error('Kobo PM：'+error.message);process.exitCode=1;});
+main().catch(error=>{console.error('Taskobo Diagrams：'+error.message);process.exitCode=1;});

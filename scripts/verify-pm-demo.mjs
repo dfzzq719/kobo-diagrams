@@ -5,7 +5,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
-import {validateProject,prepareUpdate,applyUpdate,reviewUpdate} from '../skills/kobo-pm-update/scripts/project.mjs';
+import {validateProject,prepareUpdate,applyUpdate,reviewUpdate} from '../skills/taskobo-diagrams/scripts/project.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const directory=path.join(root,'examples/pm-update-zh-CN');
@@ -45,7 +45,7 @@ for(const [file,hash]of Object.entries(before))assert.equal(sha(await readFile(p
 const verification={schema:'kobo.pm-demo-check/v1',fictional:true,roles:8,groups:6,workPackages:18,updates:2,acceptedChanges:one.changes.length+two.changes.length,actions:3,decisions:2,checks:['来源文件及原文引用通过','输入文件未改动','批准基准未改动','重复接受不增加任务','完成与验收区分','待决事项保持待决'],inputSHA256:before};
 const files={'week-01.project.json':json(first),'final.project.json':json(final),'review-01.json':json(review1),'review-02.json':json(review2),'verification.json':json(verification)};
 const generated=path.join(directory,'generated');
-const embedded=path.join(root,'skills/kobo-pm-update/assets/demo');
+const embedded=path.join(root,'skills/taskobo-diagrams/assets/demo');
 if(writing){
   await mkdir(generated,{recursive:true});await mkdir(embedded,{recursive:true});
   for(const [name,bytes]of Object.entries(files)){await writeFile(path.join(generated,name),bytes);await writeFile(path.join(embedded,name),bytes);}

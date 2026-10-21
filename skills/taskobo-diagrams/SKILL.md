@@ -1,9 +1,9 @@
 ---
-name: kobo-pm-update
+name: taskobo-diagrams
 description: 根据已有项目计划与新增纪要整理有证据的修改建议，校验责任和日期，生成可审阅的项目更新包及 WBS、RACI、日程图。适用于项目周会跟进、行动项维护和计划更新。
 ---
 
-# Kobo 项目材料更新
+# Taskobo Diagrams
 
 让 AI 承担重复整理，让项目经理专注判断、沟通与交付。使用用户已有的 AI 环境理解材料，使用随包脚本校验和出图。
 

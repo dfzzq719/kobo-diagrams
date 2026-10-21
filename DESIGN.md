@@ -64,7 +64,7 @@ in the user's own AI tool; do not imply built-in automatic drafting or cross-doc
 synchronization. State the current Japanese workbench UI accurately.
 
 The Chinese PM Update Alpha adds an installable workflow under
-`skills/kobo-pm-update`: one main agent reads project facts and new meeting notes,
+`skills/taskobo-diagrams`: one main agent reads project facts and new meeting notes,
 then local scripts prepare reviewable changes and render WBS, RACI and schedules
 from the same candidate. Subagents are optional for independent analysis. Keep
 the review interface in plain Chinese, show before/after values and original

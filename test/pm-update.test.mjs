@@ -7,10 +7,10 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { execFile } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { validateProject, prepareUpdate, applyUpdate, reviewUpdate } from '../skills/kobo-pm-update/scripts/project.mjs';
+import { validateProject, prepareUpdate, applyUpdate, reviewUpdate } from '../skills/taskobo-diagrams/scripts/project.mjs';
 
 const execute = promisify(execFile);
-const cli = fileURLToPath(new URL('../skills/kobo-pm-update/scripts/pm.mjs', import.meta.url));
+const cli = fileURLToPath(new URL('../skills/taskobo-diagrams/scripts/pm.mjs', import.meta.url));
 const clone = structuredClone;
 const dateRange = { start: '2026-10-12', finish: '2026-10-18' };
 const evidence = [{ sourceId: 'minutes', quote: '接口预计延期三天，增加核对行动，完成后复核。' }];
@@ -42,7 +42,7 @@ function update() {
 }
 
 async function fixture(t) {
-  const directory = await mkdtemp(path.join(os.tmpdir(), 'kobo-pm-update-'));
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'taskobo-diagrams-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
   const source = '周会纪要\n接口预计延期三天，增加核对行动，完成后复核。\n';
   await writeFile(path.join(directory, 'minutes.txt'), source);

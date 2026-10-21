@@ -2,7 +2,7 @@
 
 **给 AI 现有计划和本周纪要，拿回一份能审阅、能继续维护的项目更新包。**
 
-Kobo PM Update 是首个中文 PM Skill（Alpha）。它延续我们的核心思想：让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。
+Taskobo Diagrams 是本项目的中文 PM Skill（Alpha）。它延续我们的核心思想：让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。
 
 ## 能帮 PM 做什么
 
@@ -17,18 +17,18 @@ Kobo PM Update 是首个中文 PM Skill（Alpha）。它延续我们的核心思
 
 ## 下载并安装
 
-[下载中文 PM Skill 工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/kobo-pm-update-zh-CN.zip)
+[下载 Taskobo Diagrams 工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip)
 
-1. 解压后可先双击 `kobo-pm-update/assets/demo/review.html`，离线查看一次项目更新的结果，无需安装开发环境。
-2. 要让 AI 执行流程，将完整的 `kobo-pm-update` 文件夹放入所用 AI 软件支持的 Skill 目录。Codex 可使用 `~/.agents/skills/kobo-pm-update/`，其中应直接包含 `SKILL.md`。
+1. 解压后可先双击 `taskobo-diagrams/assets/demo/review.html`，离线查看一次项目更新的结果，无需安装开发环境。
+2. 要让 AI 执行流程，将完整的 `taskobo-diagrams` 文件夹放入所用 AI 软件支持的 Skill 目录。Codex 可使用 `~/.agents/skills/taskobo-diagrams/`，其中应直接包含 `SKILL.md`。
 3. 重新加载或启动 AI 会话。执行校验和出图需要 **Node 22.12+、Chrome 或 Edge**；AI 软件还需支持本地文件与命令运行。
-4. 在自己的项目工作目录调用 `$kobo-pm-update`，提供现有项目状态和新增纪要。不要在安装目录内保存真实项目资料。
+4. 在自己的项目工作目录调用 `$taskobo-diagrams`，提供现有项目状态和新增纪要。不要在安装目录内保存真实项目资料。
 
 不同 AI 软件的安装和权限方式有所不同；仅支持聊天、不能运行本地工具的界面，无法直接执行随包脚本。
 
 ## 可以直接这样说
 
-> 使用 $kobo-pm-update，根据这个项目的 project.json 和本周会议纪要整理更新。先给我修改前后对照、行动项、需要拍板的问题和更新后的图表。保留原来的批准基准，不要把预测当承诺。
+> 使用 $taskobo-diagrams，根据这个项目的 project.json 和本周会议纪要整理更新。先给我修改前后对照、行动项、需要拍板的问题和更新后的图表。保留原来的批准基准，不要把预测当承诺。
 
 已有 Word／PDF 计划时，可由具备读取能力的 AI 先整理文本快照和初始状态。当前脚本接收符合格式的项目 JSON 与文本来源，不自带 OCR、录音转写或 Word／PDF 解析。
 
@@ -53,8 +53,10 @@ Kobo PM Update 是首个中文 PM Skill（Alpha）。它延续我们的核心思
 <details>
 <summary>查看 Skill 与数据格式</summary>
 
-[Skill 入口](../skills/kobo-pm-update/SKILL.md) · [更新流程](../skills/kobo-pm-update/references/workflow.md) · [项目数据格式](../skills/kobo-pm-update/references/project-format.md)
+[Skill 入口](../skills/taskobo-diagrams/SKILL.md) · [更新流程](../skills/taskobo-diagrams/references/workflow.md) · [项目数据格式](../skills/taskobo-diagrams/references/project-format.md)
 
 渲染沿用本仓库的公共图表核心与样式，不要求用户自行编写 Mermaid。随包版本固定；更新 Skill 时重新下载、替换安装文件，保留自己的项目目录。
+
+旧版 `kobo-pm-update` 已更名为 `taskobo-diagrams`。已安装旧版的用户请用新版完整目录替换旧版安装目录；自己的项目文件继续保留。
 
 </details>

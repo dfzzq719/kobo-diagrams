@@ -4,7 +4,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateProject, prepareUpdate, applyUpdate, reviewUpdate } from './project.mjs';
 
-const HELP = `Kobo PM 项目材料更新（Node.js 22.12+）
+const HELP = `Taskobo Diagrams 项目材料更新（Node.js 22.12+）
 
 check  --project 项目.json
 review --project 项目.json --update 本周/更新.json --out 全新审阅目录

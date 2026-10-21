@@ -27,7 +27,7 @@ try{
   const response=await fetch('/job.json?token='+encodeURIComponent(token));
   if(!response.ok)throw new Error('无法读取本机出图任务。');
   const job=await response.json();
-  const profile=createDiagramProfile({settings:{fontSize:22,density:'compact',curve:'linear'},standard:{name:'Kobo PM 中文项目材料',version:'1'}});
+  const profile=createDiagramProfile({settings:{fontSize:22,density:'compact',curve:'linear'},standard:{name:'Taskobo Diagrams 中文项目材料',version:'1'}});
   const charts={};
   for(const [id,source]of Object.entries(job.sources)){
     const packet=await renderDocument(source,profile.roles,profile.settings,{mermaid:window.mermaid});

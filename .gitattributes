@@ -1,5 +1,5 @@
-skills/kobo-pm-update/** text=auto eol=lf
+skills/taskobo-diagrams/** text=auto eol=lf
 examples/pm-update-zh-CN/** text=auto eol=lf
 docs/assets/pm-update-zh-CN/** text=auto eol=lf
 # Preserve the reviewed upstream bundle byte-for-byte, including template strings.
-skills/kobo-pm-update/assets/runtime/mermaid.min.js -whitespace
+skills/taskobo-diagrams/assets/runtime/mermaid.min.js -whitespace
