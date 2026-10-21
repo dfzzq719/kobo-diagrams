@@ -44,7 +44,7 @@ The fictional CRM case below retains **14 activities and 8 roles**, from scope d
 <details>
 <summary>Developer integration, versions and installation</summary>
 
-The shared package is `@taskobo/diagrams` **0.1.2**, using **Mermaid 12.2.0**, with **Node 22.12.0+** required. It is not published to npm. Download the matching tarball from [GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases), or build from source:
+The shared package is `@taskobo/diagrams` **0.1.3**, using **Mermaid 12.2.0**, with **Node 22.12.0+** required. It is not published to npm. Download the matching tarball from [GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases), or build from source:
 
 ```sh
 git clone https://github.com/dfzzq719/taskobo-diagrams.git
@@ -52,12 +52,12 @@ cd taskobo-diagrams
 npm ci
 npm pack
 # In the consuming project, adjust this path to your checkout.
-npm install ../taskobo-diagrams/taskobo-diagrams-0.1.2.tgz mermaid@12.2.0
+npm install ../taskobo-diagrams/taskobo-diagrams-0.1.3.tgz mermaid@12.2.0
 ```
 
 [API and minimal usage](docs/api.md) · [Integration](docs/integration.md) · [Compatibility and upgrades](docs/upgrading.md)
 
-Saved profiles from 0.1.0, 0.1.1 and 0.1.2 remain supported with their source version preserved. The offline Skill is a separate download; download and install it again to receive updates.
+Saved profiles from 0.1.0, 0.1.1, 0.1.2 and 0.1.3 remain supported with their source version preserved. The offline Skill is a separate download; download and install it again to receive updates.
 
 </details>
 

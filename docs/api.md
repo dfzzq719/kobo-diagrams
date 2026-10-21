@@ -1,6 +1,6 @@
 # API reference
 
-All imports below use `@taskobo/diagrams`. The package is ESM and does not load Mermaid implicitly. Version 0.1.2 targets Mermaid 12.2.0. This patch improves enterprise English table/flowchart wrapping and separates long Gantt section labels from bars. Table handling retains CJK and explicit line breaks; the engine and API signatures remain unchanged. The complete [CRM case](project-case.md) exercises the same API on six linked documents.
+All imports below use `@taskobo/diagrams`. The package is ESM and does not load Mermaid implicitly. Version 0.1.3 targets Mermaid 12.2.0. It rejects oversized Mermaid sources and returned error graphics, preserves expired forecasts as a distinct warning, supports up to 33 table columns and bounds PNG canvas size. The complete [CRM case](project-case.md) exercises the same API on six linked documents.
 
 ## General Mermaid rendering
 
@@ -41,7 +41,7 @@ const checked = validateDiagramProfile(JSON.parse(JSON.stringify(profile)));
 {
   "schema": "kobo.diagram-profile/v1",
   "engineVersion": "12.2.0",
-  "coreVersion": "0.1.2",
+  "coreVersion": "0.1.3",
   "roles": {},
   "settings": {}
 }
@@ -49,7 +49,7 @@ const checked = validateDiagramProfile(JSON.parse(JSON.stringify(profile)));
 
 The empty objects above are abbreviated: the actual profile includes all normalized roles and settings. `standard` is optional metadata with a nonempty `name` (up to 180 characters) and `version` (up to 80). It does not certify conformance to an external standard.
 
-`validateDiagramProfile(input)` rejects unknown fields, invalid values, unsupported schema and versions with `TypeError`. Version 0.1.2 explicitly accepts core versions `0.1.0`, `0.1.1` and `0.1.2` with engine version `12.2.0`, returning normalized copies while retaining the saved `coreVersion`. It does not rewrite the document's provenance, accept arbitrary Mermaid config/CSS, or promise historical pixel reproduction. Compatible profiles use the installed renderer's table layout and the blue-gray RACI treatment introduced in 0.1.1.
+`validateDiagramProfile(input)` rejects unknown fields, invalid values, unsupported schema and versions with `TypeError`. Version 0.1.3 explicitly accepts core versions `0.1.0`, `0.1.1`, `0.1.2` and `0.1.3` with engine version `12.2.0`, returning normalized copies while retaining the saved `coreVersion`. It does not rewrite the document's provenance, accept arbitrary Mermaid config/CSS, or promise historical pixel reproduction. Compatible profiles use the installed renderer's table layout and the blue-gray RACI treatment introduced in 0.1.1.
 
 | Field | Values |
 | --- | --- |
@@ -102,3 +102,5 @@ const pngBlob = await svgToPng(result, 2); // browser-only; resolves to a PNG Bl
 Profile and colour utilities do not require a DOM. Mermaid rendering, SVG measurement/postprocessing, and PNG conversion require a browser. Rendering under Node needs a separately provided and tested browser runtime; installing this package alone does not provide one.
 
 The package does not store documents, send network requests, implement a cross-origin handshake, or deploy containers. Keep document source and its profile together and validate both at the receiving application boundary.
+
+`pngDimensions({width,height}, scale=2)` returns bounded export dimensions and the applied scale. PNG export uses at most 32 million pixels and 16,384 pixels per side, including downscaling below 1×. Keep SVG for full resolution.

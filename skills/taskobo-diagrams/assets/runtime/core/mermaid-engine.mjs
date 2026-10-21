@@ -34,8 +34,18 @@ export async function renderWithMermaid(mermaid, source, {config = {}, id, conta
   requireEngine(mermaid);
   if (typeof source !== 'string') throw new TypeError('Mermaid source must be a string.');
   await mermaid.initialize({securityLevel: 'strict', ...config, startOnLoad: false});
+  const limit = Number(mermaid.mermaidAPI?.getConfig?.().maxTextSize ?? config.maxTextSize ?? 50000);
+  if (Number.isFinite(limit) && source.length > limit) {
+    throw Object.assign(new Error(`图表源码 ${source.length} 字符，超过引擎上限 ${limit}；请拆分图表，完整说明保留在项目资料中。`), {code:'DIAGRAM_TEXT_LIMIT',characters:source.length,limit});
+  }
   await mermaid.parse(source);
-  return mermaid.render(id || `kobo_diagram_${++sequence}`, source, container);
+  const result = await mermaid.render(id || `kobo_diagram_${++sequence}`, source, container);
+  const visible = String(result.svg ?? '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+  if (/<(?:text|path|g)\b[^>]*\bclass=["'][^"']*\berror-(?:icon|text)\b/i.test(result.svg ?? '') ||
+      (visible.includes('Maximum text size in diagram exceeded') && !source.includes('Maximum text size in diagram exceeded'))) {
+    throw Object.assign(new Error('引擎返回了错误提示图，未生成有效业务图表；请拆分内容并重试。'),{code:'DIAGRAM_ERROR_GRAPHIC'});
+  }
+  return result;
 }
 
 /** Render ordinary Mermaid without applying enterprise source or style rules. */

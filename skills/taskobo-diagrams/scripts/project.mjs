@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 
 const PROJECT_SCHEMA = 'kobo.pm-project/v1';
 const UPDATE_SCHEMA = 'kobo.pm-update/v1';
-const TASK_FIELDS = new Set(['forecast', 'status', 'actualFinish', 'responsibilities', 'title', 'acceptance', 'dependsOn']);
+const TASK_FIELDS = new Set(['forecast', 'status', 'actualFinish', 'responsibilities', 'title', 'acceptance', 'dependsOn', 'archived']);
 const ACTION_FIELDS = new Set(['title', 'ownerRoleId', 'dueDate', 'status']);
 const DECISION_FIELDS = new Set(['title', 'status']);
 const HASH = /^[a-f0-9]{64}$/;
@@ -16,7 +16,9 @@ function object(value, label) {
 }
 
 function text(value, label) {
-  if (typeof value !== 'string' || !value.trim() || value.length > 10000 || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/u.test(value)) fail(`${label}必须是非空文本`);
+  if (typeof value !== 'string' || !value.trim()) fail(`${label}必须是非空文本`);
+  if(value.length>10000)fail(`${label}超过 10000 字符，请将完整说明拆到来源材料中`);
+  if(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/u.test(value))fail(`${label}包含不支持的控制字符`);
 }
 
 function id(value, label) {
@@ -68,21 +70,23 @@ function decision(value) {
 
 export function validateProject(project) {
   object(project, '项目');
+  if (project.schema === 'taskobo.pm-draft/v1') fail('这是初始化草稿；请先核实 questions.md 中的缺口，由 AI 整理为 project.json，再执行 check 或出图。');
   if (project.schema !== PROJECT_SCHEMA) fail(`项目 schema 必须是 ${PROJECT_SCHEMA}`);
   id(project.id, '项目 ID');
   text(project.name, '项目名称');
   validDate(project.statusDate, '项目状态日');
   const roleIds = unique(project.roles, '角色');
-  if (roleIds.size < 1 || roleIds.size > 8) fail('项目需要 1–8 个角色');
+  if (roleIds.size < 1 || roleIds.size > 32) fail('项目需要 1–32 个角色');
   for (const role of project.roles) text(role.name, `角色 ${role.id} 的名称`);
   const groupIds = unique(project.groups, '分组');
   if (!groupIds.size) fail('项目至少需要一个分组');
   for (const group of project.groups) text(group.name, `分组 ${group.id} 的名称`);
   const taskIds = unique(project.tasks, '任务');
-  if (taskIds.size < 1 || taskIds.size > 60) fail('项目需要 1–60 个任务');
+  if (taskIds.size < 1 || taskIds.size > 300) fail('项目需要 1–300 个任务；大型项目请按交付范围分为独立项目');
   for (const task of project.tasks) {
     text(task.title, `任务 ${task.id} 的标题`);
     text(task.acceptance, `任务 ${task.id} 的验收标准`);
+    if(own(task,'archived')&&typeof task.archived!=='boolean')fail(`任务 ${task.id} 的 archived 必须是布尔值`);
     if (!groupIds.has(task.groupId)) fail(`任务 ${task.id} 的分组不存在`);
     object(task.responsibilities, `任务 ${task.id} 的责任分配`);
     let accountable = 0;
@@ -168,7 +172,7 @@ function validateUpdate(update) {
   for (const change of update.changes) {
     if (!own(change, 'value')) fail(`修改 ${change.id} 缺少 value`);
     const [entity, operation, extra] = typeof change.kind === 'string' ? change.kind.split('.') : [];
-    if (extra || !['task', 'action', 'decision'].includes(entity) || !['set', 'add'].includes(operation) || (entity === 'task' && operation === 'add')) fail(`修改 ${change.id} 的 kind 不受支持`);
+    if (extra || !['task', 'action', 'decision'].includes(entity) || !['set', 'add'].includes(operation)) fail(`修改 ${change.id} 的 kind 不受支持`);
     if (operation === 'set') {
       id(change.targetId, `修改 ${change.id} 的目标 ID`);
       if (change.field === 'baseline' || String(change.field).startsWith('baseline.')) fail('普通更新禁止修改批准基准 baseline；批准后的基准修订需单独处理并保留批准依据和版本');
@@ -264,7 +268,8 @@ export function applyUpdate(project, prepared, selectedIds) {
     } else {
       const target = collection.find((item) => item.id === change.targetId);
       if (!target) fail(`修改 ${change.id} 的目标不存在：${change.targetId}`);
-      if (!equal(target[change.field], change.expected)) fail(`修改 ${change.id} 的 expected 与当前值冲突：${change.targetId}.${change.field}`);
+      const current = entity === 'task' && change.field === 'archived' ? target.archived ?? false : target[change.field];
+      if (!equal(current, change.expected)) fail(`修改 ${change.id} 的 expected 与当前值冲突：${change.targetId}.${change.field}`);
       target[change.field] = structuredClone(change.value);
     }
   }

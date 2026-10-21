@@ -4,7 +4,7 @@ import {CORE_VERSION, MERMAID_VERSION} from './version.mjs';
 
 export const PROFILE_SCHEMA = 'kobo.diagram-profile/v1';
 const roleKeys = ROLE_DEFS.map(({key}) => key);
-const compatibleCoreVersions = new Set(['0.1.0', '0.1.1', '0.1.2']);
+const compatibleCoreVersions = new Set(['0.1.0', '0.1.1', '0.1.2', '0.1.3']);
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 
 function record(value, label) {

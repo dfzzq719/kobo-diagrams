@@ -1,6 +1,6 @@
 {
   "name": "@taskobo/diagrams",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Framework-independent Mermaid rendering and enterprise diagram profiles.",
   "repository": {"type":"git","url":"git+https://github.com/dfzzq719/taskobo-diagrams.git"},
   "homepage": "https://github.com/dfzzq719/taskobo-diagrams#readme",

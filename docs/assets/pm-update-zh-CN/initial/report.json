@@ -1,15 +1,19 @@
 {
   "schema": "kobo.pm-render-report/v1",
+  "status": "complete",
+  "format": "all",
   "mode": "project-snapshot",
   "projectId": "crm-pm-teaching",
   "statusDate": "2026-10-14",
   "updateId": null,
   "inputSHA256": "8f13234a907274ca7d57542311a4787715edbcb482d42d6b7e3f4e14cb72d419",
   "reviewInputSHA256": null,
-  "coreVersion": "0.1.2",
+  "coreVersion": "0.1.3",
   "mermaidVersion": "12.2.0",
-  "runtimeManifestSHA256": "82ef589e574fb5d2523601b39e5abd8ab458fcef9183302def587ff7efda3587",
+  "runtimeManifestSHA256": "046dcd9fb2be1bb36ad969553bbc14046fae4fcb35b5d7e46a042f722cd65d40",
   "summary": {
+    "staleForecastTaskIds": [],
+    "archivedTaskIds": [],
     "statusDate": "2026-10-14",
     "taskCount": 18,
     "completed": 3,
@@ -31,45 +35,651 @@
       }
     ]
   },
+  "selection": {
+    "taskIds": [
+      "WP111",
+      "WP112",
+      "WP113",
+      "WP121",
+      "WP122",
+      "WP123",
+      "WP131",
+      "WP132",
+      "WP133",
+      "WP141",
+      "WP142",
+      "WP143",
+      "WP151",
+      "WP152",
+      "WP153",
+      "WP161",
+      "WP162",
+      "WP163"
+    ],
+    "pageSize": 12,
+    "group": null,
+    "from": null,
+    "to": null
+  },
   "charts": {
     "wbs": {
-      "width": 1739,
-      "height": 1203.5999755859375,
+      "kind": "wbs",
+      "title": "工作分解｜1.1 业务与验收基准｜1 / 1",
+      "taskIds": [
+        "WP111",
+        "WP112",
+        "WP113"
+      ],
+      "width": 1219.640625,
+      "height": 325.20001220703125,
       "type": "flowchart",
-      "notes": []
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1219,
+        "height": 325,
+        "scale": 0.999384956336029
+      }
     },
     "raci": {
+      "kind": "raci",
+      "title": "责任分配｜1.1 业务与验收基准｜1 / 1｜角色 1–8",
+      "taskIds": [
+        "WP111",
+        "WP112",
+        "WP113"
+      ],
+      "roleIds": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
       "width": 1618,
-      "height": 1744.2000000000003,
+      "height": 467.6,
       "type": "document-table",
-      "notes": []
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1618,
+        "height": 467,
+        "scale": 0.9987168520102652
+      }
     },
     "schedule": {
-      "width": 1552,
-      "height": 1855,
+      "kind": "schedule",
+      "title": "项目日程｜1.1 业务与验收基准｜1 / 1",
+      "taskIds": [
+        "WP111",
+        "WP112",
+        "WP113"
+      ],
+      "width": 1512,
+      "height": 535,
       "type": "gantt",
-      "notes": []
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1512,
+        "height": 535,
+        "scale": 1
+      }
+    },
+    "wbs-02": {
+      "kind": "wbs",
+      "title": "工作分解｜1.2 首版业务功能｜1 / 1",
+      "taskIds": [
+        "WP121",
+        "WP122",
+        "WP123"
+      ],
+      "width": 1249,
+      "height": 325.20001220703125,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1249,
+        "height": 325,
+        "scale": 0.999384956336029
+      }
+    },
+    "raci-02": {
+      "kind": "raci",
+      "title": "责任分配｜1.2 首版业务功能｜1 / 1｜角色 1–8",
+      "taskIds": [
+        "WP121",
+        "WP122",
+        "WP123"
+      ],
+      "roleIds": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
+      "width": 1618,
+      "height": 501.7,
+      "type": "document-table",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1618,
+        "height": 501,
+        "scale": 0.9986047438708392
+      }
+    },
+    "schedule-02": {
+      "kind": "schedule",
+      "title": "项目日程｜1.2 首版业务功能｜1 / 1",
+      "taskIds": [
+        "WP121",
+        "WP122",
+        "WP123"
+      ],
+      "width": 1512,
+      "height": 535,
+      "type": "gantt",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1512,
+        "height": 535,
+        "scale": 1
+      }
+    },
+    "wbs-03": {
+      "kind": "wbs",
+      "title": "工作分解｜1.3 数据迁移与CRM集成｜1 / 1",
+      "taskIds": [
+        "WP131",
+        "WP132",
+        "WP133"
+      ],
+      "width": 1227.171875,
+      "height": 325.20001220703125,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1227,
+        "height": 325,
+        "scale": 0.999384956336029
+      }
+    },
+    "raci-03": {
+      "kind": "raci",
+      "title": "责任分配｜1.3 数据迁移与CRM集成｜1 / 1｜角色 1–8",
+      "taskIds": [
+        "WP131",
+        "WP132",
+        "WP133"
+      ],
+      "roleIds": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
+      "width": 1618,
+      "height": 501.70000000000005,
+      "type": "document-table",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1618,
+        "height": 501,
+        "scale": 0.9986047438708391
+      }
+    },
+    "schedule-03": {
+      "kind": "schedule",
+      "title": "项目日程｜1.3 数据迁移与CRM集成｜1 / 1",
+      "taskIds": [
+        "WP131",
+        "WP132",
+        "WP133"
+      ],
+      "width": 1508,
+      "height": 535,
+      "type": "gantt",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1508,
+        "height": 535,
+        "scale": 1
+      }
+    },
+    "wbs-04": {
+      "kind": "wbs",
+      "title": "工作分解｜1.4 独立质量与安全证据｜1 / 1",
+      "taskIds": [
+        "WP141",
+        "WP142",
+        "WP143"
+      ],
+      "width": 1229.421875,
+      "height": 325.20001220703125,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1229,
+        "height": 325,
+        "scale": 0.999384956336029
+      }
+    },
+    "raci-04": {
+      "kind": "raci",
+      "title": "责任分配｜1.4 独立质量与安全证据｜1 / 1｜角色 1–8",
+      "taskIds": [
+        "WP141",
+        "WP142",
+        "WP143"
+      ],
+      "roleIds": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
+      "width": 1618,
+      "height": 535.8,
+      "type": "document-table",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1618,
+        "height": 535,
+        "scale": 0.9985069055617769
+      }
+    },
+    "schedule-04": {
+      "kind": "schedule",
+      "title": "项目日程｜1.4 独立质量与安全证据｜1 / 1",
+      "taskIds": [
+        "WP141",
+        "WP142",
+        "WP143"
+      ],
+      "width": 1512,
+      "height": 535,
+      "type": "gantt",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1512,
+        "height": 535,
+        "scale": 1
+      }
+    },
+    "wbs-05": {
+      "kind": "wbs",
+      "title": "工作分解｜1.5 运维与使用准备｜1 / 1",
+      "taskIds": [
+        "WP151",
+        "WP152",
+        "WP153"
+      ],
+      "width": 1249,
+      "height": 325.20001220703125,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1249,
+        "height": 325,
+        "scale": 0.999384956336029
+      }
+    },
+    "raci-05": {
+      "kind": "raci",
+      "title": "责任分配｜1.5 运维与使用准备｜1 / 1｜角色 1–8",
+      "taskIds": [
+        "WP151",
+        "WP152",
+        "WP153"
+      ],
+      "roleIds": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
+      "width": 1618,
+      "height": 501.70000000000005,
+      "type": "document-table",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1618,
+        "height": 501,
+        "scale": 0.9986047438708391
+      }
+    },
+    "schedule-05": {
+      "kind": "schedule",
+      "title": "项目日程｜1.5 运维与使用准备｜1 / 1",
+      "taskIds": [
+        "WP151",
+        "WP152",
+        "WP153"
+      ],
+      "width": 1594,
+      "height": 535,
+      "type": "gantt",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1594,
+        "height": 535,
+        "scale": 1
+      }
+    },
+    "wbs-06": {
+      "kind": "wbs",
+      "title": "工作分解｜1.6 项目治理｜1 / 1",
+      "taskIds": [
+        "WP161",
+        "WP162",
+        "WP163"
+      ],
+      "width": 1249,
+      "height": 301,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1249,
+        "height": 301,
+        "scale": 1
+      }
+    },
+    "raci-06": {
+      "kind": "raci",
+      "title": "责任分配｜1.6 项目治理｜1 / 1｜角色 1–8",
+      "taskIds": [
+        "WP161",
+        "WP162",
+        "WP163"
+      ],
+      "roleIds": [
+        "sponsor",
+        "pm",
+        "business",
+        "dev",
+        "ops",
+        "info",
+        "quality",
+        "vendor"
+      ],
+      "width": 1618,
+      "height": 501.7,
+      "type": "document-table",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1618,
+        "height": 501,
+        "scale": 0.9986047438708392
+      }
+    },
+    "schedule-06": {
+      "kind": "schedule",
+      "title": "项目日程｜1.6 项目治理｜1 / 1",
+      "taskIds": [
+        "WP161",
+        "WP162",
+        "WP163"
+      ],
+      "width": 1532,
+      "height": 535,
+      "type": "gantt",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1532,
+        "height": 535,
+        "scale": 1
+      }
+    },
+    "dependencies": {
+      "kind": "dependencies",
+      "title": "依赖关系｜1",
+      "taskIds": [
+        "WP111",
+        "WP121",
+        "WP122",
+        "WP112",
+        "WP123",
+        "WP131",
+        "WP113",
+        "WP141",
+        "WP132",
+        "WP133",
+        "WP142",
+        "WP143"
+      ],
+      "edges": [
+        {
+          "from": "WP111",
+          "to": "WP121"
+        },
+        {
+          "from": "WP111",
+          "to": "WP122"
+        },
+        {
+          "from": "WP112",
+          "to": "WP123"
+        },
+        {
+          "from": "WP111",
+          "to": "WP131"
+        },
+        {
+          "from": "WP113",
+          "to": "WP141"
+        },
+        {
+          "from": "WP121",
+          "to": "WP141"
+        },
+        {
+          "from": "WP122",
+          "to": "WP141"
+        },
+        {
+          "from": "WP131",
+          "to": "WP141"
+        },
+        {
+          "from": "WP132",
+          "to": "WP141"
+        },
+        {
+          "from": "WP133",
+          "to": "WP141"
+        },
+        {
+          "from": "WP112",
+          "to": "WP142"
+        },
+        {
+          "from": "WP141",
+          "to": "WP143"
+        }
+      ],
+      "width": 1688.3125,
+      "height": 696,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1688,
+        "height": 696,
+        "scale": 0.9998149039351424
+      }
+    },
+    "dependencies-02": {
+      "kind": "dependencies",
+      "title": "依赖关系｜2",
+      "taskIds": [
+        "WP112",
+        "WP151",
+        "WP132",
+        "WP152",
+        "WP141",
+        "WP153",
+        "WP143",
+        "WP161",
+        "WP162",
+        "WP163"
+      ],
+      "edges": [
+        {
+          "from": "WP112",
+          "to": "WP151"
+        },
+        {
+          "from": "WP132",
+          "to": "WP151"
+        },
+        {
+          "from": "WP132",
+          "to": "WP152"
+        },
+        {
+          "from": "WP141",
+          "to": "WP153"
+        },
+        {
+          "from": "WP143",
+          "to": "WP153"
+        },
+        {
+          "from": "WP151",
+          "to": "WP153"
+        },
+        {
+          "from": "WP152",
+          "to": "WP153"
+        },
+        {
+          "from": "WP161",
+          "to": "WP162"
+        },
+        {
+          "from": "WP161",
+          "to": "WP163"
+        }
+      ],
+      "width": 1239.703125,
+      "height": 530,
+      "type": "flowchart",
+      "notes": [],
+      "png": true,
+      "pngSize": {
+        "width": 1239,
+        "height": 530,
+        "scale": 0.9994328279199909
+      }
     }
   },
   "browserVersion": {
+    "protocolVersion": "1.3",
     "product": "Chrome/155.0.8059.84",
     "revision": "@5869fe313571d75152b77813cf0a4ee26a4e6df0",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
     "jsVersion": "15.5.35.25"
   },
   "nodeVersion": "v25.2.1",
-  "fontNote": "字体由本机字体栈解析；跨系统像素可能不同。",
+  "fontNote": "字体由本机解析；跨系统像素可能不同。",
   "fileSHA256": {
-    "sources/wbs.mmd": "5fe44490481975f61c88845789920589e1772c1d4c940e11c83df0152a232ff4",
-    "sources/raci.json": "14a843eb1c875016dd709bc72bafbbed70baada676497bf49a0cad552a97c20d",
-    "sources/schedule.mmd": "ce670c03511c4dc0e6ed43fe4836bf9ea05dc6e0e11d15208084bb21034c92ff",
-    "wbs.svg": "ad079ac0d016b93f83cc9ae1247badf28c6ca54f15601748cf01a8d23d66b9bf",
-    "wbs.png": "5d2b2a939b4e18be134319a2a2f25c8867859c8bea862e7178175fd6b677ee8f",
-    "raci.svg": "6ca4bbe7b782703aa91b5120b55c7e53810c572a9c195eb9f7f1a95a3df93f1e",
-    "raci.png": "bd1a6299d374ee9109957fe7684ecec7b045d7074ec7509d3e42153ac5be313a",
-    "schedule.svg": "dac8e98206c7e0eaa6ca14f2a85e739c08aa1ef22fe16e69d691b28c4724eef2",
-    "schedule.png": "cd0e8985a1d84a20e1206c51a49a4ebaf564393db2272e54b84625934d7da3da",
+    "sources/wbs.mmd": "b47839a34b73c31aabb1e513c674c12ee7cdb9b1ef2f825ef9f99681ad78f8fa",
+    "sources/raci.json": "968cdd5250d7ddf26ba2961ba7b436dc7c96b19dcbee803ec4cc40602c7f84b9",
+    "sources/schedule.mmd": "66c8e4a55b76d82ddd7d64ec88f35ca2eab43f6a683f2067cd482a383aec4e04",
+    "sources/wbs-02.mmd": "0108181d9796628a33599fbd7b17ef2811582a723d64700e08230cf3366d37c0",
+    "sources/raci-02.json": "1fc9d1b15f5ce99bc0817d8d139b26d08b1abc10bc88a2771c13e8efb048cf65",
+    "sources/schedule-02.mmd": "ba3f20cdbb573712da12485b884d78ad65a8a643d0dedffa25b2307058593a24",
+    "sources/wbs-03.mmd": "d1b9fe1e318597ba6b23a4539ccacb677dfb1b1ffcc8ffdffaa96d7cf6902bd9",
+    "sources/raci-03.json": "b84b85539c76419a79fd88616a50746e5eb097e99ab9decd66f48e3ac1baa4a9",
+    "sources/schedule-03.mmd": "bc1c58c4b9cddcdda7ef531c59b326478b5284e5d79088b8b4314d65e4bc4be1",
+    "sources/wbs-04.mmd": "09e57c3c9567ef4f7bdd163e99a52cb7a49c92cfa26cbdb4cfcd326bcaa3ff61",
+    "sources/raci-04.json": "05b7ca806dbc4523aebd01321b6f65baecd8a4acfa73693627640513a809e4f4",
+    "sources/schedule-04.mmd": "adfc90347c9bc6caa909d09911b83d5200f7272fc36f177d97ecc597380cbe45",
+    "sources/wbs-05.mmd": "d3c7963fe265f62544f6b8cade1b2c8317eb2d3f1b36a2b7cf03c8b5f019f93e",
+    "sources/raci-05.json": "8fb415799b3a5fd0a4733f0d17b869795924e49c496b1f469cecc3e07701a027",
+    "sources/schedule-05.mmd": "9c1f67c78977e6968db1902a6434fb7cc6720e05b5b01fc23cfcfe8e305369e5",
+    "sources/wbs-06.mmd": "22e6a3ae17b8ac360655ed903c7d3a867afd08385d0880d95ba961666bc41eb6",
+    "sources/raci-06.json": "d74abc5c7ae14519d63a13911d85cbc5fd6aec59053550ddea2e59a744f6f778",
+    "sources/schedule-06.mmd": "101ced0461a0f716cf7d9cd29ebfa265407b9be17703eacef93e0a50b0a64c3c",
+    "sources/dependencies.mmd": "95a2d176d891bfc2ac566e91d7ad89c76bf52e663c8dc433d56d41cb45fe1e23",
+    "sources/dependencies-02.mmd": "00c6901d69bcddd0b9a4562b47f6f17e96c0c487c574c59ccc10d0a901501e3f",
+    "wbs.svg": "44302bac62761549ae1ec7d69fd19d7cf3d5bb83d0c5a3af75f929baa54bbd2a",
+    "wbs.png": "0d3c36a3380d61aa059ebf4173b83280f5013b061f8e2fe25d52bfde08db0327",
+    "raci.svg": "7fa122fa760a3f21db9f6e6a36d17761e4048bd161ee94fd05b82f89ed12ae9b",
+    "raci.png": "3f6545cdd1bfa1a1bd2dc1471b0723aa50c855dd7d9cdec3c77da231716e692b",
+    "schedule.svg": "5a6af64fef9116220cd2bed975c39c93b847a1ce4980371e2be4c03c5026e9de",
+    "schedule.png": "c9d3d4c410923d6b609edc1c70f42361790315835c6e7bc137548f725cf58146",
+    "wbs-02.svg": "2b8c049dca9a8e225f5d2ec6dd15b25f643e67392948dfd415f834971791b1bd",
+    "wbs-02.png": "87697327a3a3200be31254d040742ba7250950ed9546b35597d173ca432dba51",
+    "raci-02.svg": "d092271badbfa5a7b217c0ea18ba8cc49a310c3729fd8ee229cc8e22914ab7b2",
+    "raci-02.png": "8b1ed0a81c1d5138870a5f318b0e7a2eeee492224b3ddadfec43dc64a380da32",
+    "schedule-02.svg": "d516d7cbaef4d0cf05ada3acf82aa5bec5a2f22d97a794cac3a0796febd67168",
+    "schedule-02.png": "a77584fbf5824f10b156058eb4ab95888fb9e5909924919209ab9655ef5f63c9",
+    "wbs-03.svg": "ce7f5daa0d66c0c7477497d4dbe96c708df39de4ec4ed16afc10f7e7fd2077bb",
+    "wbs-03.png": "a2c59c23e7f0b138fbd499787e1f8cdf155d68befc49af030a9f9dc74a780e81",
+    "raci-03.svg": "18cbd9336af98eece5158005015f78b4b6b76e614f319a41f724d00acc8c929e",
+    "raci-03.png": "6f011c79206ca58e88358b388ab52c4942e6eb789e0cdc47393c7a3697d5b57f",
+    "schedule-03.svg": "0c91c6b8496068fdaec81488a1e2240a000f4e6e36f9c7ddebbe3071bc0b5402",
+    "schedule-03.png": "5cccbf1d2ee6aaa43c2fb9c9c28a7a0da7390eb85bdade764736b272e7188d9f",
+    "wbs-04.svg": "04ae061d8dd9cea87a57d3cf600424c87770f2928078426574414103a06ba81a",
+    "wbs-04.png": "c236143a1d45a4bd76434be99e23e615ae5285d4233bca551164a1db06ee56cc",
+    "raci-04.svg": "8547bc9d057296227e745390cb4667ef216391afd892ab2e3e0a6ce1ff092670",
+    "raci-04.png": "dcb2967d8729ffbb7249e3fa3b10c6351dff6e33e15861f2d80456a26baddd1e",
+    "schedule-04.svg": "1bbdb8bc55143fd7189dfab9aa1a90e037b367dfbe80bd32dec36ba2233d10e1",
+    "schedule-04.png": "6ee9c9e3efba1071296a2f88a4259845014f86e75a93fda35623f509f0147cd9",
+    "wbs-05.svg": "a536c2708d93e27f897195799e5aa129c113ad0558f37a5b3b0e11687cd0ba51",
+    "wbs-05.png": "e2549e783d839a92a6861f38372d4dbdfd61c3b3d211e3d2e1dfb78c9c4f377f",
+    "raci-05.svg": "eb3c896742287409955785b7d4fa16089713fd5710073835afecd88ae995c466",
+    "raci-05.png": "d813bd8572ef3207e55e5956a33bcbade349923c26480cb12be8df2caff59841",
+    "schedule-05.svg": "fc561bf0a1d7c0f09f8155dc2c7cb05ced6fabdd227f9f40dee3623556e05abc",
+    "schedule-05.png": "49acf0c01a931a515ea6ce464821848a70d3ab879df10eb81a7e9a8d0afae0b6",
+    "wbs-06.svg": "a92a8cca2a6105da36d6cd491dbec65ef6e1ade0e3adc60ba3164ca24ae597ef",
+    "wbs-06.png": "18949dd383311aef81c42785c39c102e2e8921601331793858d0693b6747f48a",
+    "raci-06.svg": "e632810268f921a2d39f29b17acf0d3065de9ddcbc971a1f0dc3081c4985c89b",
+    "raci-06.png": "896bed47816964ecc2d94cd00da85917e7ad77d3f4bc8f06898b57427a7b8064",
+    "schedule-06.svg": "625c6ec4045ed09609703ba8f90d0a452fb41b817439d2dd54c29c30d4733d79",
+    "schedule-06.png": "762a766173302cbae9e0a44ff764bb7cdd9117ae9a3d05fcde8772a87e2ecfe4",
+    "dependencies.svg": "877e35405d6b9ad7643bab52225be9b67efc71d02eec23f8639b56d677afc6f6",
+    "dependencies.png": "2af60559bf98015719d57fd71e50d18a07acb49708df9869b51359727fe8bcb6",
+    "dependencies-02.svg": "ed1024a8322a1c2ef00aab5e6da797e45bae062701724e06703bb14fccbb2443",
+    "dependencies-02.png": "0f8789112af72bbfede415ee6276a94dfaa2714d487d9821ada91bab10263c25",
     "project.snapshot.json": "8f13234a907274ca7d57542311a4787715edbcb482d42d6b7e3f4e14cb72d419",
-    "profile.json": "f818e97de81589af6f747751e3cff085b01ff38edc1657c3fedbe758767d298a",
-    "review.html": "2e21f313497a54aa2d580ceea98be9328908ad04e86c1b0ba8fdfe40c043ba02"
+    "profile.json": "268dc33de091349939c3f7b6114f4bf8cfa1502b702951a88b19fd0dba8515c2",
+    "diagnostics.json": "5cb18b050977d8c6b6cc8beada06d7115204e5d9cb5d8d254b4f5f4c6306bdfa",
+    "review.html": "693ff65d314d797cce892f5c89e49e570e112f69710fd4d536438b69e9f2e519"
   }
 }

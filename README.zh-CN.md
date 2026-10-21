@@ -42,7 +42,7 @@ AI 理解材料，随包工具负责校验与出图，项目判断和确认由�
 <details>
 <summary>开发接入、版本与安装</summary>
 
-当前公共包为 `@taskobo/diagrams` **0.1.2**，使用 **Mermaid 12.2.0**，需要 **Node 22.12.0+**。本包尚未发布到 npm，可从 [GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases)下载对应 tarball，或从源码构建：
+当前公共包为 `@taskobo/diagrams` **0.1.3**，使用 **Mermaid 12.2.0**，需要 **Node 22.12.0+**。本包尚未发布到 npm，可从 [GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases)下载对应 tarball，或从源码构建：
 
 ```sh
 git clone https://github.com/dfzzq719/taskobo-diagrams.git
@@ -50,12 +50,12 @@ cd taskobo-diagrams
 npm ci
 npm pack
 # 在消费项目中执行，按实际位置修改路径。
-npm install ../taskobo-diagrams/taskobo-diagrams-0.1.2.tgz mermaid@12.2.0
+npm install ../taskobo-diagrams/taskobo-diagrams-0.1.3.tgz mermaid@12.2.0
 ```
 
 [API 与最小调用](docs/api.md) · [集成方式](docs/integration.md) · [兼容与升级](docs/upgrading.md)
 
-当前版本支持 0.1.0、0.1.1 和 0.1.2 的已保存 profile，并保留来源版本。离线 Skill 是独立下载文件，接收更新需重新下载并安装。
+当前版本支持 0.1.0、0.1.1、0.1.2 和 0.1.3 的已保存 profile，并保留来源版本。离线 Skill 是独立下载文件，接收更新需重新下载并安装。
 
 </details>
 

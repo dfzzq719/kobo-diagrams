@@ -1,7 +1,7 @@
 {
   "schema": "kobo.diagram-profile/v1",
   "engineVersion": "12.2.0",
-  "coreVersion": "0.1.2",
+  "coreVersion": "0.1.3",
   "roles": {
     "paper": "#FFFEFA",
     "surface": "#FFFFFF",

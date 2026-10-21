@@ -36,6 +36,14 @@ Installation paths and permissions vary by AI software. A chat interface that ca
 
 If the existing plan is in Word or PDF, AI software with document-reading capabilities can first extract a text snapshot and draft an initial state. These scripts accept structured project JSON and text sources; they do not include OCR, audio transcription or Word/PDF parsers.
 
+## Start with your own plan
+
+Use `pm.mjs init --from plan.md --out draft` with Markdown or UTF-8 CSV; export Excel to CSV first. The draft preserves source text, hashes and open questions. AI then helps establish the project state after gaps are resolved. Dates, responsibility assignments and baseline approval are never filled in automatically.
+
+Projects support **up to 300 work packages and 32 roles**. Views are paged by group, with 12 tasks and 8 RACI roles per page by default; each WBS figure shows at most 4 work packages. Dependency diagrams include cross-group predecessors. Full acceptance text stays in the review page and project snapshot.
+
+Use `--force` to refresh an unchanged generated output directory. Errors identify the chart and stage, preserving sources and valid SVGs. Expired forecasts retain their dates and are flagged for review. `--format sources` exports material without a browser. See the [command and diagnostic reference](../skills/taskobo-diagrams/references/rendering.md) (Chinese).
+
 ## Follow two consecutive updates
 
 The [Chinese teaching sources](../examples/pm-update-zh-CN/) include an initial state, two meeting notes and their update packages. The status date advances from 14 October 2026 to 16 and 21 October, with 18 work packages and 8 roles.
@@ -50,9 +58,11 @@ You keep using your current AI. One main agent reads the Skill and organizes the
 
 ## Current scope
 
-This version supports local project updates, evidence checks, selective application of changes, WBS/RACI/schedule diagrams and a static review page. Before and after states remain separate files. Candidate changes without confirmation or existing authorization remain pending.
+This version supports local project updates, evidence checks, selective application of changes, paged WBS/RACI/schedule diagrams, dependency diagrams and a static review page. Before and after states remain separate files. Candidate changes without confirmation or existing authorization remain pending.
 
 It does not automatically connect to external task systems, revise approved baselines or guarantee a complete dependency-impact analysis. Estimates, tradeoffs, acceptance and project commitments remain the team's responsibility.
+
+[Checks and current limits](quality.md)
 
 <details>
 <summary>Skill instructions and data format</summary>

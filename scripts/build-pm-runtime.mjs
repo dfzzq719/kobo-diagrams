@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Build the portable Skill runtime from this repository's unchanged core. */
+/** Build the portable Skill runtime from this repository's reviewed core. */
 import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';

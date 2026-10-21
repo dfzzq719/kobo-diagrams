@@ -1,6 +1,6 @@
 import type {MermaidConfig, RenderResult} from 'mermaid';
 
-export const CORE_VERSION: '0.1.2';
+export const CORE_VERSION: '0.1.3';
 export const MERMAID_VERSION: '12.2.0';
 export const PROFILE_SCHEMA: 'kobo.diagram-profile/v1';
 export type RoleName = 'paper' | 'surface' | 'ink' | 'muted' | 'primary' | 'anchor' | 'line' | 'border' | 'success' | 'warning' | 'danger';
@@ -18,7 +18,7 @@ export interface DiagramStandard { name: string; version: string }
 export interface DiagramProfile {
   schema: typeof PROFILE_SCHEMA;
   engineVersion: typeof MERMAID_VERSION;
-  coreVersion: '0.1.0' | '0.1.1' | '0.1.2';
+  coreVersion: '0.1.0' | '0.1.1' | '0.1.2' | '0.1.3';
   roles: RoleColors;
   settings: DiagramSettings;
   standard?: DiagramStandard;
@@ -74,6 +74,7 @@ export function compileDiagram(source: string, roles?: Partial<RoleColors>, sett
 export function renderDiagram(source: string, roles?: Partial<RoleColors>, settings?: Partial<DiagramSettings>, options?: EnterpriseRenderOptions): Promise<DiagramPacket>;
 export function renderDocument(source: string, roles?: Partial<RoleColors>, settings?: Partial<DiagramSettings>, options?: EnterpriseRenderOptions): Promise<DiagramPacket>;
 export function svgToPng(packet: DiagramPacket, scale?: number): Promise<Blob>;
+export function pngDimensions(packet: Pick<DiagramPacket, 'width' | 'height'>, scale?: number): {width: number; height: number; scale: number};
 export function validateFrozenSource(source: string): string;
 export function isTableSource(source: string): boolean;
 export interface TableDocument {

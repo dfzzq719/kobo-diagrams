@@ -14,7 +14,7 @@ GUIDE = """Taskobo Diagrams Skill｜中文 Alpha
 让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。
 
 先看结果：解压后双击 taskobo-diagrams/assets/demo/review.html。
-这是独立虚构教学案例的第二次周会审阅预览，含修改对照、行动项、待决事项和三类图表。
+这是独立虚构教学案例的第二次周会审阅预览，含修改对照、行动项、待决事项和分页图表及依赖图。
 查看示例不需要 Node 或 AI 服务；执行项目更新与出图则需要下述环境。
 
 安装：将完整 taskobo-diagrams 文件夹放入 AI 软件支持的 Skill 目录。

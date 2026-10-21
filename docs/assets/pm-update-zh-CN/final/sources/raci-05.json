@@ -1,0 +1,87 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "raci",
+  "title": "客户服务系统首版实施｜独立虚构教学分支｜1.5 运维与使用准备｜1 / 1｜责任分配｜2026-10-21",
+  "columns": [
+    {
+      "key": "work",
+      "label": "工作包与交付物",
+      "width": 330
+    },
+    {
+      "key": "role0",
+      "label": "项目发起人",
+      "width": 155
+    },
+    {
+      "key": "role1",
+      "label": "项目经理",
+      "width": 155
+    },
+    {
+      "key": "role2",
+      "label": "业务负责人",
+      "width": 155
+    },
+    {
+      "key": "role3",
+      "label": "开发负责人",
+      "width": 155
+    },
+    {
+      "key": "role4",
+      "label": "运维负责人",
+      "width": 155
+    },
+    {
+      "key": "role5",
+      "label": "信息管理\n负责人",
+      "width": 155
+    },
+    {
+      "key": "role6",
+      "label": "质量负责人",
+      "width": 155
+    },
+    {
+      "key": "role7",
+      "label": "CRM\n供应商",
+      "width": 155
+    }
+  ],
+  "rows": [
+    {
+      "work": "WP151 1.5.1 运维与回退操作手册",
+      "role0": "I",
+      "role1": "C",
+      "role2": "C",
+      "role3": "R",
+      "role4": "A/R",
+      "role5": "C",
+      "role6": "R",
+      "role7": "C"
+    },
+    {
+      "work": "WP152 1.5.2 夜间批处理与监控设计",
+      "role0": "I",
+      "role1": "C",
+      "role2": "C",
+      "role3": "R",
+      "role4": "A/R",
+      "role5": "C",
+      "role6": "R",
+      "role7": "C"
+    },
+    {
+      "work": "WP153 1.5.3 培训与交接记录",
+      "role0": "I",
+      "role1": "C",
+      "role2": "A/R",
+      "role3": "C",
+      "role4": "R",
+      "role5": "C",
+      "role6": "R",
+      "role7": "I"
+    }
+  ]
+}

@@ -36,7 +36,7 @@ For an existing `postMessage` handshake, send to the expected exact origin and v
 
 Store the profile beside the source, including on subsequent saves and exports. Legacy documents with no profile need an explicit host fallback policy. The package does not infer which enterprise style was used when only the source exists.
 
-Package 0.1.2 still uses Mermaid 12.2.0 and accepts saved 0.1.0, 0.1.1 and 0.1.2 profiles. Validation retains the saved `coreVersion`, while rendering uses the installed package's current layout and the blue-gray RACI rules introduced in 0.1.1. Version 0.1.2 improves enterprise English table/flowchart wrapping and Gantt section spacing, preserving CJK and explicit newlines in tables. This keeps provenance and readability without promising the old renderer's pixels. Other versions require an explicit compatibility decision. Existing frozen offline Skill files stay unchanged; a new generated Skill must be downloaded and reinstalled to receive the new core.
+Package 0.1.3 uses Mermaid 12.2.0 and accepts saved 0.1.0, 0.1.1, 0.1.2 and 0.1.3 profiles. Validation retains the saved `coreVersion`, while rendering uses the installed package's current layout and the blue-gray RACI rules introduced in 0.1.1. Version 0.1.2 improves enterprise English table/flowchart wrapping and Gantt section spacing, preserving CJK and explicit newlines in tables. This keeps provenance and readability without promising the old renderer's pixels. Other versions require an explicit compatibility decision. Existing frozen offline Skill files stay unchanged; a new generated Skill must be downloaded and reinstalled to receive the new core.
 
 ## Release and deployment
 

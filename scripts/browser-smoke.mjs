@@ -76,6 +76,15 @@ async function pageTest() {
       check(enterprise.theme.layout === 'dagre' && enterprise.theme.look === 'classic', 'Enterprise layout policy changed');
       report.cases.push({id: 'shared-engine-concurrency', ...inspect(enterprise)});
     } catch (error) {report.errors.push({id: 'shared-engine-concurrency', error: String(error.stack || error)});}
+    try {
+      const renderer=createMermaidRenderer(mermaid);
+      let rejected=false;try{await renderer.render('flowchart TB\n A["'+'x'.repeat(50000)+'"]');}catch(error){rejected=error.code==='DIAGRAM_TEXT_LIMIT';}
+      check(rejected,'Oversized source was accepted as a successful error graphic');
+      const width=25000,height=200,blob=await svgToPng({...gantt,width,height,svg:`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="100%" height="100%" fill="blue"/></svg>`},1);
+      const bytes=new Uint8Array(await blob.arrayBuffer()),view=new DataView(bytes.buffer);
+      check(view.getUint32(16)<=16384&&view.getUint32(20)<=16384,'Native PNG did not downscale to the side limit');
+      report.cases.push({id:'oversize-error-and-png-budget',pngWidth:view.getUint32(16),pngHeight:view.getUint32(20)});
+    } catch(error){report.errors.push({id:'oversize-error-and-png-budget',error:String(error.stack||error)});}
     const manifestResponse = await fetch('/examples/project-case/case-manifest.json');
     check(manifestResponse.ok, 'Complete project-case manifest is missing');
     const projectCase = await manifestResponse.json();
@@ -96,7 +105,7 @@ async function pageTest() {
         report.cases.push({id: 'project-case-' + document.id, ...detail});
       } catch (error) {report.errors.push({id: 'project-case-' + document.id, error: String(error.stack || error)});}
     }
-    report.ok = report.errors.length === 0 && report.cases.length === DIAGRAM_CATALOG.length + 3 + projectCase.documents.length;
+    report.ok = report.errors.length === 0 && report.cases.length === DIAGRAM_CATALOG.length + 4 + projectCase.documents.length;
     window.__koboSmoke = report;
   } catch (error) {window.__koboSmoke = {ok: false, error: String(error.stack || error)};}
 }

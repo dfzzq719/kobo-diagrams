@@ -24,7 +24,7 @@
 }
 ```
 
-- `roles` 最多 8 个、`tasks` 最多 60 个；角色、分组、任务、行动和决策各自 ID 唯一。
+- `roles` 最多 32 个、`tasks` 最多 300 个；角色、分组、任务、行动和决策各自 ID 唯一。
 - 所有 ID 可使用中文，最多 128 字符；不得含 ASCII 逗号 `,`、换行或首尾空白，也不得以 `--` 开头，确保命令行选择没有歧义。
 - 日期均为真实日历日 `YYYY-MM-DD`，开始不晚于结束。不把日历日自动换算为工作日。
 - 每个任务恰有一位最终负责人（`A` 或 `A/R`），至少一位执行者（`R` 或 `A/R`）。其他值为 `C`、`I` 或空字符串；遗漏角色等同未分配。
@@ -53,7 +53,9 @@
 - 更新 ID 与修改 ID 均需唯一。每项修改必须有原文引用。
 - `sources[].file` 相对于更新文件所在目录，只允许该目录树内的 UTF-8 文本文件，符号链接不能越界。可提供 `sha256`；脚本总会计算真实 SHA-256 并保存。
 - 原文中的 `quote` 必须逐字存在；脚本只能证明引用和文件相符，不能证明其支持 AI 提出的修改。
-- `task.set` 可修改完整的 `forecast`、`status`、`actualFinish`、`responsibilities`、`title`、`acceptance`、`dependsOn`。每项必须带与当前值完全相同的 `expected`；同一更新不能对同一任务同一字段提出两项修改。
+- `task.set` 可修改完整的 `forecast`、`status`、`actualFinish`、`responsibilities`、`title`、`acceptance`、`dependsOn`、`archived`。每项必须带与当前值完全相同的 `expected`；同一更新不能对同一任务同一字段提出两项修改。
+- `task.add` 的 `value` 为完整新工作包，仍须有依据、已确认的批准基准、当前预测和有效责任。不能以同 ID 覆盖既有工作包。新增基准不得从普通计划日期擅自推定已批准。
+- `task.set archived=true` 归档工作包，未记录该字段时 `expected=false`；保留原任务、基准、证据和依赖，默认不再列入工作图。恢复时设为 `false`。不提供直接删除任务的操作。
 - `action.add` 的 `value` 为新行动项，`decision.add` 的 `value` 为新决策项。这两类不带 `targetId`、`field` 或 `expected`。既有对象不能被同 ID 覆盖。
 - `action.set` 可更新既有行动的 `title`、`ownerRoleId`、`dueDate`、`status`；`decision.set` 可更新既有决策的 `title`、`status`。二者使用与 `task.set` 相同的 `targetId`、`field`、`expected`、`value` 和 `evidence`，通过稳定 ID 连续维护事项，避免每周重复新增。
 - 要一起生效的修改应在同一次选择中接受，例如 `status=done` 和 `actualFinish`。最终项目校验失败时整次操作失败。

@@ -33,5 +33,6 @@ jobs:
           node scripts/build-pm-runtime.mjs --check
           node scripts/verify-pm-demo.mjs
           node scripts/check-pm-skill.mjs
+          node scripts/check-pm-scale.mjs
           python3 scripts/build-pm-skill.py --check
       - run: npm pack --dry-run

@@ -62,13 +62,13 @@ export function parseGanttStatus(source) {
     if (baselineEnd<day(baseline.start) || finish<day(current.start)) throw new Error('工程の終了日は開始日以降に指定してください。');
     if (baseline.end!==item.baselineEnd || current.end!==item.finish) throw new Error('工程差異の終了日と Mermaid 本文の終了日が一致していません。');
     if (item.stage==='done' && (!current.tags.includes('done') || finish>asOf)) throw new Error('完了実績には done を付け、集計基準日以前の終了日を指定してください。');
-    if (item.stage==='forecast' && (current.tags.includes('done') || finish<asOf)) throw new Error('未完了作業の予測終了日は集計基準日以降を指定してください。');
+    if (item.stage==='forecast' && current.tags.includes('done')) throw new Error('未完了作業の予測に done は指定できません。');
     const varianceDays=finish-baselineEnd;
     const status=item.stage==='done' ? (varianceDays>0?'completed-late':'completed-on-time')
-      : baselineEnd<asOf?'overdue':varianceDays>0?'forecast-late':item.risk?'at-risk':'on-track';
+      : finish<asOf?'stale-forecast':baselineEnd<asOf?'overdue':varianceDays>0?'forecast-late':item.risk?'at-risk':'on-track';
     const wording={
       'completed-late':'完了・遅延確定','completed-on-time':'完了・期限内',
-      overdue:'未完了・期限超過','forecast-late':'将来の遅延見込み','at-risk':'期限内予測・要注意','on-track':'期限内予測',
+      overdue:'未完了・期限超過','stale-forecast':'予測期限切れ・要更新','forecast-late':'将来の遅延見込み','at-risk':'期限内予測・要注意','on-track':'期限内予測',
     }[status];
     return {...item,status,varianceDays,wording,baselineTask:baseline,currentTask:current};
   });
@@ -139,7 +139,7 @@ export function enhanceGanttStatus(svg,packet) {
     baseline.dataset.taskoboGanttState='baseline';
     setStyle(baseline,{fill:'none',stroke:p.muted,'stroke-dasharray':'5 3','stroke-width':Math.max(1.5,s.lineWidth)});
     setStyle(labelFor(svg,item.baseline),{fill:p.ink});
-    const late=['completed-late','overdue'].includes(item.status);
+    const late=['completed-late','overdue','stale-forecast'].includes(item.status);
     const caution=['forecast-late','at-risk'].includes(item.status);
     const fill=late?p.danger:caution?p.warning:item.stage==='done'?p.success:p.primary;
     current.dataset.taskoboGanttState=item.status;

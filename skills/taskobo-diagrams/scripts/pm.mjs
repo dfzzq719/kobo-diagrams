@@ -3,9 +3,11 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateProject, prepareUpdate, applyUpdate, reviewUpdate } from './project.mjs';
+import { initialize } from './init.mjs';
 
 const HELP = `Taskobo Diagrams 项目材料更新（Node.js 22.12+）
 
+init   [--from 计划.md或.csv] --out 全新草稿目录 [--name 项目名称] [--as-of YYYY-MM-DD]
 check  --project 项目.json
 review --project 项目.json --update 本周/更新.json --out 全新审阅目录
 accept --project 项目.json --update 本周/更新.json --select 修改1,修改2 --out 全新项目.json
@@ -27,7 +29,7 @@ function options(args) {
   for (let index = 0; index < args.length; index += 2) {
     const key = args[index];
     const value = args[index + 1];
-    if (!['--project', '--update', '--out', '--select'].includes(key) || !value || value.startsWith('--') || Object.hasOwn(result, key.slice(2))) throw new Error(`参数无效或重复：${key}。运行 --help 查看用法`);
+    if (!['--project', '--update', '--out', '--select', '--from', '--name', '--as-of'].includes(key) || !value || value.startsWith('--') || Object.hasOwn(result, key.slice(2))) throw new Error(`参数无效或重复：${key}。运行 --help 查看用法`);
     result[key.slice(2)] = value;
   }
   return result;
@@ -64,8 +66,9 @@ function reviewMarkdown(review) {
 export async function main(args = process.argv.slice(2)) {
   if (!args.length || args.includes('--help') || args.includes('-h')) { process.stdout.write(HELP); return; }
   const [command, ...rest] = args;
-  if (!['check', 'review', 'accept'].includes(command)) throw new Error(`未知命令：${command}。运行 --help 查看用法`);
+  if (!['init', 'check', 'review', 'accept'].includes(command)) throw new Error(`未知命令：${command}。运行 --help 查看用法`);
   const opts = options(rest);
+  if(command==='init'){requireOptions(opts,['out'],['from','out','name','as-of']);console.log(JSON.stringify(await initialize(opts),null,2));return;}
   const required = command === 'check' ? ['project'] : command === 'review' ? ['project', 'update', 'out'] : ['project', 'update', 'select', 'out'];
   requireOptions(opts, required, required);
   const project = validateProject(await jsonFile(opts.project));

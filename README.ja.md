@@ -44,7 +44,7 @@ AI が資料を読み取り、同梱ツールが検証と描画を担い、判�
 <details>
 <summary>開発者向けの連携・バージョン・導入</summary>
 
-共通パッケージは `@taskobo/diagrams` **0.1.2**、描画エンジンは **Mermaid 12.2.0**。**Node 22.12.0+** が必要だ。npm には未公開のため、[GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases)の該当 tarball を使うか、ソースから作成する。
+共通パッケージは `@taskobo/diagrams` **0.1.3**、描画エンジンは **Mermaid 12.2.0**。**Node 22.12.0+** が必要だ。npm には未公開のため、[GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases)の該当 tarball を使うか、ソースから作成する。
 
 ```sh
 git clone https://github.com/dfzzq719/taskobo-diagrams.git
@@ -52,12 +52,12 @@ cd taskobo-diagrams
 npm ci
 npm pack
 # 利用側プロジェクトで、実際の配置に合わせてパスを調整する。
-npm install ../taskobo-diagrams/taskobo-diagrams-0.1.2.tgz mermaid@12.2.0
+npm install ../taskobo-diagrams/taskobo-diagrams-0.1.3.tgz mermaid@12.2.0
 ```
 
 [API と最小構成](docs/api.md) · [連携方法](docs/integration.md) · [互換性と更新](docs/upgrading.md)（開発資料は英語）
 
-0.1.0、0.1.1、0.1.2 で保存した profile を引き続き読み込める。元のバージョン情報は保持する。オフライン Skill の更新には、最新版の再ダウンロードと再導入が必要だ。
+0.1.0、0.1.1、0.1.2、0.1.3 で保存した profile を引き続き読み込める。元のバージョン情報は保持する。オフライン Skill の更新には、最新版の再ダウンロードと再導入が必要だ。
 
 </details>
 

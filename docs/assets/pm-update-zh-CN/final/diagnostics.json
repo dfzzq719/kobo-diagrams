@@ -1,0 +1,18 @@
+{
+  "schema": "taskobo.pm-diagnostics/v1",
+  "errors": [],
+  "nodeVersion": "v25.2.1",
+  "browser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:55808/devtools/browser/1ad541d0-fd7e-47ee-a634-44fa5723ad5e\r\n",
+  "browserVersion": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.84",
+    "revision": "@5869fe313571d75152b77813cf0a4ee26a4e6df0",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.25"
+  },
+  "exit": {
+    "code": null,
+    "signal": "SIGTERM"
+  }
+}

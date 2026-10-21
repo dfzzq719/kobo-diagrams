@@ -154,7 +154,7 @@ test('PM 项目：角色责任、日历日、完成状态及依赖引用与环�
     [(p) => { p.tasks[0].dependsOn = ['missing']; }, /前置任务不存在/],
     [(p) => { p.tasks[0].dependsOn = ['WP2']; }, /依赖存在环/],
     [(p) => { p.tasks[0].dependsOn = ['WP1']; }, /依赖自己/],
-    [(p) => { p.roles.push(...Array.from({ length: 7 }, (_, i) => ({ id: `extra${i}`, name: '角色' }))); }, /1–8/],
+    [(p) => { p.roles.push(...Array.from({ length: 31 }, (_, i) => ({ id: `extra${i}`, name: '角色' }))); }, /1–32/],
   ];
   for (const [mutate, message] of cases) { const invalid = project(); mutate(invalid); assert.throws(() => validateProject(invalid), message); }
 });

@@ -10,7 +10,7 @@ export function getDocumentCapabilities(source){
 export function parseTable(source){
   let doc;try{doc=JSON.parse(String(source).replace(/^\uFEFF/,''));}catch{throw new Error('表の JSON を確認してください。引用符・カンマ・括弧に誤りがあります。');}
   if(doc.schema!=='taskobo.table/v1'||!Array.isArray(doc.columns)||!Array.isArray(doc.rows))throw new Error('表には schema: taskobo.table/v1 と columns、rows が必要です。');
-  if(doc.columns.length<2||doc.columns.length>10||doc.rows.length<1||doc.rows.length>80)throw new Error('表は 2〜10 列、1〜80 行にしてください。大きな表は分割すると読みやすくなります。');
+  if(doc.columns.length<2||doc.columns.length>33||doc.rows.length<1||doc.rows.length>80)throw new Error('表は 2〜33 列、1〜80 行にしてください。大きな表は分割すると読みやすくなります。');
   const keys=new Set();for(const col of doc.columns){if(!col||typeof col.key!=='string'||!col.key||keys.has(col.key))throw new Error('列の key は空欄や重複にできません。');keys.add(col.key);}
   for(const row of doc.rows)for(const key of keys)if(row[key]!=null&&!['string','number','boolean'].includes(typeof row[key]))throw new Error('セルには文字列または数値を指定してください。');
   if(doc.kind==='raci')for(let i=0;i<doc.rows.length;i++){

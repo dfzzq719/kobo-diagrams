@@ -14,7 +14,7 @@ test('profile is normalized and survives a JSON transport round trip', () => {
   const profile = createDiagramProfile({roles: {primary: '#abc'}, settings: {radius: 8}, standard: {name: ' Team ', version: ' 1.0 '}});
   assert.equal(profile.schema, 'kobo.diagram-profile/v1');
   assert.equal(profile.coreVersion, CORE_VERSION);
-  assert.equal(profile.coreVersion, '0.1.2');
+  assert.equal(profile.coreVersion, '0.1.3');
   assert.equal(profile.engineVersion, MERMAID_VERSION);
   assert.equal(profile.roles.primary, '#AABBCC');
   assert.equal(Object.keys(profile.roles).length, 11);
@@ -42,11 +42,11 @@ test('only explicitly compatible historical cores are accepted without rewriting
   const expected = structuredClone(previous);
   assert.deepEqual(validateDiagramProfile(previous), expected);
   assert.deepEqual(previous, expected);
-  for (const coreVersion of ['0.1.0', '0.1.1']) {
+  for (const coreVersion of ['0.1.0', '0.1.1', '0.1.2', '0.1.3']) {
     const saved={...previous,coreVersion};
     assert.deepEqual(validateDiagramProfile(saved), saved);
   }
-  for (const coreVersion of ['0.0.9', '0.1.3', '0.2.0', '1.0.0', '0.1.1-beta', '*']) {
+  for (const coreVersion of ['0.0.9', '0.1.4', '0.2.0', '1.0.0', '0.1.1-beta', '*']) {
     assert.throws(() => validateDiagramProfile({...previous, coreVersion}), /Unsupported core version/);
   }
   assert.throws(() => validateDiagramProfile({...previous, engineVersion: '12.2.1'}), /Unsupported Mermaid version/);

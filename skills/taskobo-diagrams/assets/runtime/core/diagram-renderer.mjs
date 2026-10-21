@@ -336,13 +336,21 @@ export function renderDiagram(body,roles,settings,{mermaid}={}) {
   return enqueueMermaid(engine,run);
 }
 
+export function pngDimensions(packet,scale=2) {
+  if(!Number.isFinite(packet.width)||!Number.isFinite(packet.height)||packet.width<=0||packet.height<=0||!Number.isFinite(scale)||scale<=0)throw new Error('PNG 尺寸和比例必须是正数。');
+  const bounded=Math.min(scale,Math.sqrt(32_000_000/(packet.width*packet.height)),16384/packet.width,16384/packet.height);
+  const width=Math.max(1,Math.floor(packet.width*bounded)),height=Math.max(1,Math.floor(packet.height*bounded));
+  return {width,height,scale:Math.min(width/packet.width,height/packet.height)};
+}
+
 export async function svgToPng(packet,scale=2) {
-  if(packet.width*packet.height*scale*scale>32_000_000) scale=Math.max(1,Math.sqrt(32_000_000/(packet.width*packet.height)));
+  const dimensions=pngDimensions(packet,scale);scale=dimensions.scale;
   const url=URL.createObjectURL(new Blob([packet.svg],{type:'image/svg+xml;charset=utf-8'}));
   try{
     const image=await new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(new Error('PNG に変換できません。SVG で保存してお試しください。'));img.src=url;});
-    const canvas=document.createElement('canvas');canvas.width=Math.ceil(packet.width*scale);canvas.height=Math.ceil(packet.height*scale);
+    const canvas=document.createElement('canvas');canvas.width=dimensions.width;canvas.height=dimensions.height;
     const context=canvas.getContext('2d');
+    if(!context)throw new Error('无法创建 PNG 画布；请使用 SVG，或按分组拆图。');
     if(!packet.settings.transparent){context.fillStyle=packet.palette.paper;context.fillRect(0,0,canvas.width,canvas.height);}
     context.scale(scale,scale);context.drawImage(image,0,0,packet.width,packet.height);
     return await new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('PNG を保存できません。SVG をお試しください。')),'image/png'));
