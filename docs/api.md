@@ -85,7 +85,7 @@ The enterprise path applies shared theme configuration and diagram-specific post
 
 ### Table extension
 
-`taskobo.table/v1` is a Kobo-specific JSON format. A table requires 2–10 columns and 1–80 rows. Column keys must be nonempty and unique; cell values are strings, numbers, booleans, or null. RACI rows require exactly one accountable assignment (`A` or `A/R`) and at least one responsible assignment (`R` or `A/R`). See [the example](../examples/raci.json).
+`taskobo.table/v1` is a Taskobo-specific JSON format. A table requires 2–10 columns and 1–80 rows. Column keys must be nonempty and unique; cell values are strings, numbers, booleans, or null. RACI rows require exactly one accountable assignment (`A` or `A/R`) and at least one responsible assignment (`R` or `A/R`). See [the example](../examples/raci.json).
 
 ```js
 import {parseTable, isTableSource, svgToPng} from '@taskobo/diagrams';

@@ -1,4 +1,4 @@
-# Kobo Diagrams repository presentation
+# Taskobo Diagrams repository presentation
 
 The repository speaks first to project managers. Lead with the belief that AI
 will change project-management tools and release PM time from repetitive document

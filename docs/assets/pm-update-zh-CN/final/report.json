@@ -8,7 +8,7 @@
   "reviewInputSHA256": "d3a5c3a2148b4890023a85f73dd32318b1bfd2814d521a900324e6821d279b8f",
   "coreVersion": "0.1.2",
   "mermaidVersion": "12.2.0",
-  "runtimeManifestSHA256": "9ee3644093b139ffc8267edb2889af007774912f60d6efa790938964dff17f93",
+  "runtimeManifestSHA256": "82ef589e574fb5d2523601b39e5abd8ab458fcef9183302def587ff7efda3587",
   "summary": {
     "statusDate": "2026-10-21",
     "taskCount": 18,

@@ -9,7 +9,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "examples/project-case/zh-CN"
 ASSETS = ROOT / "docs/assets/crm-case/zh-CN"
-OUTPUT = ROOT / "docs/downloads/kobo-diagrams-zh-CN.zip"
+OUTPUT = ROOT / "docs/downloads/taskobo-diagrams-examples-zh-CN.zip"
 PREFIX = "中文项目图表工作包/"
 DOCUMENTS = [
     ("wbs", "wbs.mmd", "工作分解", "确认交付范围与验收条件。"),
@@ -29,7 +29,7 @@ GUIDE = """中文项目图表工作包
 
 配套样式工具：https://taskobo.com/free-tools/mermaid/ （当前界面为日文）
 中文文档工作区：https://docskobo.com/app?lang=zh
-项目说明：https://github.com/dfzzq719/kobo-diagrams
+项目说明：https://github.com/dfzzq719/taskobo-diagrams
 
 四类材料来自同一个虚构的客户服务系统导入项目，状态日为2026年10月14日。
 工作包包含图片、矢量图与可编辑源文件，不包含 AI 服务或 API 密钥。

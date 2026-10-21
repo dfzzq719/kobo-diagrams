@@ -1,6 +1,6 @@
 # 把项目材料变成团队能用的图表
 
-[项目理念与使用](../README.zh-CN.md) · [下载中文图表工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/kobo-diagrams-zh-CN.zip)
+[项目理念与使用](../README.zh-CN.md) · [下载中文图表工作包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-zh-CN.zip)
 
 同一个虚构的客户服务系统导入项目，用四种图表帮助团队确认范围、责任、变更和日期。点击图片查看大图。
 

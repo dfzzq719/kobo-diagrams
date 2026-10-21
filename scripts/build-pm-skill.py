@@ -9,8 +9,6 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills/taskobo-diagrams"
 OUTPUT = ROOT / "docs/downloads/taskobo-diagrams-zh-CN.zip"
-# Keep previously shared download links working; both names contain the new Skill.
-LEGACY_OUTPUT = ROOT / "docs/downloads/kobo-pm-update-zh-CN.zip"
 GUIDE = """Taskobo Diagrams Skill｜中文 Alpha
 
 让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。
@@ -38,7 +36,7 @@ node scripts/render.mjs --doctor
 assets/demo/ 含初始项目、两次纪要、示例修改包、已保存示例状态和重放校验记录。
 示例修改包由维护者编写用于复现，不是现场调用模型的记录。
 
-项目说明：https://github.com/dfzzq719/kobo-diagrams/blob/main/docs/pm-skill.zh-CN.md
+项目说明：https://github.com/dfzzq719/taskobo-diagrams/blob/main/docs/pm-skill.zh-CN.md
 许可及第三方声明见随包 runtime 文件。更新 Skill 时重新下载完整包，并保留自己的项目文件。
 """
 
@@ -68,10 +66,6 @@ def build():
         digest = hashlib.sha256(OUTPUT.read_bytes()).hexdigest()
         if OUTPUT.with_suffix(".zip.sha256").read_text(encoding="ascii") != f"{digest}  {OUTPUT.name}\n":
             raise SystemExit("Skill archive checksum differs")
-        if LEGACY_OUTPUT.read_bytes() != OUTPUT.read_bytes():
-            raise SystemExit("Legacy download alias differs")
-        if LEGACY_OUTPUT.with_suffix(".zip.sha256").read_text(encoding="ascii") != f"{digest}  {LEGACY_OUTPUT.name}\n":
-            raise SystemExit("Legacy download checksum differs")
         print(json.dumps({"verified": True, "files": len(files), "sha256": digest}))
         return
     if sys.argv[1:]:
@@ -85,8 +79,6 @@ def build():
             archive.writestr(info, data)
     digest = hashlib.sha256(OUTPUT.read_bytes()).hexdigest()
     OUTPUT.with_suffix(".zip.sha256").write_text(f"{digest}  {OUTPUT.name}\n", encoding="ascii")
-    LEGACY_OUTPUT.write_bytes(OUTPUT.read_bytes())
-    LEGACY_OUTPUT.with_suffix(".zip.sha256").write_text(f"{digest}  {LEGACY_OUTPUT.name}\n", encoding="ascii")
     print(json.dumps({"files": len(files), "bytes": OUTPUT.stat().st_size, "sha256": digest}))
 
 

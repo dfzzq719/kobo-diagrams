@@ -2,7 +2,7 @@
 
 **给 AI 现有计划和本周纪要，拿回一份能审阅、能继续维护的项目更新包。**
 
-Taskobo Diagrams 是本项目的中文 PM Skill（Alpha）。它延续我们的核心思想：让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。
+Taskobo Diagrams 让 AI 协助整理和持续更新项目材料，项目经理专注判断、沟通与交付。通过中文 Skill 使用，当前为 Alpha 版本。
 
 ## 能帮 PM 做什么
 
@@ -17,7 +17,7 @@ Taskobo Diagrams 是本项目的中文 PM Skill（Alpha）。它延续我们的�
 
 ## 下载并安装
 
-[下载 Taskobo Diagrams 工作包](https://github.com/dfzzq719/kobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip)
+[下载 Taskobo Diagrams 工作包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip)
 
 1. 解压后可先双击 `taskobo-diagrams/assets/demo/review.html`，离线查看一次项目更新的结果，无需安装开发环境。
 2. 要让 AI 执行流程，将完整的 `taskobo-diagrams` 文件夹放入所用 AI 软件支持的 Skill 目录。Codex 可使用 `~/.agents/skills/taskobo-diagrams/`，其中应直接包含 `SKILL.md`。
@@ -56,7 +56,5 @@ Taskobo Diagrams 是本项目的中文 PM Skill（Alpha）。它延续我们的�
 [Skill 入口](../skills/taskobo-diagrams/SKILL.md) · [更新流程](../skills/taskobo-diagrams/references/workflow.md) · [项目数据格式](../skills/taskobo-diagrams/references/project-format.md)
 
 渲染沿用本仓库的公共图表核心与样式，不要求用户自行编写 Mermaid。随包版本固定；更新 Skill 时重新下载、替换安装文件，保留自己的项目目录。
-
-旧版 `kobo-pm-update` 已更名为 `taskobo-diagrams`。已安装旧版的用户请用新版完整目录替换旧版安装目录；自己的项目文件继续保留。
 
 </details>

@@ -105,7 +105,7 @@ async function renderPage() {
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-    if (pathname === '/') {response.setHeader('content-type', 'text/html;charset=utf-8'); response.end(`<!doctype html><meta charset="utf-8"><title>Build Kobo Diagrams figures</title><script type="module">(${renderPage.toString()})();</script>`); return;}
+    if (pathname === '/') {response.setHeader('content-type', 'text/html;charset=utf-8'); response.end(`<!doctype html><meta charset="utf-8"><title>Build Taskobo Diagrams figures</title><script type="module">(${renderPage.toString()})();</script>`); return;}
     if (pathname === '/inputs') {response.setHeader('content-type', 'application/json'); response.end(JSON.stringify(inputs)); return;}
     if (pathname.startsWith('/view/')) {
       const id = pathname.slice('/view/'.length);
@@ -190,8 +190,8 @@ try {
   const raciHeaderHeight = innerWidth*rollbackHeader.height/rollbackHeader.width;
   const raciBodyHeight = innerWidth*rollbackBody.height/rollbackBody.width;
   const heroHeight = Math.ceil(raciY+100+raciHeaderHeight+9+raciBodyHeight+74);
-  const hero = svgStart(heroWidth,heroHeight,'Kobo Diagrams — complete CRM case, readable schedule and emergency authority','Detail viewports of the unchanged full case SVGs. The full six-document case is available separately.')+
-    '<text x="48" y="71" font-size="52" font-weight="800" letter-spacing="-1.5">Kobo Diagrams</text>'+
+  const hero = svgStart(heroWidth,heroHeight,'Taskobo Diagrams — complete CRM case, readable schedule and emergency authority','Detail viewports of the unchanged full case SVGs. The full six-document case is available separately.')+
+    '<text x="48" y="71" font-size="52" font-weight="800" letter-spacing="-1.5">Taskobo Diagrams</text>'+
     `<text x="1752" y="65" text-anchor="end" font-size="22" fill="#52637A">CRM rollout · ${status}</text>`+
     `<text x="48" y="124" font-size="25">Complete case: ${wbsCounts.workPackages} work packages · ${scheduleCounts.totalEntries} schedule entries · ${matrixCounts.responsibilityRows} × ${matrixCounts.roles} RACI · ${riskCounts.risks} risks · ${issueCounts.issues} issues</text>`+
     '<path d="M48 160H1752" stroke="#D7DCE6"/>'+
@@ -436,7 +436,7 @@ function galleryHtml(documents, manifest) {
   const categories = new Map([['wbs', 'WBS'], ['raci', 'RACI'], ['workflow', 'Change-control flow'], ['gantt', 'Schedule']]);
   const galleryDocuments = [...categories.keys()].map(id => documents.find(document => document.id === id));
   if (galleryDocuments.some(document => !document)) throw new Error('The gallery needs WBS, RACI, workflow and schedule documents.');
-  return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kobo Diagrams — CRM delivery diagrams</title><style>
+  return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Taskobo Diagrams — CRM delivery diagrams</title><style>
   :root{color-scheme:light;background:#fffefa;color:#0d2046;font:18px/1.6 "Noto Sans JP","Yu Gothic",Meiryo,sans-serif}*{box-sizing:border-box}body{max-width:1400px;margin:auto;padding:28px 44px 64px}a{color:#1456d9;text-underline-offset:4px}a:focus-visible{outline:3px solid #c64c38;outline-offset:4px}::selection{background:#1456d9;color:#fff}h1{font-size:38px;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}h2{font-size:30px;line-height:1.3;margin:0 0 10px}p{max-width:78ch;margin:10px 0}.source-note,.figure-links{color:#52637a;font-size:16px}nav{display:flex;gap:12px 24px;flex-wrap:wrap;border-bottom:1px solid #d7dce6;padding:18px 0;margin:20px 0 36px}section.case-document+section.case-document{border-top:1px solid #d7dce6;padding-top:32px;margin-top:48px}figure{margin:20px 0 12px}.full-view img{display:block;width:100%;height:auto}.figure-links{display:flex;gap:8px 20px;flex-wrap:wrap}@media(max-width:700px){body{padding:20px 18px 40px}h1{font-size:30px}h2{font-size:25px}section.case-document+section.case-document{margin-top:36px;padding-top:28px}}
   </style><h1>CRM delivery diagrams</h1><p class="source-note">Fictional case · Status ${escape(manifest.statusDate)} · <a href="../../gallery.md">Documentation</a></p><nav aria-label="Diagram types">${galleryDocuments.map(document => `<a href="#${document.id}">${categories.get(document.id)}</a>`).join('')}</nav><main>${galleryDocuments.map(document => {
     const stem = assetStem(document);
