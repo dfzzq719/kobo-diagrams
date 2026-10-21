@@ -1,8 +1,10 @@
-# 中文主视觉
+# Taskobo Diagrams 主视觉
 
 用途：Taskobo Diagrams 首页封面，表达 AI 协助整理项目材料，让 PM 专注判断、沟通与交付。
 
 文件：`taskobo-diagrams-hero-zh-CN.png`，1672 × 941，保留生成原图。
+
+英文和日文使用相同构图的文字本地化版本：`taskobo-diagrams-hero-en.png`、`taskobo-diagrams-hero-ja.png`。均由内置 `image_gen` 编辑，保留中文原图；[本地化提示词](localization.md)单独保存。默认首页使用英文版。
 
 这是理念插图，非应用截图；完整图表与可核对的项目事实仍见画册。生成方式为内置 `image_gen`，日期为 2026-10-21。沿用纸白 `#FFFEFA`、深蓝 `#0D2046` 和钴蓝 `#1456D9`；主视觉允许受控光影，正文与图表继续使用现有样式。指定纯色色对的对比度检查通过；成图另按实际显示大小查看。
 

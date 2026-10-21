@@ -13,7 +13,7 @@
     "./src/*": "./src/*",
     "./package.json": "./package.json"
   },
-  "files": ["src", "index.d.ts", "README.md", "README.zh-CN.md", "LICENSE", "NOTICE", "docs/*.md", "examples"],
+  "files": ["src", "index.d.ts", "README.md", "README.ja.md", "README.zh-CN.md", "LICENSE", "NOTICE", "docs/*.md", "examples"],
   "scripts": {
     "test": "node scripts/check-version.mjs && node --test test/*.test.mjs",
     "test:browser": "node scripts/check-version.mjs && node scripts/browser-smoke.mjs",

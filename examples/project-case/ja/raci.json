@@ -1,0 +1,224 @@
+{
+  "schema": "taskobo.table/v1",
+  "kind": "raci",
+  "caseId": "crm-service-rollout",
+  "asOf": "2026-10-14",
+  "title": "顧客サービスシステム導入｜責任分担表（架空事例・2026-10-14時点）",
+  "columns": [
+    {
+      "key": "work",
+      "label": "成果物・判断",
+      "width": 330
+    },
+    {
+      "key": "sponsor",
+      "label": "スポンサー",
+      "width": 145
+    },
+    {
+      "key": "pm",
+      "label": "プロジェクト\nマネージャー",
+      "width": 145
+    },
+    {
+      "key": "business",
+      "label": "業務\n責任者",
+      "width": 145
+    },
+    {
+      "key": "dev",
+      "label": "開発\n責任者",
+      "width": 170
+    },
+    {
+      "key": "ops",
+      "label": "運用\n責任者",
+      "width": 160
+    },
+    {
+      "key": "info",
+      "label": "情報管理\n責任者",
+      "width": 170
+    },
+    {
+      "key": "quality",
+      "label": "品質\n責任者",
+      "width": 145
+    },
+    {
+      "key": "vendor",
+      "label": "CRM\nベンダー",
+      "width": 145
+    }
+  ],
+  "rows": [
+    {
+      "work": "責任01｜目的・予算・初期リリース範囲を承認",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "I",
+      "id": "RACI-01"
+    },
+    {
+      "work": "責任02｜業務要件と受入基準を確定",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "A",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-02"
+    },
+    {
+      "work": "責任03｜全体計画を統括し要員競合を解消",
+      "sponsor": "C",
+      "pm": "A/R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "I",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-03"
+    },
+    {
+      "work": "責任04｜API接続・再送・同時実行制御を実装",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "A/R",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-04"
+    },
+    {
+      "work": "責任05｜重複データの処理・除外ルールを承認",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "A",
+      "dev": "R",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-05"
+    },
+    {
+      "work": "責任06｜試行移行を実施し20,000件を照合",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-06"
+    },
+    {
+      "work": "責任07｜本番権限・個人情報・監査統制を確認",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "R",
+      "info": "A",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-07"
+    },
+    {
+      "work": "責任08｜必須30ケースを独立検証し欠陥を再確認",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "R",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "A/R",
+      "vendor": "C",
+      "id": "RACI-08"
+    },
+    {
+      "work": "責任09｜3業務窓口・40ユーザーの受入れと教育",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "A/R",
+      "dev": "C",
+      "ops": "R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "I",
+      "id": "RACI-09"
+    },
+    {
+      "work": "責任10｜夜間バッチ・監視・復旧手順を受入れ",
+      "sponsor": "I",
+      "pm": "C",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-10"
+    },
+    {
+      "work": "責任11｜変更01のSMS範囲・費用・日付を決定",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-11"
+    },
+    {
+      "work": "責任12｜本番移行の可否を判断。安全・復旧条件未達なら延期",
+      "sponsor": "A",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "C",
+      "info": "C",
+      "quality": "C",
+      "vendor": "I",
+      "id": "RACI-12"
+    },
+    {
+      "work": "責任13｜事前承認条件による緊急切戻し・復旧確認・業務通知",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "C",
+      "dev": "R",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "R",
+      "vendor": "C",
+      "id": "RACI-13"
+    },
+    {
+      "work": "責任14｜運用引継ぎを受け、未完了事項を明確に移管",
+      "sponsor": "I",
+      "pm": "R",
+      "business": "C",
+      "dev": "C",
+      "ops": "A/R",
+      "info": "C",
+      "quality": "C",
+      "vendor": "C",
+      "id": "RACI-14"
+    }
+  ]
+}

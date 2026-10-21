@@ -1,0 +1,23 @@
+{
+  "locale": "en",
+  "title": "Project diagrams your team can work with",
+  "caseCaption": "Fictional CRM service rollout · Status date {date}",
+  "fullCaption": "Complete diagram · Editable source · Fictional case · Status {date}",
+  "svgLabel": "Full SVG", "pngLabel": "Full image", "sourceLabel": "Editable source",
+  "raciAria": "Responsibility codes and colors",
+  "raciLabels": {"A":"Accountable","R":"Responsible","C":"Consulted","I":"Informed","A/R":"Accountable + responsible"},
+  "ganttLegend": [
+    "Baseline = hollow dashed | Actual = solid fill | Forecast = dashed fill (whole task interval)",
+    "Risk = late completion or overdue | Warning = future delay or risk | Accent = on-time forecast | Success = on-time completion",
+    "Variance = actual/forecast finish minus baseline finish (calendar days, including weekends and holidays) | Status {date}",
+    "Proposal = pale dotted bar | Hollow diamond = planned decision or gate (unapproved, not an actual completion)"
+  ],
+  "accessibleReplacements": [["完了・遅延確定","Completed, late"],["完了・期限内","Completed, on time"],["未完了・期限超過","Incomplete, overdue"],["将来の遅延見込み","Future delay forecast"],["期限内予測・要注意","On-time forecast, at risk"],["期限内予測","On-time forecast"],["基準終了","Baseline finish"],["実績終了","Actual finish"],["予測終了","Forecast finish"],["暦日","calendar days"],["未承認の計画・判断予定","Unapproved proposal or planned decision"],["日付目盛・下部の時間軸と同じ","Date scale, aligned with lower axis"],["集計基準日 ","Status date "],[" から "," to "],["、差 ",", variance "],["、",", "],["：",": "]],
+  "sequenceLabels": {"alt":"Alternative","par":"Parallel","opt":"Optional","loop":"Loop","break":"Break","critical":"Critical","option":"Option"},
+  "documents": [
+    {"id":"wbs","file":"wbs.mmd","title":"Scope and acceptance","description":"Break scope into deliverables with explicit acceptance evidence."},
+    {"id":"raci","file":"raci.json","title":"Decision and execution","description":"Make accountability, execution, consultation and information explicit."},
+    {"id":"workflow","file":"change-control.mmd","title":"Change authorization","description":"Assess, authorize, independently verify and accept a change."},
+    {"id":"gantt","file":"schedule.mmd","title":"Delivery dates","description":"Distinguish baselines, actuals, forecasts and unapproved proposals."}
+  ]
+}

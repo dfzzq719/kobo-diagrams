@@ -1,0 +1,212 @@
+{
+  "generator": "scripts/build-showcase-localized.mjs",
+  "locale": "en",
+  "caseId": "crm-service-rollout",
+  "statusDate": "2026-10-14",
+  "renderer": {
+    "coreVersion": "0.1.2",
+    "mermaidVersion": "12.2.0",
+    "sourceSHA256": {
+      "color-engine.mjs": "d02b53c1b4b9219c1c92cb550cd084809e6b3b2d2e167a90550d5c3bb3ff6386",
+      "diagram-catalog.mjs": "9d62186dfaa209fcede2af9882975a40ce8ba564018151775eba1c3f1367e489",
+      "diagram-renderer.mjs": "2b4c3924340df4283637364f35c51111da703f82adb73da5cc8e83c712b632ef",
+      "document-renderer.mjs": "38bfd791c4a602e560c35c60e86dd343edff946e894ddb45bd9374460a72aff6",
+      "gantt-status.mjs": "7363fb2b207907eb5d63b669824e7b2308d795a5be76118276e2decaa753830d",
+      "index.mjs": "1e6841005e2084dda9f4c0a4963f9cd9344d2970160c5f65d5cc0050216d2bfd",
+      "mermaid-engine.mjs": "058f533d020712fa55675f8c0ea335b12ab7c2650d8c37556a5b5aade464e944",
+      "native-theme-adapters.mjs": "91c4a1167629fe28a9b1b96ba45615641b80dea7a654990f528721cbbe0c57a1",
+      "profile.mjs": "1d721d8b22b6ace8b8639602cfd486f71aa1bfdfdb204323ecfbd20d3faff73e",
+      "source-policy.mjs": "b60b064fd541e1cf5264dcd1c73dfff5bee196f0b89cacbd96358eaffeb26058",
+      "surface-contrast.mjs": "551476e46157ed05422e63e007cd096aa1ec9910f25194474602e9e219e40f4a",
+      "version.mjs": "8f8e6ff6df37b4d35f17d44695f835adf9a881c31214cbb9cfe7cae427ae4762"
+    }
+  },
+  "inputsSHA256": "66953e2a0fc6648e63aeb7976d1b39d5ba704a50f7224e3f4df4988e019edf71",
+  "presentationLocalization": "Translated text and accessible labels; RACI legend spacing follows translated label widths. Business geometry, colours, state and dates retained.",
+  "documents": [
+    {
+      "id": "wbs",
+      "title": "Scope and acceptance",
+      "sourceFile": "examples/project-case/wbs.mmd",
+      "sourceSHA256": "92066e2508b042bf838afb1b48bde69f4c1d254990ea0f2331f84bbb92931281",
+      "width": 1768.25,
+      "height": 1587.5999755859375,
+      "figure": {
+        "width": 1849,
+        "height": 1758
+      },
+      "geometryPreserved": true,
+      "localization": [],
+      "overflow": []
+    },
+    {
+      "id": "raci",
+      "title": "Decision and execution",
+      "sourceFile": "examples/project-case/raci.json",
+      "sourceSHA256": "102ce1fde68d0619fe44d78c151bd9cde8caeacc7e72e0c7fdf155866d251be7",
+      "width": 1603,
+      "height": 2151.7,
+      "figure": {
+        "width": 1683,
+        "height": 2322
+      },
+      "geometryPreserved": true,
+      "localization": [
+        {
+          "selector": ".raci-legend [data-raci-role=\"A\"] + text + text.legend",
+          "original": "最終責任",
+          "translated": "Accountable"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"R\"] + text + text.legend",
+          "original": "実行責任",
+          "translated": "Responsible"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"C\"] + text + text.legend",
+          "original": "相談先",
+          "translated": "Consulted"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"I\"] + text + text.legend",
+          "original": "報告先",
+          "translated": "Informed"
+        },
+        {
+          "selector": ".raci-legend [data-raci-role=\"A/R\"] + text + text.legend",
+          "original": "最終・実行責任",
+          "translated": "Accountable + responsible"
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "id": "workflow",
+      "title": "Change authorization",
+      "sourceFile": "examples/project-case/change-control.mmd",
+      "sourceSHA256": "837804f277611d066b111694cbfb2c8fca2926f6093591cc91869709540a6bb5",
+      "width": 1799,
+      "height": 3290,
+      "figure": {
+        "width": 1879,
+        "height": 3460
+      },
+      "geometryPreserved": true,
+      "localization": [
+        {
+          "selector": "text(par)",
+          "original": "par",
+          "translated": "Parallel"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "Alternative"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "Alternative"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "Alternative"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "Alternative"
+        },
+        {
+          "selector": "text(opt)",
+          "original": "opt",
+          "translated": "Optional"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "Alternative"
+        },
+        {
+          "selector": "text(alt)",
+          "original": "alt",
+          "translated": "Alternative"
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "id": "gantt",
+      "title": "Delivery dates",
+      "sourceFile": "examples/project-case/schedule.mmd",
+      "sourceSHA256": "d1371a7d1399793e6d1fc0f8415a59f36432876981305f5a155da343992f4bad",
+      "width": 2235.097900390625,
+      "height": 2342.78857421875,
+      "figure": {
+        "width": 2316,
+        "height": 2513
+      },
+      "geometryPreserved": true,
+      "localization": [
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(1)",
+          "original": "基準＝空心破線　完了実績＝塗り実線　完了予測＝塗り破線（作業全体の期間）",
+          "translated": "Baseline = hollow dashed | Actual = solid fill | Forecast = dashed fill (whole task interval)"
+        },
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(2)",
+          "original": "危険色＝完了遅延・期限超過　注意色＝将来遅延見込み・リスク　強調色＝期限内予測　成功色＝期限内完了",
+          "translated": "Risk = late completion or overdue | Warning = future delay or risk | Accent = on-time forecast | Success = on-time completion"
+        },
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(3)",
+          "original": "差＝実績・予測終了日 − 基準終了日（土日祝を含む暦日）　集計基準日 2026-10-14",
+          "translated": "Variance = actual/forecast finish minus baseline finish (calendar days, including weekends and holidays) | Status 2026-10-14"
+        },
+        {
+          "selector": ".taskobo-gantt-status-legend text:nth-child(4)",
+          "original": "計画案＝淡色・点線バー　白抜きの菱形＝判断予定・計画の節目（未承認／実績ではない）",
+          "translated": "Proposal = pale dotted bar | Hollow diamond = planned decision or gate (unapproved, not an actual completion)"
+        }
+      ],
+      "overflow": []
+    }
+  ],
+  "layouts": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1080,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "images": 4,
+      "sections": 4
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "viewport": 390,
+      "documentWidth": 390,
+      "images": 4,
+      "sections": 4
+    }
+  ],
+  "files": {
+    "gantt-figure.png": "d00d00b5a086ad63472cbb30e2aecdca2dde309176e523d9803f1971809e44fd",
+    "gantt-figure.svg": "d0c81826e7ed94af49e353dc5ad72f1d71cffe5469f3d5198523eed93dbdba42",
+    "gantt.svg": "b1a35d3a8421c9200b4e77449b8dfcfaf2dd1e694741f789617892c3aabf71cc",
+    "inputs.json": "c357b1a60ea103f5d66f97e84bd066960336b58482266bb8773444b5d72503a4",
+    "raci-figure.png": "d78bcaae97f3828b6b2a7431aef79652d5dfeb67f30f36447cf8eed2dec64505",
+    "raci-figure.svg": "2ead4680756aa13cce9766cf630f8285995b5cb675db6a7d58619cb60cdd7133",
+    "raci.svg": "a3fe7866c7f7c003d3d28bfef63ef5bfae0359bf5485a056e47c272aaf42c2db",
+    "showcase.html": "438fb92da624c13471c6812f8cce0178ac270d4f2c1b783087ccb7bc0dd31fcf",
+    "wbs-figure.png": "2728517dc8f81c033cd83b037915d3ac0f4ffb5c2e61d9bbf1c3f2d9647aaaaa",
+    "wbs-figure.svg": "c6b34ebf67986f479324d2a4740be9c39f8022d8cfc0c01ce3776b35f8730862",
+    "wbs.svg": "1c1e06edc3772b3df8f7cd188108e2f88b4f391277d777b1a30424428df58bdc",
+    "workflow-figure.png": "3f4e82c071c583ac786cf3e6dbc451210619932e208c1ed7fe82533f8e3594d3",
+    "workflow-figure.svg": "95c866efd4d5f0fd9a67bdc3d1d20112ed58a99c4df2206ba3bf2b4e8f48ab00",
+    "workflow.svg": "daedb506e01bfc79fe3e88efdef2b363beb5c5f5d209dee1fc41fddb217f9df8"
+  }
+}

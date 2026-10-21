@@ -1,0 +1,61 @@
+sequenceDiagram
+  autonumber
+  participant Biz as 業務責任者
+  participant PM as PM
+  participant Dev as 開発責任者
+  participant Ops as 運用責任者
+  participant Info as 情報管理責任者
+  participant QA as 品質責任者
+  participant Sponsor as スポンサー
+  Note over Biz,Sponsor: 変更01／課題03／リスク04。架空事例、2026-10-14時点。判断予定日は2026-10-16。<br/>申請の根拠は目的・受信者・受入基準。現基準は画面内通知とメールのみで、SMSは対象外。<br/>追加見積り：8人日／60万円。
+  Biz->>PM: 初期リリースへのSMS通知追加を申請
+  alt 申請の根拠が不足
+    PM-->>Biz: 根拠の補足を求めて差戻し
+  else 影響を評価。実施は未承認
+    Note over PM,QA: PMが並行して影響評価を整理する。
+    par 工数と納期への影響
+      Dev-->>PM: 工数・日付への影響と代替案
+    and 個人情報と外部送信
+      Info-->>PM: 必要な証跡・安全上の阻止条件・責任者
+    and 運用への影響
+      Ops-->>PM: 運用制約と引継ぎ確認事項
+    and 独立した検証
+      QA-->>PM: 必須テスト範囲と実接続先の独立検証証跡
+    end
+    alt 情報管理のリリース条件が未達
+      Info-->>PM: 指定証跡の承認まで変更のリリースを阻止
+      Note over PM,Sponsor: スポンサーも安全上の阻止条件を免除できない。現基準を維持し、変更01は未終結。
+    else スポンサー審議に必要な根拠がそろう
+      PM->>Sponsor: 承認・延期・却下の費用・日付・残存リスクを比較
+      alt 申請を却下
+        Sponsor-->>PM: 却下し、理由と再審議条件を記録
+      else SMSを初期リリース後へ延期
+        Sponsor-->>PM: 担当・再審議日・必要な証跡や資源を指定
+      else 範囲・予算・条件を明確にして承認
+        Sponsor-->>PM: 記録した範囲・費用・条件のみ条件付き承認
+        Note over PM,Sponsor: 条件付き承認だけでは新しい基準は有効にならない
+        alt 条件または資源が未確定
+          PM-->>Biz: 実施を保留し、条件と資源を確保
+        else 条件と資源が確定
+          PM->>Dev: 基準の版を更新し、実施を承認
+          Dev->>QA: 実装と実接続先の回帰テスト証跡を提出
+          Note over PM,QA: 検証不合格または業務差戻しなら関連作業を再開する。<br/>独立再検証と業務受入れの合格が必須。
+          alt 検証不合格・証跡不足・上位判断が必要
+            QA-->>Dev: 欠陥を差し戻し、リリース阻止を継続
+            Note over PM,Sponsor: 変更01は未終結。上位への判断依頼は受入合格やリリース承認ではない
+          else 独立再検証に合格し阻止条件を解除
+            QA-->>Biz: 合意基準に沿った独立検証結果を提出
+            alt 業務側が差戻し
+              Biz-->>PM: 未受入れの条件を差戻し
+            else 業務受入れに合格
+              Biz-->>PM: 証跡に基づき受入合格を確認
+              PM->>PM: 証跡に基づき変更01を終結
+            end
+          end
+        end
+      end
+      opt 却下または延期
+        PM-->>Biz: 判断と次回審議の予定を通知
+      end
+    end
+  end

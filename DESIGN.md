@@ -60,9 +60,11 @@ palette comes from the installed renderer: navy accountable, soft blue responsib
 quiet gray consulted/informed and blue-gray combined roles. Do not recolor actual
 output or change runtime tokens to decorate the repository.
 
-Chinese is the current public README entry and has a matching Chinese gallery,
-Chinese source examples and Chinese image labels. Japanese and English editions
-are planned next; do not present unfinished language switches. Keep the four-type
+English is the default public README. English, Japanese and Chinese entries have
+matching guides, cinematic covers, four-figure galleries and editable case sources.
+Japanese uses plain form. Each language links to the other two. The current
+installable PM Skill and continuous-update teaching demo remain Chinese Alpha;
+state that boundary explicitly in every guide. Keep the four-type
 gallery concise and provide a downloadable starter that PMs can inspect without a
 development setup. Technical installation, package versions and integration belong
 at the bottom or in linked developer documentation. AI drafting currently happens
@@ -80,7 +82,8 @@ the local Node/browser requirements and the absence of automatic external-system
 connections. Its standalone teaching branch does not revise the original CRM case.
 
 Localized figures preserve the actual renderer's geometry and business values.
-Only documentation-layer text and built-in legends are translated; do not recolor
+Only documentation-layer text and built-in legends are translated. Legend labels
+may reflow to fit translated text; business geometry stays fixed. Do not recolor
 or stretch the output. Keep locale sources separate for future Japanese and English
 editions. Use relative image links for GitHub. State release availability precisely.
 No adoption metrics, certification badges, claims of pixel-identical browsers,

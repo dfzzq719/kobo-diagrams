@@ -1,41 +1,39 @@
-# Diagram gallery
+# Project diagrams your team can work with
 
-[简体中文](gallery.zh-CN.md) · [Install and use](../README.md)
+[English](gallery.md) · [日本語](gallery.ja.md) · [简体中文](gallery.zh-CN.md)
 
-Four diagram types from one fictional CRM rollout. Select an image for the complete SVG; every source is editable.
+[Project vision and use](../README.md) · [Download English examples](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-en.zip)
 
-[WBS](#scope-and-acceptance) · [RACI](#decision-and-execution) · [Workflow](#change-authorization) · [Schedule](#delivery-dates)
+One fictional CRM service rollout, four diagram types to align scope, responsibilities, changes and dates. Select an image to open the full SVG.
 
 ## Scope and acceptance
 
-**WBS** · Six delivery groups and 18 work packages, each with a deliverable and acceptance evidence.
+Break scope into deliverables with explicit acceptance evidence.
 
-[![Complete WBS with six delivery groups and eighteen work packages.](assets/crm-case/wbs-figure.png)](assets/crm-case/wbs.svg)
+[![Scope and acceptance — complete diagram from the fictional project.](assets/crm-case/en/wbs-figure.png)](assets/crm-case/en/wbs.svg)
 
-[Full SVG](assets/crm-case/wbs.svg) · [Source](../examples/project-case/wbs.mmd) · [Enlarged detail](assets/crm-case/wbs-detail.png)
+[Full image](assets/crm-case/en/wbs-figure.png) · [Editable source](../examples/project-case/wbs.mmd)
 
 ## Decision and execution
 
-**RACI** · Fourteen activities × eight roles, separating accountability, execution, consultation and information.
+Make accountability, execution, consultation and information explicit.
 
-[![Complete fourteen-activity, eight-role RACI matrix with blue-gray colors and explicit role codes.](assets/crm-case/raci-figure.png)](assets/crm-case/raci.svg)
+[![Decision and execution — complete diagram from the fictional project.](assets/crm-case/en/raci-figure.png)](assets/crm-case/en/raci.svg)
 
-[Full SVG](assets/crm-case/raci.svg) · [Source](../examples/project-case/raci.json) · [Enlarged detail](assets/crm-case/raci-detail.png)
+[Full image](assets/crm-case/en/raci-figure.png) · [Editable source](../examples/project-case/raci.json)
 
 ## Change authorization
 
-**Change sequence** · Parallel impact assessment, missing-evidence returns, approval, deferral, rejection and independent verification.
+Assess, authorize, independently verify and accept a change.
 
-[![Complete change-control sequence with approval branches, blocking conditions and verification.](assets/crm-case/workflow-compact-figure.png)](assets/crm-case/workflow-compact.svg)
+[![Change authorization — complete diagram from the fictional project.](assets/crm-case/en/workflow-figure.png)](assets/crm-case/en/workflow.svg)
 
-[Full SVG](assets/crm-case/workflow-compact.svg) · [Source](../examples/project-case/change-control.mmd) · [Enlarged detail](assets/crm-case/workflow-compact-detail.png)
+[Full image](assets/crm-case/en/workflow-figure.png) · [Editable source](../examples/project-case/change-control.mmd)
 
 ## Delivery dates
 
-**Gantt schedule** · Forty-seven entries distinguish baseline, actual, forecast and unapproved proposal dates, reported at 14 October 2026.
+Distinguish baselines, actuals, forecasts and unapproved proposals.
 
-[![Complete schedule with baseline comparisons, planned decision gates and the implementation proposal.](assets/crm-case/gantt-figure.png)](assets/crm-case/gantt.svg)
+[![Delivery dates — complete diagram from the fictional project.](assets/crm-case/en/gantt-figure.png)](assets/crm-case/en/gantt.svg)
 
-[Full SVG](assets/crm-case/gantt.svg) · [Source](../examples/project-case/schedule.mmd) · [Enlarged detail](assets/crm-case/gantt-detail.png)
-
-For the full business context, read the [case notes](project-case.md). Optional registers: [risk source](../examples/project-case/risk-register.json) · [issue source](../examples/project-case/issues.json).
+[Full image](assets/crm-case/en/gantt-figure.png) · [Editable source](../examples/project-case/schedule.mmd)

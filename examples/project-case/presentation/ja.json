@@ -1,0 +1,23 @@
+{
+  "locale": "ja",
+  "title": "チームで使い続けられるプロジェクト図表",
+  "caseCaption": "架空の顧客サービスシステム導入事例・集計基準日 {date}",
+  "fullCaption": "全体図・編集可能なソース・架空事例・集計基準日 {date}",
+  "svgLabel": "SVG 全体", "pngLabel": "画像全体", "sourceLabel": "編集用ソース",
+  "raciAria": "責任コードと配色",
+  "raciLabels": {"A":"最終責任","R":"実行責任","C":"相談先","I":"報告先","A/R":"最終・実行責任"},
+  "ganttLegend": [
+    "基準＝空心破線　完了実績＝塗り実線　完了予測＝塗り破線（作業全体の期間）",
+    "リスク色＝完了遅延・期限超過　警告色＝将来の遅延・リスク　強調色＝期限内予測　成功色＝期限内完了",
+    "差＝実績・予測終了日 − 基準終了日（土日祝を含む暦日）　集計基準日 {date}",
+    "計画案＝淡色・点線バー　白抜きの菱形＝判断予定・計画の節目（未承認／実績ではない）"
+  ],
+  "accessibleReplacements": [],
+  "sequenceLabels": {"alt":"分岐","par":"並行","opt":"任意","loop":"繰返し","break":"中断","critical":"重要区間","option":"選択肢"},
+  "documents": [
+    {"id":"wbs","file":"wbs.mmd","title":"範囲と受入条件","description":"範囲を成果物に分解し、作業パッケージごとに受入条件を明確にする。"},
+    {"id":"raci","file":"raci.json","title":"判断と実行","description":"誰が判断し、実行し、相談を受け、報告を受けるかを明確にする。"},
+    {"id":"workflow","file":"change-control.mmd","title":"変更の承認","description":"範囲の変更を評価、承認、独立再検証、業務受入れにつなげる。"},
+    {"id":"gantt","file":"schedule.mmd","title":"納期","description":"基準、実績、予測、未承認の後続計画を区別する。"}
+  ]
+}

@@ -1,5 +1,7 @@
 # 让周会之后的项目整理少一点
 
+[English](pm-skill.md) · [日本語](pm-skill.ja.md) · [简体中文](pm-skill.zh-CN.md)
+
 **给 AI 现有计划和本周纪要，拿回一份能审阅、能继续维护的项目更新包。**
 
 Taskobo Diagrams 让 AI 协助整理和持续更新项目材料，项目经理专注判断、沟通与交付。通过中文 Skill 使用，当前为 Alpha 版本。

@@ -23,6 +23,9 @@ jobs:
         run: |
           node examples/project-case/verify.mjs
           node examples/project-case/zh-CN/verify.mjs
+          node examples/project-case/ja/verify.mjs
+          python3 scripts/build-localized-starter.py en --check
+          python3 scripts/build-localized-starter.py ja --check
       - name: Browser rendering and export checks
         run: npm run test:browser
       - name: Standalone PM Skill workflow

@@ -1,0 +1,152 @@
+{
+  "locale": "ja",
+  "copy": {
+    "locale": "ja",
+    "title": "チームで使い続けられるプロジェクト図表",
+    "caseCaption": "架空の顧客サービスシステム導入事例・集計基準日 {date}",
+    "fullCaption": "全体図・編集可能なソース・架空事例・集計基準日 {date}",
+    "svgLabel": "SVG 全体",
+    "pngLabel": "画像全体",
+    "sourceLabel": "編集用ソース",
+    "raciAria": "責任コードと配色",
+    "raciLabels": {
+      "A": "最終責任",
+      "R": "実行責任",
+      "C": "相談先",
+      "I": "報告先",
+      "A/R": "最終・実行責任"
+    },
+    "ganttLegend": [
+      "基準＝空心破線　完了実績＝塗り実線　完了予測＝塗り破線（作業全体の期間）",
+      "リスク色＝完了遅延・期限超過　警告色＝将来の遅延・リスク　強調色＝期限内予測　成功色＝期限内完了",
+      "差＝実績・予測終了日 − 基準終了日（土日祝を含む暦日）　集計基準日 {date}",
+      "計画案＝淡色・点線バー　白抜きの菱形＝判断予定・計画の節目（未承認／実績ではない）"
+    ],
+    "accessibleReplacements": [],
+    "sequenceLabels": {
+      "alt": "分岐",
+      "par": "並行",
+      "opt": "任意",
+      "loop": "繰返し",
+      "break": "中断",
+      "critical": "重要区間",
+      "option": "選択肢"
+    },
+    "documents": [
+      {
+        "id": "wbs",
+        "file": "wbs.mmd",
+        "title": "範囲と受入条件",
+        "description": "範囲を成果物に分解し、作業パッケージごとに受入条件を明確にする。"
+      },
+      {
+        "id": "raci",
+        "file": "raci.json",
+        "title": "判断と実行",
+        "description": "誰が判断し、実行し、相談を受け、報告を受けるかを明確にする。"
+      },
+      {
+        "id": "workflow",
+        "file": "change-control.mmd",
+        "title": "変更の承認",
+        "description": "範囲の変更を評価、承認、独立再検証、業務受入れにつなげる。"
+      },
+      {
+        "id": "gantt",
+        "file": "schedule.mmd",
+        "title": "納期",
+        "description": "基準、実績、予測、未承認の後続計画を区別する。"
+      }
+    ]
+  },
+  "caseId": "crm-service-rollout",
+  "statusDate": "2026-10-14",
+  "profileOptions": {
+    "settings": {
+      "fontSize": 22,
+      "density": "compact",
+      "curve": "linear"
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  },
+  "documents": [
+    {
+      "id": "wbs",
+      "file": "wbs.mmd",
+      "title": "範囲と受入条件",
+      "description": "範囲を成果物に分解し、作業パッケージごとに受入条件を明確にする。"
+    },
+    {
+      "id": "raci",
+      "file": "raci.json",
+      "title": "判断と実行",
+      "description": "誰が判断し、実行し、相談を受け、報告を受けるかを明確にする。"
+    },
+    {
+      "id": "workflow",
+      "file": "change-control.mmd",
+      "title": "変更の承認",
+      "description": "範囲の変更を評価、承認、独立再検証、業務受入れにつなげる。"
+    },
+    {
+      "id": "gantt",
+      "file": "schedule.mmd",
+      "title": "納期",
+      "description": "基準、実績、予測、未承認の後続計画を区別する。"
+    }
+  ],
+  "sources": {
+    "wbs": "flowchart LR\n  %% 架空事例。線は成果物の包含関係であり、依存関係ではない。\n  %% 受入証跡は将来の受入条件であり、完了を意味しない。\n\n\n\n  P[\"1.0 顧客サービスシステム導入<br/>3業務窓口・40ユーザー・20,000件\"]:::anchor\n  subgraph G1[\"1.1 業務と受入基準\"]\n    WP111[\"1.1.1 業務フロー集<br/>受入証跡：通常・例外・<br/>代理処理フローを<br/>業務責任者が確認\"]:::normal\n    WP112[\"1.1.2 権限とSLAの仕様<br/>受入証跡：4つのアクセス役割と<br/>通知期限を指定承認者が確認\"]:::normal\n    WP113[\"1.1.3 受入シナリオ集<br/>受入証跡：必須30ケースの<br/>合格・不合格基準を合意\"]:::normal\n  end\n  subgraph G2[\"1.2 初期リリースの業務機能\"]\n    WP121[\"1.2.1 受付登録と作業割当て<br/>受入証跡：重複リクエストの<br/>再送試験で二重登録0件\"]:::normal\n    WP122[\"1.2.2 処理と承認の履歴<br/>受入証跡：各変更の操作者・<br/>内容・時刻・理由を追跡可能\"]:::normal\n    WP123[\"1.2.3 SLA通知と帳票<br/>受入証跡：画面内通知とメールの<br/>出力が一致<br/>SMSは承認済み範囲の対象外\"]:::normal\n  end\n  subgraph G3[\"1.3 データ移行とCRM連携\"]\n    WP131[\"1.3.1 移行データと対応表<br/>受入証跡：元データ20,000件を<br/>移行先または承認済みの<br/>除外リストまで追跡可能\"]:::normal\n    WP132[\"1.3.2 CRM連携と再送制御<br/>受入証跡：実接続先の認証・<br/>再試行・同時実行制御を検証\"]:::normal\n    WP133[\"1.3.3 移行判断の記録<br/>受入証跡：重複キー候補80件の<br/>判断を反映し、差異を再確認\"]:::normal\n  end\n  subgraph G4[\"1.4 独立した品質・安全の証跡\"]\n    WP141[\"1.4.1 結合・受入テスト記録<br/>受入証跡：必須30ケースが合格し<br/>未解決の重大欠陥は0件\"]:::normal\n    WP142[\"1.4.2 権限・データ保護の証跡<br/>受入証跡：本番権限と<br/>個人情報の取扱条件を承認\"]:::normal\n    WP143[\"1.4.3 性能・復旧の検証結果<br/>受入証跡：合意した負荷・<br/>バッチ時間帯・復旧条件を<br/>テスト結果で確認\"]:::normal\n  end\n  subgraph G5[\"1.5 運用と利用の準備\"]\n    WP151[\"1.5.1 運用・切戻し手順<br/>受入証跡：停止条件・復旧確認・<br/>業務再開の手順を演習\"]:::normal\n    WP152[\"1.5.2 夜間バッチと監視設計<br/>受入証跡：低負荷時間帯の実行・<br/>時間超過時の停止・<br/>管理された再実行を検証\"]:::normal\n    WP153[\"1.5.3 教育・引継ぎ記録<br/>受入証跡：主担当・副担当・<br/>利用者教育・未完了事項の<br/>引受けを記録\"]:::normal\n  end\n  subgraph G6[\"1.6 プロジェクト統制\"]\n    WP161[\"1.6.1 憲章と意思決定権限<br/>受入証跡：対象外範囲・<br/>承認権限・変更手順を確認\"]:::normal\n    WP162[\"1.6.2 基準と変更の履歴<br/>受入証跡：承認された変更前後の<br/>工数・費用・日付を追跡可能\"]:::normal\n    WP163[\"1.6.3 課題・リスク・判断記録<br/>受入証跡：未完了事項の担当・<br/>期限・判断・終結証跡を記録\"]:::normal\n  end\n  P --- G1\n  P --- G2\n  P --- G3\n  P --- G4\n  P --- G5\n  P --- G6\n",
+    "raci": "{\n  \"schema\": \"taskobo.table/v1\",\n  \"kind\": \"raci\",\n  \"caseId\": \"crm-service-rollout\",\n  \"asOf\": \"2026-10-14\",\n  \"title\": \"顧客サービスシステム導入｜責任分担表（架空事例・2026-10-14時点）\",\n  \"columns\": [\n    {\n      \"key\": \"work\",\n      \"label\": \"成果物・判断\",\n      \"width\": 330\n    },\n    {\n      \"key\": \"sponsor\",\n      \"label\": \"スポンサー\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"pm\",\n      \"label\": \"プロジェクト\\nマネージャー\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"business\",\n      \"label\": \"業務\\n責任者\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"dev\",\n      \"label\": \"開発\\n責任者\",\n      \"width\": 170\n    },\n    {\n      \"key\": \"ops\",\n      \"label\": \"運用\\n責任者\",\n      \"width\": 160\n    },\n    {\n      \"key\": \"info\",\n      \"label\": \"情報管理\\n責任者\",\n      \"width\": 170\n    },\n    {\n      \"key\": \"quality\",\n      \"label\": \"品質\\n責任者\",\n      \"width\": 145\n    },\n    {\n      \"key\": \"vendor\",\n      \"label\": \"CRM\\nベンダー\",\n      \"width\": 145\n    }\n  ],\n  \"rows\": [\n    {\n      \"work\": \"責任01｜目的・予算・初期リリース範囲を承認\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-01\"\n    },\n    {\n      \"work\": \"責任02｜業務要件と受入基準を確定\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"A\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-02\"\n    },\n    {\n      \"work\": \"責任03｜全体計画を統括し要員競合を解消\",\n      \"sponsor\": \"C\",\n      \"pm\": \"A/R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"I\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-03\"\n    },\n    {\n      \"work\": \"責任04｜API接続・再送・同時実行制御を実装\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"A/R\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-04\"\n    },\n    {\n      \"work\": \"責任05｜重複データの処理・除外ルールを承認\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"A\",\n      \"dev\": \"R\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-05\"\n    },\n    {\n      \"work\": \"責任06｜試行移行を実施し20,000件を照合\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-06\"\n    },\n    {\n      \"work\": \"責任07｜本番権限・個人情報・監査統制を確認\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"R\",\n      \"info\": \"A\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-07\"\n    },\n    {\n      \"work\": \"責任08｜必須30ケースを独立検証し欠陥を再確認\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"R\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"A/R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-08\"\n    },\n    {\n      \"work\": \"責任09｜3業務窓口・40ユーザーの受入れと教育\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"A/R\",\n      \"dev\": \"C\",\n      \"ops\": \"R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-09\"\n    },\n    {\n      \"work\": \"責任10｜夜間バッチ・監視・復旧手順を受入れ\",\n      \"sponsor\": \"I\",\n      \"pm\": \"C\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-10\"\n    },\n    {\n      \"work\": \"責任11｜変更01のSMS範囲・費用・日付を決定\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-11\"\n    },\n    {\n      \"work\": \"責任12｜本番移行の可否を判断。安全・復旧条件未達なら延期\",\n      \"sponsor\": \"A\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"C\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"I\",\n      \"id\": \"RACI-12\"\n    },\n    {\n      \"work\": \"責任13｜事前承認条件による緊急切戻し・復旧確認・業務通知\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"R\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"R\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-13\"\n    },\n    {\n      \"work\": \"責任14｜運用引継ぎを受け、未完了事項を明確に移管\",\n      \"sponsor\": \"I\",\n      \"pm\": \"R\",\n      \"business\": \"C\",\n      \"dev\": \"C\",\n      \"ops\": \"A/R\",\n      \"info\": \"C\",\n      \"quality\": \"C\",\n      \"vendor\": \"C\",\n      \"id\": \"RACI-14\"\n    }\n  ]\n}\n",
+    "workflow": "sequenceDiagram\n  autonumber\n  participant Biz as 業務責任者\n  participant PM as PM\n  participant Dev as 開発責任者\n  participant Ops as 運用責任者\n  participant Info as 情報管理責任者\n  participant QA as 品質責任者\n  participant Sponsor as スポンサー\n  Note over Biz,Sponsor: 変更01／課題03／リスク04。架空事例、2026-10-14時点。判断予定日は2026-10-16。<br/>申請の根拠は目的・受信者・受入基準。現基準は画面内通知とメールのみで、SMSは対象外。<br/>追加見積り：8人日／60万円。\n  Biz->>PM: 初期リリースへのSMS通知追加を申請\n  alt 申請の根拠が不足\n    PM-->>Biz: 根拠の補足を求めて差戻し\n  else 影響を評価。実施は未承認\n    Note over PM,QA: PMが並行して影響評価を整理する。\n    par 工数と納期への影響\n      Dev-->>PM: 工数・日付への影響と代替案\n    and 個人情報と外部送信\n      Info-->>PM: 必要な証跡・安全上の阻止条件・責任者\n    and 運用への影響\n      Ops-->>PM: 運用制約と引継ぎ確認事項\n    and 独立した検証\n      QA-->>PM: 必須テスト範囲と実接続先の独立検証証跡\n    end\n    alt 情報管理のリリース条件が未達\n      Info-->>PM: 指定証跡の承認まで変更のリリースを阻止\n      Note over PM,Sponsor: スポンサーも安全上の阻止条件を免除できない。現基準を維持し、変更01は未終結。\n    else スポンサー審議に必要な根拠がそろう\n      PM->>Sponsor: 承認・延期・却下の費用・日付・残存リスクを比較\n      alt 申請を却下\n        Sponsor-->>PM: 却下し、理由と再審議条件を記録\n      else SMSを初期リリース後へ延期\n        Sponsor-->>PM: 担当・再審議日・必要な証跡や資源を指定\n      else 範囲・予算・条件を明確にして承認\n        Sponsor-->>PM: 記録した範囲・費用・条件のみ条件付き承認\n        Note over PM,Sponsor: 条件付き承認だけでは新しい基準は有効にならない\n        alt 条件または資源が未確定\n          PM-->>Biz: 実施を保留し、条件と資源を確保\n        else 条件と資源が確定\n          PM->>Dev: 基準の版を更新し、実施を承認\n          Dev->>QA: 実装と実接続先の回帰テスト証跡を提出\n          Note over PM,QA: 検証不合格または業務差戻しなら関連作業を再開する。<br/>独立再検証と業務受入れの合格が必須。\n          alt 検証不合格・証跡不足・上位判断が必要\n            QA-->>Dev: 欠陥を差し戻し、リリース阻止を継続\n            Note over PM,Sponsor: 変更01は未終結。上位への判断依頼は受入合格やリリース承認ではない\n          else 独立再検証に合格し阻止条件を解除\n            QA-->>Biz: 合意基準に沿った独立検証結果を提出\n            alt 業務側が差戻し\n              Biz-->>PM: 未受入れの条件を差戻し\n            else 業務受入れに合格\n              Biz-->>PM: 証跡に基づき受入合格を確認\n              PM->>PM: 証跡に基づき変更01を終結\n            end\n          end\n        end\n      end\n      opt 却下または延期\n        PM-->>Biz: 判断と次回審議の予定を通知\n      end\n    end\n  end\n",
+    "gantt": "gantt\n  title 顧客サービスシステム導入――統合工程表（架空事例・2026-10-14時点）\n  dateFormat YYYY-MM-DD\n  axisFormat %m/%d\n  tickInterval 1week\n  todayMarker off\n  accTitle: 先行検証6組の基準と実績・予測、本導入計画案の全体\n  accDescr: 集計基準日は2026-10-14。実績があるのは要件確認と先行権限確認のみ。API認証401、重複キー候補80件、要員不足3人日は未解決。本導入30項目は未承認の計画案で、判断予定は承認済みを意味しない。前提未達なら再計画と再承認が必要。\n  %% taskobo-gantt-status {\"schema\":\"taskobo.gantt-status/v1\",\"calendar\":\"calendar-days\",\"asOf\":\"2026-10-14\",\"statusMarker\":\"status_date\",\"items\":[{\"baseline\":\"b_requirements\",\"current\":\"a_requirements\",\"baselineEnd\":\"2026-10-08\",\"finish\":\"2026-10-10\",\"stage\":\"done\"},{\"baseline\":\"b_api\",\"current\":\"f_api\",\"baselineEnd\":\"2026-10-12\",\"finish\":\"2026-10-18\",\"stage\":\"forecast\"},{\"baseline\":\"b_migration\",\"current\":\"f_migration\",\"baselineEnd\":\"2026-10-20\",\"finish\":\"2026-10-23\",\"stage\":\"forecast\"},{\"baseline\":\"b_test\",\"current\":\"f_test\",\"baselineEnd\":\"2026-10-26\",\"finish\":\"2026-10-26\",\"stage\":\"forecast\",\"risk\":true},{\"baseline\":\"b_training\",\"current\":\"f_training\",\"baselineEnd\":\"2026-10-23\",\"finish\":\"2026-10-22\",\"stage\":\"forecast\"},{\"baseline\":\"b_access\",\"current\":\"a_access\",\"baselineEnd\":\"2026-10-11\",\"finish\":\"2026-10-11\",\"stage\":\"done\"}],\"plannedTasks\":[\"vendor_reply\",\"decision_oct16\",\"night_contacts\",\"trial_gate\",\"p_biz\",\"p_scope\",\"p_perm\",\"p_plan\",\"p_baseline\",\"p_ui\",\"p_intake\",\"p_history\",\"p_sla\",\"p_feature\",\"p_clean\",\"p_api\",\"p_migration\",\"p_rehearsal\",\"p_env\",\"p_monitor\",\"p_threat\",\"p_security\",\"p_integration\",\"p_performance\",\"p_uat\",\"p_retest\",\"p_accepted\",\"p_training\",\"p_runbook\",\"p_dress\",\"p_go\",\"p_release\",\"p_support\",\"p_finish\"]}\n  section 固定の集計基準日\n  集計基準日2026-10-14 :milestone, status_date, 2026-10-14, 0d\n  section 先行検証――要件確認\n  基準終了10/08 :b_requirements, 2026-10-01, 2026-10-08\n  実績終了10/10／2日遅延 :done, a_requirements, 2026-10-01, 2026-10-10\n  section 先行検証――CRM接続／課題01\n  基準終了10/12 :b_api, 2026-10-06, 2026-10-12\n  予測終了10/18／集計基準日時点で期限超過 :active, f_api, 2026-10-06, 2026-10-18\n  section 先行検証――試行移行／課題02\n  基準終了10/20 :b_migration, 2026-10-09, 2026-10-20\n  予測終了10/23／基準より3日遅延 :active, f_migration, 2026-10-09, 2026-10-23\n  section 先行検証――結合テスト／課題04・06\n  基準終了10/26 :b_test, 2026-10-14, 2026-10-26\n  予測終了10/26／日付は不変だが要員リスクあり :active, f_test, 2026-10-14, 2026-10-26\n  section 先行検証――主要利用者の教育\n  基準終了10/23 :b_training, 2026-10-15, 2026-10-23\n  予測終了10/22／基準より1日前倒し :active, f_training, 2026-10-15, 2026-10-22\n  section 先行検証――権限確認\n  基準終了10/11 :b_access, 2026-10-05, 2026-10-11\n  実績終了10/11／先行検証環境のみ :done, a_access, 2026-10-05, 2026-10-11\n  section 先行検証――要判断事項・未承認\n  要判断／ベンダーの原因・復旧案の回答 :milestone, vendor_reply, 2026-10-15, 0d\n  要判断／重複ルール・SMS変更・要員配置 :milestone, decision_oct16, 2026-10-16, 0d\n  要判断／夜間の主担当と副担当を確定 :milestone, night_contacts, 2026-10-20, 0d\n  要判断／先行検証の完了判定 :milestone, trial_gate, 2026-10-26, 0d\n  section 本導入の計画案――基準と承認\n  計画案／業務・例外処理フロー :p_biz, 2026-10-19, 2026-10-26\n  計画案／受入基準とSLA :p_scope, 2026-10-26, 2026-10-29\n  計画案／権限とデータ定義 :p_perm, 2026-10-21, 2026-10-28\n  計画案／実行計画とリスクレビュー :p_plan, 2026-10-26, 2026-10-29\n  計画案／基準の再承認 :milestone, p_baseline, 2026-10-29, 0d\n  section 本導入の計画案――業務機能\n  計画案／画面と操作の設計 :p_ui, 2026-10-29, 2026-11-06\n  計画案／受付登録と作業割当て :p_intake, 2026-11-06, 2026-11-18\n  計画案／処理と承認の履歴 :p_history, 2026-11-06, 2026-11-18\n  計画案／SLA通知と月次帳票 :p_sla, 2026-11-18, 2026-11-24\n  計画案／機能レビューの判断 :milestone, p_feature, 2026-11-24, 0d\n  section 本導入の計画案――データと連携\n  計画案／移行分析とデータ整備 :p_clean, 2026-10-29, 2026-11-09\n  計画案／CRM接続と再送制御 :p_api, 2026-10-29, 2026-11-12\n  計画案／移行スクリプト :p_migration, 2026-11-09, 2026-11-17\n  計画案／移行リハーサルと照合 :p_rehearsal, 2026-11-17, 2026-11-23\n  section 本導入の計画案――安全と基盤\n  計画案／環境と権限設定 :p_env, 2026-10-29, 2026-11-04\n  計画案／監視とバックアップ :p_monitor, 2026-11-04, 2026-11-12\n  計画案／脅威分析と防御設計 :p_threat, 2026-10-29, 2026-11-05\n  計画案／脆弱性と権限の検証 :p_security, 2026-11-24, 2026-11-30\n  section 本導入の計画案――独立テストと業務受入れ\n  計画案／結合・異常経路テスト :p_integration, 2026-11-24, 2026-11-30\n  計画案／負荷・夜間バッチ検証 :p_performance, 2026-11-30, 2026-12-03\n  計画案／業務受入テスト :p_uat, 2026-12-03, 2026-12-09\n  計画案／重大欠陥の修正と再検証 :p_retest, 2026-12-09, 2026-12-14\n  計画案／業務受入れの判断 :milestone, p_accepted, 2026-12-14, 0d\n  section 本導入の計画案――引継ぎと本番移行\n  計画案／利用者教育とサービス窓口 :p_training, 2026-11-24, 2026-12-01\n  計画案／運用と切戻しの手順 :p_runbook, 2026-11-12, 2026-11-18\n  計画案／切替リハーサル :p_dress, 2026-12-14, 2026-12-16\n  計画案／本番移行または延期の判断 :milestone, p_go, 2026-12-16, 0d\n  計画案／夜間移行と本番リリース :p_release, 2026-12-16, 2026-12-17\n  計画案／稼働確認と初期支援 :p_support, 2026-12-17, 2026-12-24\n  計画案／運用引受けの判断 :milestone, p_finish, 2026-12-24, 0d\n"
+  },
+  "rendererSourceSHA256": {
+    "color-engine.mjs": "d02b53c1b4b9219c1c92cb550cd084809e6b3b2d2e167a90550d5c3bb3ff6386",
+    "diagram-catalog.mjs": "9d62186dfaa209fcede2af9882975a40ce8ba564018151775eba1c3f1367e489",
+    "diagram-renderer.mjs": "2b4c3924340df4283637364f35c51111da703f82adb73da5cc8e83c712b632ef",
+    "document-renderer.mjs": "38bfd791c4a602e560c35c60e86dd343edff946e894ddb45bd9374460a72aff6",
+    "gantt-status.mjs": "7363fb2b207907eb5d63b669824e7b2308d795a5be76118276e2decaa753830d",
+    "index.mjs": "1e6841005e2084dda9f4c0a4963f9cd9344d2970160c5f65d5cc0050216d2bfd",
+    "mermaid-engine.mjs": "058f533d020712fa55675f8c0ea335b12ab7c2650d8c37556a5b5aade464e944",
+    "native-theme-adapters.mjs": "91c4a1167629fe28a9b1b96ba45615641b80dea7a654990f528721cbbe0c57a1",
+    "profile.mjs": "1d721d8b22b6ace8b8639602cfd486f71aa1bfdfdb204323ecfbd20d3faff73e",
+    "source-policy.mjs": "b60b064fd541e1cf5264dcd1c73dfff5bee196f0b89cacbd96358eaffeb26058",
+    "surface-contrast.mjs": "551476e46157ed05422e63e007cd096aa1ec9910f25194474602e9e219e40f4a",
+    "version.mjs": "8f8e6ff6df37b4d35f17d44695f835adf9a881c31214cbb9cfe7cae427ae4762"
+  },
+  "profile": {
+    "schema": "kobo.diagram-profile/v1",
+    "engineVersion": "12.2.0",
+    "coreVersion": "0.1.2",
+    "roles": {
+      "paper": "#FFFEFA",
+      "surface": "#FFFFFF",
+      "ink": "#0D2046",
+      "muted": "#52637A",
+      "primary": "#1456D9",
+      "anchor": "#0D2046",
+      "line": "#77869D",
+      "border": "#52637A",
+      "success": "#0A6954",
+      "warning": "#895B12",
+      "danger": "#B5323B"
+    },
+    "settings": {
+      "radius": 6,
+      "lineWidth": 1.5,
+      "fontSize": 22,
+      "curve": "linear",
+      "density": "compact",
+      "direction": "auto",
+      "transparent": false
+    },
+    "standard": {
+      "name": "CRM rollout case",
+      "version": "1.0"
+    }
+  }
+}

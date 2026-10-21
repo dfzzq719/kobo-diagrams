@@ -1,5 +1,7 @@
 # Taskobo Diagrams
 
+[English](README.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
+
 ![Taskobo Diagrams 理念主视觉：把时间还给项目经理，让零散材料汇为项目计划，专注判断、沟通与交付。](docs/assets/brand/taskobo-diagrams-hero-zh-CN.png)
 
 **让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。**
@@ -22,7 +24,7 @@ Taskobo Diagrams 是 [Taskobo](https://taskobo.com/) 围绕这一理念发起的
 2. **交给自己的 AI 整理**：提供已有计划和新增纪要，调用 `$taskobo-diagrams`，形成有原文依据的修改对照、行动项和待决事项。
 3. **审阅并保存**：核对责任、日期与变更依据，按已确认的修改保存新状态，生成对应的 WBS、RACI 和日程图。
 
-AI 理解材料，随包工具负责校验与出图，项目判断和确认由团队负责。也可下载[中文图表样例包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-zh-CN.zip)，或使用[在线样式工具](https://taskobo.com/free-tools/mermaid/)绘制后进入 DOCSKOBO 继续编辑。在线样式工具的界面目前为日文。
+AI 理解材料，随包工具负责校验与出图，项目判断和确认由团队负责。说明和图表例提供中日英三语版本；Skill 本体与连续更新演示目前为中文 Alpha。也可下载[中文图表样例包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-zh-CN.zip)，或使用[在线样式工具](https://taskobo.com/free-tools/mermaid/)绘制后进入 DOCSKOBO 继续编辑。在线样式工具的界面目前为日文。
 
 ## 看一份完整的项目材料
 

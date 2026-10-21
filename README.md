@@ -1,60 +1,64 @@
 # Taskobo Diagrams
 
-![Taskobo Diagrams 理念主视觉：把时间还给项目经理，让零散材料汇为项目计划，专注判断、沟通与交付。](docs/assets/brand/taskobo-diagrams-hero-zh-CN.png)
+[English](README.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
-**让 AI 承担繁杂的文档整理，让项目经理专注判断、沟通与交付。**
+![Taskobo Diagrams: give PMs their time back. Scattered notes become a coherent plan, leaving room for judgment, communication and delivery.](docs/assets/brand/taskobo-diagrams-hero-en.png)
 
-我们相信，AI 将改变项目管理工具，也将改变项目经理的工作方式。让 AI 协助起草和整理，让图表成为团队持续修订、讨论和落实行动的工作材料。
+**Let AI handle the document work, so project managers can focus on judgment, communication and delivery.**
 
-Taskobo Diagrams 是 [Taskobo](https://taskobo.com/) 围绕这一理念发起的开源实践。
+We believe AI will change project-management tools and the way project managers work. Let AI help draft and organize the material, and let diagrams become working documents that teams keep revising, discussing and turning into action.
 
-[开始使用](docs/pm-skill.zh-CN.md) · [下载 Taskobo Diagrams](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [看中文画册](docs/gallery.zh-CN.md)
+Taskobo Diagrams is an open-source initiative from [Taskobo](https://taskobo.com/) built around that idea.
 
-## 项目经理与 AI 怎样配合
+[Get started](docs/pm-skill.md) · [Download the Skill (Chinese Alpha)](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [Explore the gallery](docs/gallery.md)
 
-- **准备材料**：AI 根据提供的项目事实起草图表；项目经理核对假设、缺口和依据。
-- **讨论变化**：用统一图表看范围、责任和日期；项目经理组织取舍、澄清分歧。
-- **推动交付**：把确认结果更新到材料中；项目经理落实负责人、验收条件和后续行动。
+## How project managers and AI work together
 
-## 现在就能使用的流程
+- **Prepare the material**: AI drafts diagrams from the facts you provide; the PM checks assumptions, gaps and evidence.
+- **Discuss changes**: use a shared visual language for scope, responsibilities and dates; the PM organizes tradeoffs and resolves disagreements.
+- **Move delivery forward**: update the material with confirmed decisions; the PM follows through on owners, acceptance criteria and next actions.
 
-1. **下载并体验**：打开随包的离线演示，查看完整计划怎样经过两次周会持续更新；按[使用说明](docs/pm-skill.zh-CN.md)安装 Skill。
-2. **交给自己的 AI 整理**：提供已有计划和新增纪要，调用 `$taskobo-diagrams`，形成有原文依据的修改对照、行动项和待决事项。
-3. **审阅并保存**：核对责任、日期与变更依据，按已确认的修改保存新状态，生成对应的 WBS、RACI 和日程图。
+## A workflow you can use today
 
-AI 理解材料，随包工具负责校验与出图，项目判断和确认由团队负责。也可下载[中文图表样例包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-zh-CN.zip)，或使用[在线样式工具](https://taskobo.com/free-tools/mermaid/)绘制后进入 DOCSKOBO 继续编辑。在线样式工具的界面目前为日文。
+1. **Download and explore**: open the offline demo to see a complete plan evolve through two project meetings. Follow the [installation guide](docs/pm-skill.md) to add the Skill.
+2. **Ask your own AI to organize the update**: provide the existing plan and new meeting notes. Invoke `$taskobo-diagrams` to prepare evidence-backed changes, actions and decisions to make.
+3. **Review and save**: check owners, dates and supporting evidence, save the changes you have confirmed as a new state, and generate matching WBS, RACI and schedule diagrams.
 
-## 看一份完整的项目材料
+AI interprets the material, the bundled tools validate and render it, and the team owns project judgment and confirmation. The guides and diagram examples are available in three languages; the current Skill and continuous-update demo remain a **Chinese Alpha**.
 
-下面是中文 CRM 案例的完整责任矩阵，保留 **14 项活动、8 个角色**，从范围决定一直覆盖到运营交接。
+You can also download the [English diagram examples](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-en.zip), or draw with the [online styling tool](https://taskobo.com/free-tools/mermaid/) and continue editing in DOCSKOBO. The styling tool currently has a Japanese interface.
 
-[![中文 CRM 项目完整责任矩阵：14 项活动、8 个角色。](docs/assets/crm-case/zh-CN/raci-figure.png)](docs/assets/crm-case/zh-CN/raci.svg)
+## See a complete project document
 
-[打开完整 SVG](docs/assets/crm-case/zh-CN/raci.svg)。案例为虚构，统一状态日为 2026 年 10 月 14 日。
+The fictional CRM case below retains **14 activities and 8 roles**, from scope decisions to operational handover.
 
-- [WBS：范围与验收](docs/gallery.zh-CN.md#范围与验收)——看交付范围和验收条件。
-- [流程：变更授权](docs/gallery.zh-CN.md#变更授权)——看一项变更怎样评估、决定与验证。
-- [日程：交付日期](docs/gallery.zh-CN.md#交付日期)——对照基准、实绩和预测。
-- [RACI：决策与执行](docs/gallery.zh-CN.md#决策与执行)——看谁决定、谁执行、谁参与。
+[![Complete CRM responsibility matrix: fourteen activities and eight roles.](docs/assets/crm-case/en/raci-figure.png)](docs/assets/crm-case/en/raci.svg)
+
+[Open the full SVG](docs/assets/crm-case/en/raci.svg). The case is fictional, with a shared status date of 14 October 2026.
+
+- [WBS: scope and acceptance](docs/gallery.md#scope-and-acceptance)—define deliverables and acceptance criteria.
+- [Workflow: change authorization](docs/gallery.md#change-authorization)—assess, decide and verify a change.
+- [Schedule: delivery dates](docs/gallery.md#delivery-dates)—compare baseline, actual and forecast dates.
+- [RACI: decision and execution](docs/gallery.md#decision-and-execution)—see who decides, executes and participates.
 
 <details>
-<summary>开发接入、版本与安装</summary>
+<summary>Developer integration, versions and installation</summary>
 
-当前公共包为 `@taskobo/diagrams` **0.1.2**，使用 **Mermaid 12.2.0**，需要 **Node 22.12.0+**。本包尚未发布到 npm，可从 [GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases)下载对应 tarball，或从源码构建：
+The shared package is `@taskobo/diagrams` **0.1.2**, using **Mermaid 12.2.0**, with **Node 22.12.0+** required. It is not published to npm. Download the matching tarball from [GitHub Releases](https://github.com/dfzzq719/taskobo-diagrams/releases), or build from source:
 
 ```sh
 git clone https://github.com/dfzzq719/taskobo-diagrams.git
 cd taskobo-diagrams
 npm ci
 npm pack
-# 在消费项目中执行，按实际位置修改路径。
+# In the consuming project, adjust this path to your checkout.
 npm install ../taskobo-diagrams/taskobo-diagrams-0.1.2.tgz mermaid@12.2.0
 ```
 
-[API 与最小调用](docs/api.md) · [集成方式](docs/integration.md) · [兼容与升级](docs/upgrading.md)
+[API and minimal usage](docs/api.md) · [Integration](docs/integration.md) · [Compatibility and upgrades](docs/upgrading.md)
 
-当前版本支持 0.1.0、0.1.1 和 0.1.2 的已保存 profile，并保留来源版本。离线 Skill 是独立下载文件，接收更新需重新下载并安装。
+Saved profiles from 0.1.0, 0.1.1 and 0.1.2 remain supported with their source version preserved. The offline Skill is a separate download; download and install it again to receive updates.
 
 </details>
 
-采用 MIT 许可证。详见[许可文件](LICENSE)与[第三方声明](NOTICE)。Taskobo Diagrams 是独立项目；[Mermaid](https://github.com/mermaid-js/mermaid) 及依赖保留各自许可证。
+MIT licensed. See [LICENSE](LICENSE) and [third-party notices](NOTICE). Taskobo Diagrams is an independent project; [Mermaid](https://github.com/mermaid-js/mermaid) and other dependencies retain their respective licenses.
