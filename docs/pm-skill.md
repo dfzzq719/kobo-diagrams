@@ -6,7 +6,7 @@
 
 Taskobo Diagrams helps AI organize and maintain project material, so PMs can focus on judgment, communication and delivery. It is an open-source initiative from [Taskobo](https://taskobo.com/).
 
-This guide and the diagram gallery are in English. The installable Skill, bundled teaching material and review interface currently remain a **Chinese Alpha**; this documentation does not change their output language.
+This guide and the diagram gallery are in English. The public installable Skill, bundled teaching material, review interface and diagrams are now available in a **Japanese edition**. Chinese is the maintenance baseline. This English guide does not imply an English execution edition.
 
 ## What it helps a PM do
 
@@ -21,9 +21,9 @@ A forecast is still a forecast. Discussion is not approval, and reported complet
 
 ## Download and install
 
-[Download Taskobo Diagrams (Chinese Alpha)](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip)
+[Download Taskobo Diagrams (Japanese edition)](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip)
 
-1. Unzip the package and open `taskobo-diagrams/assets/demo/review.html` to view the offline Chinese example. Viewing it needs no development environment.
+1. Unzip the package and open `taskobo-diagrams/assets/demo/review.html` to view the offline Japanese example. Viewing it needs no development environment.
 2. To run the workflow with AI, put the complete `taskobo-diagrams` folder in your AI software's supported Skill directory. Codex can use `~/.agents/skills/taskobo-diagrams/`, with `SKILL.md` directly inside it.
 3. Reload or restart the AI session. Validation and rendering require **Node 22.12+ and an installed Chrome or Edge**. The AI software must support local files and command execution.
 4. Invoke `$taskobo-diagrams` from your own project directory, with the current project state and new notes. Keep real project material outside the installation folder.
@@ -46,9 +46,9 @@ Use `--force` to refresh an unchanged generated output directory. Errors identif
 
 ## Follow two consecutive updates
 
-The [Chinese teaching sources](../examples/pm-update-zh-CN/) include an initial state, two meeting notes and their update packages. The status date advances from 14 October 2026 to 16 and 21 October, with 18 work packages and 8 roles.
+The [Japanese teaching sources](../examples/pm-update-ja/) include an initial state, two meeting notes and their update packages. The status date advances from 14 October 2026 to 16 and 21 October, with 18 work packages and 8 roles.
 
-This is an **independent fictional teaching branch** showing “plan → first update → second update.” Its later events are separate from the original CRM gallery case. GitHub displays the [result HTML](assets/pm-update-zh-CN/final/review.html) as source; download the package to open the offline preview. For English images and editable sources, use the [English gallery](gallery.md).
+This is an **independent fictional teaching branch** showing “plan → first update → second update.” Its later events are separate from the original CRM gallery case. Download the Japanese package and open `taskobo-diagrams/assets/demo/review.html` for the offline preview; see the [Japanese installation guide](pm-skill.ja.md). For English images and editable sources, use the [English gallery](gallery.md).
 
 ## Who does the work after installation?
 

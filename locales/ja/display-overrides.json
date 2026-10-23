@@ -1,0 +1,56 @@
+{
+  "view-model.mjs": [
+    [
+      "const dependencies=list(s.dependencyConflicts,item=>esc(item.taskId)+' の開始予測： '+esc(item.taskForecastStart)+'，。先行作業パッケージ： '+esc(item.predecessorId)+' の終了日： '+esc(item.predecessorFinish)+'。担当： PM が調整を評価・確認する。自動再配置は行っていない。');",
+      "const dependencies=list(s.dependencyConflicts,item=>esc(item.taskId)+'の開始予測（'+esc(item.taskForecastStart)+'）が、先行作業'+esc(item.predecessorId)+'の終了日（'+esc(item.predecessorFinish)+'）より早い。PMが調整を評価・確認する。自動再配置は行っていない。');"
+    ],
+    [
+      "<p>集計基準日： ${esc(project.statusDate)}，${s.completed} / ${s.taskCount} 作業パッケージが完了と記録されている。${s.overdueTaskIds.length} 作業パッケージが未完了のまま基準終了日を過ぎている。</p>",
+      "<p>${esc(project.statusDate)}時点で、${s.taskCount}作業パッケージ中${s.completed}件を完了と記録している。未完了の${s.overdueTaskIds.length}件が基準終了日を過ぎている。</p>"
+    ],
+    [
+      "必要： PM が進める決定事項",
+      "PMが進める決定事項"
+    ],
+    [
+      "期限切れの予測・確認担当： PM 確認",
+      "期限切れの予測・PMの確認が必要"
+    ],
+    [
+      "矢印は先行作業から後続作業へ向かう。ページ間の照合に使う識別子： ID で関連付ける。",
+      "矢印は先行作業から後続作業へ向かう。ページ間は同じIDで関連付ける。"
+    ],
+    [
+      "，描画処理の記録：",
+      "。描画処理の記録："
+    ],
+    [
+      "label:role.name.length>5?role.name.replace(/(責任者|ベンダー)$/u,'\\n$1'):role.name",
+      "label:({'プロジェクトスポンサー':'スポンサー','プロジェクトマネージャー':'PM'})[role.name]||(role.name.length>5?role.name.replace(/(責任者|ベンダー)$/u,'\\n$1'):role.name)"
+    ]
+  ],
+  "init.mjs": [
+    [
+      "'受入条件、グループ、次の責任分担を項目ごとに確認する： A／R；通常の担当者欄を、最終責任者や実行担当者と自動的に同一視しない。'",
+      "'受入条件、グループ、A／Rを項目ごとに確認する。通常の担当者欄を最終責任者や実行担当者と自動的に同一視しない。'"
+    ],
+    [
+      "単一のタスク表が見つからなかった。原文を保持した。次の担当で事実と不足情報を整理する： AI 事実を抽出し、不足情報を列挙する。",
+      "単一のタスク表が見つからなかった。原文を保持した。AIで事実を抽出し、不足情報を列挙する。"
+    ],
+    [
+      "担当： AI 入力： draft.json 整理対象： project.json，事実が不足する場合の確認先： PM 不足情報をまとめて確認し、完了後に次を実行する： pm.mjs check，その後に描画する。",
+      "AIでdraft.jsonからproject.jsonを整理する。不足情報はPMにまとめて確認する。完了後にpm.mjs checkを実行し、その後に描画する。"
+    ]
+  ],
+  "pm.mjs": [
+    [
+      "候補には未適用の全提案を反映する。選択・確認の担当： PM 項目ごとに選択する。",
+      "候補には未適用の全提案を反映する。PMが項目ごとに選択するためのプレビューであり、承認を意味しない。"
+    ],
+    [
+      "変更の選択には更新ファイル内の安定した識別子を使用する： ID，例：",
+      "変更の選択には更新ファイル内の安定したIDを使用する。例："
+    ]
+  ]
+}

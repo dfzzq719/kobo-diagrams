@@ -1,0 +1,129 @@
+{
+  "schema": "kobo.pm-update/v1",
+  "id": "WEEK-01",
+  "asOf": "2026-10-16",
+  "sources": [
+    {
+      "id": "week-01",
+      "file": "week-01.md"
+    }
+  ],
+  "changes": [
+    {
+      "id": "C01",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-06",
+        "finish": "2026-10-18"
+      },
+      "value": {
+        "start": "2026-10-06",
+        "finish": "2026-10-21"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP132のインターフェース復旧の完了予測を2026-10-18から2026-10-21へ変更する。開始日は2026-10-06のままだ。"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "kind": "task.set",
+      "targetId": "WP131",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-11",
+        "finish": "2026-10-23"
+      },
+      "value": {
+        "start": "2026-10-11",
+        "finish": "2026-10-26"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP131のデータマッピングの完了予測を2026-10-23から2026-10-26へ変更する。開始日は2026-10-11のままだ。"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "kind": "task.set",
+      "targetId": "WP113",
+      "field": "actualFinish",
+      "expected": null,
+      "value": "2026-10-16",
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP113の受入シナリオ30件と判定基準の確認が2026-10-16に完了した。"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "kind": "task.set",
+      "targetId": "WP113",
+      "field": "status",
+      "expected": "active",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "WP113の受入シナリオ30件と判定基準の確認が2026-10-16に完了した。"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-01",
+        "title": "CRMベンダーから認証・再試行・同時実行検証の回答を得る",
+        "ownerRoleId": "dev",
+        "dueDate": "2026-10-19",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "開発責任者は2026-10-19までにベンダーから認証・再試行・同時実行検証について明確な回答を得る。"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-02",
+        "title": "テスト工程の要員不足3人日を調整する",
+        "ownerRoleId": "pm",
+        "dueDate": "2026-10-19",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "プロジェクトマネージャーは2026-10-19までにテスト工程の要員不足3人日を調整する。今回の会議では充足済みとは確認していない。"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "kind": "decision.set",
+      "targetId": "DEC-01",
+      "field": "title",
+      "expected": "SMSを初版に含めるか：範囲・要員・権限の判断待ち",
+      "value": "SMS追加は概算8人日。初版への組込みは評価・承認待ち",
+      "evidence": [
+        {
+          "sourceId": "week-01",
+          "quote": "SMS追加の8人日は概算であり、費用と初版への組込みは引き続き評価が必要だ。"
+        }
+      ]
+    }
+  ]
+}

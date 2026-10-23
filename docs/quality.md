@@ -1,6 +1,6 @@
 # Rendering checks for 0.1.3
 
-This release addresses the external review of large projects and first use. The installable PM Skill still uses Chinese instructions and UI. Mermaid remains pinned to 12.2.0.
+This release addresses the external review of large projects and first use. Chinese remains the maintenance baseline; the public Japanese PM Skill includes Japanese instructions, references, teaching inputs, review UI and diagrams. Mermaid remains pinned to 12.2.0.
 
 ## Reproduce the checks
 
@@ -40,6 +40,20 @@ The original claim that 50/60 tasks always disconnect was not reproduced in this
 
 ## Current limits
 
-The project model accepts at most 300 tasks and 32 roles. Rendering remains local and requires Chrome/Edge; source-only export does not. The importer produces a draft from UTF-8 CSV or Markdown, without native Word/Excel/PDF parsing. npm publication and English/Japanese Skill execution are still pending. Dense dependency networks can produce many pages; this version shows explicit relationships and does not calculate a critical path or reschedule work.
+The project model accepts at most 300 tasks and 32 roles. Rendering remains local and requires Chrome/Edge; source-only export does not. The importer produces a draft from UTF-8 CSV or Markdown, without native Word/Excel/PDF parsing. npm publication and English Skill execution are still pending. The Japanese execution edition is available as an initial preview; it does not add capabilities beyond core 0.1.3. Dense dependency networks can produce many pages; this version shows explicit relationships and does not calculate a critical path or reschedule work.
 
-Reinstall the complete [Skill download](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) to receive the runtime changes. Updating the repository does not update existing installations or deploy consumer websites.
+Reinstall the complete [Japanese Skill download](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip) or the [Chinese maintenance edition](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) to receive the runtime changes. Updating the repository does not update existing installations or deploy consumer websites.
+
+## Japanese public edition (2026-10-23)
+
+`locales/ja/` provides Japanese instructions, display strings and teaching-data translations while preserving the Chinese maintenance baseline. The builder rejects untranslated new strings and changed documentation baselines. It replays both Japanese meetings and recalculates UTF-8 source hashes instead of copying Chinese evidence hashes. Task IDs, dates, dependencies, responsibility codes, action states and pending decisions are compared against the Chinese final state. The shared rendering core is bundled unchanged.
+
+The extracted ZIP check repeats both updates, verifies idempotency and unchanged inputs/baselines, rejects false quotes and prohibited baseline changes, imports the 18-row plan, and renders all 20 paged SVG/PNG charts plus the Japanese review page. It runs offline with Node 24 and installed Chrome 155; it makes no model calls.
+
+```sh
+python scripts/build-pm-skill-ja.py --node /path/to/node --browser /path/to/chrome --out /path/to/new-build
+python scripts/build-pm-skill-ja.py --check
+node scripts/check-pm-skill-ja.mjs
+```
+
+Set `PYTHON` when the extraction check needs a specific Python executable, and `TASKOBO_CHROME_PATH` when Chrome/Edge is not discoverable. Existing Chinese archives remain available. Updating GitHub does not update an installed Skill.

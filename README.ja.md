@@ -10,7 +10,7 @@ AI はプロジェクト管理ツールと、PM の働き方を変えていく�
 
 Taskobo Diagrams は、この考えに基づいて [Taskobo](https://taskobo.com/) が進めるオープンソースの取り組みだ。
 
-[使い方](docs/pm-skill.ja.md) · [Skill をダウンロード（中国語 Alpha）](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [図表ギャラリー](docs/gallery.ja.md)
+[使い方](docs/pm-skill.ja.md) · [日本語版Skillをダウンロード](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip) · [図表ギャラリー](docs/gallery.ja.md)
 
 ## PM と AI の役割
 
@@ -24,7 +24,7 @@ Taskobo Diagrams は、この考えに基づいて [Taskobo](https://taskobo.com
 2. **普段の AI に整理を依頼する**：既存の計画と追加の議事録を渡し、`$taskobo-diagrams` で原文に基づく変更比較、アクション、要判断事項をまとめる。
 3. **レビューして保存する**：責任、日付、変更の根拠を確認し、合意した変更を新しい状態として保存する。同じ状態から WBS、RACI、工程表を生成する。
 
-AI が資料を読み取り、同梱ツールが検証と描画を担い、判断と確認はチームが担う。説明と図表例は3言語に対応する。現在の Skill 本体と継続更新デモは **中国語 Alpha 版**だ。
+AI が資料を読み取り、同梱ツールが検証と描画を担い、判断と確認はチームが担う。説明と図表例は3言語に対応する。公開するSkill本体、継続更新教材、レビュー画面、図表は **日本語版**だ。中国語版を保守上の基準とし、同じ処理ロジックから日本語の配布物を作る。初期公開版であり、現在の対応範囲は[検証記録](docs/quality.md)を参照する。
 
 [日本語の図表サンプル](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-ja.zip)を利用する方法もある。[オンラインのスタイルツール](https://taskobo.com/free-tools/mermaid/)で描画し、DOCSKOBO で編集を続けられる。スタイルツールの画面は現在日本語だ。
 

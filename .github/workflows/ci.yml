@@ -35,4 +35,10 @@ jobs:
           node scripts/check-pm-skill.mjs
           node scripts/check-pm-scale.mjs
           python3 scripts/build-pm-skill.py --check
+      - name: Japanese public Skill archive and installed workflow
+        env:
+          PYTHON: python3
+        run: |
+          python3 scripts/build-pm-skill-ja.py --check
+          node scripts/check-pm-skill-ja.mjs
       - run: npm pack --dry-run

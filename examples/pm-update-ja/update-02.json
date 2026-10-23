@@ -1,0 +1,159 @@
+{
+  "schema": "kobo.pm-update/v1",
+  "id": "WEEK-02",
+  "asOf": "2026-10-21",
+  "sources": [
+    {
+      "id": "week-02",
+      "file": "week-02.md"
+    }
+  ],
+  "changes": [
+    {
+      "id": "C08",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "actualFinish",
+      "expected": null,
+      "value": "2026-10-20",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP132の認証・再試行・同時実行検証が2026-10-20に完了し、テスト記録もある。"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "kind": "task.set",
+      "targetId": "WP132",
+      "field": "status",
+      "expected": "active",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "この作業パッケージを完了と記録できる。WP141の結合・業務受入が完了したという意味ではない。"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "kind": "action.set",
+      "targetId": "ACT-01",
+      "field": "status",
+      "expected": "open",
+      "value": "done",
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "ACT-01の完了を今回の会議で確認した。"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "kind": "task.set",
+      "targetId": "WP131",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-11",
+        "finish": "2026-10-26"
+      },
+      "value": {
+        "start": "2026-10-11",
+        "finish": "2026-10-28"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "完了予測を2026-10-26から2026-10-28へ変更する。開始日は2026-10-11、承認済み基準の完了日は2026-10-20のままだ。"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "kind": "task.set",
+      "targetId": "WP133",
+      "field": "responsibilities",
+      "expected": {
+        "sponsor": "I",
+        "pm": "C",
+        "business": "A",
+        "dev": "R",
+        "ops": "C",
+        "info": "C",
+        "quality": "C",
+        "vendor": "C"
+      },
+      "value": {
+        "sponsor": "I",
+        "pm": "C",
+        "business": "A",
+        "dev": "R",
+        "ops": "C",
+        "info": "C",
+        "quality": "R",
+        "vendor": "C"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP133の重複データ判定に品質責任者の実行・再確認責任を追加する。最終責任者は引き続き業務責任者で、他の役割分担は変えない。"
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "kind": "action.add",
+      "value": {
+        "id": "ACT-03",
+        "title": "重複キー候補80件のサンプルと処理記録を再確認する",
+        "ownerRoleId": "quality",
+        "dueDate": "2026-10-23",
+        "status": "open"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "品質責任者は2026-10-23までに重複キー候補80件のサンプルと処理記録を再確認する。"
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "kind": "decision.add",
+      "value": {
+        "id": "DEC-02",
+        "title": "重複キー候補80件の処理ルールは業務責任者の最終確認待ち",
+        "status": "pending"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "重複キー候補80件の処理ルールは引き続き業務責任者の最終確認待ちだ。"
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "kind": "task.set",
+      "targetId": "WP133",
+      "field": "forecast",
+      "expected": {
+        "start": "2026-10-09",
+        "finish": "2026-10-16"
+      },
+      "value": {
+        "start": "2026-10-09",
+        "finish": "2026-10-23"
+      },
+      "evidence": [
+        {
+          "sourceId": "week-02",
+          "quote": "WP133の処理記録の完了予測を2026-10-16から2026-10-23へ変更する。開始日は2026-10-09のままだ。"
+        }
+      ]
+    }
+  ]
+}

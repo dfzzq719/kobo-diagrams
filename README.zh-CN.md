@@ -10,7 +10,7 @@
 
 Taskobo Diagrams 是 [Taskobo](https://taskobo.com/) 围绕这一理念发起的开源实践。
 
-[开始使用](docs/pm-skill.zh-CN.md) · [下载 Taskobo Diagrams](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [看中文画册](docs/gallery.zh-CN.md)
+[开始使用](docs/pm-skill.zh-CN.md) · [下载日文公开版](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip) · [下载中文维护基准](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [看中文画册](docs/gallery.zh-CN.md)
 
 ## 项目经理与 AI 怎样配合
 
@@ -24,7 +24,7 @@ Taskobo Diagrams 是 [Taskobo](https://taskobo.com/) 围绕这一理念发起的
 2. **交给自己的 AI 整理**：提供已有计划和新增纪要，调用 `$taskobo-diagrams`，形成有原文依据的修改对照、行动项和待决事项。
 3. **审阅并保存**：核对责任、日期与变更依据，按已确认的修改保存新状态，生成对应的 WBS、RACI 和日程图。
 
-AI 理解材料，随包工具负责校验与出图，项目判断和确认由团队负责。说明和图表例提供中日英三语版本；Skill 本体与连续更新演示目前为中文 Alpha。也可下载[中文图表样例包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-zh-CN.zip)，或使用[在线样式工具](https://taskobo.com/free-tools/mermaid/)绘制后进入 DOCSKOBO 继续编辑。在线样式工具的界面目前为日文。
+AI 理解材料，随包工具负责校验与出图，项目判断和确认由团队负责。说明和图表例提供中日英三语版本；中文内容作为维护基准；面向日语用户公开的是日文安装包，包含日文 Skill 指示、参考说明、连续更新教材、审阅界面和图表。日文版仍处于初期公开阶段，与共通核心0.1.3保持相同能力边界。也可下载[中文图表样例包](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-zh-CN.zip)，或使用[在线样式工具](https://taskobo.com/free-tools/mermaid/)绘制后进入 DOCSKOBO 继续编辑。在线样式工具的界面目前为日文。
 
 ## 看一份完整的项目材料
 

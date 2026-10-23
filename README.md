@@ -10,7 +10,7 @@ We believe AI will change project-management tools and the way project managers 
 
 Taskobo Diagrams is an open-source initiative from [Taskobo](https://taskobo.com/) built around that idea.
 
-[Get started](docs/pm-skill.md) · [Download the Skill (Chinese Alpha)](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip) · [Explore the gallery](docs/gallery.md)
+[Get started](docs/pm-skill.md) · [Download the Japanese Skill](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip) · [Explore the gallery](docs/gallery.md)
 
 ## How project managers and AI work together
 
@@ -24,7 +24,7 @@ Taskobo Diagrams is an open-source initiative from [Taskobo](https://taskobo.com
 2. **Ask your own AI to organize the update**: provide the existing plan and new meeting notes. Invoke `$taskobo-diagrams` to prepare evidence-backed changes, actions and decisions to make.
 3. **Review and save**: check owners, dates and supporting evidence, save the changes you have confirmed as a new state, and generate matching WBS, RACI and schedule diagrams.
 
-AI interprets the material, the bundled tools validate and render it, and the team owns project judgment and confirmation. The guides and diagram examples are available in three languages; the current Skill and continuous-update demo remain a **Chinese Alpha**.
+AI interprets the material, the bundled tools validate and render it, and the team owns project judgment and confirmation. The guides and diagram examples are available in three languages; the public installable Skill and continuous-update demo now have a **Japanese edition**, including instructions, teaching inputs, review UI and diagram labels. Chinese remains the maintenance baseline. The Japanese edition is an initial preview with the same capabilities as core 0.1.3; an English execution edition is not yet provided.
 
 You can also download the [English diagram examples](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-examples-en.zip), or draw with the [online styling tool](https://taskobo.com/free-tools/mermaid/) and continue editing in DOCSKOBO. The styling tool currently has a Japanese interface.
 

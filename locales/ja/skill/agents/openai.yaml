@@ -1,0 +1,4 @@
+interface:
+  display_name: "Taskobo Diagrams"
+  short_description: "計画と議事録から、根拠を示す変更比較・アクション・図表を整理する"
+  default_prompt: "$taskobo-diagrams で現在の計画と今週の議事録から、根拠を示す変更案、アクション、図表と私が判断すべき事項を整理する。"

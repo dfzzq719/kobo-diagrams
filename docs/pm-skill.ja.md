@@ -6,7 +6,7 @@
 
 Taskobo Diagrams は、AI による資料整理と継続的な更新を支援し、PM が判断、対話、成果の実現に集中できるようにする。[Taskobo](https://taskobo.com/) が進めるオープンソースの取り組みだ。
 
-この説明と図表ギャラリーは日本語版だ。導入する Skill 本体、同梱の教材、レビュー画面は現在 **中国語 Alpha 版**であり、説明ページの切替えによって出力言語が変わるわけではない。
+公開パッケージは **日本語版**だ。Skillの指示、参考説明、2回の会議教材、レビュー画面、図表を日本語で使える。中国語の内容を保守上の基準とし、日本語版を同じ処理ロジックから構築する。初期公開版であり、機能の対応範囲は共通コア0.1.3と同じだ。
 
 ## PM のどの作業を支援するか
 
@@ -21,9 +21,9 @@ Taskobo Diagrams は、AI による資料整理と継続的な更新を支援し
 
 ## ダウンロードと導入
 
-[Taskobo Diagrams をダウンロード（中国語 Alpha）](https://github.com/dfzzq719/taskobo-diagrams/raw/refs/heads/main/docs/downloads/taskobo-diagrams-zh-CN.zip)
+[Taskobo Diagrams 日本語版をダウンロード](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip)
 
-1. 展開後、`taskobo-diagrams/assets/demo/review.html` を開くと、中国語の更新例をオフラインで確認できる。閲覧には開発環境を必要としない。
+1. 展開後、`taskobo-diagrams/assets/demo/review.html` を開くと、日本語の更新例をオフラインで確認できる。閲覧には開発環境を必要としない。
 2. AI に処理を実行させる場合は、`taskobo-diagrams` フォルダー全体を利用ソフトが対応する Skill ディレクトリに置く。Codex では `~/.agents/skills/taskobo-diagrams/` を使え、その直下に `SKILL.md` を配置する。
 3. AI セッションを再読込み、または再起動する。検証と描画には **Node 22.12+ と導入済みの Chrome または Edge** が必要だ。AI ソフトにはローカルファイルとコマンドを実行できる機能が必要になる。
 4. 自分のプロジェクトディレクトリで `$taskobo-diagrams` を呼び出し、現在の状態と追加の議事録を渡す。実案件の資料は導入フォルダーに保存しない。
@@ -42,13 +42,13 @@ Markdown または UTF-8 CSV を用意し、`pm.mjs init --from plan.md --out dr
 
 **最大300の作業パッケージ、32の役割**に対応する。グループ別に分割し、既定では1ページ12作業、RACI は8役割ずつ表示し、WBS は1図につき最大4作業とする。依存関係図には別グループの先行作業も含む。受入条件の全文はレビュー画面とスナップショットに保持する。
 
-生成後に手作業で変更していない出力は `--force` で更新できる。失敗時は図と処理段階を示し、ソースと有効な SVG を保持する。期限を過ぎた予測は日付を変えず、更新が必要なものとして表示する。`--format sources` はブラウザーなしで資料を出力する。[コマンドと診断の説明](../skills/taskobo-diagrams/references/rendering.md)（中国語）を参照する。
+生成後に手作業で変更していない出力は `--force` で更新できる。失敗時は図と処理段階を示し、ソースと有効な SVG を保持する。期限を過ぎた予測は日付を変えず、更新が必要なものとして表示する。`--format sources` はブラウザーなしで資料を出力する。[コマンドと診断の説明](../locales/ja/skill/references/rendering.md)（日本語）を参照する。
 
 ## 2回の更新を追う
 
-[中国語の教材ソース](../examples/pm-update-zh-CN/)には、初期状態、2回の議事録、対応する更新パッケージを含む。18の作業パッケージと8つの役割を扱い、集計基準日は2026年10月14日から16日、21日へ進む。
+[日本語の教材ソース](../examples/pm-update-ja/)には、初期状態、2回の議事録、対応する更新パッケージを含む。18の作業パッケージと8つの役割を扱い、集計基準日は2026年10月14日から16日、21日へ進む。
 
-これは「計画 → 第1回更新 → 第2回更新」を示す**独立した架空の教材分岐**だ。その後の出来事は元の CRM ギャラリー事例と分けて管理する。[結果の HTML](assets/pm-update-zh-CN/final/review.html)は GitHub 上ではソースとして表示されるため、パッケージをダウンロードしてオフラインで開く。日本語の画像と編集用ソースは[図表ギャラリー](gallery.ja.md)にある。
+これは「計画 → 第1回更新 → 第2回更新」を示す**独立した架空の教材分岐**だ。その後の出来事は元の CRM ギャラリー事例と分けて管理する。結果のHTMLは日本語版パッケージ内の `taskobo-diagrams/assets/demo/review.html` をオフラインで開く。日本語の画像と編集用ソースは[図表ギャラリー](gallery.ja.md)にある。
 
 ## 導入後に誰が処理するか
 
@@ -67,7 +67,7 @@ Markdown または UTF-8 CSV を用意し、`pm.mjs init --from plan.md --out dr
 <details>
 <summary>Skill とデータ形式</summary>
 
-[Skill 入口](../skills/taskobo-diagrams/SKILL.md) · [更新手順](../skills/taskobo-diagrams/references/workflow.md) · [プロジェクト形式](../skills/taskobo-diagrams/references/project-format.md)（現在の実行用資料は中国語）
+[Skill 入口](../locales/ja/skill/SKILL.md) · [更新手順](../locales/ja/skill/references/workflow.md) · [プロジェクト形式](../locales/ja/skill/references/project-format.md)（日本語版の保守用翻訳。導入にはZIP全体を使う）
 
 描画には本リポジトリの共通コアとスタイルを使う。利用者が Mermaid を自分で書く必要はない。同梱のバージョンは固定される。更新時は Skill 全体を再ダウンロードして置き換え、自分のプロジェクトディレクトリは保持する。
 
