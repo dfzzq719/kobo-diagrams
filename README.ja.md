@@ -1,6 +1,8 @@
-# Taskobo Diagrams
+# Taskobo Diagrams：議事録からWBS・責任分担表（RACI）・工程表を更新するAIスキル
 
 [English](README.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
+
+既存の計画と追加の議事録から、変更の根拠を確認しながらWBS・責任分担表（RACI）・工程表を更新するAIエージェント用スキル（SKILL.md）。変更案をレビューし、確認した内容を一つのプロジェクト状態に反映する。
 
 ![Taskobo Diagrams のコンセプトビジュアル。PMの時間を取り戻し、判断・対話・成果に集中する。](docs/assets/brand/taskobo-diagrams-hero-ja.png)
 
@@ -11,6 +13,8 @@ AI はプロジェクト管理ツールと、PM の働き方を変えていく�
 Taskobo Diagrams は、この考えに基づいて [Taskobo](https://taskobo.com/) が進めるオープンソースの取り組みだ。
 
 [使い方](docs/pm-skill.ja.md) · [日本語版Skillをダウンロード](https://github.com/dfzzq719/taskobo-diagrams/releases/download/pm-skill-ja-20261023/taskobo-diagrams-ja.zip) · [図表ギャラリー](docs/gallery.ja.md)
+
+[日本語の紹介ページ](https://taskobo.com/free-tools/taskobo-diagrams/) · [TaskoboのAIスキル一覧](https://taskobo.com/skills/)
 
 ## PM と AI の役割
 

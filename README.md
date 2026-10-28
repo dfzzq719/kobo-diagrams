@@ -2,6 +2,8 @@
 
 [English](README.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
+**日本語で使う**：議事録と既存計画からWBS・責任分担表（RACI）・工程表を更新するAIエージェント用スキル（SKILL.md）。[日本語README](README.ja.md)で使い方を確認し、[日本語の紹介ページ](https://taskobo.com/free-tools/taskobo-diagrams/)から導入する。[TaskoboのAIスキル一覧](https://taskobo.com/skills/)で用途を比較できる。
+
 ![Taskobo Diagrams: give PMs their time back. Scattered notes become a coherent plan, leaving room for judgment, communication and delivery.](docs/assets/brand/taskobo-diagrams-hero-en.png)
 
 **Let AI handle the document work, so project managers can focus on judgment, communication and delivery.**
